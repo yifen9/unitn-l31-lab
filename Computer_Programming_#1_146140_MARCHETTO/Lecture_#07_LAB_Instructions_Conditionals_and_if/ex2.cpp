@@ -15,7 +15,8 @@ int main(){
         cout << "x2 = " << float((-b - sqrt(delta)) / (2*a)) << endl;
     }
     else if (delta < 0){
-        cout << "no solutions" << endl;
+        cout << "x1 = " << -b/2a << " + " << (sqrt(delta) / (2*a)) << "i" << endl;
+        cout << "x2 = " << -b/2a << " - " << (sqrt(delta) / (2*a)) << "i" << endl;
     }
     else{
         cout << "x = " << float((-b) / 2*a) << endl;
