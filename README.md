@@ -1,7 +1,7 @@
 # UniTrento Bsc 2024/2025\
 
 - Will update as soon as possible
-- If you have better solution please upload and share with me
+- If you have better solutions please upload and share with me :)
 
 Links: [Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259)
 
