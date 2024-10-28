@@ -7,5 +7,5 @@ Notes:
 - Exercises with '?': Can be improved
 
 Any concerns, please contact:
-- Email: yifeng.li@studenti.unitn.it
 - Telegram: @yifen9
+- Email: yifeng.li@studenti.unitn.it
