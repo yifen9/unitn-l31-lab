@@ -33,6 +33,8 @@ void closest();
 
 void reversal();
 
+void rReversal(LL*,LL*);
+
 int main(){
     while(true){
         int choice;
@@ -538,5 +540,31 @@ void closest(){
 }
 
 void reversal(){
-    
+    if(N==0){cout << "Invalid Operation!" << endl;}
+    else if(N==1){cout << "Successfully reversed!" << endl;}
+    else{
+        rReversal(&A,A.next);
+
+        cout << "Successfully reversed!" << endl;
+    }
+}
+
+void rReversal(LL *n1, LL *n2){
+    if(n2->next == NULL){
+        A.next = n2;
+        n2->next = n1;
+
+        LL *p = &A;
+        p = p->next;
+
+        A.value = p->value;
+        A.next = p->next;
+
+        delete p;
+    }
+    else{
+        n1->next = NULL;
+        rReversal(n2,n2->next);
+        n2->next = n1;
+    }
 }
