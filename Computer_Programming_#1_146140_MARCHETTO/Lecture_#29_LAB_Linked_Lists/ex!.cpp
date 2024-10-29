@@ -29,22 +29,28 @@ void delete_specific_node();
 
 void sorted_insertion();
 
+void closest();
+
+void reversal();
+
 int main(){
     while(true){
         int choice;
         line();
         cout << "Please choose:" << endl;
         cout << endl;
-        cout << " 0 - quit" << endl;
-        cout << " 1 - insert node" << endl;
-        cout << " 2 - insert first" << endl;
-        cout << " 3 - insert last" << endl;
-        cout << " 4 - delete node" << endl;
-        cout << " 5 - same node" << endl;
-        cout << " 6 - delete first" << endl;
-        cout << " 7 - delete specific node" << endl;
-        cout << " 8 - sorted insertion" << endl;
+        cout << "  0 - quit" << endl;
         cout << " 99 - print all nodes" << endl;
+        cout << "  1 - insert node" << endl;
+        cout << "  2 - insert first" << endl;
+        cout << "  3 - insert last" << endl;
+        cout << "  4 - delete node" << endl;
+        cout << "  5 - same node" << endl;
+        cout << "  6 - delete first" << endl;
+        cout << "  7 - delete specific node" << endl;
+        cout << "  8 - sorted insertion" << endl;
+        cout << "  9 - search closest" << endl;
+        cout << " 10 - reversal" << endl;
         cout << endl;
         cout << "Please input your choice: ";
         cin >> choice;
@@ -61,6 +67,8 @@ int main(){
             case 6: delete_first(); break;
             case 7: delete_specific_node(); break;
             case 8: sorted_insertion(); break;
+            case 9: closest(); break;
+            case 10: reversal(); break;
 
             default: cout << "Invalid input!" << endl;
         }
@@ -202,7 +210,7 @@ void delete_node(){
             cout << endl;
             cout << "Info about deleted node:" << endl;
             cout << endl;
-            cout << " - index: 0"  << endl;
+            cout << " - index: 0" << endl;
             cout << "   - value: " << A.value << endl;
             cout << endl;
             cout << "Successfully deleted!" << endl;
@@ -220,7 +228,7 @@ void delete_node(){
                 cout << endl;
                 cout << "Info about deleted node:" << endl;
                 cout << endl;
-                cout << " - index: 0"  << endl;
+                cout << " - index: 0" << endl;
                 cout << "   - value: " << p1->value << endl;
 
                 N--;
@@ -357,7 +365,7 @@ void delete_specific_node(){
             cout << endl;
             cout << "Info about deleted node:" << endl;
             cout << endl;
-            cout << " - index: 0"  << endl;
+            cout << " - index: 0" << endl;
             cout << "   - value: " << A.value << endl;
             cout << endl;
             cout << "Successfully deleted!" << endl;
@@ -434,26 +442,57 @@ void sorted_insertion(){
             cout << endl;
             cout << "Info about inserted node:" << endl;
             cout << endl;
-            cout << " - index: 0"  << endl;
+            cout << " - index: 0" << endl;
             cout << "   - value: " << value << endl;
+
+            A.value = value;
+            N++;
+
             cout << endl;
             cout << "Successfully inserted!" << endl;
         }
         else{
-            if(value <= A.value){index = 0;}
+            N++;
+
+            if(value <= A.value){
+                index = 0;
+                p1 = &A;
+
+                p2 = new LL();
+                p3 = A.next;
+
+                p1->next = p2;
+                p2->next = p3;
+                p2->value = p1->value;
+
+                p1->value = value;
+            }
             else{
                 index = 1;
                 p1 = &A;
-                p2 = p1->next
-                for(index=1; index<N; index++){
-                    if(value > p2->value){
+                p3 = p1->next;
+                for(index=1; index<(N-1); index++){
+                    if(value > p3->value){
                         p1 = p1->next;
-                        p2 = p2->next;
+                        p3 = p3->next;
                     }
                     else{break;}
                 }
-                
+
+                p2 = new LL();
+
+                p1->next = p2;
+                p2->next = p3;
+                p2->value = value;
             }
+
+            cout << endl;
+            cout << "Info about inserted node:" << endl;
+            cout << endl;
+            cout << " - index: " << index << endl;
+            cout << "   - value: " << value << endl;
+            cout << endl;
+            cout << "Successfully inserted!" << endl;
         }
 
         cout << endl;
@@ -462,4 +501,42 @@ void sorted_insertion(){
         if(input=='0'){judge=false;}
         else{line();}
     }
+}
+
+void closest(){
+    if(N==0){cout << "Invalid Operation!" << endl;}
+    else{
+        int target;
+        cout << "Please input the target: ";
+        cin >> target;
+
+        int index = 0, v=A.value;
+        float m, r;
+        r = float(A.value) - float(target);
+        if(r>=0){m = r;}
+        else{m = -r;}
+
+        LL *p = &A;
+        for(int i=0; i<N; i++){
+            r = float(p->value) - float(target);
+
+            if(r>=0){if(r<m){v=p->value;m=r;index=i;}}
+            else{if((-r)<m){v=p->value;m=-r;index=i;}}
+
+            p = p->next;
+        }
+
+        cout << endl;
+        cout << "Info about closest node:" << endl;
+        cout << endl;
+        cout << " - index: " << index << endl;
+        cout << "   - value:      " << v << endl;
+        cout << "   - difference: " << m << endl;
+        cout << endl;
+        cout << "Successfully searched!" << endl;
+    }
+}
+
+void reversal(){
+    
 }
