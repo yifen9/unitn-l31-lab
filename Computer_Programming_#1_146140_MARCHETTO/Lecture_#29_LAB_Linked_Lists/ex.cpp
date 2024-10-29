@@ -543,7 +543,19 @@ void reversal(){
     if(N==0){cout << "Invalid Operation!" << endl;}
     else if(N==1){cout << "Successfully reversed!" << endl;}
     else{
+        LL *p1 = &A, *p2 = &A;
+        for(int i=0; i<(N-1); i++){p1 = p1->next;}
+        p2 = p2->next;
+        
         rReversal(&A,A.next);
+
+        p2->next = new LL();
+        p2 = p2->next;
+        p2->value = A.value;
+
+        A.value = p1->value;
+        A.next = p1->next;
+        delete p1;
 
         cout << "Successfully reversed!" << endl;
     }
@@ -551,16 +563,7 @@ void reversal(){
 
 void rReversal(LL *n1, LL *n2){
     if(n2->next == NULL){
-        A.next = n2;
         n2->next = n1;
-
-        LL *p = &A;
-        p = p->next;
-
-        A.value = p->value;
-        A.next = p->next;
-
-        delete p;
     }
     else{
         n1->next = NULL;
