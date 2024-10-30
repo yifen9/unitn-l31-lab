@@ -36,8 +36,8 @@ void reversal();
 void rReversal(LL*,LL*);
 
 int main(){
+    int choice;
     while(true){
-        int choice;
         line();
         cout << "Please choose:" << endl;
         cout << endl;
