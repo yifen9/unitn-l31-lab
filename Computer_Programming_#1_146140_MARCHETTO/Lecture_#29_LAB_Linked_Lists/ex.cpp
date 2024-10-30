@@ -562,10 +562,10 @@ void reversal(){
 }
 
 void rReversal(LL *n1, LL *n2){
-    if(n2->next == NULL){n2->next = n1;}
-    else{
+    if(n2->next != NULL){
         n1->next = NULL;
         rReversal(n2,n2->next);
-        n2->next = n1;
     }
+    
+    n2->next = n1;
 }
