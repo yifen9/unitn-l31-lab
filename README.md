@@ -7,7 +7,7 @@ Links: [Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.uni
 
 Notes:
 - Exercises with '_': Unfinished
-- Exercises with '-': Can be improved but too lazy to do
+- Exercises with '-': Can be improved but too lazy to do so
 
 Any concerns, please contact:
 - Telegram: @yifen9
