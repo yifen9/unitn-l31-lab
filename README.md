@@ -6,8 +6,8 @@ Links: [Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.uni
 - If you find bugs or have better solutions please upload and share with me :)
 
 Notes:
-- Exercises with '!': Unfinished
-- Exercises with '?': Can be improved
+- Exercises with '_': Unfinished
+- Exercises with '-': Can be improved but too lazy to do
 
 Any concerns, please contact:
 - Telegram: @yifen9
