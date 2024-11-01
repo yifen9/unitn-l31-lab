@@ -18,9 +18,13 @@ int main(){
 }
 
 bool recursive(int *V, int N){
-    if (N/2 < 0) {return true;}
-    else {
-        if (*V == *(V+(N-1))){return recursive(V+1,N-2);}
-        else {return false;}
+    if(N/2 < 0){return true;}
+    else{
+        if(*V == *(V+(N-1))){
+            return recursive(V+1,N-2);
+        }
+        else{
+            return false;
+        }
     }
 }

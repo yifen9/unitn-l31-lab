@@ -22,6 +22,10 @@ int main(){
 }
 
 int recursive(int *V, int *W, int N){
-    if (N == 1) {return ((*V)*(*W));}
-    else {return (((*V)*(*W)) + recursive(V+1,W+1,N-1));}
+    if(N == 1){
+        return ((*V)*(*W));
+    }
+    else{
+        return (((*V)*(*W)) + recursive(V+1,W+1,N-1));
+    }
 }

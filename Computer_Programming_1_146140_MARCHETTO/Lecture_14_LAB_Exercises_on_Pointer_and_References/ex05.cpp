@@ -26,5 +26,6 @@ int division(int a, int b, int& rest){
     }
 
     rest = a;
+    
     return quotient;
 }

@@ -18,7 +18,7 @@ int main(){
         cout << "no solutions" << endl;
     }
     else{
-        cout << "x = " << float((-b) / 2*a) << endl;
+        cout << "x = " << float((-b) / (2*a)) << endl;
     }
 
     return 0;

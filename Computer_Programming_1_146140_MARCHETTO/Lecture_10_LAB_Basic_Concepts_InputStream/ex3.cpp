@@ -4,8 +4,7 @@ using namespace std;
 
 int main(){
     string up;
-
-    cout << "Please input chars in uppercase: " << endl;
+    cout << "Please input chars in uppercase: ";
     cin >> up;
 
     if(up == "*"){return 0;}

@@ -35,7 +35,8 @@ int revert(int len,int num){
     for(int i=0; i<len; i++){
         res += ((num%(d1*10)/d1)*d2);
         d1 /= 10;
-        d2 *= 10;}
+        d2 *= 10;
+    }
 
     return res;
 }

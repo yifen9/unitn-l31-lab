@@ -14,6 +14,10 @@ int main(){
 }
 
 int recursive(int x,int y){
-    if (y == 0) {return x;}
-    else {return recursive(x+1,y-1);}
+    if(y == 0){
+        return x;
+    }
+    else{
+        return recursive(x+1,y-1);
+    }
 }

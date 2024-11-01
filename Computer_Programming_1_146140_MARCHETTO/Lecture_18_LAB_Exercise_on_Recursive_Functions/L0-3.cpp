@@ -14,6 +14,10 @@ int main(){
 }
 
 int recursive(int N){
-    if (N == 0) {return 0;}
-    else {return (recursive(N-1)+N);}
+    if(N == 0){
+        return 0;
+    }
+    else{
+        return (recursive(N-1)+N);
+    }
 }

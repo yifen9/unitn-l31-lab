@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     int de, ds;
-    cout << "Please input dividend number and divisor number: " << endl;
+    cout << "Please input dividend number and divisor number: ";
     cin >> de >> ds;
 
     cout << "Quotient: " << de/ds << endl;

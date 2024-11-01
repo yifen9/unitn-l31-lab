@@ -4,8 +4,7 @@ using namespace std;
 
 int main(){
     string up;
-
-    cout << "Please input chars in lowercase: " << endl;
+    cout << "Please input chars in lowercase: ";
     cin >> up;
 
     char c = up[0];

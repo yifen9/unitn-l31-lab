@@ -20,8 +20,11 @@ int main(){
 }
 
 int recursive(int *V, int N){
-    if (N == 0) {return *(V-1);}
-    else {
+    if(N == 0){
+        return *(V-1);
+    }
+    else{
         cout << recursive(V+1, N-1) << endl;
-        return *(V-1);}
+        return *(V-1);
+    }
 }

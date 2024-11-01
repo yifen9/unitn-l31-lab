@@ -12,7 +12,8 @@ int main(){
 
     if(islower(c)){
         toupper(c);
-        cout << "Uppercase: " << c << endl;}
+        cout << "Uppercase: " << c << endl;
+    }
     else {cout << "None" << endl;}
 
     return 0;

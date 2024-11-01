@@ -18,6 +18,10 @@ int main(){
 }
 
 int recursive(int *V, int N){
-    if (N == 1) {return *V;}
-    else {return (*V + recursive(V+1,N-1));}
+    if(N == 1){
+        return *V;
+    }
+    else{
+        return (*V + recursive(V+1,N-1));
+    }
 }
