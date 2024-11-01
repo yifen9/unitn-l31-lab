@@ -2,6 +2,8 @@ using namespace std;
 #include <iostream>
 
 int main(){
+    char input;
+
     int s1=20, s2=40, c, p1, p2, g=1;
 
     int m[s1][s2], n[s1][s2];
@@ -52,6 +54,11 @@ int main(){
 
         cout << "Generation: " << g << endl;
         g++;
+
+        cout << "Continue? (0 to exit): ";
+        cin >> input;
+
+        if(input == '0'){return 0;}
     }
 
     return 0;
