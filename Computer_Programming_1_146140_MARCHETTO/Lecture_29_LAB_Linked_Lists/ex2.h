@@ -12,6 +12,6 @@ struct node{
 void line();
 node tail(node*);
 void print_all_nodes(node*);
-void read_from_file(node*,string);
+bool read_from_file(node*,string);
 
 #endif

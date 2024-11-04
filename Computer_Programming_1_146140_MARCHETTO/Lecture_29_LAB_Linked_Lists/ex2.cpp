@@ -31,7 +31,7 @@ void print_all_nodes(node *A){
     cout << endl << "Successfully printed!" << endl;
 }
 
-void read_from_file(node *A,string fName){
+bool read_from_file(node *A,string fName){
     fstream fIn;
     fIn.open(fName, ios::in);
 
