@@ -35,7 +35,7 @@ bool read_from_file(node *A,string fName){
     fstream fIn;
     fIn.open(fName, ios::in);
 
-    if(!(fIn.is_open())) {cout << endl << "Missing file name!" << endl;}
+    if(!(fIn.is_open())) {cout << endl << "Missing file name!" << endl; return false;}
     else{
         cout << "Read from File: " << endl;
 
@@ -59,6 +59,6 @@ bool read_from_file(node *A,string fName){
 
         fIn.close();
 
-        cout << endl << "Successfully read!" << endl;
+        cout << endl << "Successfully read!" << endl; return true;
     }
 }
