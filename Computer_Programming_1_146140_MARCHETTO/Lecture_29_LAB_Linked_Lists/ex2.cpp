@@ -28,8 +28,7 @@ void print_all_nodes(node *A){
         p = p->next;
     }
 
-    cout << endl;
-    cout << "Successfully printed!" << endl;
+    cout << endl << "Successfully printed!" << endl;
 }
 
 void read_from_file(node *A,string fName){
@@ -60,7 +59,6 @@ void read_from_file(node *A,string fName){
 
         fIn.close();
 
-        cout << endl;
-        cout << "Successfully read!" << endl;
+        cout << endl << "Successfully read!" << endl;
     }
 }
