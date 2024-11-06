@@ -10,8 +10,6 @@ struct img{
     int ***value;
 };
 
-void line();
-
 void p3_identity(img);
 
 void p3_rgb_rotate(img);
@@ -27,13 +25,7 @@ int main(int argc, char *argv[]){
 
     fstream fIn;
     fIn.open(fName, ios::in);
-    if(!(fIn.is_open())) {
-        line();
-        cout << "Missing file name!" << endl;
-        line();
-
-        return 0;
-    }
+    if(!(fIn.is_open())){cout << "Missing file name!" << endl; return 0;}
 
     img F;
 
@@ -55,24 +47,19 @@ int main(int argc, char *argv[]){
     fIn.close();
 
     if(string(argv[2])=="--identity"){p3_identity(F);}
-
     else if(string(argv[2])=="--rgb-rotate"){p3_rgb_rotate(F);}
-
     else if(string(argv[2])=="--grayscale"){p3_grayscale(F);}
-
     else if(string(argv[2])=="--reder"
          || string(argv[2])=="--greener"
          || string(argv[2])=="--bluer"){p3_saturate_channel(F,string(argv[2])[2]);}
-
     else if(string(argv[2])=="--crop"){
         int C[4] = {stoi(argv[3]),stoi(argv[4]),stoi(argv[5]),stoi(argv[6])};
         p3_crop(F,C);
     }
+    else{cout << "Invalid input!" << endl;}
 
     return 0;
 }
-
-void line(){cout << "--------------------------------" << endl;}
 
 void p3_identity(img imgF){
     cout << imgF.type << endl;

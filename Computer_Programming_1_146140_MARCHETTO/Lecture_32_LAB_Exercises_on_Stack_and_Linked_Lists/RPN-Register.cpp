@@ -11,7 +11,7 @@ int main(){
         line();
         cout << "Please choose:" << endl;
         cout << endl;
-        cout << " p - the stack is printed" << endl;
+        cout << " n - push new " << endl;
         cout << " s - the first two numbers in the stack are swapped" << endl;
         cout << " e - the two first two numbers in the stack are equal" << endl;
         cout << " q - the calculator quits" << endl;
