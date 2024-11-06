@@ -1,13 +1,19 @@
 # UniTrento Bsc 2024/2025
 
-Links: [Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259)
-
 - Will update as soon as possible
 - If you find bugs or have better solutions please upload and share with me :)
 
-Notes:
-- Exercises ended with '_': Unfinished
-- Exercises ended with '-': Can be improved but too lazy to do so
+---
+
+[Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
+- Exercises end with '_': Unfinished
+- Exercises end with '-': Can be improved but too lazy to do so
+
+[Geometry and Linear Algebra [146056] - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
+- Exercises begin with '*': Solved by myself
+- For other exercises: Copied from [Esercizi di Algebra Lineare - Claretta Carrara](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf)
+
+---
 
 Any concerns, please contact:
 - Telegram: @yifen9
