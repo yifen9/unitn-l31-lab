@@ -13,8 +13,3 @@ int pop(node* &stack){
     stack = stack->next;
     return p;
 }
-
-void stack_add(node* &stack){push(stack,pop(stack)+pop(stack));}
-void stack_sub(node* &stack){push(stack,pop(stack)-pop(stack));}
-void stack_mul(node* &stack){push(stack,pop(stack)*pop(stack));}
-void stack_div(node* &stack){push(stack,pop(stack)/pop(stack));}

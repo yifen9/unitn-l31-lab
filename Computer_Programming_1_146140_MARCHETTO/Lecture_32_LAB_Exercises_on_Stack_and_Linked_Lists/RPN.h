@@ -8,11 +8,7 @@ struct node{
 };
 
 void push(node*&,int);
-int pop(node*&);
 
-void stack_add(node*&);
-void stack_sub(node*&);
-void stack_mul(node*&);
-void stack_div(node*&);
+int pop(node*&);
 
 #endif

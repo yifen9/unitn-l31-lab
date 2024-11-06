@@ -64,6 +64,14 @@ node tail(node *A){
     return res;
 }
 
+void stack_add(node* &stack){push(stack,pop(stack)+pop(stack));}
+
+void stack_sub(node* &stack){push(stack,pop(stack)-pop(stack));}
+
+void stack_mul(node* &stack){push(stack,pop(stack)*pop(stack));}
+
+void stack_div(node* &stack){push(stack,pop(stack)/pop(stack));}
+
 void stack_pow(node* &stack){push(stack,pow(pop(stack),pop(stack)));}
 
 void stack_sqrt(node* &stack){push(stack,sqrt(pop(stack)));}
