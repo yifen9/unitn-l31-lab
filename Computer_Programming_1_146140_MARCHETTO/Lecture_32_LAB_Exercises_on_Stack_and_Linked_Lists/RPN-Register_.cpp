@@ -1,5 +1,16 @@
 using namespace std;
-#include "RPN-Register.h"
+#include "RPN.h"
+#include <cstring>
+
+void line();
+
+node tail(node*);
+
+void stack_print(node*);
+
+void reg_store(node*&,node*&);
+
+void reg_recall(node*&,node*&);
 
 int main(){
     node *stack = new node();
