@@ -13,8 +13,6 @@ int get_left_child(int,int[]);
 
 int get_right_child(int,int[]);
 
-bool is_leaf(int,int[]);
-
 void in_order_visit(int,int[]);
 
 int main(){
@@ -56,11 +54,6 @@ int get_node_value(int index_of_node, int memory[]){return memory[index_of_node+
 int get_left_child(int index_of_node, int memory[]){return memory[index_of_node+2];}
 
 int get_right_child(int index_of_node, int memory[]){return memory[index_of_node+3];}
-
-bool is_leaf(int index_of_node, int memory[]){
-    return (!(get_left_child(index_of_node,memory)
-            ||get_right_child(index_of_node,memory)));
-    }
 
 void in_order_visit(int node, int memory[]){
     if(is_allocated(node,memory)){
