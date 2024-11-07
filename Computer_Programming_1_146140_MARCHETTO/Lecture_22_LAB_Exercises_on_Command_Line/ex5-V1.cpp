@@ -44,6 +44,19 @@ int main(int argc, char *argv[]){
     cout << endl << "sum of the size in km2: " << km << endl;
     cout << endl << "density (inhabitants per km2): " << float(sum1)/float(km) << endl;
 
+    fstream fOut1,fOut2,fOut3;
+    fOut1.open("ex5-V1-output-1.txt", ios :: out | ios :: app);
+    fOut2.open("ex5-V1-output-2.txt", ios :: out | ios :: app);
+    fOut3.open("ex5-V1-output-3.txt", ios :: out | ios :: app);
+
+    fOut1 << sum1 << endl;
+    fOut2 << (float(sum1)/float(sum2)-1)*100 << "%" << endl;
+    fOut3 << float(sum1)/float(km) << endl;
+
+    fOut1.close();
+    fOut2.close();
+    fOut3.close();
+
     return 0;
 }
 
