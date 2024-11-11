@@ -1,6 +1,10 @@
 using namespace std;
 #include <iostream>
 
-int main(int argc, char *argv[]){
+struct point{
+    int *pos;
+};
+
+int main(){
     return 0;
 }
