@@ -1,10 +1,7 @@
 using namespace std;
 #include "list.h"
 
-List::List(){L = new node();}
-
-int List::List_length(){
-    node *p = L;
+int List::p_List_length(node *p){
     int N = 0;
 
     while(p->next!=NULL){p=p->next;N++;}
@@ -12,14 +9,28 @@ int List::List_length(){
     return N;
 }
 
-void List::List_insert_last(int num){
-    node *p = L;
-
+void List::p_List_insert_last(node *p, int num){
     while(p->next!=NULL){p=p->next;}
 
     p->value = num;
     p->next = new node();
 }
+
+void List::p_List_swap(node *p1, node *p2){
+    node *t = new node();
+
+    t->value = p2->value;
+    p2->value = p1->value;
+    p1->value = t->value;
+
+    delete t;
+}
+
+List::List(){L = new node();}
+
+int List::List_length(){return p_List_length(L);}
+
+void List::List_insert_last(int num){p_List_insert_last(L,num);}
 
 void List::List_insert_last_r(int num){re_List_insert_last_r(L,num);}
 
@@ -93,21 +104,56 @@ void List::List_order(){
     while(judge){
         judge = false;
 
-        p1 = L; p2 = p1->next;
+        p1 = L;
+        p2 = p1->next;
         while(p2->next!=NULL){
             if(p1->value > p2->value){
                 judge = true;
-
-                node *t = new node();
-
-                t->value = p2->value;
-                p2->value = p1->value;
-                p1->value = t->value;
-
-                delete t;
+                p_List_swap(p1,p2);
             }
             p1 = p1->next;
             p2 = p2->next;
         }
+    }
+}
+
+void List::List_order_r(){re_List_order_r(L);}
+
+void List::re_List_order_r(node *&p){
+    if(p_List_length(p)>1){
+        node *p1 = new node();
+        node *p2 = new node();
+
+        node *v = p;
+        p = p->next;
+        while(p->next!=NULL){
+            if(v->value > p->value){
+                p_List_insert_last(p1,p->value);
+            }
+            else{
+                p_List_insert_last(p2,p->value);
+            }
+            p = p->next;
+        }
+
+        re_List_order_r(p1);
+        re_List_order_r(p2);
+
+        p_List_insert_last(p1,v->value);
+
+        node *t;
+
+        while(v!=NULL){
+            t = v;
+            v = v->next;
+            delete t;
+        }
+
+        t = p1;
+        while(t->next->next!=NULL){t=t->next;}
+        delete t->next;
+        t->next = p2;
+
+        p = p1;
     }
 }

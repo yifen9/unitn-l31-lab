@@ -25,7 +25,7 @@ int main(){
         L->List_insert_last(str_to_int(fWord));
     }
 
-    L->List_order();
+    L->List_order_r();
 
     cout << endl << "Traverse: " << endl;
 
