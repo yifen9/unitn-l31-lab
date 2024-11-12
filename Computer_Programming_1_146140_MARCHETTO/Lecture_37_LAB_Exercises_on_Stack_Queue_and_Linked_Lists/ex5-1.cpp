@@ -1,18 +1,11 @@
 using namespace std;
-#include <iostream>
+#include "list.h"
 #include <string>
 #include <fstream>
-
-struct node{
-    int value = 0;
-    node *next = NULL;
-};
 
 void line();
 
 int str_to_int(string);
-
-void node_insert(node*,int);
 
 int main(){
     string fName;
@@ -40,15 +33,23 @@ int main(){
     fIn.open(fName, ios::in);
     if(!(fIn.is_open())){cout << "Missing file name!" << endl; return 0;}
 
-    cout << "Read from file: " << endl;
+    cout << "Insert from file (iterative): " << endl;
 
-    node *L;
+    List *L = new List();
     string fWord;
     while(!fIn.eof()){
         fIn >> fWord;
-        cout << "  - " << fWord << endl;
-        node_insert(L,str_to_int(fWord));
+        cout << " - " << fWord << endl;
+        L->List_insert_last(str_to_int(fWord));
     }
+
+    cout << endl << "Traverse (recursive): " << endl;
+
+    int *T = L->List_traverse_r();
+    for(int i=0; i<T[0]; i++){cout << " - " << T[i+1] << endl;}
+
+    cout << endl << "Successfully traversed!" << endl;
+    line();
 }
 
 void line(){cout << "--------------------------------" << endl;}
@@ -62,13 +63,4 @@ int str_to_int(string fWord){
     fNum[len] = '\0';
 
     return stoi(fNum);
-}
-
-void node_insert(node *L, int num){
-    node *p = L;
-
-    while(p->next!=NULL){p=p->next;}
-
-    p->value = num;
-    p->next = new node();
 }
