@@ -11,6 +11,7 @@ class List{
         node *L;
         void re_List_insert_last_r(node*,int);
         void re_List_traverse_r(int*,const node*,int);
+        bool re_List_search_r(const node*,int);
     public:
         List();
 
@@ -23,6 +24,9 @@ class List{
 
         int *List_traverse();
         int *List_traverse_r();
+
+        bool List_search(int);
+        bool List_search_r(int);
 };
 
 #endif

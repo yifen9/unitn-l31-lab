@@ -15,22 +15,22 @@ int main(){
     if(!(fIn.is_open())){cout << "Missing file name!" << endl; return 0;}
 
     line();
-    cout << " Read from file: " << endl;
+    cout << "Read from file: " << endl;
 
     Stack *S = new Stack();
     string fWord;
     while(!fIn.eof()){
         fIn >> fWord;
-        cout << "  - " << fWord << endl;
+        cout << " - " << fWord << endl;
         S->Stack_push(str_to_int(fWord));
     }
 
-    cout << endl << " Revert raws: " << endl;
+    cout << endl << "Revert raws: " << endl;
     
     int len = S->Stack_length();
-    for(int i=0; i<len; i++){cout << "  - " << S->Stack_pop() << endl;}
+    for(int i=0; i<len; i++){cout << " - " << S->Stack_pop() << endl;}
     
-    cout << endl << " Done!" << endl;
+    cout << endl << "Done!" << endl;
     line();
 
     return 0;

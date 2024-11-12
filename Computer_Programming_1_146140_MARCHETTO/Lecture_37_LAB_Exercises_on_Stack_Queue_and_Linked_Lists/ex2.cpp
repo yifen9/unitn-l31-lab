@@ -9,7 +9,7 @@ void formulae(bool);
 int main(){
     string input;
     line();
-    cout << " Please input a sequence of characters: " << endl << endl << "  - input: ";
+    cout << "Please input a sequence of characters: " << endl << endl << " - input: ";
     cin >> input;
     cout << endl;
 
@@ -34,10 +34,10 @@ void line(){cout << "--------------------------------" << endl;}
 
 void formulae(bool judge){
     if(judge){
-        cout << " YES!" << endl;
+        cout << "YES!" << endl;
     }
     else{
-        cout << " NO!" << endl;
+        cout << "NO!" << endl;
     }
     
     line();

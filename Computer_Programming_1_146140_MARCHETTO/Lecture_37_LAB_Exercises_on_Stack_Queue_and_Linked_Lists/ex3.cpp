@@ -11,14 +11,14 @@ int main(){
     Stack *S = new Stack();
 
     line();
-    cout << " Please input integers (input non-int to exit): " << endl << endl;
-    cout << "  - stack index: " << endl;
+    cout << "Please input integers (input non-int to exit): " << endl << endl;
+    cout << " - stack index: " << endl;
 
     bool judge = true;
     int count = 0;
     string input;
     while(judge){
-        cout << "    - " << count << ": ";
+        cout << "   - " << count << ": ";
         cin >> input;
         
         try{S->Stack_push(str_to_int(input));}
@@ -32,17 +32,17 @@ int main(){
     int len = S->Stack_length();
     for(int i=0; i<len; i++){Q->Queue_push(S->Stack_pop());}
 
-    cout << endl << "  - queue index: " << endl;
+    cout << endl << " - queue index: " << endl;
 
     count = 0;
     len = Q->Queue_length();
     for(int i=0; i<len; i++){
-        cout << "    - " << count << ": " << Q->Queue_pop() << endl;
+        cout << "   - " << count << ": " << Q->Queue_pop() << endl;
 
         count++;
     }
 
-    cout << endl << " Successfully reverted!" << endl;
+    cout << endl << "Successfully reverted!" << endl;
 
     line();
 

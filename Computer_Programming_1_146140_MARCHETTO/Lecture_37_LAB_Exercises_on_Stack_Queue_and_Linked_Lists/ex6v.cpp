@@ -50,7 +50,7 @@ int main(){
     cin >> key;
     cout << endl;
 
-    formulae(L->List_search(key));
+    formulae(L->List_search_r(key));
 
     return 0;
 }
@@ -70,10 +70,10 @@ int str_to_int(string fWord){
 
 void formulae(bool judge){
     if(judge){
-        cout << "Searched: YES!" << endl;
+        cout << "Searched: YES! (recursive)" << endl;
     }
     else{
-        cout << "Searched: NO!" << endl;
+        cout << "Searched: NO! (recursive)" << endl;
     }
     
     line();
