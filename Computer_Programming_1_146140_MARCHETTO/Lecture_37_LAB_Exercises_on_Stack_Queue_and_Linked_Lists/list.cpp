@@ -31,17 +31,6 @@ void List::re_List_insert_last_r(node *p, int num){
     else{re_List_insert_last_r(p->next,num);}
 }
 
-int List::List_delete_first(){
-    node *p = L;
-    
-    L = L->next;
-
-    int t = p->value;
-    delete p;
-
-    return t;
-}
-
 int *List::List_traverse(){
     int len = List_length();
     int *res = new int[len+1];
@@ -93,6 +82,32 @@ bool List::re_List_search_r(const node *p, int key){
         }
         else{
             return re_List_search_r(p->next,key);
+        }
+    }
+}
+
+void List::List_order(){
+    node *p1,*p2;
+
+    bool judge = true;
+    while(judge){
+        judge = false;
+
+        p1 = L; p2 = p1->next;
+        while(p2->next!=NULL){
+            if(p1->value > p2->value){
+                judge = true;
+
+                node *t = new node();
+
+                t->value = p2->value;
+                p2->value = p1->value;
+                p1->value = t->value;
+
+                delete t;
+            }
+            p1 = p1->next;
+            p2 = p2->next;
         }
     }
 }

@@ -20,13 +20,14 @@ class List{
         void List_insert_last(int);
         void List_insert_last_r(int);
 
-        int List_delete_first();
-
         int *List_traverse();
         int *List_traverse_r();
 
         bool List_search(int);
         bool List_search_r(int);
+
+        void List_order();
+        void List_order_r();
 };
 
 #endif

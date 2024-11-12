@@ -8,47 +8,31 @@ void line();
 int str_to_int(string);
 
 int main(){
-    string fName;
-    int choice;
-
-    line();
-    cout << "Please choose:" << endl;
-    cout << " 0 - quit" << endl;
-    cout << " 1 - example #1" << endl;
-    cout << " 2 - example #2" << endl;
-    cout << endl;
-    cout << "Please input your choice: ";
-    cin >> choice;
-    line();
-
-    switch(choice){
-        case 0: return 0;
-        case 1: fName = "ex5-eg1.txt"; break;
-        case 2: fName = "ex5-eg2.txt"; break;
-
-        default: cout << "Invalid input!" << endl; return 0;
-    }
+    string fName = "ex7-input.txt";
 
     fstream fIn;
     fIn.open(fName, ios::in);
     if(!(fIn.is_open())){cout << "Missing file name!" << endl; return 0;}
 
-    cout << "Insert from file (recursive): " << endl;
+    line();
+    cout << "Read from file: " << endl;
 
     List *L = new List();
     string fWord;
     while(!fIn.eof()){
         fIn >> fWord;
         cout << " - " << fWord << endl;
-        L->List_insert_last_r(str_to_int(fWord));
+        L->List_insert_last(str_to_int(fWord));
     }
 
-    cout << endl << "Traverse (recursive): " << endl;
+    L->List_order();
 
-    int *T = L->List_traverse_r();
+    cout << endl << "Traverse: " << endl;
+
+    int *T = L->List_traverse();
     for(int i=0; i<T[0]; i++){cout << " - " << T[i+1] << endl;}
 
-    cout << endl << "Successfully traversed!" << endl;
+    cout << endl << "Successfully ordered!" << endl;
     line();
 
     return 0;

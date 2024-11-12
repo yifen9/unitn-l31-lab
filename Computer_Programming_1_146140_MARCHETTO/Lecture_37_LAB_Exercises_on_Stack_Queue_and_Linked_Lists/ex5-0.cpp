@@ -50,6 +50,8 @@ int main(){
 
     cout << endl << "Successfully traversed!" << endl;
     line();
+
+    return 0;
 }
 
 void line(){cout << "--------------------------------" << endl;}
