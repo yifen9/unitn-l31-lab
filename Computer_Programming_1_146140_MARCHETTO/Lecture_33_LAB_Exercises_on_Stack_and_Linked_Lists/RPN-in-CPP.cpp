@@ -1,5 +1,5 @@
 using namespace std;
-#include "RPN.h"
+#include "stack.h"
 #include <cstring>
 #include <cmath>
 
