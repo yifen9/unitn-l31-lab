@@ -1,3 +1,6 @@
+//most shit code ever
+//but too lazy to modify
+
 using namespace std;
 #include <iostream>
 
