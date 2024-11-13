@@ -29,8 +29,8 @@ int main(){
             default: cout << "Invalid input!" << endl; return 0;
         }
 
-        node *nodeList = new node();
-        node *nodeSublist = new node();
+        node *nodeList = NULL;
+        node *nodeSublist = NULL;
         cout << "List ";
         if(read_from_file(nodeList,egList)){
             line(); cout << "Sublist ";
@@ -51,8 +51,10 @@ int main(){
 }
 
 bool sublist(node *nodeList, node *nodeSublist){
-    node tailList = tail(nodeList);
-    node tailSublist = tail(nodeSublist);
+    node *tailList = tail(nodeList);
+    cout << length(nodeList) << endl;
+    node *tailSublist = tail(nodeSublist);
+    cout << length(nodeSublist) << endl;
 
     return true;
 }

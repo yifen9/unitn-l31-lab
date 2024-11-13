@@ -3,21 +3,24 @@ using namespace std;
 
 void line(){cout << "--------------------------------" << endl;}
 
-node tail(node *A){
+int length(node *A){
     node *p = A;
     int N = 0;
-    
-    while(p->next!=NULL){p=p->next;N++;}
 
-    node res;
-    res.value = N;
-    res.next = p;
+    if(p!=NULL){while(p->next!=NULL){p=p->next;N++;}}
 
-    return res;
+    return N;
+}
+
+node *tail(node *A){
+    node *p = A;
+    if(p!=NULL){while(p->next!=NULL){p=p->next;}}
+
+    return p;
 }
 
 void print_all_nodes(node *A){
-    int N = tail(A).value;
+    int N = length(A);
     cout << N << " Nodes in Total" << endl;
 
     node *p = A;
@@ -31,7 +34,7 @@ void print_all_nodes(node *A){
     cout << endl << "Successfully printed!" << endl;
 }
 
-bool read_from_file(node *A,string fName){
+bool read_from_file(node *&A,string fName){
     fstream fIn;
     fIn.open(fName, ios::in);
 
@@ -39,18 +42,20 @@ bool read_from_file(node *A,string fName){
     else{
         cout << "Read from File: " << endl;
 
-        node t = tail(A);
+        int N = length(A);
 
-        int N = t.value;
-        node *p = t.next;
+        node *p = A;
+        if(p!=NULL){while(p->next!=NULL){p=p->next;}}
 
         while(!fIn.eof()){
-            p->next = new node();
-            p = p->next;
+            if(p==NULL){p = new node();}
+            else{
+                p->next = new node();
+                p = p->next;
+            }
 
             fIn >> p->value;
 
-            cout << endl;
             cout << " - index: " << N << endl;
             cout << "   - value: " << p->value << endl;
 
@@ -59,6 +64,6 @@ bool read_from_file(node *A,string fName){
 
         fIn.close();
 
-        cout << endl << "Successfully read!" << endl; return true;
+        return true;
     }
 }

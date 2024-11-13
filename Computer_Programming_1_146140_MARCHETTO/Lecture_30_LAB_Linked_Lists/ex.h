@@ -10,8 +10,9 @@ struct node{
 };
 
 void line();
-node tail(node*);
+int length(node*);
+node *tail(node*);
 void print_all_nodes(node*);
-bool read_from_file(node*,string);
+bool read_from_file(node*&,string);
 
 #endif
