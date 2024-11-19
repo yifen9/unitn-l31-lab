@@ -21,47 +21,40 @@ class Borrower{
 };
 
 class Borrowing{
-};
-
-class Library{
     private:
         struct date{
             int year;
             int month;
             int day;
         };
+};
 
-        template<typename T>
-        struct node{
+class Library{
+    private:
+        template<typename T> struct node{
             T value;
             node* next;
 
-            node<T>(T val): value(val){}
+            node<T>(T a): value(a){}
         };
-
         node<Book>* list_book = NULL;
         node<Borrower>* list_borrower = NULL;
         node<Borrowing>* list_borrowing = NULL;
 
-        template<typename T>
-        void p_add_node(node<T>* &list, T A){
-            if(list == NULL){
-                list = new node<T>(A);
-            }
+        template<typename T> void p_add_node(node<T>* &list, T A){
+            if(list == NULL){list = new node<T>(A);}
             else{
                 node<T>* p = list;
-                while(p->next!=NULL){p=p->next;}
+                while(p->next != NULL){p = p->next;}
 
                 p->next = new node<T>(A);
             }
         }
-
-        template<typename T>
-        bool p_delete_node(node<T>* &list, T A){
+        template<typename T> bool p_delete_node(node<T>* &list, T A){
             if(list == NULL){return false;}
             else{
                 node<T>* p = list;
-                while(p->next!=NULL){
+                while(p->next != NULL){
                     if(p->value == A){
 
                     }
