@@ -8,7 +8,6 @@ struct node{
 };
 
 int** f1(){
-    srand(time(NULL));
     const int X = 1+rand()%(0b1111);
 
     int** res = new int*[2];
@@ -94,6 +93,8 @@ void f4(node* &A, const int P, const int num){
 }
 
 int main(){
+    srand(time(NULL));
+
     int** t = f1();
 
     const int X = t[0][0];
