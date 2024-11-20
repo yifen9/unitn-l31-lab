@@ -53,16 +53,15 @@ void f3(node* A){
 }
 
 void f4(node* &A, const int P, const int num){
-    int X;
-    node* t = A;
-    for(X=0; t!=NULL; t=t->next){X++;}
+    int X = 0;
+    for(node*t=A; t!=NULL; t=t->next){X++;}
 
     if(X == 0){
         A = new node();
         A->data = num;
     }
     else{
-        t = A;
+        node* t = A;
         if(P == 0){
             t->prev = new node();
             t->prev->data = num;
