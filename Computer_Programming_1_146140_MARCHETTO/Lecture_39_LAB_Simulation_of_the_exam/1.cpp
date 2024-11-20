@@ -1,8 +1,6 @@
 using namespace std;
 #include <iostream>
 
-int f_random();
-
 int* f_initialize(const int);
 
 void f_print(const int, const int*);
@@ -42,11 +40,9 @@ int main(){
     return 0;
 }
 
-int f_random(){return rand()%(1+0b11111111);}
-
 int* f_initialize(const int L){
     int *A = new int[L];
-    for(int i=0; i<L; i++){A[i] = f_random();}
+    for(int i=0; i<L; i++){A[i] = rand()%(1+0b11111111);}
 
     return A;
 }
