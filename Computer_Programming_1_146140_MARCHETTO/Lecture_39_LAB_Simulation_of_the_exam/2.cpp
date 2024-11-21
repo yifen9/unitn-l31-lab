@@ -1,10 +1,44 @@
 using namespace std;
 #include <iostream>
 
+struct node;
+
+int** f1();
+
+node* f2(const int, const int*);
+
+void f3(node*);
+
+void f4(node*&, const int, const int);
+
+int main(){
+    srand(time(NULL));
+
+    int** t = f1();
+
+    const int X = t[0][0];
+    cout << "X: " << X << endl;
+
+    const int* A = t[1];
+    cout << "Array:";
+    for(int i=0; i<X; i++){cout << " " << A[i];}
+    cout << endl;
+
+    node* B = f2(X,A);
+    f3(B);
+
+    int P;
+    cout << "P: ";
+    cin >> P;
+    f4(B,P,rand()%(1+0b11111111));
+    f3(B);
+
+    return 0;
+}
+
 struct node{
     int data;
-    node* prev;
-    node* next;
+    node *prev, *next;
 };
 
 int** f1(){
@@ -62,14 +96,14 @@ void f4(node* &A, const int P, const int num){
     }
     else{
         node* t = A;
-        if(P == 0){
+        if(P <= 0){
             t->prev = new node();
             t->prev->data = num;
             t->prev->next = t;
 
             A = t->prev;
         }
-        else if(P == X){
+        else if(P >= X){
             while(t->next != NULL){t = t->next;}
 
             t->next = new node();
@@ -89,29 +123,4 @@ void f4(node* &A, const int P, const int num){
             p2->prev = t;
         }
     }
-}
-
-int main(){
-    srand(time(NULL));
-
-    int** t = f1();
-
-    const int X = t[0][0];
-    cout << "X: " << X << endl;
-
-    const int* A = t[1];
-    cout << "Array:";
-    for(int i=0; i<X; i++){cout << " " << A[i];}
-    cout << endl;
-
-    node* B = f2(X,A);
-    f3(B);
-
-    int P;
-    cout << "P: ";
-    cin >> P;
-    f4(B,P,rand()%(1+0b11111111));
-    f3(B);
-
-    return 0;
 }
