@@ -16,7 +16,7 @@ void print_student(const Student &S){
     cout << "- weighted GPA: " << S.w_average << endl;
 }
 
-Student create_studente(char name[], char surname[], int id, float w_average){
+Student create_student(char name[], char surname[], int id, float w_average){
     Student S;
 
     S.name = name;
@@ -47,7 +47,7 @@ int main(){
     cout << "- surname:      "; cin >> surname;
     cout << "- id:           "; cin >> id;
     cout << "- weighted GPA: "; cin >> w_average;
-    Student S = create_studente(str_to_char(name),str_to_char(surname),id,w_average);
+    Student S = create_student(str_to_char(name),str_to_char(surname),id,w_average);
 
     cout << "Print: " << endl;
     print_student(S);
