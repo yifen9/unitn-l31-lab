@@ -127,7 +127,7 @@ class Book{
 
 class Library{
     private:
-        int count_borrower=0, count_book=0;
+        int count_borrower, count_book;
 
         template<typename T> struct node{
             int ID;
@@ -136,8 +136,8 @@ class Library{
 
             node<T>(const T a): value(a){}
         };
-        node<Borrower>* list_borrower = NULL;
-        node<Book>* list_book = NULL;
+        node<Borrower>* list_borrower;
+        node<Book>* list_book;
 
         template<typename T> void p_add_node(node<T>* &list, const int ID, const T A){
             if(list == NULL){
@@ -191,7 +191,12 @@ class Library{
             return p;
         }
     public:
-        Library(){}
+        Library(){
+            count_borrower = 0;
+            count_book = 0;
+            list_borrower = NULL;
+            list_book = NULL;
+        }
         void Lib_add_borrower(const string name){
             Borrower A(name);
             p_add_node<Borrower>(list_borrower,count_borrower,A);
