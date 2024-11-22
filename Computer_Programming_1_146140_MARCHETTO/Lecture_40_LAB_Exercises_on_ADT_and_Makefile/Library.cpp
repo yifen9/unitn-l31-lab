@@ -9,15 +9,18 @@ class Borrower{
         void p_space_in(const int a){for(int i=0; i<a; i++){cout << "  ";}}
     public:
         Borrower(const string name){this->name = name;}
-        string get_name(){return this->name;}
         void print(const int a){
-            if(!a){cout << "Borrower: " << endl << endl;}
+            if(!a){cout << "Borrower: " << endl;}
             p_space_in(a-1); cout << "- name: " << this->name << endl;
         }
 };
 
 class Borrowing{
     private:
+        struct{
+            int ID;
+            Borrower* value;
+        }borrower;
         struct{
             int year, month, day;
             void in(const int a){
@@ -28,18 +31,18 @@ class Borrowing{
             int out(){return (1'00'00*year + 1'00*month + day);}
         }date;
 
-        Borrower* borrower;
-
         void p_space_in(const int a){for(int i=0; i<a; i++){cout << "  ";}}
     public:
-        Borrowing(const int date, Borrower* borrower){
+        Borrowing(const int ID, Borrower* borrower, const int date){
+            this->borrower.ID = ID;
+            this->borrower.value = borrower;
             this->date.in(date);
-            this->borrower = borrower;
         }
-        Borrower* get_borrower(){return this->borrower;}
         void print(const int a){
-            if(!a){cout << "Borrowing: " << endl << endl;}
-            p_space_in(a-1); cout << "- name: " << this->borrower->get_name() << endl;
+            if(!a){cout << "Borrowing: " << endl;}
+            p_space_in(a-1); cout << "- Borrower: " << endl;
+            p_space_in(a); cout << "- ID: " << this->borrower.ID << endl;
+            this->borrower.value->print(a+1);
             p_space_in(a-1); cout << "- date: ";
             if(a){cout << this->date.out() << endl;}
             else{
@@ -71,8 +74,8 @@ class Book{
             
             list = NULL;
         }
-        void add_borrowing(const int date, Borrower* borrower){
-            Borrowing* borrowing = new Borrowing(date,borrower);
+        void add_borrowing(const int ID, Borrower* borrower, const int date){
+            Borrowing* borrowing = new Borrowing(count,borrower,date);
             if(list == NULL){
                 list = new node();
                 list->ID = count;
@@ -89,7 +92,7 @@ class Book{
             count++;
         }
         void print(const int a){
-            if(!a){cout << "Book: " << endl << endl;}
+            if(!a){cout << "Book: " << endl;}
             p_space_in(a-1); cout << "- author: " << this->author << endl;
             p_space_in(a-1); cout << "- title:  " << this->title << endl;
         }
@@ -98,10 +101,10 @@ class Book{
             if(list){
                 p_space_in(a-1); cout << "- Borrowing List: " << endl;
                 for(node*p=list; p!=NULL; p=p->next){
-                    p_space_in(a); cout << "ID: " << p->ID << endl;
-                    p->value->print(a+1);
+                    p_space_in(a); cout << "- ID: " << p->ID << endl;
+                    p->value->print(a+2);
                 }
-                if(!a){cout << endl << "Total: " << count << endl;}
+                if(!a){cout << "- Total: " << count << endl;}
             }
         }
 };
@@ -141,8 +144,8 @@ class Library{
 
                 node<T>* p = t;
                 while(p->next->ID != ID){
-                    p = p->next;
                     if(p->next->next == NULL){return false;}
+                    else{p = p->next;}
                 }
 
                 p->next = p->next->next;
@@ -154,14 +157,14 @@ class Library{
             }
         }
         template<typename T> void p_print_nodes(node<T>* list){
-            cout << "List: " << endl << endl;
+            cout << "List: " << endl;
             int i=0;
             for(node<T>*p=list; p!=NULL; p=p->next){
-                cout << "ID: " << p->ID << endl;
-                p->value.print(1);
+                cout << "- ID: " << p->ID << endl;
+                p->value.print(2);
                 i++;
             }
-            cout << endl << "Total: " << i << endl;
+            cout << "- Total: " << i << endl;
         }
         template<typename T> node<T>* p_search_node(node<T>* list, const int ID){
             node<T>* p = list;
@@ -187,13 +190,10 @@ class Library{
             Borrower* borrower = &(p_search_node<Borrower>(list_borrower,ID_borrower)->value);
             Book* book = &(p_search_node<Book>(list_book,ID_book)->value);
             if(borrower && book){
-                book->add_borrowing(date,borrower);
+                book->add_borrowing(ID_borrower,borrower,date);
                 return true;
             }
             else{return false;}
-        }
-        bool Lib_delete_borrower(const int ID){
-            return p_delete_node<Borrower>(list_borrower,ID);
         }
         bool Lib_delete_book(const int ID){
             return p_delete_node<Book>(list_book,ID);
@@ -207,18 +207,16 @@ class Library{
             p_print_nodes<Book>(list_book);
         }
         void Lib_print_borrowings(){
-            cout << "Book List: " << endl << endl;
+            cout << "Book List: " << endl;
             int i=0;
             for(node<Book>*p=list_book; p!=NULL; p=p->next){
-                cout << "ID: " << p->ID << endl;
-                p->value.print_list(1);
+                cout << "- ID: " << p->ID << endl;
+                p->value.print_list(2);
                 i++;
             }
-            cout << endl << "Total: " << i << endl;
+            cout << "- Total: " << i << endl;
         }
 };
-
-void line(){cout << "--------------------------------" << endl;}
 
 int main(){
     Library* A = new Library();
@@ -234,9 +232,8 @@ int main(){
     A->Lib_add_borrowing(1,1,20051102);
     A->Lib_add_borrowing(2,0,20051103);
 
-    line();A->Lib_print_books();
-    line();A->Lib_print_borrowers();
-    line();A->Lib_print_borrowings();
+    A->Lib_print_borrowers(); cout << endl;
+    A->Lib_print_borrowings(); cout << endl;
 
     return 0;
 }
