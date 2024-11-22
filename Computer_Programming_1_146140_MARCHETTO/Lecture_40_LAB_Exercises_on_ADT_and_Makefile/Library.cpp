@@ -211,9 +211,7 @@ class Library{
             }
             else{return false;}
         }
-        bool Lib_delete_book(const int ID){
-            return p_delete_node<Book>(list_book,ID);
-        }
+        bool Lib_delete_book(const int ID){return p_delete_node<Book>(list_book,ID);}
         void Lib_print_borrowers(){
             cout << "Borrower ";
             p_print_nodes<Borrower>(list_borrower);
