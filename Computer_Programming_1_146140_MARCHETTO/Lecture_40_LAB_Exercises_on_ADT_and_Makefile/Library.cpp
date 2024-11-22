@@ -38,6 +38,8 @@ class Borrowing{
             this->borrower.value = borrower;
             this->date.in(date);
         }
+        int get_ID(){return borrower.ID;}
+        int get_date(){return date.out();}
         void print(const int a){
             if(!a){cout << "Borrowing: " << endl;}
             p_space_in(a-1); cout << "- Borrower: " << endl;
@@ -67,6 +69,11 @@ class Book{
         node* list;
 
         void p_space_in(const int a){for(int i=0; i<a; i++){cout << "  ";}}
+        void p_print(const int a){
+            if(!a){cout << "Book: " << endl;}
+            p_space_in(a-1); cout << "- author: " << this->author << endl;
+            p_space_in(a-1); cout << "- title:  " << this->title << endl;
+        }
     public:
         Book(const string author, const string title){
             this->author = author;
@@ -75,7 +82,7 @@ class Book{
             list = NULL;
         }
         void add_borrowing(const int ID, Borrower* borrower, const int date){
-            Borrowing* borrowing = new Borrowing(count,borrower,date);
+            Borrowing* borrowing = new Borrowing(ID,borrower,date);
             if(list == NULL){
                 list = new node();
                 list->ID = count;
@@ -92,12 +99,7 @@ class Book{
             count++;
         }
         void print(const int a){
-            if(!a){cout << "Book: " << endl;}
-            p_space_in(a-1); cout << "- author: " << this->author << endl;
-            p_space_in(a-1); cout << "- title:  " << this->title << endl;
-        }
-        void print_list(const int a){
-            print(a);
+            p_print(a);
             if(list){
                 p_space_in(a-1); cout << "- Borrowing List: " << endl;
                 for(node*p=list; p!=NULL; p=p->next){
@@ -106,6 +108,20 @@ class Book{
                 }
                 if(!a){cout << "- Total: " << count << endl;}
             }
+        }
+        bool print_list(const int a, const int ID, int &i){
+            bool judge = false;
+            for(node*p=list; p!=NULL; p=p->next){
+                if(p->value->get_ID() == ID){
+                    p_space_in(a-1); cout << "- ID: " << i << endl;
+                    p_print(a+1);
+                    p_space_in(a); cout << "- date:  " << p->value->get_date() << endl;
+
+                    judge = true;
+                    i++;
+                }
+            }
+            return judge;
         }
 };
 
@@ -187,10 +203,10 @@ class Library{
             count_book++;
         }
         bool Lib_add_borrowing(const int ID_borrower, const int ID_book, const int date){
-            Borrower* borrower = &(p_search_node<Borrower>(list_borrower,ID_borrower)->value);
-            Book* book = &(p_search_node<Book>(list_book,ID_book)->value);
+            node<Borrower>* borrower = p_search_node<Borrower>(list_borrower,ID_borrower);
+            node<Book>* book = p_search_node<Book>(list_book,ID_book);
             if(borrower && book){
-                book->add_borrowing(ID_borrower,borrower,date);
+                book->value.add_borrowing(ID_borrower,&(borrower->value),date);
                 return true;
             }
             else{return false;}
@@ -206,13 +222,11 @@ class Library{
             cout << "Book ";
             p_print_nodes<Book>(list_book);
         }
-        void Lib_print_borrowings(){
-            cout << "Book List: " << endl;
+        void Lib_print_borrowings(const int ID){
+            cout << "Borrowing List: " << endl;
             int i=0;
             for(node<Book>*p=list_book; p!=NULL; p=p->next){
-                cout << "- ID: " << p->ID << endl;
-                p->value.print_list(2);
-                i++;
+                if(p->value.print_list(1,ID,i)){cout << "  - book ID: " << p->ID << endl;}
             }
             cout << "- Total: " << i << endl;
         }
@@ -221,19 +235,27 @@ class Library{
 int main(){
     Library* A = new Library();
 
-    A->Lib_add_borrower("Lee");
-    A->Lib_add_borrower("Vlad");
+    A->Lib_add_borrower("Li");
+    A->Lib_add_borrower("Anto");
     A->Lib_add_borrower("Yifeng");
 
-    A->Lib_add_book("Anto","Conquer the Earth");
-    A->Lib_add_book("Li Yifeng","Conquer the GLA");
+    A->Lib_add_book("Lee","Battle of Calculus");
+    A->Lib_add_book("Anto Lee","Conquer the GLA");
+    A->Lib_add_book("Li Yifeng","Computer Programming Enjoyer");
 
-    A->Lib_add_borrowing(0,1,20051101);
-    A->Lib_add_borrowing(1,1,20051102);
-    A->Lib_add_borrowing(2,0,20051103);
+    A->Lib_add_borrowing(2,2,19890604);
+    A->Lib_add_borrowing(2,0,29520000);
+    A->Lib_add_borrowing(0,2,12345678);
+    A->Lib_add_borrowing(0,0,89642952);
+    A->Lib_add_borrowing(0,1,20051109);
+    A->Lib_add_borrowing(1,1,01010101);
 
     A->Lib_print_borrowers(); cout << endl;
-    A->Lib_print_borrowings(); cout << endl;
+    A->Lib_print_books(); cout << endl;
+
+    A->Lib_print_borrowings(0); cout << endl;
+    A->Lib_print_borrowings(1); cout << endl;
+    A->Lib_print_borrowings(2); cout << endl;
 
     return 0;
 }
