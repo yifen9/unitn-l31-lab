@@ -5,7 +5,7 @@ bool check_BST_r(BST*&);
 
 int main(){
     BST* tree = NULL;
-    upload_BST(tree,"tree.txt");
+    upload_BT(tree,"tree.txt");
 
     visualize_tree(tree);
 

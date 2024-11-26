@@ -102,11 +102,18 @@ void deallocate_tree(BST* &tree){tree = NULL;}
 bool add_BT_r(BST* &tree, const int &v, const int &d){
     if(d){
         if(d == 1){
-            bool tL=add_BT_r(tree->left,v,0), tR=add_BT_r(tree->right,v,0);
-            if(tL){if(!tR){add_node(tree->right,v);}}
-            else{add_node(tree->left,v);}
+            if(tree){
+                bool tL=add_BT_r(tree->left,v,0), tR=add_BT_r(tree->right,v,0);
+                if(tL){if(!tR){add_node(tree->right,v);}}
+                else{add_node(tree->left,v);}
 
-            return (tL && tR);
+                return (tL && tR);
+            }
+            else{
+                add_node(tree,v);
+                
+                return true;
+            }
         }
         else{
             if(add_BT_r(tree->left,v,0)){
