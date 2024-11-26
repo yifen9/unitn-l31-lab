@@ -29,4 +29,8 @@ void deallocate_tree_r(BST*&);
 
 void deallocate_tree(BST*&);
 
+bool add_BT_r(BST*&, const int&, const int&);
+
+void upload_BT(BST*&, const string&);
+
 #endif

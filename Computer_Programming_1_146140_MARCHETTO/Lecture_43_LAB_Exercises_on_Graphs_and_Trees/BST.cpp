@@ -10,7 +10,6 @@ int str_to_int(const string s){
     return stoi(res);
 }
 
-/*
 int get_depth_r(BST* &tree, int d){
     if(tree){
         d++;
@@ -24,7 +23,6 @@ int get_depth_r(BST* &tree, int d){
     }
     return d;
 }
-*/
 
 void visualize_tree_r(BST* &tree, const int c){
     if(tree){
@@ -101,8 +99,25 @@ void deallocate_tree_r(BST* &tree){
 
 void deallocate_tree(BST* &tree){tree = NULL;}
 
-void add_BT_r(BST* &tree, const int &v){
+bool add_BT_r(BST* &tree, const int &v, const int &d){
+    if(d){
+        if(d == 1){
+            bool tL=add_BT_r(tree->left,v,0), tR=add_BT_r(tree->right,v,0);
+            if(tL){if(!tR){add_node(tree->right,v);}}
+            else{add_node(tree->left,v);}
 
+            return (tL && tR);
+        }
+        else{
+            if(add_BT_r(tree->left,v,0)){
+                return add_BT_r(tree->right,v,0);
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    else{return bool(tree);}
 }
 
 void upload_BT(BST* &tree, const string &fName){
@@ -112,6 +127,6 @@ void upload_BT(BST* &tree, const string &fName){
     string wIn;
     while(!fIn.eof()){
         fIn >> wIn;
-        add_BT_r(tree,str_to_int(wIn));
+        add_BT_r(tree,str_to_int(wIn),get_depth_r(tree,1));
     }
 }
