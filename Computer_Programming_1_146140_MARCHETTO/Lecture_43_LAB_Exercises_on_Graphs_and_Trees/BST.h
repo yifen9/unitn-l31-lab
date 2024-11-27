@@ -11,6 +11,10 @@ struct BST{
 
 int str_to_int(const string);
 
+void get_length_r(BST*&,int&);
+
+int get_length(BST*&);
+
 void visualize_tree_r(BST*&, const int);
 
 void visualize_tree(BST*&);
@@ -29,7 +33,7 @@ void deallocate_tree_r(BST*&);
 
 void deallocate_tree(BST*&);
 
-bool add_BT_r(BST*&, const int&, const int&);
+void add_BT(BST*&, const int&);
 
 void upload_BT(BST*&, const string&);
 

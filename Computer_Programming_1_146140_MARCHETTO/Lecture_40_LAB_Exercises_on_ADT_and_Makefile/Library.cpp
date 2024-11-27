@@ -65,8 +65,7 @@ class Book{
             int ID;
             Borrowing* value;
             node* next;
-        };
-        node* list;
+        }*list;
 
         void p_space_in(const int a){for(int i=0; i<a; i++){cout << "  ";}}
         void p_print(const int a){

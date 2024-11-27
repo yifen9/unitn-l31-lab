@@ -10,18 +10,19 @@ int str_to_int(const string s){
     return stoi(res);
 }
 
-int get_depth_r(BST* &tree, int d){
+void get_length_r(BST* &tree, int &l){
     if(tree){
-        d++;
-        bool tL=tree->left, tR=tree->right;
-        if(tL || tR){
-            int tLd = get_depth_r(tree->left,d);
-            int tRd = get_depth_r(tree->right,d);
-
-            return (tLd > tRd)? tLd: tRd;
-        }
+        l++;
+        get_length_r(tree->left,l);
+        get_length_r(tree->right,l);
     }
-    return d;
+}
+
+int get_length(BST* &tree){
+    int res = 0;
+    get_length_r(tree,res);
+
+    return res;
 }
 
 void visualize_tree_r(BST* &tree, const int c){
@@ -99,32 +100,25 @@ void deallocate_tree_r(BST* &tree){
 
 void deallocate_tree(BST* &tree){tree = NULL;}
 
-bool add_BT_r(BST* &tree, const int &v, const int &d){
-    if(d){
-        if(d == 1){
-            if(tree){
-                bool tL=add_BT_r(tree->left,v,0), tR=add_BT_r(tree->right,v,0);
-                if(tL){if(!tR){add_node(tree->right,v);}}
-                else{add_node(tree->left,v);}
-
-                return (tL && tR);
-            }
-            else{
-                add_node(tree,v);
-                
-                return true;
-            }
+void add_BT_r(BST* &tree, const int &v, const int p, const int d){
+    if(d/2){
+        if((p%d)/(d/2)){
+            add_BT_r(tree->right,v,p,d/2);
         }
         else{
-            if(add_BT_r(tree->left,v,0)){
-                return add_BT_r(tree->right,v,0);
-            }
-            else{
-                return false;
-            }
+            add_BT_r(tree->left,v,p,d/2);
         }
     }
-    else{return bool(tree);}
+    else{add_node(tree,v);}
+}
+
+void add_BT(BST* &tree, const int &v){
+    const int p = 1+get_length(tree);
+
+    int d = 1;
+    for(int i=p; i-1; i/=2){d*=2;}
+
+    add_BT_r(tree,v,p,d);
 }
 
 void upload_BT(BST* &tree, const string &fName){
@@ -134,6 +128,6 @@ void upload_BT(BST* &tree, const string &fName){
     string wIn;
     while(!fIn.eof()){
         fIn >> wIn;
-        add_BT_r(tree,str_to_int(wIn),get_depth_r(tree,1));
+        add_BT(tree,str_to_int(wIn));
     }
 }

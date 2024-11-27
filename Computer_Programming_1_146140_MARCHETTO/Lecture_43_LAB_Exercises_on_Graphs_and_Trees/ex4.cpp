@@ -4,13 +4,37 @@ using namespace std;
 bool check_BST_r(BST*&);
 
 int main(){
-    BST* tree = NULL;
-    upload_BT(tree,"tree.txt");
+    int choice;
+    string eg;
+    while(true){
+        cout << "Please choose:" << endl;
+        cout << endl;
+        cout << " 0 - quit" << endl;
+        cout << " 1 - example #1" << endl;
+        cout << " 2 - example #2" << endl;
+        cout << endl;
+        cout << "Please input your choice: ";
+        cin >> choice;
 
-    visualize_tree(tree);
+        switch(choice){
+            case 0: return 0;
+            case 1: eg = "ex4-eg1.txt"; break;
+            case 2: eg = "ex4-eg2.txt"; break;
 
-    cout << endl << (check_BST_r(tree)? "Yes": "No") << endl;
+            default: cout << "Invalid input!" << endl; return 0;
+        }
 
+        BST* tree = NULL;
+
+        upload_BT(tree,eg);
+
+        cout << endl;
+        visualize_tree(tree);
+
+        cout << endl << (check_BST_r(tree)? "Yes": "No") << endl << endl;
+
+        delete tree;
+    }
     return 0;
 }
 

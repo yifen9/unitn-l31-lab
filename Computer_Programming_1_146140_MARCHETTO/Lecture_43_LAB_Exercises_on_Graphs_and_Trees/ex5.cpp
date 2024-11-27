@@ -28,8 +28,8 @@ int main(){
 
         BST *t1=NULL, *t2=NULL;
 
-        upload_BST(t1,eg1);
-        upload_BST(t2,eg2);
+        upload_BT(t1,eg1);
+        upload_BT(t2,eg2);
 
         cout << endl; visualize_tree(t1);
         cout << endl; visualize_tree(t2);
@@ -42,15 +42,12 @@ int main(){
 }
 
 bool check_BST_identical_r(BST* &t1, BST* &t2){
-    if((t1 && !t2) || (!t1 && t2)){return false;}
-    else{
-        if(t1 && t2){
-            if(t1->value == t2->value){
-                return (check_BST_identical_r(t1->left,t2->left)
-                     && check_BST_identical_r(t1->right,t2->right));
-            }
-            else{return false;}
+    if(t1 && t2){
+        if(t1->value == t2->value){
+            return (check_BST_identical_r(t1->left,t2->left)
+                 && check_BST_identical_r(t1->right,t2->right));
         }
-        else{return true;}
+        else{return false;}
     }
+    else{return (!(t1 || t2));}
 }
