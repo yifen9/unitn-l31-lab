@@ -98,7 +98,10 @@ void deallocate_tree_r(BST* &tree){
     }
 }
 
-void deallocate_tree(BST* &tree){tree = NULL;}
+void deallocate_tree(BST* &tree){
+    deallocate_tree_r(tree);
+    tree = NULL;
+}
 
 void add_BT_r(BST* &tree, const int &v, const int p, const int d){
     if(d/2){
