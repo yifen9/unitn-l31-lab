@@ -111,8 +111,8 @@ void deallocate_tree(BST* &tree){
 }
 
 void add_BT_r(BST* &tree, const int &v, const int p, const int d){
-    if(d/2){
-        if((p%d)/(d/2)){
+    if(d / 2){
+        if((p % d) / (d / 2)){
             add_BT_r(tree->right,v,p,d/2);
         }
         else{
@@ -123,10 +123,10 @@ void add_BT_r(BST* &tree, const int &v, const int p, const int d){
 }
 
 void add_BT(BST* &tree, const int &v){
-    const int p = 1+get_length(tree);
+    const int p = 1 + get_length(tree);
 
     int d = 1;
-    for(int i=p; i-1; i/=2){d*=2;}
+    for(int i=p; i-1; i/=2){d *= 2;}
 
     add_BT_r(tree,v,p,d);
 }
