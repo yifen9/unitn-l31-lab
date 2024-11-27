@@ -68,22 +68,29 @@ void upload_BST(BST* &tree, const string &fName){
 
 void print_tree_r(BST* &tree){
     if(tree){
-        print_tree_r(tree->left);
-        cout << ',' << tree->value;
-        print_tree_r(tree->right);
+        if(tree->left){
+            print_tree_r(tree->left);
+            cout << ',';
+        }
+        cout << tree->value;
+        if(tree->right){
+            cout << ',';
+            print_tree_r(tree->right);
+        }
     }
 }
 
 void search_tree_r(BST* &tree, const int n){
     if(tree){
-        if(tree->value != n){
-            cout << ',' << tree->value << ',';
+        if(tree->value == n){cout << n;}
+        else{
+            cout << tree->value << ',';
             if(tree->value < n){
-                cout << "right";
+                cout << "right" << ',';
                 search_tree_r(tree->right,n);
             }
             else{
-                cout << "left";
+                cout << "left" << ',';
                 search_tree_r(tree->left,n);
             }
         }
