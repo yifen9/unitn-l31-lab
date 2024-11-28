@@ -1,4 +1,4 @@
-# UniTrento Bsc 2024/2025
+# UniTrento BSc 2024/2025
 
 - Will update as soon as possible
 - If you find bugs or have better solutions please upload and share with me :)
