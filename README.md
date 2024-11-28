@@ -6,8 +6,7 @@
 ---
 
 [Calculus 1 [146055] - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
-- Textbook link (Italian version): [Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione](https://archive.org/details/analisi-matematica-1-canuto-tabacco)
-- Textbook link (English version): [Mathematical Analysis I - Canuto Claudio, Tabacco Anita - Second Edition](https://annas-archive.org/md5/cebcd936b78e190b9d73f93d1c8180a3)
+- Textbook link: [Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione](https://archive.org/details/analisi-matematica-1-canuto-tabacco)
 
 [Computer Programming 1 [146140] - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
 - Exercises end with '_': Unfinished
