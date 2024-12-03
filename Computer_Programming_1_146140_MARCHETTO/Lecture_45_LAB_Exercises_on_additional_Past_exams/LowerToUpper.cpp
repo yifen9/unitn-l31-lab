@@ -3,6 +3,23 @@ using namespace std;
 #include <cstring>
 #include <fstream>
 
+char text_correction(bool&,char);
+
+void text_up(string,string);
+
+int main(int argc, char *argv[]){
+    string fInName="LowerToUpper-input.txt", fOutName="LowerToUpper-output.txt";
+    
+    if(argc - 1){
+        fInName = argv[1];
+        if(argc - 2){fOutName = argv[2];}
+    }
+
+    text_up(fInName,fOutName);
+
+    return 0;
+}
+
 char text_correction(bool &judge, char c){
     if(judge){
         if((c >= 'a')
@@ -31,17 +48,4 @@ void text_up(string fInName, string fOutName){
         c = fIn.get();
         if(!fIn.eof()){fOut.put(text_correction(judge,c));}
     }
-}
-
-int main(int argc, char *argv[]){
-    string fInName="LowerToUpper-input.txt", fOutName="LowerToUpper-output.txt";
-    
-    if(argc - 1){
-        fInName = argv[1];
-        if(argc - 2){fOutName = argv[2];}
-    }
-
-    text_up(fInName,fOutName);
-
-    return 0;
 }

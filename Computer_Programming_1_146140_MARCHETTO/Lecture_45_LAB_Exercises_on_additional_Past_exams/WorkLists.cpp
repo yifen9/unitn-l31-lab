@@ -1,56 +1,73 @@
 using namespace std;
 #include <iostream>
 
-class WAS{
+class List{
     private:
         struct Node{
             int value;
             Node* next;
-        }*list_employee, *list_stamp_enter, *list_stamp_exit;
-
-        void p_list_delete(Node* list){
+        }* L;
+    public:
+        List(){L = NULL;}
+        ~List(){
             Node* p;
-            while(list){
-                p = list;
-                list = list->next;
+            while(L){
+                p = L;
+                L = L->next;
                 delete p;
             }
         }
-        void p_list_add(Node* list, const int num){
-            if(list){
-                Node* p = list;
+        void list_add(const int value){
+            if(L){
+                Node* p = L;
                 while(p->next){p = p->next;}
                 p->next = new Node();
-                p->next->value = num;
+                p->next->value = value;
                 p->next->next = NULL;
             }
             else{
-                list = new Node();
-                list->value = num;
-                list->next = NULL;
+                L = new Node();
+                L->value = value;
+                L->next = NULL;
             }
         }
+        int list_length(){
+            int l = 0;
+            for(Node* p=L; p; p=p->next){l++;}
+
+            return l;
+        }
+        int* list_download(){
+            const int l = list_length();
+            int* A = new int[l];
+            for(Node*p=L; p; p=p->next){
+                
+            }
+        }
+};
+
+class WAS{
+    private:
+        List *list_employee, *list_stamp_enter, *list_stamp_exit;
     public:
         WAS(){
-            list_employee = NULL;
-            list_stamp_enter = NULL;
-            list_stamp_exit = NULL;
+            list_employee = new List();
+            list_stamp_enter = new List();
+            list_stamp_exit = new List();
         }
-        ~WAS(){
-            p_list_delete(list_employee);
-            p_list_delete(list_stamp_enter);
-            p_list_delete(list_stamp_exit);
-        }
+        ~WAS(){delete list_employee, list_stamp_enter, list_stamp_exit;}
         void WAS_list_add_employee(const int ID){
-            p_list_add(list_employee,ID);
+            list_employee->list_add(ID);
         }
         void WAS_list_add_stamp_enter(const int ID){
-            p_list_add(list_stamp_enter,ID);
+            list_stamp_enter->list_add(ID);
         }
         void WAS_list_add_stamp_exit(const int ID){
-            p_list_add(list_stamp_exit,ID);
+            list_stamp_exit->list_add(ID);
         }
-        void WAS_list_get_warning();
+        void WAS_get_warninglist(){
+            
+        }
 };
 
 int main(){
