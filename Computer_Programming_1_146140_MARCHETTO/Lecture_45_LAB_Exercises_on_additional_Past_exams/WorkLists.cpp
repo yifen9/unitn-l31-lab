@@ -40,9 +40,12 @@ class List{
         int* list_download(){
             const int l = list_length();
             int* A = new int[l];
-            for(Node*p=L; p; p=p->next){
-                
+            Node* p = L;
+            for(int i=0; i<l; i++){
+                A[i] = p->value;
+                p = p->next;
             }
+            return A;
         }
 };
 
@@ -66,6 +69,7 @@ class WAS{
             list_stamp_exit->list_add(ID);
         }
         void WAS_get_warninglist(){
+            int *l1=list_stamp_enter->list_download(), *l2=list_stamp_exit->list_download();
             
         }
 };
