@@ -52,15 +52,6 @@ int** f1(string fName){
         else{k++;}
     }
 
-    cout << "Y: " << A[0][0] << endl;
-    for(int i=0; i<A[0][0]; i++){
-        cout << "X: " << A[1+i][0] << " and numbers: ";
-        for(int j=0; j<(A[1+i][0] - 1); j++){
-            cout << A[1+i][1+j] << ',';
-        }
-        cout << A[1+i][A[1+i][0]] << endl;
-    }
-
     return A;
 }
 
@@ -110,18 +101,27 @@ int** f2(string fName){
         }
     }
 
-    cout << "Input array: ";
-    for(int i=1; i<l1; i++){cout << A[0][i] << ',';}
-    cout << A[0][l1] << endl << "Unique elements of the said array: ";
-    for(int i=1; i<l2; i++){cout << A[1][i] << ',';}
-    cout << A[1][l2] << endl;
-
     return A;
 }
 
 int main(){
-    cout << "Function one:" << endl; f1("File1-eg.txt"); cout << endl;
-    cout << "Function two:" << endl; f2("File2-eg.txt"); cout << endl;
+    int** A1 = f1("File1-eg.txt");
+    int** A2 = f2("File2-eg.txt");
+
+    cout << "Function one:" << endl << "- Y: " << A1[0][0] << endl;
+    for(int i=0; i<A1[0][0]; i++){
+        cout << "- X: " << A1[1+i][0] << " and numbers: ";
+        for(int j=0; j<(A1[1+i][0] - 1); j++){
+            cout << A1[1+i][1+j] << ',';
+        }
+        cout << A1[1+i][A1[1+i][0]] << endl;
+    }
+
+    cout << endl << "Function two:" << endl << "- Input array: ";
+    for(int i=1; i<A2[0][0]; i++){cout << A2[0][i] << ',';}
+    cout << A2[0][A2[0][0]] << endl << "- Unique elements of the said array: ";
+    for(int i=1; i<A2[1][0]; i++){cout << A2[1][i] << ',';}
+    cout << A2[1][A2[1][0]] << endl;
 
     return 0;
 }
