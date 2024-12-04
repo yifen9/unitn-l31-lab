@@ -1,0 +1,4 @@
+The first row contains five strings
+The second row contains more than five different elements
+At a given time Jean realizes that she has forgotten something
+Reading helps you to improve your understanding of a language and build your personal vocabulary

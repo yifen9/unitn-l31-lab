@@ -31,9 +31,9 @@ int str_to_int(const string);
 List* read_from_file(string);
 
 int main(){
-    List *L1 = read_from_file("WorkLists-eg-1.txt"),
-         *L2 = read_from_file("WorkLists-eg-2.txt"),
-         *L3 = read_from_file("WorkLists-eg-3.txt");
+    List *L1 = read_from_file("WorkLists-eg1.txt"),
+         *L2 = read_from_file("WorkLists-eg2.txt"),
+         *L3 = read_from_file("WorkLists-eg3.txt");
     WAMS* W = new WAMS(L1,L2,L3);
 
     cout << "List of employees:    "; L1->list_print(); cout << endl;
