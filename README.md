@@ -29,6 +29,16 @@ Computer Programming 2 [146062] - MARCHESE:
 
 [Mathematics for Informatics [146289] - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 
+## Year 2 Semester 1
+
+Databases [145993] - SIRACUSA:
+
+[Networking [146058] - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
+
+[Computational Logic [146199] - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
+
+[Algorithms and Data Structures - part 1 [146290] - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+
 ---
 
 Any concerns, please contact:
