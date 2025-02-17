@@ -11,18 +11,34 @@
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook link: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
+- Useful website for taking notes: [Goodnotes](https://www.goodnotes.com)
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
 - Textbook link: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
-- Most of the exercises can be found with answers on <Esercizi di Algebra Lineare - Claretta Carrara> ( [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf), [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf), [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf) )
+- Exercises on <Esercizi di Algebra Lineare - Claretta Carrara> ( [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf), [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf), [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf) )
+- About "Page Rank": <[Page Rank algorithm - An application of Linear Algebra](https://didatticaonline.unitn.it/dol/pluginfile.php/1841258/mod_resource/content/2/GLA%20PR.pdf)>
+- Website about "Page Rank" 1: [PageRank](https://en.wikipedia.org/wiki/PageRank)
+- Website about "Page Rank" 2: [A Friendly Introduction to the PageRank Algorithm](https://churchill-aloha.medium.com/pagerank-algorithm-explanation-code-2fb6c0389bed)
+- Website about "Page Rank" 3: [Lecture #3: PageRank Algorithm - The Mathematics of Google Search](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
 
 [[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
+- Exercises end with '_': Unfinished
+- Exercises end with '-': Can be improved but too lazy to do so
 - Textbook 1 link: <[Schaum's Outline of Programming with C++ - John R. Hubbard - Second Edition](https://docs.google.com/file/d/0B5_mAdKvdKTldkRvQVpCYWszYW8/edit?resourcekey=0-h-lpg4pLZwfhhHAkURA08g)>
 - Textbook 2 link: <[Programming: Principle and Practice Using C++ - Bjarne Stroustrup - Second Edition](https://archive.org/details/fef0590f02fa06bb42cba558fbc9e51c)>
 - Textbook 3 link: <[The C++ Programming Language - Bjarne Stroustrup - Fourth Edition](https://archive.org/details/the-c-programming-language-4th-edition-bjarne-stroustrup)>
 - Textbook 4 link: <[C++: The Complete Reference - Herbert Schildt - Fourth Edition](https://resource.laikipia.ac.ke/sites/default/files/c%2B%2B%20the%20complete%20reference%2C%204th%20edition%20-%20herbert%20schildt.pdf)>
-- Exercises end with '_': Unfinished
-- Exercises end with '-': Can be improved but too lazy to do so
+- Website about "C++" 1: [C++ Programming Language](https://devdocs.io/cpp)
+- Website about "C++" 2: [C++ reference](https://en.cppreference.com/w)
+- Website about "C++" 3: [cplusplus](https://cplusplus.com)
+- Website about "compiler from browser" 1: [C++ Shell](https://cpp.sh)
+- Website about "compiler from browser" 2: [Replit](https://replit.com)
+- Website about "Linux Filesystem" 1: [An introduction to Linux filesystems](https://opensource.com/life/16/10/introduction-linux-filesystems)
+- Website about "Linux Filesystem" 2: [Classic SysAdmin: The Linux Filesystem Explained](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-the-linux-filesystem-explained)
+- Website about "Linux Filesystem" 3: [File systems](https://wiki.archlinux.org/title/File_systems)
+- Website about "Linux (basic) commands" 1: [Bash Shell Reference](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html)
+- Website about "Linux (basic) commands" 2: [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash)
+- Website about "Linux (basic) commands" 3: [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
 
 ### In Advanced
 
