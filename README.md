@@ -11,7 +11,6 @@
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook link: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
-- Website for taking notes: [Goodnotes](https://www.goodnotes.com)
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
 - Textbook link: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
@@ -49,6 +48,7 @@
 - Website about "Derived types" 2: [User Defined Data Types in C++](https://www.geeksforgeeks.org/user-defined-data-types-in-c)
 - Website about "ASCII table": [ASCII Table](https://www.asciitable.com)
 - Website about "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
+- About "C++ Compact Reference": <[C++ Compact Reference - C++ Team](https://didatticaonline.unitn.it/dol/pluginfile.php/1889245/mod_resource/content/2/C%2B%2BReferenceGuide.pdf)>
 
 ### In Advanced
 
