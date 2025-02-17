@@ -10,18 +10,25 @@
 ### Compulsory
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
-- Textbook link: [Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione](https://archive.org/details/analisi-matematica-1-canuto-tabacco)
+- Textbook link: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
+- Textbook link: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
 - Most of the exercises can be found with answers on <Esercizi di Algebra Lineare - Claretta Carrara> ( [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf), [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf), [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf) )
 
 [[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
+- Textbook 1 link: <[Schaum's Outline of Programming with C++ - John R. Hubbard - Second Edition](https://docs.google.com/file/d/0B5_mAdKvdKTldkRvQVpCYWszYW8/edit?resourcekey=0-h-lpg4pLZwfhhHAkURA08g)>
+- Textbook 2 link: <[Programming: Principle and Practice Using C++ - Bjarne Stroustrup - Second Edition](https://archive.org/details/fef0590f02fa06bb42cba558fbc9e51c)>
+- Textbook 3 link: <[The C++ Programming Language - Bjarne Stroustrup - Fourth Edition](https://archive.org/details/the-c-programming-language-4th-edition-bjarne-stroustrup)>
+- Textbook 4 link: <[C++: The Complete Reference - Herbert Schildt - Fourth Edition](https://resource.laikipia.ac.ke/sites/default/files/c%2B%2B%20the%20complete%20reference%2C%204th%20edition%20-%20herbert%20schildt.pdf)>
 - Exercises end with '_': Unfinished
 - Exercises end with '-': Can be improved but too lazy to do so
 
 ### In Advanced
 
 [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
+- Textbook link: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
+- Useful website: [CyBOK](https://www.cybok.org)
 
 [[146125] Advanced Programming - PATRIGNANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39224):
 
