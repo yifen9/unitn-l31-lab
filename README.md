@@ -11,12 +11,12 @@
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook link: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
-- Useful website for taking notes: [Goodnotes](https://www.goodnotes.com)
+- Website for taking notes: [Goodnotes](https://www.goodnotes.com)
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
 - Textbook link: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
 - Exercises on <Esercizi di Algebra Lineare - Claretta Carrara> ( [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf), [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf), [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf) )
-- About "Page Rank": <[Page Rank algorithm - An application of Linear Algebra](https://didatticaonline.unitn.it/dol/pluginfile.php/1841258/mod_resource/content/2/GLA%20PR.pdf)>
+- About "Page Rank": <[Page Rank algorithm - An application of Linear Algebra - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841258/mod_resource/content/2/GLA%20PR.pdf)>
 - Website about "Page Rank" 1: [PageRank](https://en.wikipedia.org/wiki/PageRank)
 - Website about "Page Rank" 2: [A Friendly Introduction to the PageRank Algorithm](https://churchill-aloha.medium.com/pagerank-algorithm-explanation-code-2fb6c0389bed)
 - Website about "Page Rank" 3: [Lecture #3: PageRank Algorithm - The Mathematics of Google Search](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
@@ -39,6 +39,16 @@
 - Website about "Linux (basic) commands" 1: [Bash Shell Reference](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html)
 - Website about "Linux (basic) commands" 2: [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash)
 - Website about "Linux (basic) commands" 3: [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
+- About "The Von Neumann Architecture": <[Lecture 1_xx – Computers - Adolfo Villafiorita - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1863020/mod_resource/content/1/L01_02_PC_v2.pdf)>
+- About "Why Binary Representations": <[Introduction to “The First Draft Report on the EDVAC” - John von Neumann - University of Pennsylvania](https://people.csail.mit.edu/brooks/idocs/VonNeumann_EDVAC.pdf)>
+- About "Types of error": <[Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)>
+- Website about "common errors" 1: [All of Programming](https://www.cs.cornell.edu/~bracy/aop/errors)
+- Website about "common errors" 2: [7 Common Errors in C Programming and C++ Programming](https://www.perforce.com/blog/qac/7-common-errors-c-cpp-programming)
+- Website about "common errors" 3: [Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)
+- Website about "Derived types" 1: [Derived Data Types in C++](https://www.geeksforgeeks.org/derived-data-types-in-c)
+- Website about "Derived types" 2: [User Defined Data Types in C++](https://www.geeksforgeeks.org/user-defined-data-types-in-c)
+- Website about "ASCII table": [ASCII Table](https://www.asciitable.com)
+- Website about "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
 
 ### In Advanced
 
