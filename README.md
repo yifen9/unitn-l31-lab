@@ -7,6 +7,8 @@
 
 ## Year 1 Semester 1
 
+### Compulsory
+
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook link: [Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione](https://archive.org/details/analisi-matematica-1-canuto-tabacco)
 
@@ -17,7 +19,23 @@
 - Exercises end with '_': Unfinished
 - Exercises end with '-': Can be improved but too lazy to do so
 
+### In Advanced
+
+[[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
+
+[[146125] Advanced Programming - PATRIGNANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39224):
+
+[[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126):
+
+[[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
+
+[[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
+
+[[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+
 ## Year 1 Semester 2
+
+### Compulsory
 
 [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747):
 
@@ -29,15 +47,15 @@
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 
-## Year 2 Semester 1
+### In Advanced
 
-[145993] Databases - SIRACUSA:
+[[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
-[[146058] Networking - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
+[[146066] Human Computer Interaction - TURCHET](https://didatticaonline.unitn.it/dol/course/view.php?id=40750):
 
-[[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
+[[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310):
 
-[[146290] Algorithms and Data Structures - part 1 - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+[[146315] Introduction to machine learning - IACCA](https://didatticaonline.unitn.it/dol/course/view.php?id=40677):
 
 ---
 
