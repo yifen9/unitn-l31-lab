@@ -29,9 +29,37 @@
 
 [[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
 
+[[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261):
+
 [[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+
+### Elective
+
+[[145996] Embedded Software for the Internet of Things - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=39351):
+
+[[146069] Next generation networks - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39094):
+
+[[146130] Fundamentals of robotics - PALOPOLI](https://didatticaonline.unitn.it/dol/course/view.php?id=39523):
+
+[[146134] Vision and Recognition - CONCI](https://didatticaonline.unitn.it/dol/course/view.php?id=39353):
+
+[[146135] Digital signal coding - MELGANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39135):
+
+[[146142] Physics 2 - HAUKE](https://didatticaonline.unitn.it/dol/course/view.php?id=39347):
+
+[[146146] Fundamentals of electronics (Module 2: Analog electronics) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=40810):
+
+[[146163] Basics of optoelectronics - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39262):
+
+[[146198] High-Frequency Circuits for Systems-on-Chip - LIZZI](https://didatticaonline.unitn.it/dol/course/view.php?id=39294):
+
+[[146209] Introduction to Parallel Computing - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39266):
+
+[[146304] Laboratory of Systems on Chip - TONTINI](https://didatticaonline.unitn.it/dol/course/view.php?id=39119):
+
+[[146311] Remote Sensing Systems and Image Analysis - BRUZZONE](https://didatticaonline.unitn.it/dol/course/view.php?id=39116):
 
 ## Year 1 Semester 2
 
@@ -56,6 +84,14 @@
 [[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310):
 
 [[146315] Introduction to machine learning - IACCA](https://didatticaonline.unitn.it/dol/course/view.php?id=40677):
+
+### Elective
+
+[[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
+
+[[146061] Physics - HAASE](https://didatticaonline.unitn.it/dol/course/view.php?id=40885):
+
+[[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310):
 
 ---
 
