@@ -21,12 +21,16 @@
 - Website about "Page Rank" 3: [Lecture #3: PageRank Algorithm - The Mathematics of Google Search](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
 
 [[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
-- Exercises end with '_': Unfinished
-- Exercises end with '-': Can be improved but too lazy to do so
 - Textbook 1: <[Schaum's Outline of Programming with C++ - John R. Hubbard - Second Edition](https://docs.google.com/file/d/0B5_mAdKvdKTldkRvQVpCYWszYW8/edit?resourcekey=0-h-lpg4pLZwfhhHAkURA08g)>
 - Textbook 2: <[Programming: Principle and Practice Using C++ - Bjarne Stroustrup - Second Edition](https://archive.org/details/fef0590f02fa06bb42cba558fbc9e51c)>
 - Textbook 3: <[The C++ Programming Language - Bjarne Stroustrup - Fourth Edition](https://archive.org/details/the-c-programming-language-4th-edition-bjarne-stroustrup)>
 - Textbook 4: <[C++: The Complete Reference - Herbert Schildt - Fourth Edition](https://resource.laikipia.ac.ke/sites/default/files/c%2B%2B%20the%20complete%20reference%2C%204th%20edition%20-%20herbert%20schildt.pdf)>
+- Exercises end with '_': Unfinished
+- Exercises end with '-': Can be improved but too lazy to do so
+- About "The Von Neumann Architecture": <[Lecture 1_xx – Computers - Adolfo Villafiorita - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1863020/mod_resource/content/1/L01_02_PC_v2.pdf)>
+- About "Why Binary Representations": <[Introduction to “The First Draft Report on the EDVAC” - John von Neumann - University of Pennsylvania](https://people.csail.mit.edu/brooks/idocs/VonNeumann_EDVAC.pdf)>
+- About "Types of error": <[Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)>
+- About "C++ Compact Reference": <[C++ Compact Reference - C++ Team](https://didatticaonline.unitn.it/dol/pluginfile.php/1889245/mod_resource/content/2/C%2B%2BReferenceGuide.pdf)>
 - Website about "C++" 1: [C++ Programming Language](https://devdocs.io/cpp)
 - Website about "C++" 2: [C++ reference](https://en.cppreference.com/w)
 - Website about "C++" 3: [cplusplus](https://cplusplus.com)
@@ -38,9 +42,6 @@
 - Website about "Linux (basic) commands" 1: [Bash Shell Reference](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html)
 - Website about "Linux (basic) commands" 2: [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash)
 - Website about "Linux (basic) commands" 3: [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
-- About "The Von Neumann Architecture": <[Lecture 1_xx – Computers - Adolfo Villafiorita - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1863020/mod_resource/content/1/L01_02_PC_v2.pdf)>
-- About "Why Binary Representations": <[Introduction to “The First Draft Report on the EDVAC” - John von Neumann - University of Pennsylvania](https://people.csail.mit.edu/brooks/idocs/VonNeumann_EDVAC.pdf)>
-- About "Types of error": <[Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)>
 - Website about "common errors" 1: [All of Programming](https://www.cs.cornell.edu/~bracy/aop/errors)
 - Website about "common errors" 2: [7 Common Errors in C Programming and C++ Programming](https://www.perforce.com/blog/qac/7-common-errors-c-cpp-programming)
 - Website about "common errors" 3: [Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)
@@ -48,7 +49,6 @@
 - Website about "Derived types" 2: [User Defined Data Types in C++](https://www.geeksforgeeks.org/user-defined-data-types-in-c)
 - Website about "ASCII table": [ASCII Table](https://www.asciitable.com)
 - Website about "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
-- About "C++ Compact Reference": <[C++ Compact Reference - C++ Team](https://didatticaonline.unitn.it/dol/pluginfile.php/1889245/mod_resource/content/2/C%2B%2BReferenceGuide.pdf)>
 
 ### In Advanced
 
