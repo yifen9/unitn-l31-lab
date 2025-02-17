@@ -5,9 +5,19 @@
 
 ---
 
-## Year 1 Semester 1
+## Files
 
-### Compulsory
+[[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
+- Exercises end with '_': Unfinished
+- Exercises end with '-': Can be improved but too lazy to do so
+
+---
+
+## Resources
+
+### Year 1 Semester 1
+
+#### Compulsory
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
@@ -25,8 +35,6 @@
 - Textbook 2: <[Programming: Principle and Practice Using C++ - Bjarne Stroustrup - Second Edition](https://archive.org/details/fef0590f02fa06bb42cba558fbc9e51c)>
 - Textbook 3: <[The C++ Programming Language - Bjarne Stroustrup - Fourth Edition](https://archive.org/details/the-c-programming-language-4th-edition-bjarne-stroustrup)>
 - Textbook 4: <[C++: The Complete Reference - Herbert Schildt - Fourth Edition](https://resource.laikipia.ac.ke/sites/default/files/c%2B%2B%20the%20complete%20reference%2C%204th%20edition%20-%20herbert%20schildt.pdf)>
-- Exercises end with '_': Unfinished
-- Exercises end with '-': Can be improved but too lazy to do so
 - About "The Von Neumann Architecture": <[Lecture 1_xx – Computers - Adolfo Villafiorita - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1863020/mod_resource/content/1/L01_02_PC_v2.pdf)>
 - About "Why Binary Representations": <[Introduction to “The First Draft Report on the EDVAC” - John von Neumann - University of Pennsylvania](https://people.csail.mit.edu/brooks/idocs/VonNeumann_EDVAC.pdf)>
 - About "Types of error": <[Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)>
@@ -50,7 +58,7 @@
 - Website about "ASCII table": [ASCII Table](https://www.asciitable.com)
 - Website about "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
 
-### In Advanced
+#### In Advanced
 
 [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
 - Textbook: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
@@ -68,7 +76,7 @@
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
 
-### Elective
+#### Elective
 
 [[145996] Embedded Software for the Internet of Things - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=39351):
 
@@ -94,9 +102,9 @@
 
 [[146311] Remote Sensing Systems and Image Analysis - BRUZZONE](https://didatticaonline.unitn.it/dol/course/view.php?id=39116):
 
-## Year 1 Semester 2
+### Year 1 Semester 2
 
-### Compulsory
+#### Compulsory
 
 [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747):
 
@@ -108,7 +116,7 @@
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 
-### In Advanced
+#### In Advanced
 
 [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
@@ -118,7 +126,7 @@
 
 [[146315] Introduction to machine learning - IACCA](https://didatticaonline.unitn.it/dol/course/view.php?id=40677):
 
-### Elective
+#### Elective
 
 [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
