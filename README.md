@@ -21,15 +21,15 @@
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
-- Website about taking notes: [Goodnotes](https://www.goodnotes.com)
+- About taking notes: [Goodnotes](https://www.goodnotes.com)
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
 - Textbook: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
 - Exercises on <Esercizi di Algebra Lineare - Claretta Carrara> ( [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf), [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf), [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf) )
 - About "Page Rank": <[Page Rank algorithm - An application of Linear Algebra - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841258/mod_resource/content/2/GLA%20PR.pdf)>
-- Website about "Page Rank" 1: [PageRank](https://en.wikipedia.org/wiki/PageRank)
-- Website about "Page Rank" 2: [A Friendly Introduction to the PageRank Algorithm](https://churchill-aloha.medium.com/pagerank-algorithm-explanation-code-2fb6c0389bed)
-- Website about "Page Rank" 3: [Lecture #3: PageRank Algorithm - The Mathematics of Google Search](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
+- About "Page Rank" 1: [PageRank](https://en.wikipedia.org/wiki/PageRank)
+- About "Page Rank" 2: [A Friendly Introduction to the PageRank Algorithm](https://churchill-aloha.medium.com/pagerank-algorithm-explanation-code-2fb6c0389bed)
+- About "Page Rank" 3: [Lecture #3: PageRank Algorithm - The Mathematics of Google Search](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
 
 [[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
 - Textbook 1: <[Schaum's Outline of Programming with C++ - John R. Hubbard - Second Edition](https://docs.google.com/file/d/0B5_mAdKvdKTldkRvQVpCYWszYW8/edit?resourcekey=0-h-lpg4pLZwfhhHAkURA08g)>
@@ -40,30 +40,30 @@
 - About "Why Binary Representations": <[Introduction to “The First Draft Report on the EDVAC” - John von Neumann - University of Pennsylvania](https://people.csail.mit.edu/brooks/idocs/VonNeumann_EDVAC.pdf)>
 - About "Types of error": <[Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)>
 - About "C++ Compact Reference": <[C++ Compact Reference - C++ Team](https://didatticaonline.unitn.it/dol/pluginfile.php/1889245/mod_resource/content/2/C%2B%2BReferenceGuide.pdf)>
-- Website about "C++" 1: [C++ Programming Language](https://devdocs.io/cpp)
-- Website about "C++" 2: [C++ reference](https://en.cppreference.com/w)
-- Website about "C++" 3: [cplusplus](https://cplusplus.com)
-- Website about "compiler from browser" 1: [C++ Shell](https://cpp.sh)
-- Website about "compiler from browser" 2: [Replit](https://replit.com)
-- Website about "Linux Filesystem" 1: [An introduction to Linux filesystems](https://opensource.com/life/16/10/introduction-linux-filesystems)
-- Website about "Linux Filesystem" 2: [Classic SysAdmin: The Linux Filesystem Explained](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-the-linux-filesystem-explained)
-- Website about "Linux Filesystem" 3: [File systems](https://wiki.archlinux.org/title/File_systems)
-- Website about "Linux (basic) commands" 1: [Bash Shell Reference](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html)
-- Website about "Linux (basic) commands" 2: [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash)
-- Website about "Linux (basic) commands" 3: [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
-- Website about "common errors" 1: [All of Programming](https://www.cs.cornell.edu/~bracy/aop/errors)
-- Website about "common errors" 2: [7 Common Errors in C Programming and C++ Programming](https://www.perforce.com/blog/qac/7-common-errors-c-cpp-programming)
-- Website about "common errors" 3: [Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)
-- Website about "Derived types" 1: [Derived Data Types in C++](https://www.geeksforgeeks.org/derived-data-types-in-c)
-- Website about "Derived types" 2: [User Defined Data Types in C++](https://www.geeksforgeeks.org/user-defined-data-types-in-c)
-- Website about "ASCII table": [ASCII Table](https://www.asciitable.com)
-- Website about "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
+- About "C++" 1: [C++ Programming Language](https://devdocs.io/cpp)
+- About "C++" 2: [C++ reference](https://en.cppreference.com/w)
+- About "C++" 3: [cplusplus](https://cplusplus.com)
+- About "compiler from browser" 1: [C++ Shell](https://cpp.sh)
+- About "compiler from browser" 2: [Replit](https://replit.com)
+- About "Linux Filesystem" 1: [An introduction to Linux filesystems](https://opensource.com/life/16/10/introduction-linux-filesystems)
+- About "Linux Filesystem" 2: [Classic SysAdmin: The Linux Filesystem Explained](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-the-linux-filesystem-explained)
+- About "Linux Filesystem" 3: [File systems](https://wiki.archlinux.org/title/File_systems)
+- About "Linux (basic) commands" 1: [Bash Shell Reference](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html)
+- About "Linux (basic) commands" 2: [An A-Z Index of the Linux command line: bash + utilities.](https://ss64.com/bash)
+- About "Linux (basic) commands" 3: [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
+- About "common errors" 1: [All of Programming](https://www.cs.cornell.edu/~bracy/aop/errors)
+- About "common errors" 2: [7 Common Errors in C Programming and C++ Programming](https://www.perforce.com/blog/qac/7-common-errors-c-cpp-programming)
+- About "common errors" 3: [Error Messages and Debugging in C++](http://www2.cs.uidaho.edu/~rinker/cs113/errors.pdf)
+- About "Derived types" 1: [Derived Data Types in C++](https://www.geeksforgeeks.org/derived-data-types-in-c)
+- About "Derived types" 2: [User Defined Data Types in C++](https://www.geeksforgeeks.org/user-defined-data-types-in-c)
+- About "ASCII table": [ASCII Table](https://www.asciitable.com)
+- About "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
 
 #### In Advanced
 
 [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
 - Textbook: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
-- Useful website: [CyBOK](https://www.cybok.org)
+- About: [CyBOK](https://www.cybok.org)
 
 [[146125] Advanced Programming - PATRIGNANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39224):
 
@@ -77,8 +77,9 @@
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
 - Textbook: <Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology> ( [link 1](https://archive.org/details/introduction-to-algorithms-third-edition-2009), [link 2](https://github.com/aliaamohamedali/Algorithms/blob/master/introduction-to-algorithms-3rd-edition.pdf), [link 3](https://docs.google.com/file/d/0Bzvk2zJDZ4FPVUN3SF9XeHdxbU0/edit?resourcekey=0--t9UyRgxg2vEUI1M2pqqWw) )
-- Website about "PhD jokes": [PhD Comics](https://phdcomics.com)
-- Website about "algorithm": [Programming pearls: algorithm design techniques](https://dl.acm.org/doi/10.1145/358234.381162)
+- About "PhD jokes": [PhD Comics](https://phdcomics.com)
+- About "algorithm": [Programming pearls: algorithm design techniques](https://dl.acm.org/doi/10.1145/358234.381162)
+- About "C bible": <The C Programming Language - Brian W. Kernighan, Dennis M. Ritchie - Second Edition> ( [link 1](https://archive.org/details/the-ansi-c-programming-language-by-brian-w.-kernighan-dennis-m.-ritchie.org/page/8/mode/2up), [link 2](https://venkivasamsetti.github.io/ebookworm.github.io/Books/cse/C%20Programming%20Language%20(2nd%20Edition).pdf), [link 3](https://drive.google.com/file/d/0B-Tcuov0a1CiQ0lnRUJTZkhSY3M/view?resourcekey=0-EYhV8oJK7ZowKtGMAXWnsQ) )
 
 #### Elective
 
