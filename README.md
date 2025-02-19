@@ -75,7 +75,7 @@
 [[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
-- Textbook: <[Introduction to Algorithms - Cormen, T.H., Leiserson, C.E., Rivest, R.L., Stein - Third Edition](https://archive.org/details/introduction-to-algorithms-third-edition-2009)>
+- Textbook: <[Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology](https://archive.org/details/introduction-to-algorithms-third-edition-2009)>
 
 #### Elective
 
