@@ -21,7 +21,7 @@
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
-- Useful website about taking notes: [Goodnotes](https://www.goodnotes.com)
+- Website about taking notes: [Goodnotes](https://www.goodnotes.com)
 
 [[146056] Geometry and Linear Algebra - OCCHETTA](https://didatticaonline.unitn.it/dol/course/view.php?id=39175):
 - Textbook: <[Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)>
@@ -77,7 +77,8 @@
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
 - Textbook: <Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology> ( [link 1](https://archive.org/details/introduction-to-algorithms-third-edition-2009), [link 2](https://github.com/aliaamohamedali/Algorithms/blob/master/introduction-to-algorithms-3rd-edition.pdf), [link 3](https://docs.google.com/file/d/0Bzvk2zJDZ4FPVUN3SF9XeHdxbU0/edit?resourcekey=0--t9UyRgxg2vEUI1M2pqqWw) )
-- Useful website about "PhD jokes": [PhD Comics](https://phdcomics.com)
+- Website about "PhD jokes": [PhD Comics](https://phdcomics.com)
+- Website about "algorithm": [Programming pearls: algorithm design techniques](https://dl.acm.org/doi/10.1145/358234.381162)
 
 #### Elective
 
