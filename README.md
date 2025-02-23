@@ -75,7 +75,8 @@
 
 [[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
 - About "Logic": [Logicomix](https://www.logicomix.com/en/index.html)
-- About "ChatGPT": [A Categorical Archive of ChatGPT Failures](https://arxiv.org/pdf/2302.03494)
+- About "ChatGPT" 1: [A Categorical Archive of ChatGPT Failures](https://arxiv.org/pdf/2302.03494)
+- About "ChatGPT" 2: [Testing the limits of logical reasoning in neural and hybrid models](https://aclanthology.org/2024.findings-naacl.147)
 
 [[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
 - Textbook: <Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology> ( [link 1](https://archive.org/details/introduction-to-algorithms-third-edition-2009), [link 2](https://github.com/aliaamohamedali/Algorithms/blob/master/introduction-to-algorithms-3rd-edition.pdf), [link 3](https://docs.google.com/file/d/0Bzvk2zJDZ4FPVUN3SF9XeHdxbU0/edit?resourcekey=0--t9UyRgxg2vEUI1M2pqqWw) )
