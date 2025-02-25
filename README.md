@@ -10,6 +10,9 @@
 [[146140] Computer Programming 1 - MARCHETTO](https://didatticaonline.unitn.it/dol/course/view.php?id=39259):
 - Exercises end with '_': Unfinished
 - Exercises end with '-': Can be improved but too lazy to do so
+[[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+- Exercises end with '_': Unfinished
+- Exercises end with '-': Can be improved but too lazy to do so
 
 ---
 
