@@ -121,14 +121,25 @@
 #### Compulsory
 
 [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747):
+- Textbook: <[Computer Organization and Design RISC-V Edition: The Hardware Software Interface - David A. Patterson, John L. Hennessy](https://libgen.li/ads.php?md5=c58f3d5dd8b40771d8ecbfeda52c6759)>
 
 [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332):
+- Textbook 1: <[Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)>
+- Textbook 2: <[Introduction to Probability and Statistics for Engineers and Scientists - Sheldon M. Ross - Sixth Edition - University of Southern California](https://libgen.li/ads.php?md5=005005ad175f4f705bd3c67aa5bee6ae)>
 
-[146062] Computer Programming 2 - MARCHESE:
+[[146062] Computer Programming 2 - MARCHESE](https://didatticaonline.unitn.it/dol/course/view.php?id=41190):
+- Textbook 1: <[Thinking in Java - Bruce Eckel - Fourth Edition](https://libgen.li/ads.php?md5=59224dba18dd9c3808542ae6251c8b8f)>
 
 [[146168] Functional Programming - KUPER](https://didatticaonline.unitn.it/dol/course/view.php?id=40605):
+- Textbook 1: <[Programming Languages: Principles and Paradigms - Maurizio Gabbrielli, Simone Martini - Università di Bologna](https://sci-hub.ru/10.1007/978-1-84882-914-5)>
+- Textbook 2: <[Elements of ML Programming - Jeffrey D. Ullman - Second Edition - Leland Stanford Junior University](https://archive.org/details/elementsofmlprog0000ullm)>
+- Textbook 3: <[Programming Languages: Principles and Practice - Kenneth C. Louden, Kenneth A. Lambert - Third Edition](https://libgen.li/ads.php?md5=f315d0f033400c6a521959dcdedd549a)>
+- Textbook 4: <[Programming Language Pragmatics - Michael L. Scott - Fourth Edition - University of Rochester](https://archive.org/details/programminglangu0000scot_4edi)>
+- Textbook 5: <[ML for the Working Programmer - L. C. Paulson - Second Edition - University of Cambridge](https://libgen.li/ads.php?md5=4a08e8674fd1860378572cd36af969c5)>
+- Textbook 6: <[Functional programming: practice and theory - Bruce J. MacLennan - University of Tennessee, Knoxville](https://archive.org/details/functionalprogra0000macl)>
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
+- Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
 
 #### In Advanced
 
