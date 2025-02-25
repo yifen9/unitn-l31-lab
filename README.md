@@ -59,7 +59,7 @@
 - About "ASCII table": [ASCII Table](https://www.asciitable.com)
 - About "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
 
-#### In Advanced
+#### In Advance
 
 [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
 - Textbook: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
@@ -141,7 +141,7 @@
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 - Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
 
-#### In Advanced
+#### In Advance
 
 [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
