@@ -129,6 +129,7 @@
 
 [[146062] Computer Programming 2 - MARCHESE](https://didatticaonline.unitn.it/dol/course/view.php?id=41190):
 - Textbook 1: <[Thinking in Java - Bruce Eckel - Fourth Edition](https://libgen.li/ads.php?md5=59224dba18dd9c3808542ae6251c8b8f)>
+- Textbook 2: <[Core Java: Fundamentals, Volume 1 - Cay Horstmann - Twelfth Edition](https://libgen.li/ads.php?md5=826c48c35d547c9dbe5492c0c5739a2e)>
 
 [[146168] Functional Programming - KUPER](https://didatticaonline.unitn.it/dol/course/view.php?id=40605):
 - Textbook 1: <[Programming Languages: Principles and Paradigms - Maurizio Gabbrielli, Simone Martini - Università di Bologna](https://sci-hub.ru/10.1007/978-1-84882-914-5)>
