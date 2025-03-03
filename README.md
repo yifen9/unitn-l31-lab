@@ -120,6 +120,7 @@
 
 [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747):
 - Textbook: <[Computer Organization and Design RISC-V Edition: The Hardware Software Interface - David A. Patterson, John L. Hennessy](https://libgen.li/ads.php?md5=c58f3d5dd8b40771d8ecbfeda52c6759)>
+- About "Floating-Point – Loss of Precision": [Decimal to 64 Bit IEEE 754 Binary: Convert Number 0.1 to 64 Bit Double Precision IEEE 754 Binary Floating Point Representation Standard, From Base Ten Decimal System](https://binary-system.base-conversion.ro/real-number-converted-from-decimal-system-to-64bit-double-precision-IEEE754-binary-floating-point.php?decimal_number_base_ten=0.1#google_vignette)
 
 [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332):
 - Textbook 1: <[Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)>
