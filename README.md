@@ -157,8 +157,6 @@
 
 [[146061] Physics - HAASE](https://didatticaonline.unitn.it/dol/course/view.php?id=40885):
 
-[[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310):
-
 ---
 
 Any concerns, please contact:
