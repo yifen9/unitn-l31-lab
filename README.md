@@ -140,6 +140,7 @@
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 - Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
+- About "Mathematics for Computer Science": [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
 
 #### In Advance
 
