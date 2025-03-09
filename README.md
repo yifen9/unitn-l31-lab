@@ -125,6 +125,8 @@
 [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332):
 - Textbook 1: <[Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)>
 - Textbook 2: <[Introduction to Probability and Statistics for Engineers and Scientists - Sheldon M. Ross - Sixth Edition - University of Southern California](https://libgen.li/ads.php?md5=005005ad175f4f705bd3c67aa5bee6ae)>
+- About "Quartiles" 1: [Quartile](https://en.wikipedia.org/wiki/Quantile)
+- About "Quartiles" 2: <[Sample Quantiles in Statistical Packages](https://www.researchgate.net/publication/222105754_Sample_Quantiles_in_Statistical_Packages)>
 
 [[146062] Computer Programming 2 - MARCHESE](https://didatticaonline.unitn.it/dol/course/view.php?id=41190):
 - Textbook 1: <[Thinking in Java - Bruce Eckel - Fourth Edition](https://libgen.li/ads.php?md5=59224dba18dd9c3808542ae6251c8b8f)>
@@ -140,7 +142,7 @@
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 - Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
-- About "Mathematics for Computer Science": [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
+- About "Mathematics for Computer Science": <[MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)>
 
 #### In Advance
 
