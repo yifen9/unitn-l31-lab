@@ -43,6 +43,7 @@ public class Circle {
         this.y = y;
         this.r = r;
         this.name = name;
+        //name.compareToIgnoreCase(str:"camera");
     }
 
     /** Compute the distance between the current circle and the Circle c2
