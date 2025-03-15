@@ -71,8 +71,7 @@
 - About Libre Office Math usage: <[LibreOffice Suite Math - English](https://www.youtube.com/playlist?list=PL7WFbgpeASD3Pijcdx1dQZwMfXgC8kq0T)>
 - About Excel usage 1: [Excel - Technology for Teachers and Students](https://www.youtube.com/playlist?list=PL_iwD7O7FG7jzLQIYm6-9Gx3hvXVUG7C5)
 - About Excel usage 2: [Excel Obstacle Course](https://www.youtube.com/channel/UC5DjKkF-82PJqaVzVz44W6g)
-- About LaTeX: [Documentation - Overleaf](https://www.overleaf.com/learn)
-- About LaTeX reference: [LaTeX cheatsheet](https://quickref.me/latex)
+- About LaTeX reference: [LaTeX Documentation](https://www.latex-project.org/help/documentation)
 - About KeTeX reference: [Supported Functions · KaTeX](https://katex.org/docs/supported.html)
 - About "Boxplot": [Box plot generator - Desmos](https://www.desmos.com/calculator/h9icuu58wn)
 - About "Stemplot": [Stem and Leaf Plot Generator](https://www.calculatorsoup.com/calculators/statistics/stemleaf.php)
