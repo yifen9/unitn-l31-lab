@@ -185,4 +185,6 @@ Any concerns, please contact:
 
 ---
 
-![Visitor Counter](https://count.himiku.com/get/@anto?theme=rule34)
+<p align="center">
+  <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
+</p>
