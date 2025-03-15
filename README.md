@@ -125,6 +125,11 @@
 [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332):
 - Textbook 1: <[Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)>
 - Textbook 2: <[Introduction to Probability and Statistics for Engineers and Scientists - Sheldon M. Ross - Sixth Edition - University of Southern California](https://libgen.li/ads.php?md5=005005ad175f4f705bd3c67aa5bee6ae)>
+- About Excel usage: [Excel Obstacle Course](https://www.youtube.com/channel/UC5DjKkF-82PJqaVzVz44W6g)
+- About formatting homework 1: [Notion](https://www.notion.com/help/guides/category/documentation)
+- About formatting homework 2: [KaTeX](https://katex.org/docs/supported.html)
+- About "Boxplot": [Box plot generator - Desmos](https://www.desmos.com/calculator/h9icuu58wn)
+- About "Stemplot": [Stem and Leaf Plot Generator](https://www.calculatorsoup.com/calculators/statistics/stemleaf.php)
 - About "Quartiles" 1: [Quartile](https://en.wikipedia.org/wiki/Quantile)
 - About "Quartiles" 2: <[Sample Quantiles in Statistical Packages](https://www.researchgate.net/publication/222105754_Sample_Quantiles_in_Statistical_Packages)>
 
@@ -144,6 +149,7 @@
 - Textbook 4: <[Programming Language Pragmatics - Michael L. Scott - Fourth Edition - University of Rochester](https://archive.org/details/programminglangu0000scot_4edi)>
 - Textbook 5: <[ML for the Working Programmer - L. C. Paulson - Second Edition - University of Cambridge](https://libgen.li/ads.php?md5=4a08e8674fd1860378572cd36af969c5)>
 - Textbook 6: <[Functional programming: practice and theory - Bruce J. MacLennan - University of Tennessee, Knoxville](https://archive.org/details/functionalprogra0000macl)>
+- About "Poly/ML Basis": [Poly/ML Basis Library](https://polyml.org/documentation/Reference/Basis.html)
 
 [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688):
 - Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
