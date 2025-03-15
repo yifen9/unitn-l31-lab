@@ -1,5 +1,5 @@
 using namespace std;
-#include "ex1V-stack.h"
+#include "ex1V-stack.hpp"
 
 Stack::Stack(){S = NULL;}
 

@@ -1,5 +1,5 @@
 using namespace std;
-#include "BST.h"
+#include "BST.hpp"
 
 int str_to_int(const string s){
     int len=0;

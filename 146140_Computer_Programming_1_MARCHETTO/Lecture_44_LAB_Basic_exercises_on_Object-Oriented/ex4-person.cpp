@@ -1,5 +1,5 @@
 using namespace std;
-#include "ex4-person.h"
+#include "ex4-person.hpp"
 
 void Person::p_set_array_of_chars(char* &a1, string a2){
     int l = 0;

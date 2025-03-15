@@ -1,5 +1,5 @@
 using namespace std;
-#include "stack.h"
+#include "stack.hpp"
 
 Stack::Stack(){}
 

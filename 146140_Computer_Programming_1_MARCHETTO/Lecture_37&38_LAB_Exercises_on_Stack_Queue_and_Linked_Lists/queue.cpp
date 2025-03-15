@@ -1,5 +1,5 @@
 using namespace std;
-#include "queue.h"
+#include "queue.hpp"
 
 Queue::Queue(){Q = new node();}
 
