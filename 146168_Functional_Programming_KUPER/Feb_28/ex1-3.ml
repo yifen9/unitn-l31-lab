@@ -1,3 +1,7 @@
-3>4 orelse 5<6 andalso not (7<>8);
+(*Express E orlse F and E andalso F using if-then-else statements*)
 
-if 6<10 then 6.0 else 10.6;
+(*
+if E then true else F;
+
+if E then F else false;
+*)
