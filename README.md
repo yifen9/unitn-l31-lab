@@ -186,5 +186,3 @@ Any concerns, please contact:
 ---
 
 ![Visitor Counter](https://count.himiku.com/get/@anto?theme=rule34)
-
-![Visitor Counter](https://counter.flimixst.dev/counter/a27ed9e7-cc25-4c8a-b47e-9e57583b27ae?mf=30&col=8&lp=visitors&vd=number&fs=large&sl=true&sp=true&tc=%23000000&bc=%23CCCCCC&bg=%23FFFFFF)
