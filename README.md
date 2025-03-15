@@ -187,4 +187,6 @@ Any concerns, please contact:
 
 <p align="center">
   <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
+  <br>
+  <a href="https://info.flagcounter.com/ZJLV"><img src="https://s01.flagcounter.com/countxl/ZJLV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_64/viewers_3/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
 </p>
