@@ -13,9 +13,9 @@
 
 ## Resources
 
-### Year 1 Semester 1
+### Compulsory
 
-#### Compulsory
+#### Year 1 Semester 1
 
 [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114):
 - Textbook: <[Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)>
@@ -57,66 +57,7 @@
 - About "ASCII table": [ASCII Table](https://www.asciitable.com)
 - About "Recursive function": [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
 
-#### In Advance
-
-[[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
-- Textbook: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
-- About: [CyBOK](https://www.cybok.org)
-
-[[146125] Advanced Programming - PATRIGNANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39224):
-
-[[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126):
-
-[[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
-
-[[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261):
-
-[[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
-- Textbook 1: <[Logic in Computer Science: Modelling and Reasoning about Systems - Michael Huth, Mark Ryan - Second Edition](https://drive.google.com/file/d/0B-UzMn1HD-3MeUVpRDh4SnIwMXM/edit?resourcekey=0-9w_kD6tsSJcJQ0Y77hn7ZQ)>
-- Textbook 2: <[Mathematical Logic through Python - Yannai A. Gonczarowski, Noam Nisan](https://www.scribd.com/document/589340871/Mathematical-Logic-Through-Python)>
-- About "Logic": [Logicomix](https://archive.org/details/Logicomix-Comic-EarlyLifeOfBertrandRussell)
-- About "ChatGPT" 1: <[A Categorical Archive of ChatGPT Failures](https://arxiv.org/pdf/2302.03494)>
-- About "ChatGPT" 2: <[Testing the limits of logical reasoning in neural and hybrid models](https://aclanthology.org/2024.findings-naacl.147)>
-- About "ChatGPT" 3: <[Benchmarking Neural Network Generalization for Grammar Induction](https://aclanthology.org/2023.clasp-1.15)>
-- About "Are NNs capable of compositional interpretation?": <[Compositionality Decomposed:  How doNeural Networks Generalise?](https://www.jair.org/index.php/jair/article/view/11674/26576)>
-
-[[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
-- Textbook: <Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology> ( [link 1](https://archive.org/details/introduction-to-algorithms-third-edition-2009), [link 2](https://github.com/aliaamohamedali/Algorithms/blob/master/introduction-to-algorithms-3rd-edition.pdf), [link 3](https://docs.google.com/file/d/0Bzvk2zJDZ4FPVUN3SF9XeHdxbU0/edit?resourcekey=0--t9UyRgxg2vEUI1M2pqqWw) )
-- About "PhD jokes": [PhD Comics](https://phdcomics.com)
-- About "algorithm": [Programming pearls: algorithm design techniques](https://dl.acm.org/doi/10.1145/358234.381162)
-- About "C bible": <The C Programming Language - Brian W. Kernighan, Dennis M. Ritchie - Second Edition> ( [link 1](https://archive.org/details/the-ansi-c-programming-language-by-brian-w.-kernighan-dennis-m.-ritchie.org/page/8/mode/2up), [link 2](https://venkivasamsetti.github.io/ebookworm.github.io/Books/cse/C%20Programming%20Language%20(2nd%20Edition).pdf), [link 3](https://drive.google.com/file/d/0B-Tcuov0a1CiQ0lnRUJTZkhSY3M/view?resourcekey=0-EYhV8oJK7ZowKtGMAXWnsQ) )
-- About "Multiplication": <Integer multiplication in time O(n log n)> ( [link 1](https://hal.science/hal-02070778/document), [link 2](https://www.youtube.com/watch?v=FKGRc867j10) )
-- About "algorithm assembly instructions": [IDEA](https://idea-instructions.com)
-
-#### Elective
-
-[[145996] Embedded Software for the Internet of Things - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=39351):
-
-[[146069] Next generation networks - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39094):
-
-[[146130] Fundamentals of robotics - PALOPOLI](https://didatticaonline.unitn.it/dol/course/view.php?id=39523):
-
-[[146134] Vision and Recognition - CONCI](https://didatticaonline.unitn.it/dol/course/view.php?id=39353):
-
-[[146135] Digital signal coding - MELGANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39135):
-
-[[146142] Physics 2 - HAUKE](https://didatticaonline.unitn.it/dol/course/view.php?id=39347):
-
-[[146146] Fundamentals of electronics (Module 2: Analog electronics) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=40810):
-
-[[146163] Basics of optoelectronics - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39262):
-
-[[146198] High-Frequency Circuits for Systems-on-Chip - LIZZI](https://didatticaonline.unitn.it/dol/course/view.php?id=39294):
-
-[[146209] Introduction to Parallel Computing - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39266):
-
-[[146304] Laboratory of Systems on Chip - TONTINI](https://didatticaonline.unitn.it/dol/course/view.php?id=39119):
-
-[[146311] Remote Sensing Systems and Image Analysis - BRUZZONE](https://didatticaonline.unitn.it/dol/course/view.php?id=39116):
-
-### Year 1 Semester 2
-
-#### Compulsory
+#### Year 1 Semester 2
 
 [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747):
 - Textbook: <[Computer Organization and Design RISC-V Edition: The Hardware Software Interface - David A. Patterson, John L. Hennessy](https://libgen.li/ads.php?md5=c58f3d5dd8b40771d8ecbfeda52c6759)>
@@ -155,7 +96,40 @@
 - Textbook: <[Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf)>
 - About "Mathematics for Computer Science": <[MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)>
 
-#### In Advance
+### In Advance
+
+#### Year 1 Semester 1
+
+[[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628):
+- Textbook: <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
+- About: [CyBOK](https://www.cybok.org)
+
+[[146125] Advanced Programming - PATRIGNANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39224):
+
+[[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126):
+
+[[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124):
+
+[[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261):
+
+[[146199] Computational Logic - SZYMANIK](https://didatticaonline.unitn.it/dol/course/view.php?id=39518):
+- Textbook 1: <[Logic in Computer Science: Modelling and Reasoning about Systems - Michael Huth, Mark Ryan - Second Edition](https://drive.google.com/file/d/0B-UzMn1HD-3MeUVpRDh4SnIwMXM/edit?resourcekey=0-9w_kD6tsSJcJQ0Y77hn7ZQ)>
+- Textbook 2: <[Mathematical Logic through Python - Yannai A. Gonczarowski, Noam Nisan](https://www.scribd.com/document/589340871/Mathematical-Logic-Through-Python)>
+- About "Logic": [Logicomix](https://archive.org/details/Logicomix-Comic-EarlyLifeOfBertrandRussell)
+- About "ChatGPT" 1: <[A Categorical Archive of ChatGPT Failures](https://arxiv.org/pdf/2302.03494)>
+- About "ChatGPT" 2: <[Testing the limits of logical reasoning in neural and hybrid models](https://aclanthology.org/2024.findings-naacl.147)>
+- About "ChatGPT" 3: <[Benchmarking Neural Network Generalization for Grammar Induction](https://aclanthology.org/2023.clasp-1.15)>
+- About "Are NNs capable of compositional interpretation?": <[Compositionality Decomposed:  How doNeural Networks Generalise?](https://www.jair.org/index.php/jair/article/view/11674/26576)>
+
+[[146290] Algorithms and Data Structures (part 1) - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39264):
+- Textbook: <Introduction to Algorithms - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Third Edition - Massachusetts Institute of Technology> ( [link 1](https://archive.org/details/introduction-to-algorithms-third-edition-2009), [link 2](https://github.com/aliaamohamedali/Algorithms/blob/master/introduction-to-algorithms-3rd-edition.pdf), [link 3](https://docs.google.com/file/d/0Bzvk2zJDZ4FPVUN3SF9XeHdxbU0/edit?resourcekey=0--t9UyRgxg2vEUI1M2pqqWw) )
+- About "PhD jokes": [PhD Comics](https://phdcomics.com)
+- About "algorithm": [Programming pearls: algorithm design techniques](https://dl.acm.org/doi/10.1145/358234.381162)
+- About "C bible": <The C Programming Language - Brian W. Kernighan, Dennis M. Ritchie - Second Edition> ( [link 1](https://archive.org/details/the-ansi-c-programming-language-by-brian-w.-kernighan-dennis-m.-ritchie.org/page/8/mode/2up), [link 2](https://venkivasamsetti.github.io/ebookworm.github.io/Books/cse/C%20Programming%20Language%20(2nd%20Edition).pdf), [link 3](https://drive.google.com/file/d/0B-Tcuov0a1CiQ0lnRUJTZkhSY3M/view?resourcekey=0-EYhV8oJK7ZowKtGMAXWnsQ) )
+- About "Multiplication": <Integer multiplication in time O(n log n)> ( [link 1](https://hal.science/hal-02070778/document), [link 2](https://www.youtube.com/watch?v=FKGRc867j10) )
+- About "algorithm assembly instructions": [IDEA](https://idea-instructions.com)
+
+#### Year 1 Semester 2
 
 [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
@@ -165,7 +139,35 @@
 
 [[146315] Introduction to machine learning - IACCA](https://didatticaonline.unitn.it/dol/course/view.php?id=40677):
 
-#### Elective
+### Elective
+
+#### Year 1 Semester 1
+
+[[145996] Embedded Software for the Internet of Things - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=39351):
+
+[[146069] Next generation networks - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39094):
+
+[[146130] Fundamentals of robotics - PALOPOLI](https://didatticaonline.unitn.it/dol/course/view.php?id=39523):
+
+[[146134] Vision and Recognition - CONCI](https://didatticaonline.unitn.it/dol/course/view.php?id=39353):
+
+[[146135] Digital signal coding - MELGANI](https://didatticaonline.unitn.it/dol/course/view.php?id=39135):
+
+[[146142] Physics 2 - HAUKE](https://didatticaonline.unitn.it/dol/course/view.php?id=39347):
+
+[[146146] Fundamentals of electronics (Module 2: Analog electronics) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=40810):
+
+[[146163] Basics of optoelectronics - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39262):
+
+[[146198] High-Frequency Circuits for Systems-on-Chip - LIZZI](https://didatticaonline.unitn.it/dol/course/view.php?id=39294):
+
+[[146209] Introduction to Parallel Computing - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39266):
+
+[[146304] Laboratory of Systems on Chip - TONTINI](https://didatticaonline.unitn.it/dol/course/view.php?id=39119):
+
+[[146311] Remote Sensing Systems and Image Analysis - BRUZZONE](https://didatticaonline.unitn.it/dol/course/view.php?id=39116):
+
+#### Year 1 Semester 2
 
 [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687):
 
