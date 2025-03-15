@@ -66,7 +66,8 @@
 [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332):
 - Textbook 1: <[Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)>
 - Textbook 2: <[Introduction to Probability and Statistics for Engineers and Scientists - Sheldon M. Ross - Sixth Edition - University of Southern California](https://libgen.li/ads.php?md5=005005ad175f4f705bd3c67aa5bee6ae)>
-- About Excel usage: [Excel Obstacle Course](https://www.youtube.com/channel/UC5DjKkF-82PJqaVzVz44W6g)
+- About Excel usage 1: [Excel - Technology for Teachers and Students](https://www.youtube.com/playlist?list=PL_iwD7O7FG7jzLQIYm6-9Gx3hvXVUG7C5)
+- About Excel usage 2: [Excel Obstacle Course](https://www.youtube.com/channel/UC5DjKkF-82PJqaVzVz44W6g)
 - About formatting homework 1: [Notion](https://www.notion.com/help/guides/category/documentation)
 - About formatting homework 2: [KaTeX](https://katex.org/docs/supported.html)
 - About "Boxplot": [Box plot generator - Desmos](https://www.desmos.com/calculator/h9icuu58wn)
