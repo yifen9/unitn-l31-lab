@@ -185,4 +185,4 @@ Any concerns, please contact:
 
 ---
 
-<a href="https://info.flagcounter.com/vjxQ"><img src="https://s01.flagcounter.com/countxl/vjxQ/bg_FFFFFF/txt_000000/border_CCCCCC/columns_8/maxflags_250/viewers_3/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+![Visitor Counter](https://counter.flimixst.dev/counter/a27ed9e7-cc25-4c8a-b47e-9e57583b27ae?mf=30&col=8&lp=visitors&vd=number&fs=large&sl=true&sp=true&tc=%23000000&bc=%23CCCCCC&bg=%23FFFFFF)
