@@ -187,7 +187,9 @@ Any concerns, please contact:
 
 <p align="center">
   <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
-  <br><br><br>
+</p>
+
+<p align="center">
   <a href="https://www.star-history.com/#AntoLee/UNITN.BSc&Date">
    <picture>
      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AntoLee/UNITN.BSc&type=Date&theme=dark" />
