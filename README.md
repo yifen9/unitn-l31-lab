@@ -220,10 +220,10 @@
 ## Contacts
 
 Any concerns, please contact:
-- Telegram:
-  - [yifen9](https://t.me/yifen9)
 - Email:
   - yifeng.li@studenti.unitn.it
+- Telegram:
+  - [yifen9](https://t.me/yifen9)
 
 ---
 
