@@ -100,6 +100,8 @@
     - Excel usage:
       - [Excel - Technology for Teachers and Students](https://www.youtube.com/playlist?list=PL_iwD7O7FG7jzLQIYm6-9Gx3hvXVUG7C5)
       - [Excel Obstacle Course](https://www.youtube.com/channel/UC5DjKkF-82PJqaVzVz44W6g)
+    - LaTex usage:
+      - [LaTeX Tutorials](https://www.youtube.com/playlist?list=PLHXZ9OQGMqxcWWkx2DMnQmj5os2X5ZR73)
     - LaTeX reference:
       - [LaTeX Documentation](https://www.latex-project.org/help/documentation)
     - KeTeX reference:
