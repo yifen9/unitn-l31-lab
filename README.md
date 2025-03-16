@@ -217,6 +217,8 @@
 
 ---
 
+## Contacts
+
 Any concerns, please contact:
 - Telegram:
   - @yifen9
@@ -224,6 +226,8 @@ Any concerns, please contact:
   - yifeng.li@studenti.unitn.it
 
 ---
+
+## Stats
 
 <p align="center">
   <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
