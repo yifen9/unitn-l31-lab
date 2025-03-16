@@ -26,7 +26,7 @@
   - Textbook:
     - [Geometry and Linear Algebra - Gianluca Occhetta - Università di Trento](https://didatticaonline.unitn.it/dol/pluginfile.php/1841233/mod_resource/content/20/GLAn.pdf)
   - About:
-    - Exercises on <Esercizi di Algebra Lineare - Claretta Carrara>:
+    - Exercises on <Esercizi di Algebra Lineare - Claretta Carrara>
       - [link 1](https://www.science.unitn.it/~fontanar/downloads/carrara.pdf)
       - [link 2](https://www.mat.uniroma2.it/~gavarini/page-web_files/mat-didat_data/dispense-ecc/esercizi_Carrara_-_ALG-LIN.pdf)
       - [link 3](https://elearn.ing.unipi.it/pluginfile.php/183845/mod_resource/content/1/carrara.pdf)
