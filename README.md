@@ -6,8 +6,10 @@
 ---
 
 ## Repository Files
-- Exercises end with '_': Unfinished
-- Exercises end with '-': Can be improved but too lazy to do so
+- Exercises end with '_':
+  - Unfinished
+- Exercises end with '-':
+  - Can be improved but too lazy to do so
 
 ---
 
