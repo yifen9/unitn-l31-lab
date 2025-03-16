@@ -221,7 +221,7 @@
 
 Any concerns, please contact:
 - Telegram:
-  - @yifen9
+  - [yifen9](https://t.me/yifen9)
 - Email:
   - yifeng.li@studenti.unitn.it
 
