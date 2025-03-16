@@ -15,7 +15,8 @@
 
 ### Compulsory
 
-#### Year 1 Semester 1
+#### Year 1
+##### Semester 1
 - [[146055] Calculus 1 - PUGLIESE](https://didatticaonline.unitn.it/dol/course/view.php?id=39114)
   - Textbook:
     - [Analisi matematica I - Canuto Claudio, Tabacco Anita - 3 edizione - Politecnico di Torino](https://archive.org/details/analisi-matematica-1-canuto-tabacco)
@@ -76,8 +77,7 @@
       - [ASCII Table](https://www.asciitable.com)
     - Recursive function:
       - [C++ Recursion](https://www.programiz.com/cpp-programming/recursion)
-
-#### Year 1 Semester 2
+##### Semester 2
 - [[145992] Computer Architectures - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=40747)
   - Textbook:
     - [Computer Organization and Design RISC-V Edition: The Hardware Software Interface - David A. Patterson, John L. Hennessy](https://libgen.li/ads.php?md5=c58f3d5dd8b40771d8ecbfeda52c6759)
@@ -141,7 +141,8 @@
 
 ### In Advance
 
-#### Year 1 Semester 1
+#### Year 1
+##### Semester 1
 - [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628)
   - Textbook:
     - <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
@@ -186,8 +187,7 @@
         - [link 2](https://www.youtube.com/watch?v=FKGRc867j10)
     - algorithm assembly instructions:
       - [IDEA](https://idea-instructions.com)
-
-#### Year 1 Semester 2
+##### Semester 2
 - [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687)
 - [[146066] Human Computer Interaction - TURCHET](https://didatticaonline.unitn.it/dol/course/view.php?id=40750)
 - [[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310)
@@ -195,7 +195,8 @@
 
 ### Elective
 
-#### Year 1 Semester 1
+#### Year 1
+##### Semester 1
 - [[145996] Embedded Software for the Internet of Things - YILDIRIM](https://didatticaonline.unitn.it/dol/course/view.php?id=39351)
 - [[146069] Next generation networks - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39094)
 - [[146130] Fundamentals of robotics - PALOPOLI](https://didatticaonline.unitn.it/dol/course/view.php?id=39523)
@@ -208,8 +209,7 @@
 - [[146209] Introduction to Parallel Computing - VELLA](https://didatticaonline.unitn.it/dol/course/view.php?id=39266)
 - [[146304] Laboratory of Systems on Chip - TONTINI](https://didatticaonline.unitn.it/dol/course/view.php?id=39119)
 - [[146311] Remote Sensing Systems and Image Analysis - BRUZZONE](https://didatticaonline.unitn.it/dol/course/view.php?id=39116)
-
-#### Year 1 Semester 2
+##### Semester 2
 - [[145865] Optimization techniques - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40687)
 - [[146061] Physics - HAASE](https://didatticaonline.unitn.it/dol/course/view.php?id=40885)
 
