@@ -216,8 +216,10 @@
 ---
 
 Any concerns, please contact:
-- Telegram: @yifen9
-- Email: yifeng.li@studenti.unitn.it
+- Telegram:
+  - @yifen9
+- Email:
+  - yifeng.li@studenti.unitn.it
 
 ---
 
