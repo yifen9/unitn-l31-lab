@@ -1,12 +1,14 @@
+import java.util.Objects;
+
 public class Employee {
     private double salary;
     private String lastName;
     private String firstName;
 
     public Employee(String firstName, String lastName, double salary) {
-        this.salary = salary;
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.setSalary(salary);
+        this.setLastName(lastName);
+        this.setFirstName(firstName);
     }
 
     public String getFirstName() {
@@ -30,7 +32,12 @@ public class Employee {
     }
 
     public void setSalary(double salary) {
-        this.salary = salary;
+        if(salary < 0){
+            this.salary = 0;
+        }
+        else{
+            this.salary = salary;
+        }
     }
 
     @Override
@@ -55,23 +62,23 @@ public class Employee {
         this.renameFirstName(newFirstName);
     }
 
-    public void changeSalary(double newSalary){
-        this.setSalary(newSalary);
+    public void increaseSalary(double incrementValue, double incrementPercentage){
+        this.setSalary(((incrementPercentage + 1) * this.getSalary()) + incrementValue);
     }
 
-    public void increaseSalary(double salaryIncrement){
-        this.setSalary(this.getSalary() + salaryIncrement);
+    public boolean checkLastName(String newLastName){
+        return (Objects.equals(this.getLastName(), newLastName));
     }
 
-    private boolean checkLastName(String newName){
-        return (this.getLastName() == newName);
+    public boolean checkFirstName(String newFirstName){
+        return (Objects.equals(this.getFirstName(), newFirstName));
     }
 
-    private boolean checkFirstName(String newName){
-        return (this.getFirstName() == newName);
+    public boolean checkName(String newName){
+        return (this.checkLastName(newName) || this.checkFirstName(newName));
     }
 
-    public boolean checkName(String newLastName, String newFirstName){
-        return (checkLastName(newLastName) && checkFirstName(newFirstName));
+    public boolean checkFullName(String newLastName, String newFirstName){
+        return (this.checkLastName(newLastName) && this.checkFirstName(newFirstName));
     }
 }
