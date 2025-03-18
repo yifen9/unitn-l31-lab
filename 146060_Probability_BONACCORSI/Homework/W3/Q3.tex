@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{titlesec}
+
+% Formatting section headings
+\titleformat{\section}[block]{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesubsection.}{1em}{}
+
+\title{Question 3: Conditional Prize Award in a Sequence of Matches}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\onehalfspacing
+
+\section*{Problem Statement}
+To obtain a prize, you need to win \emph{at least two consecutive matches} out of the three you play, alternating between matches against your father and your coach. You win 75\% of the matches against your father and 40\% of the matches against your coach.
+
+\bigskip
+
+\section*{Preliminaries}
+Let $\mathrm{win}$ and $\mathrm{lose}$ denote the outcomes of a match, and let $F$ and $C$ denote the events of winning against the father and the coach, respectively. Define the probability space as
+\[
+\begin{aligned}
+\Omega &= \{\mathrm{win},\,\mathrm{lose}\},\\[1mm]
+\mathcal{F} &= \mathcal{P}(\Omega),\\[1mm]
+\mathbb{P} &: \quad \mathbb{P}(F) = 75\%, \quad \mathbb{P}(C) = 40\%.
+\end{aligned}
+\]
+
+Let $W$ be the event of obtaining a prize (i.e., winning at least two consecutive matches) and denote by $A$, $B$, and $C$ the outcomes of the first, second, and third matches respectively. To be specific, we use subscripts $f$ and $c$ to indicate matches played against the father and the coach. For example, $A_f$ means winning the first match against the father, while $A_c$ means winning the first match against the coach.
+
+Assuming that the match outcomes are stochastically independent, we have:
+\[
+\begin{alignedat}{4}
+\mathbb{P}(A_f) &= \mathbb{P}(B_f) = \mathbb{P}(C_f) &= \mathbb{P}(F) &= 75\%,\\[1mm]
+\mathbb{P}(A_c) &= \mathbb{P}(B_c) = \mathbb{P}(C_c) &= \mathbb{P}(C) &= 40\%.
+\end{alignedat}
+\]
+
+\bigskip
+
+\section*{Part 1: Comparing Two Playing Sequences}
+We consider the following two sequences of matches:
+\begin{itemize}
+    \item \textbf{Father-Coach-Father} (denoted by $W_{FCF}$)
+    \item \textbf{Coach-Father-Coach} (denoted by $W_{CFC}$)
+\end{itemize}
+
+\subsection*{Sequence 1: Father-Coach-Father}
+In this sequence, a prize is obtained if at least two consecutive wins occur. One can show that the event of winning a prize in the Father-Coach-Father sequence is given by:
+\[
+\begin{aligned}
+\mathbb{P}(W_{FCF}) &= \mathbb{P}\Big((A_f \cap B_c \cap C_f) \cup (A_f^c \cap B_c \cap C_f) \cup (A_f \cap B_c \cap C_f^c)\Big)\\[1mm]
+&= 2\,\mathbb{P}(F)\,\mathbb{P}(C) - \mathbb{P}(F)^2\,\mathbb{P}(C).
+\end{aligned}
+\]
+
+\subsection*{Sequence 2: Coach-Father-Coach}
+Similarly, for the Coach-Father-Coach sequence, the probability of obtaining a prize is:
+\[
+\begin{aligned}
+\mathbb{P}(W_{CFC}) &= \mathbb{P}\Big((A_c \cap B_f \cap C_c) \cup (A_c^c \cap B_f \cap C_c) \cup (A_c \cap B_f \cap C_c^c)\Big)\\[1mm]
+&= 2\,\mathbb{P}(C)\,\mathbb{P}(F) - \mathbb{P}(C)^2\,\mathbb{P}(F).
+\end{aligned}
+\]
+
+Since $\mathbb{P}(F)=75\%$ and $\mathbb{P}(C)=40\%$, we have
+\[
+\mathbb{P}(F) > \mathbb{P}(C),
+\]
+which implies
+\[
+\mathbb{P}(W_{FCF}) - \mathbb{P}(W_{CFC}) = \mathbb{P}(F)\,\mathbb{P}(C)\bigl(\mathbb{P}(C) - \mathbb{P}(F)\bigr) < 0.
+\]
+Thus,
+\[
+\boxed{\mathbb{P}(W_{CFC}) > \mathbb{P}(W_{FCF})}.
+\]
+\textbf{Answer for Part 1:} The sequence \emph{Coach-Father-Coach} is preferable.
+
+\bigskip
+
+\section*{Part 2: Including Additional Outcomes}
+Let $W'$ be the event of obtaining a prize when additional outcomes are considered.
+
+\subsection*{Sequence 1: Modified Father-Coach-Father ($W'_{FCF}$)}
+For the Father-Coach-Father sequence, we now have:
+\[
+\begin{aligned}
+\mathbb{P}(W'_{FCF}) &= \mathbb{P}\Big(W_{FCF} \cup \bigl(A_f \cap B_c^c \cap C_f\bigr)\Big)\\[1mm]
+&= 2\,\mathbb{P}(F)\,\mathbb{P}(C) + \mathbb{P}(F)^2\Bigl(1-2\,\mathbb{P}(C)\Bigr)\\[1mm]
+&\approx 71.25\%.
+\end{aligned}
+\]
+
+\subsection*{Sequence 2: Modified Coach-Father-Coach ($W'_{CFC}$)}
+Similarly, for the Coach-Father-Coach sequence, we have:
+\[
+\begin{aligned}
+\mathbb{P}(W'_{CFC}) &= \mathbb{P}\Big(W_{CFC} \cup \bigl(A_c \cap B_f^c \cap C_c\bigr)\Big)\\[1mm]
+&= 2\,\mathbb{P}(C)\,\mathbb{P}(F) + \mathbb{P}(C)^2\Bigl(1-2\,\mathbb{P}(F)\Bigr)\\[1mm]
+&\approx 52\%.
+\end{aligned}
+\]
+
+Since
+\[
+\mathbb{P}(W'_{FCF}) \approx 71.25\% > 52\% \approx \mathbb{P}(W'_{CFC}),
+\]
+\textbf{Answer for Part 2:} The strategy should be changed to \emph{Father-Coach-Father}.
+
+\end{document}
