@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{titlesec}
+
+\titleformat{\section}[block]{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesubsection.}{1em}{}
+
+\title{Question 1: Conditional Probability in an Urn Model}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\onehalfspacing
+
+\section*{Problem Statement}
+\begin{quotation}
+A box contains $b$ white and $n$ black balls. A ball is drawn and replaced with $d+1$ balls of the same color, where $d$ is a positive integer. Compute the probability that the first drawn ball was black, given that the second draw was black.
+\end{quotation}
+
+\section*{Solution}
+Let $\mathrm{black}$ and $\mathrm{white}$ denote the outcomes of drawing a black ball and a white ball, respectively. We define the probability space as
+\[
+\begin{aligned}
+\Omega &= \{\mathrm{black},\,\mathrm{white}\},\\[1mm]
+\mathcal{F} &= \mathcal{P}(\Omega),\\[1mm]
+\mathbb{P} &\text{ is the probability measure on } \mathcal{F}.
+\end{aligned}
+\]
+
+Let $A_{\mathrm{black}}$ and $A_{\mathrm{white}}$ be the events that a black ball and a white ball are drawn in the first draw, respectively. Then,
+\[
+\begin{aligned}
+\mathbb{P}(A_{\mathrm{black}}) &= \frac{n}{n+b},\\[1mm]
+\mathbb{P}(A_{\mathrm{white}}) &= \frac{b}{n+b}.
+\end{aligned}
+\]
+
+Next, let $B_{\mathrm{black}}$ be the event that a black ball is drawn in the second draw. Conditioning on the first draw, we obtain:
+\[
+\begin{aligned}
+\mathbb{P}_{A_{\mathrm{black}}}(B_{\mathrm{black}}) &= \frac{n+d}{n+b+d},\\[1mm]
+\mathbb{P}_{A_{\mathrm{white}}}(B_{\mathrm{black}}) &= \frac{n}{n+b+d}.
+\end{aligned}
+\]
+
+Since $A_{\mathrm{black}} \cup A_{\mathrm{white}} = \Omega$ and $\mathbb{P}(A_{\mathrm{black}} \cup A_{\mathrm{white}})=1$, by the law of total probability we have:
+\[
+\begin{aligned}
+\mathbb{P}(B_{\mathrm{black}}) &= \mathbb{P}(A_{\mathrm{black}} \cap B_{\mathrm{black}}) + \mathbb{P}(A_{\mathrm{white}} \cap B_{\mathrm{black}})\\[1mm]
+&= \mathbb{P}(A_{\mathrm{black}})\,\mathbb{P}_{A_{\mathrm{black}}}(B_{\mathrm{black}}) + \mathbb{P}(A_{\mathrm{white}})\,\mathbb{P}_{A_{\mathrm{white}}}(B_{\mathrm{black}})\\[1mm]
+&= \frac{n}{n+b}\cdot\frac{n+d}{n+b+d} + \frac{b}{n+b}\cdot\frac{n}{n+b+d}\\[1mm]
+&= \frac{n(n+d) + nb}{(n+b)(n+b+d)}.
+\end{aligned}
+\]
+
+Finally, applying Bayes' theorem, the conditional probability that the first drawn ball was black given that the second draw was black is:
+\[
+\begin{aligned}
+\mathbb{P}_{B_{\mathrm{black}}}(A_{\mathrm{black}}) 
+&=\frac{\mathbb{P}_{A_{\mathrm{black}}}(B_{\mathrm{black}})\,\mathbb{P}(A_{\mathrm{black}})}{\mathbb{P}(B_{\mathrm{black}})}\\[1mm]
+&=\frac{\frac{n+d}{n+b+d}\cdot\frac{n}{n+b}}{\frac{n(n+d)+nb}{(n+b)(n+b+d)}}\\[1mm]
+&=\frac{n+d}{n+d+b}.
+\end{aligned}
+\]
+
+\section*{Answer}
+\[
+\boxed{\mathbb{P}_{B_{\mathrm{black}}}(A_{\mathrm{black}}) = \frac{n+d}{n+d+b}}
+\]
+
+\end{document}
