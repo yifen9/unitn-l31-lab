@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\title{Abstract Machines}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Three Examples of Abstract Machines in Different Contexts}
+
+\begin{enumerate}
+    \item \textbf{Java Virtual Machine (JVM):} An abstract machine designed to execute Java bytecode. It provides a platform-independent execution environment and includes components such as a class loader, memory management, and a runtime execution engine.
+    \item \textbf{SECD Machine:} A theoretical abstract machine designed for evaluating expressions in the lambda calculus, widely used in functional language implementations such as Lisp.
+    \item \textbf{x86 Instruction Set Architecture (ISA) Emulator:} An abstract machine used to simulate x86 CPU instructions, allowing execution of x86 binaries on non-x86 hardware, such as QEMU.
+\end{enumerate}
+
+\section*{2. Functioning of an Interpreter for a Generic Abstract Machine}
+
+An interpreter for an abstract machine follows these steps:
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{Fetch:} Retrieve the next instruction from memory.
+    \item \textbf{Decode:} Analyze the instruction and determine the operation.
+    \item \textbf{Execute:} Perform the operation by updating registers, memory, or stack.
+    \item \textbf{Repeat:} Continue execution until a halt instruction or an error occurs.
+\end{enumerate}
+
+For example, in a stack-based machine, an interpreter fetches bytecode instructions, manipulates the stack accordingly, and processes function calls and control flow.
+
+\section*{3. Differences Between Interpretative and Compiled Implementations}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{Feature} & \textbf{Interpretation} & \textbf{Compilation} \\
+\hline
+Execution Method & Runs source code directly using an interpreter. & Translates the entire source code into machine code before execution. \\
+\hline
+Performance & Slower due to real-time code evaluation. & Faster as execution happens on precompiled machine code. \\
+\hline
+Portability & More portable since the same interpreter can run on multiple platforms. & Less portable as compiled code is specific to the target architecture. \\
+\hline
+Debugging & Easier, as execution happens step by step. & Harder, as debugging requires additional tools like debuggers. \\
+\hline
+Example Languages & Python, JavaScript, Ruby & C, C++, Rust \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Advantages of Interpretation:}
+\begin{itemize}
+    \item Easier to debug.
+    \item More flexible, enabling dynamic execution.
+\end{itemize}
+
+\textbf{Advantages of Compilation:}
+\begin{itemize}
+    \item Faster execution.
+    \item Optimized for specific hardware.
+\end{itemize}
+
+\section*{4. Using an Abstract Machine \( C \) to Implement Another Abstract Machine for Language \( L \)}
+
+\begin{enumerate}
+    \item Implement an interpreter for \( L \) that runs on \( C \).
+    \item Write a compiler that translates \( L \) programs into the instruction set of \( C \).
+    \item Execute compiled programs using \( C \).
+\end{enumerate}
+
+This approach allows leveraging \( C \)’s infrastructure (memory management, execution model) to implement \( L \) efficiently.
+
+\section*{5. Advantages of Using an Intermediate Machine for the Implementation of a Language}
+
+\begin{itemize}
+    \item \textbf{Portability:} Programs can be compiled into the intermediate machine’s code and run on different hardware.
+    \item \textbf{Optimization:} The compiler can perform optimizations at the intermediate code level.
+    \item \textbf{Simplified Compilation:} Instead of writing compilers for multiple architectures, one backend for the intermediate machine suffices.
+    \item \textbf{Runtime Analysis:} Intermediate representations facilitate Just-In-Time (JIT) optimizations and debugging.
+\end{itemize}
+
+Examples include the JVM for Java and LLVM IR for multi-language compilation.
+
+\section*{6. Obtaining a Compiled Implementation from an Interpretative One}
+
+To transform an interpretative Pascal implementation into a compiled one:
+
+\begin{enumerate}
+    \item Modify the Pascal compiler to output native machine code instead of P-code.
+    \item Use the Pascal compiler (which produces P-code) to compile the modified compiler into P-code.
+    \item Interpret this modified compiler using the P-code interpreter, producing a native compiler.
+    \item Use this new native compiler to compile Pascal programs directly into machine code.
+\end{enumerate}
+
+This technique, known as \textit{bootstrapping}, minimizes manual effort while transitioning from an interpretative to a compiled implementation.
+
+\section*{7. Futamura’s First Projection}
+
+Given an interpreter \( IL_{L1}(X, Y) \) that interprets a program \( X \) written in \( L_1 \) on language \( L \):
+
+\begin{enumerate}
+    \item Partial evaluation means specializing \( IL_{L1} \) with respect to program \( P \), effectively transforming the interpreter into a compiler.
+    \item The result, \( Peval_L(IL_{L1}, P) \), is a program that directly executes the logic of \( P \) without requiring interpretation. This is equivalent to compiling \( P \) into an efficient executable for \( L \).
+\end{enumerate}
+
+This idea underlies Just-In-Time (JIT) compilation and compiler generation techniques.
+
+\end{document}

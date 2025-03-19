@@ -1,0 +1,214 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Names}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Static Scope -- Which Value Is Printed?}
+Consider the fragment:
+\begin{verbatim}
+int X = 0;
+int Y;
+
+void fie() {
+  X++;
+}
+
+void foo() {
+  X++;
+  fie();
+}
+
+read(Y);
+if (Y > 0) {
+  int X = 5;
+  foo();
+} else {
+  foo();
+}
+
+write(X);
+\end{verbatim}
+
+\textbf{Analysis:}
+Under static (lexical) scope, the free occurrences of \( X \) in the definitions of \texttt{foo} and \texttt{fie} refer to the global \( X \) (declared outside all blocks), regardless of any local declarations. Thus, whether or not the \texttt{if} branch creates a local \( X \) (with value 5), the call to \texttt{foo()} will update the global \( X \).
+
+Initially, global \( X = 0 \). When \texttt{foo} is called, it performs:
+\begin{itemize}
+  \item \( X++ \) (global \( X \) becomes 1),
+  \item Then calls \texttt{fie()}, which does \( X++ \) (global \( X \) becomes 2).
+\end{itemize}
+
+Finally, \texttt{write(X)} prints the global \( X \), which is 2.
+
+\textbf{Answer:} The printed value is 2.
+
+\section*{2. Dynamic Scope -- Which Value(s) Are Printed?}
+Now consider:
+\begin{verbatim}
+int X;
+X = 1;
+int Y;
+
+void fie() {
+  foo();
+  X = 0;
+}
+
+void foo() {
+  int X;
+  X = 5;
+}
+
+read(Y);
+if (Y > 0) {
+  int X;
+  X = 4;
+  fie();
+} else {
+  fie();
+}
+
+write(X);
+\end{verbatim}
+
+\textbf{Analysis (dynamic scope):}
+Under dynamic scoping, the binding of a free variable is determined by the call chain at runtime.
+
+\textbf{Case A: \( Y > 0 \)}
+\begin{itemize}
+  \item In the \texttt{if} branch, a local \( X \) is declared and set to 4.
+  \item Then \texttt{fie()} is called. In \texttt{fie}, the call to \texttt{foo()} does not affect any caller’s \( X \) because the local \( X \) is specific to \texttt{foo}.
+  \item Returning to \texttt{fie}, the assignment \( X = 0 \) updates the \( X \) from the \texttt{if} branch (set to 4) to 0.
+  \item After the \texttt{if} block, the only \( X \) visible is the global \( X \), which remains unchanged (initially 1).
+  \item Finally, \texttt{write(X)} prints the global \( X \), which is 1.
+\end{itemize}
+
+\textbf{Case B: \( Y \leq 0 \)}
+\begin{itemize}
+  \item No new local \( X \) is declared. The call to \texttt{fie()} happens in an environment where the only binding is the global \( X = 1 \).
+  \item Inside \texttt{fie}, after calling \texttt{foo()}, the assignment \( X = 0 \) updates the global \( X \).
+  \item Thus, \texttt{write(X)} prints 0.
+\end{itemize}
+
+\textbf{Answer:}
+\begin{itemize}
+  \item If \( Y > 0 \), the program prints 1.
+  \item If \( Y \leq 0 \), the program prints 0.
+\end{itemize}
+
+\section*{3. Code Insertion for Static vs. Dynamic Scope Differences}
+We wish to fill the gaps in the fragment below:
+
+\begin{verbatim}
+{ 
+  int i;
+  (*)        // [Gap 1]
+  for (i = 0; i <= 1; i++) {
+    int x;
+    (**)     // [Gap 2]
+    x = foo();
+  }
+}
+\end{verbatim}
+
+\textbf{Objective:}
+\begin{itemize}
+  \item (a) Under static scope: the two calls to \texttt{foo} assign the same value to \( x \).
+  \item (b) Under dynamic scope: the two calls assign different values to \( x \).
+\end{itemize}
+
+\textbf{Solution:}
+Declare an outer variable and define \texttt{foo} in the outer scope so that its free reference to \( x \) is resolved lexically (to the outer variable) under static scope. Meanwhile, when an inner block declares its own \( x \), under dynamic scope, that inner \( x \) will be the “most recent” binding.
+
+An acceptable solution:
+
+\texttt{Gap 1:} Before the loop, insert an outer declaration and definition of \texttt{foo}:
+\begin{verbatim}
+  int x; 
+  int foo() { x = 10; return x; }
+\end{verbatim}
+
+\texttt{Gap 2:} No additional code is needed (or simply a comment); the inner declaration \texttt{int x;} remains.
+
+\textbf{Explanation:}
+\begin{itemize}
+  \item Under static scope, the body of \texttt{foo} (written in the outer block) refers to the outer \( x \). Even though a new \( x \) is declared in the for-loop block, it does not affect the already resolved free variable in \texttt{foo}.
+  \item Under dynamic scope, the call to \texttt{foo} will use the most recent binding for \( x \) in the dynamic chain (which is the \( x \) declared inside the loop).
+\end{itemize}
+
+\textbf{Answer:} 
+\begin{itemize}
+  \item Under static scope, both calls to \texttt{foo} will update the same outer \( x \).
+  \item Under dynamic scope, the two calls will update different \( x \)'s.
+\end{itemize}
+
+\section*{4. Denotable Object Outlasting Its References}
+\textbf{Example:} A dynamically allocated object (e.g., an instance of a class allocated on the heap) whose pointer (or name) is stored in a local variable may persist even after that variable goes out of scope if the object is linked into a global data structure. For instance, a node allocated via \texttt{new} in C++ may remain alive (until explicitly deleted) even though all local pointers to it have been lost.
+
+\section*{5. A Name Outlasting Its Denotable Object}
+\textbf{Example:} A pointer variable that remains in a data structure (say, in a global table) even after the object it pointed to has been deallocated (or has gone out of scope) is an example of a name (the pointer) whose lifetime exceeds that of the object (leading to a dangling pointer).
+
+\section*{6. Static Scope, Call by Value}
+Consider:
+\begin{verbatim}
+{ 
+  int x = 2;
+  int fie(int y) {
+    x = x + y;
+  }
+  { 
+    int x = 5;
+    fie(x);
+    write(x);
+  }
+  write(x);
+}
+\end{verbatim}
+
+\textbf{Analysis:}
+Under static scope, the free occurrence of \( x \) in \texttt{fie} is bound to the \( x \) in its defining environment (the outer \( x \), initially 2). In the inner block, a local \( x \) is declared (value 5), but it is not used in \texttt{fie}.
+
+When calling \texttt{fie(x)}, the value 5 (from the inner \( x \)) is passed by value to \( y \). Then \texttt{fie} does:
+\begin{itemize}
+  \item \( x = 2 + 5 = 7 \).
+\end{itemize}
+
+Inside the inner block, \texttt{write(x)} prints the local \( x \) (value 5). After the block, \texttt{write(x)} prints the outer \( x \) (now 7).
+
+\textbf{Answer:} The output is 5 followed by 7.
+
+\section*{7. Dynamic Scope, Call by Reference}
+Now consider dynamic scope with call by reference:
+\begin{verbatim}
+{ 
+  int x = 2;
+  int fie(int y) {
+    x = x + y;
+  }
+  { 
+    int x = 5;
+    fie(x);
+    write(x);
+  }
+  write(x);
+}
+\end{verbatim}
+
+\textbf{Analysis:}
+Under dynamic scope, the free \( x \) in \texttt{fie} is resolved in the calling environment. The call to \texttt{fie(x)} with call by reference makes \( y \) an alias for the inner \( x \) (initially 5). Then in \texttt{fie}, \( x = x + y \) refers to the inner \( x \), and it becomes 10.
+
+Inside the inner block, \texttt{write(x)} prints 10. The outer \( x \) remains unchanged, so after the block, \texttt{write(x)} prints 2.
+
+\textbf{Answer:} The printed values are 10 and then 2.
+
+% The rest of the problems continue similarly.
+
+\end{document}
