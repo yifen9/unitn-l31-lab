@@ -38,59 +38,37 @@
 			\end{aligned}
 			\]
 			
-			Let $C_1$ and $C_2$ denote the events of selecting the first mentioned coin and the second mentioned coin, respectively, then we have
-			
-			\[
-			\begin{aligned}
-				\bP_{C_1}(\{\mathrm{head}\}) &= p_1\\
-				\bP_{C_2}(\{\mathrm{head}\}) &= p_2
-			\end{aligned}
-			\]
-			
-			Let the first drop and the second drop be denoted by subscripts $1$ and $2$, respectively, then we have
+			Let $C_1$ and $C_2$ denote the events of selecting the first mentioned coin and the second mentioned coin, respectively, and let the first drop and the second drop be denoted by subscripts $1$ and $2$, respectively, then we have
 			
 			\[\bP_{C_{i_j}}(\{\mathrm{head}\}_k) = p_i,\quad i,j,k\in\{1,2\}\]
-			
-			We know that $C_{1_1}$, $C_{2_1}$, $C_{1_2}$ and $C_{2_2}$ are stochastically independent
-			
-			\[\bP(C_{1_1}\cap C_{2_1}\cap C_{1_2}\cap C_{2_2}) = \left(\frac{1}{2}\right)^4 = \bP(C_{1_1})\bP(C_{2_1})\bP(C_{1_2})\bP(C_{2_2})\]
-			
-			And we know that $\{C_{1_1},C_{2_1}\}$ and $\{C_{1_2},C_{2_2}\}$ are two partitions of $\Omega$, then we know that $\{head\}_1$ and $\{head\}_2$ are stochastically independent
-			
-			\[
-			\begin{aligned}
-				&\bP(\{head\}_1\cap \{head\}_2)\\
-				= &\left(\sum_{j=1}^2\bP_{C_{j_1}}(\{\mathrm{head}\}_1)\bP(C_{j_1})\right)\left(\sum_{j=1}^2\bP_{C_{j_2}}(\{\mathrm{head}\}_2)\bP(C_{j_2})\right)\\
-				= &\bP(\{\mathrm{head}\}_1)\bP(\{\mathrm{head}\}_2)
-			\end{aligned}
-			\]
 			
 			\subsubsection*{Strategy A: choose one coin at random and toss it twice}
 			
 			By applying the principle of symmetry, we have
 			
-			\[
-			\begin{aligned}
-				&\bP(C_{1_1}) = \bP(C_{2_1}) = \bP(C_{1_2}) = \bP(C_{2_2})\\
-				= &\bP_{C_{1_1}}(C_{1_2}) = \bP_{C_{2_1}}(C_{1_2}) = \bP_{C_{1_2}}(C_{2_2}) = \bP_{C_{2_2}}(C_{2_2})\\
-				= &\frac{1}{2}
-			\end{aligned}
-			\]
+			\[\bP(C_{1_1}) = \bP(C_{2_1}) = \frac{1}{2}\]
+			
+			And from the context we know
+			
+			\[\bP_{C_{1_1}}(C_{1_2}) = \bP_{C_{2_1}}(C_{2_2}) = 1\]
 			
 			We know that $\{C_{1_1},C_{2_1}\}$ and $\{C_{1_2},C_{2_2}\}$ are two partitions of $\Omega$, then we have the probability of event $E$ in strategy A
 			
 			\[
 			\begin{aligned}
 				\bP(E_A) &= \bP(\{\mathrm{head}\}_1\cap \{\mathrm{head}\}_2)\\
-				&= \bP(\{\mathrm{head}\}_1)\bP(\{\mathrm{head}\}_2)\\
-				&= \sum_{j=1}^2\left(\bP(C_{j_1})\bP_{C_{j_1}}(\{\mathrm{head}\}_1)\bP_{C_{j_2}}(\{\mathrm{head}\}_2)\right)\\
+				&= \sum_{j=1}^2\left(\bP(C_{j_1})\bP_{C_{j_1}}(\{\mathrm{head}\}_1)\bP_{C_{j_1}\cap \{\mathrm{head}\}_1}(\{\mathrm{head}\}_2)\right)\\
 				&= \frac{{p_1}^2 + {p_2}^2}{2}
 			\end{aligned}
 			\]
 			
 			\subsubsection*{Strategy B: toss both coins}
 			
-			Because the order does not matter here, one can assume to drop the coin $C_1$ first with the coin $C_2$ second, then we have the probability of event $E$ in strategy B
+			Because the order does not matter here, one can assume to drop the coin $C_1$ first with the coin $C_2$ second, that is
+			
+			\[\bP(C_{1_1}) = \bP(C_{2_2}) = 1\]
+			
+			Easy to see that $\{\mathrm{head}\}_1$ and $\{\mathrm{head}\}_2$ are stochastically independent, then we have the probability of event $E$ in strategy B
 			
 			\[
 			\begin{aligned}
@@ -103,13 +81,23 @@
 			
 			\subsubsection*{Conclusion}
 			
-			By applying AM–GM inequality, we know that
+			By applying AM–GM inequality, we have
 			
+			\[
+			\begin{aligned}
+				\frac{p_1 + p_2}{2}&\ge \sqrt{p_1p_2}\\
+				&\Downarrow\\
+				\frac{{p_1}^2 + {p_2}^2}{2}&\ge p_1p_2
+			\end{aligned}
+			\]
 			
+			Then we know
+			
+			\[\bP(E_A) \ge \bP(E_B)\]
 			
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\text{Strategy A is the best.}}\]
 	
 	\end{enumerate}
 \end{document}
