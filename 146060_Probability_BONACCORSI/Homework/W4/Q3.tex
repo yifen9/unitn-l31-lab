@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#4}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 3}
+	
+	\noindent You have two unfair coins, one with the probability of heads equal to $p_1$ and the other with the probability of heads equal to $p_2$ , where $p_2 \neq p_1$ . In strategy A, you choose one coin at random and toss it twice. In strategy B, you toss both coins. What is the best strategy to maximize the probability of the event $E = \text{"the two tosses are both heads"}$?
+	
+	\subsection*{Solution}
+		
+		Let $\it{head}$ and $\it{tail}$ denote the results of a drop. Define the probability space as
+	
+		\[
+		\begin{aligned}
+			\Omega &= \{\mathrm{head},\,\mathrm{tail}\}\\
+			\mathcal{F} &= \mathcal{P}(\Omega)\\
+			\bP &:\enspace \text{the probability measure on $\mathcal{F}$}
+		\end{aligned}
+		\]
+		
+		We know that
+		
+		\[\bP(D\cap H) = 0.2\]
+		
+		Then we have
+		
+		\[\bP_H(D) = \frac{\bP(D\cap H)}{\bP(H)} = \frac{2}{3} \approx 0.667\]
+	
+	\subsection*{Answer}
+	
+		\[\boxed{\bP_H(D) = \frac{2}{3} \approx 0.667}\]
+\end{document}
