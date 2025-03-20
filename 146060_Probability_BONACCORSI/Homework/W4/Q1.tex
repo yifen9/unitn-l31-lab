@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#4}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 1}
+	
+	\noindent A student is applying to Harvard and Dartmouth. She estimates that she has a probability of 0.5 of being accepted at Dartmouth and 0.3 of being accepted at Harvard. She further estimates that the probability that she will be accepted by both is 0.2.
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item What is the probability that she is accepted by Dartmouth if she is accepted by Harvard?
+		
+		\subsection*{Solution}
+		
+			Let $\mathrm{accept}$ and $\mathrm{reject}$ denote the results of an application, and let $D$ and $H$ denote the events of being accepted by Dartmouth and by Harvard, respectively. Define the probability space as
+		
+			\[
+			\begin{aligned}
+				\Omega &= \{\mathrm{accept},\,\mathrm{reject}\}\\
+				\mathcal{F} &= \mathcal{P}(\Omega)\\
+				\bP &:\enspace \bP(D) = 0.5,\enspace \bP(H) = 0.3
+			\end{aligned}
+			\]
+			
+			We know that
+			
+			\[\bP(D\cap H) = 0.2\]
+			
+			Then we have
+			
+			\[\bP_H(D) = \frac{\bP(D\cap H)}{\bP(H)} = \frac{2}{3} \approx 0.667\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\bP_H(D) = \frac{2}{3} \approx 0.667}\]
+		
+		\bigskip\item Is the event “accepted at Harvard” independent of the event “accepted at Dartmouth”?
+		
+		\subsection*{Solution}
+		
+			We know that
+			
+			\[\bP_D(H) = \frac{\bP_H(D)\bP(H)}{\bP(D)} = 0.4 \ne 0.3 = \bP(H)\]
+			
+			Then we know that D and H are not stochastically independent.
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\text{No, $H$ is not stochastically independent of $D$.}}\]
+	\end{enumerate}
+	
+\end{document}
