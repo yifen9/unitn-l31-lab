@@ -23,42 +23,46 @@
 	\section*{Question 2}
 	
 	\noindent You have three coins in your pocket, two fair ones but the third is biased with probability of heads $p$ and tails $1-p$. One coin selected at random drops on the floor, landing heads up. How likely is it that it is one of the fair coins?
-		
-	\subsection*{Solution}
 	
-		Let $\it{head}$ and $\it{tail}$ denote the results of a drop. Define the probability space as
-	
-		\[
-		\begin{aligned}
-			\Omega &= \{\mathrm{head},\,\mathrm{tail}\}\\
-			\mathcal{F} &= \mathcal{P}(\Omega)\\
-			\bP &:\enspace \text{the probability measure on $\mathcal{F}$}
-		\end{aligned}
-		\]
+	\begin{enumerate}[label={},leftmargin=0in]\item
 		
-		Let $F$ and $B$ denote the events of selecting a fair coin and a biased coin, respectively, then we have
+		\subsection*{Solution}
 		
-		\[
-		\begin{aligned}
-			\bP_F(\{\mathrm{head}\}) &= \frac{1}{2}\\
-			\bP_B(\{\mathrm{head}\}) &= p
-		\end{aligned}
-		\]
+			Let $\it{head}$ and $\it{tail}$ denote the results of a drop. Define the probability space as
 		
-		Applying the principle of symmetry, we have
+			\[
+			\begin{aligned}
+				\Omega &= \{\mathrm{head},\,\mathrm{tail}\}\\
+				\mathcal{F} &= \mathcal{P}(\Omega)\\
+				\bP &:\enspace \text{the probability measure on $\mathcal{F}$}
+			\end{aligned}
+			\]
+			
+			Let $F$ and $B$ denote the events of selecting a fair coin and a biased coin, respectively, then we have
+			
+			\[
+			\begin{aligned}
+				\bP_F(\{\mathrm{head}\}) &= \frac{1}{2}\\
+				\bP_B(\{\mathrm{head}\}) &= p
+			\end{aligned}
+			\]
+			
+			Applying the principle of symmetry, we have
+			
+			\[
+			\begin{aligned}
+				\bP(F) &= \frac{2}{3}\\
+				\bP(B) &= \frac{1}{3}
+			\end{aligned}
+			\]
+			
+			We know that $\{F,B\}$ is a partition of $\Omega$, then applying the Bayes’ Theorem, we have
+			
+			\[{\bP_{\{\mathrm{head}\}}}(F) = \frac{\bP_F(\{\mathrm{head}\})\bP(F)}{\bP_F(\{\mathrm{head}\})\bP(F) + \bP_B(\{\mathrm{head}\})\bP(B)} = \frac{1}{p+1}\]
 		
-		\[
-		\begin{aligned}
-			\bP(F) &= \frac{2}{3}\\
-			\bP(B) &= \frac{1}{3}
-		\end{aligned}
-		\]
+		\subsection*{Answer}
 		
-		We know that $\{F,B\}$ is a partition of $\Omega$, then applying the Bayes’ Theorem, we have
-		
-		\[{\bP_{\{\mathrm{head}\}}}(F) = \frac{\bP_F(\{\mathrm{head}\})\bP(F)}{\bP_F(\{\mathrm{head}\})\bP(F) + \bP_B(\{\mathrm{head}\})\bP(B)} = \frac{1}{p+1}\]
-	
-	\subsection*{Answer}
-	
-		\[\boxed{{\bP_{\{\mathrm{head}\}}}(F) = \frac{1}{p+1}}\]
+			\[\boxed{{\bP_{\{\mathrm{head}\}}}(F) = \frac{1}{p+1}}\]
+
+	\end{enumerate}
 \end{document}
