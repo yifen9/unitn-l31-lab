@@ -57,3 +57,9 @@
   - Multiple uses of variables
   - Patterns that are not allowed
   - No redundant patterns
+
+## Mar 21
+- Exercise 1
+  - Local environments using let
+  - Decomposing the result of a function
+  - Splitting lists
