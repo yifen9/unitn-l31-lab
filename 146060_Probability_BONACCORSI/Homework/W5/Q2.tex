@@ -31,25 +31,60 @@
 		
 		\subsection*{Solution}
 		
+			As given, we can define the Bernoulli distribution with sample space $\{0,1\}$ ($0$ denotes $not\enspace received$ and $1$ denotes $received$) and with parameter $p = 0.8$, then we can define its Binomial distribution as
+			
+			\[X\sim \text{Bin}(n,p),\quad n = 6\]
+			
+			Then we can know the probability that a word contains exactly four $1$'s and two $0$'s
+			
+			\[
+			\begin{aligned}
+				\bP(X = 4) &= \dbinom{n}{4}p^4(1-p)^{n-4}\\
+				&= 0.163\,84
+			\end{aligned}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP(X = 4) = 0.163\,84}\]
 		
 		\bigskip\item What is the probability that a word contains at least four $1$'s?
 		
 		\subsection*{Solution}
 		
+			\[
+			\begin{aligned}
+				\bP(X >= 4) &= \sum_{k = 4}^n\bP(X = k)\\
+				&= \sum_{i = 4}^n\dbinom{n}{k}p^k(1-p)^{n-k}\\
+				&= 0.819\,2
+			\end{aligned}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP(X >= 4) = 0.819\,2}\]
 			
 		\bigskip\item Assume that the first digit is $X_1 = 1$. What is the probability that the sum of the first two digits is $2$?
 		
 		\subsection*{Solution}
 		
+			Let the trials be denoted as
+			
+			\[X_i,\quad i\in\{1,2,...,n\}\]
+			
+			Then we have
+			
+			\[
+			\begin{aligned}
+				\bP_{X_1=1}(X_1 + X_2 = 2) &= \bP(X_2 = 1)\\
+				&= p\\
+				&= 0.8
+			\end{aligned}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP_{X_1=1}(X_1 + X_2 = 2) = 0.8}\]
 	\end{enumerate}
 	
 \end{document}
