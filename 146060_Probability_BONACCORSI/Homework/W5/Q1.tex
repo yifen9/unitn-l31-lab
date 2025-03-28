@@ -31,25 +31,51 @@
 		
 		\subsection*{Solution}
 		
+			We know that $X$ has a Bernoulli distribution in sample space $\Omega = \{0,1\}$ (let 0 denotes $not\enspace received$ and 1 denotes $received$) with parameter $p = 0.9$, then easy to see that
+			
+			\[Y = (1-\epsilon)X + \epsilon(1-X)\]
+			
+			Then we can say that $Y$ is a Bernouli distribution in sample space $\Omega = \{0,1\}$ with parameter $q$.
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\text{See above.}}\]
 		
 		\bigskip\item Determine $q$.
 		
 		\subsection*{Solution}
 		
+			\[
+			\begin{aligned}
+				q &= \bP(Y = 1)\\
+				&= (1-\epsilon)\bP(X = 1) + (\epsilon)\bP(X = 0)\\
+				&= 0.86
+			\end{aligned}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{q = 0.86}\]
 			
 		\bigskip\item Compute the joint probability distribution function of $(X,Y)$.
 		
 		\subsection*{Solution}
 		
+			Easy to compute the joint distribution function of $(X,Y)$ as
+		
+			\[
+			\begin{aligned}
+				f(a,b) &= \bP(X=a,Y=b)\\
+				&= \bP(X=a)\bP(Y=b)\\
+				&= ((1-a)\bP(X=0) + a\bP(X=1))((1-b)\bP(X=0) + b\bP(X=1))\\
+				&= ((1-a)(1-p) + ap)((1-b)(1-q) + bq)\\
+				&= 0.576\,ab + 0.112\,a + 0.072\,b + 0.014
+			\end{aligned}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{f(a,b) = 0.576\,ab + 0.112\,a + 0.072\,b + 0.014}\]
 	\end{enumerate}
 	
 \end{document}
