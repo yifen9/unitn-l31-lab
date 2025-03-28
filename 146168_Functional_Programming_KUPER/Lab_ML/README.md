@@ -1,7 +1,7 @@
 # CONTENT
 
 ## Feb 28
-- Exercise 1:
+- Exercise 1
   - ML
   - Running ML
   - Expressions
@@ -11,7 +11,7 @@
   - Comparisons
   - Logical operations
   - If-then-else
-- Exercise 2:
+- Exercise 2
   - Type errors
   - Tuples
   - Coercion
