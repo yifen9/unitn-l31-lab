@@ -1,0 +1,31 @@
+# CONTENT
+
+- Exercise 1:
+  - ML
+  - Running ML
+  - Expressions
+  - Constants
+  - Arithmetic operators
+  - String operators
+  - Comparisons
+  - Logical operations
+  - If-then-else
+- Exercise 2:
+  - Type errors
+  - Tuples
+  - Coercion
+  - Real to integer
+  - Conversion between characters and integers
+- Exercise 3
+  - Variables
+- Exercise 4
+  - Tuples
+  - Accessing components of tuple
+  - Lists
+  - Head of a list
+  - Tail of a list
+  - Concatenation of lists
+  - Combining lists
+  - Strings to lists
+  - Lists to strings
+  - The ML type system: Introduction
