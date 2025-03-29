@@ -142,6 +142,8 @@
   - About
     - Mathematics for Computer Science
       - [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
+    - Material and Exam mode
+      - [Fondamenti Matematici per l'Informatica](https://pignatelli.maths.unitn.it/didattica/fmi)
 
 ### In Advance
 
