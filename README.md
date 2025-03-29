@@ -155,6 +155,8 @@
   - About
     - [CyBOK](https://www.cybok.org)
 - [[145993] Databases - SIRACUSA](https://didatticaonline.unitn.it/dol/course/view.php?id=39296)
+  - Textbook
+    - <[Database System Concepts - Abraham Silberschatz, Henry F. Korth, S. Sudarshan - Seventh Edition - Yale University, Lehigh University, Indian Institute of Technology](https://libgen.li/ads.php?md5=04f36d657cd818cd1affd507ac4ce15a)>
 - [[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126)
 - [[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124)
 - [[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261)
