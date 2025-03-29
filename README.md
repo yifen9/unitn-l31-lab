@@ -142,6 +142,8 @@
   - About
     - Mathematics for Computer Science
       - [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
+    - Material and Exam mode
+      - [Fondamenti Matematici per l'Informatica](https://pignatelli.maths.unitn.it/didattica/fmi)
 
 ### In Advance
 
@@ -153,6 +155,10 @@
   - About
     - [CyBOK](https://www.cybok.org)
 - [[145993] Databases - SIRACUSA](https://didatticaonline.unitn.it/dol/course/view.php?id=39296)
+  - Textbook
+    - <[Database System Concepts - Abraham Silberschatz, Henry F. Korth, S. Sudarshan - Seventh Edition - Yale University, Lehigh University, Indian Institute of Technology](https://libgen.li/ads.php?md5=04f36d657cd818cd1affd507ac4ce15a)>
+    - <[Database Management Systems - Raghu Ramakkrishnan, Johannes Gehrke - Third Edition - University of Wisconsin, Cornell University](https://archive.org/details/Ramakkrishnan--databaseManagementSystems3rdEdtiongnsecbooks)>
+    - <[Database Systems: Concepts, Languages & Architectures - Paolo Atzeni, Stefano Ceri, Stefano Paraboschi, Riccardo Torlone](https://libgen.li/ads.php?md5=20e487eda59e2332826b149baa54efdb)>
 - [[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126)
 - [[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124)
 - [[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261)
