@@ -31,9 +31,46 @@
 		
 		\subsection*{Solution}
 		
+			By applying the principle of symmetry, easy to define the probability space as
+			
+			\[
+			\begin{aligned}
+				\Omega &= \{1,2,\dots,6\}\\
+				\mathcal{F} &= \mathcal{P}(\Omega)\\
+				\bP &:\enspace \bP(\{1\}) = \bP(\{2\}) = \dots = \bP(\{6\}) = \frac{1}{6}
+			\end{aligned}
+			\]
+			
+			Then as given, we have
+			
+			\[
+			\begin{aligned}
+				X,Y &:\enspace \Omega \rightarrow R\\
+				W &= \max(X,Y)\\
+				R &= \{1,2,\dots,6\}
+			\end{aligned}
+			\]
+			
+			Then we have the probability distribution of $W$
+			
+			\[
+			\begin{aligned}
+				p(1) &= \bP(W = 1) &= \bP(\{(1,1)\}) &= \frac{1}{36}\\
+				p(2) &= \bP(W = 2) &= \bP(\{(1,2),(2,1),(2,2)\}) &= \frac{3}{36}\\
+				p(3) &= \bP(W = 3) &= \bP(\{(1,3),(2,3),\dots,(3,3)\}) &= \frac{5}{36}\\
+				p(4) &= \bP(W = 4) &= \bP(\{(1,4),(2,4),\dots,(4,4)\}) &= \frac{7}{36}\\
+				p(5) &= \bP(W = 5) &= \bP(\{(1,5),(2,5),\dots,(5,5)\}) &= \frac{9}{36}\\
+				p(6) &= \bP(W = 6) &= \bP(\{(1,6),(2,6),\dots,(6,6)\}) &= \frac{11}{36}
+			\end{aligned}
+			\]
+			
+			Or a general formula without cases
+			
+			\[p(w) = \frac{2w-1}{36},\quad w\in \{1,2,\dots,6\}\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\text{See above.}}\]
 		
 		\bigskip\item In the second scenario, assume that the extractions are performed without replacement.
 		
