@@ -33,9 +33,22 @@
 		
 			We know that $X$ has a Bernoulli distribution in sample space $\Omega = \{0,1\}$ (let 0 denotes $not\enspace received$ and 1 denotes $received$) with parameter $p = 0.9$, then easy to see that
 			
-			\[Y = (1-\epsilon)X + \epsilon(1-X)\]
+			\[
+			\begin{aligned}
+				\bP(Y=1) &= \bP(X=0)\bP_{X=0}(Y=1) + \bP(X=1)\bP_{X=1}(Y=1)\\
+				&= (1-p)\epsilon + p(1-\epsilon)\\
+				&= -2p\epsilon + p + \epsilon
+			\end{aligned}
+			\]
 			
-			Then we can say that $Y$ is a Bernouli distribution in sample space $\Omega = \{0,1\}$ with parameter $q$.
+			Then we can say that $Y$ is a Bernouli distribution in sample space $\Omega = \{0,1\}$ with parameter
+			
+			\[
+			\begin{aligned}
+				q &= \bP(Y = 1)\\
+				&= -2p\epsilon + p + \epsilon
+			\end{aligned}
+			\]
 		
 		\subsection*{Answer}
 		
@@ -45,13 +58,9 @@
 		
 		\subsection*{Solution}
 		
-			\[
-			\begin{aligned}
-				q &= \bP(Y = 1)\\
-				&= (1-\epsilon)\bP(X = 1) + (\epsilon)\bP(X = 0)\\
-				&= 0.86
-			\end{aligned}
-			\]
+			With the explanation and formula above, easy to see that
+		
+			\[q = -2p\epsilon + p + \epsilon = 0.86\]
 		
 		\subsection*{Answer}
 		
@@ -62,22 +71,22 @@
 		\subsection*{Solution}
 		
 			Easy to compute the joint distribution function of $(X,Y)$ as
-		
-			\[
-			\begin{aligned}
-				f(x,y) &= \bP(X=x,Y=y)\\
-				&= \bP(X=x)\bP(Y=y)\\
-				&= ((1-x)\bP(X=0) + (x)\bP(X=1))((1-y)\bP(X=0) + (y)\bP(X=1))\\
-				&= ((1-x)(1-p) + xp)((1-y)(1-q) + yq)\\
-				&= 0.576\,xy + 0.112\,x + 0.072\,y + 0.014
-			\end{aligned}
-			\]
 			
-			\[x,y\in \Omega\]
+			\[
+				f(x,y) =
+					\begin{cases}
+						\begin{aligned}
+							\bP(X=0,Y=0) &= \bP(X=0)\bP_{X = 0}(Y = 0) = &(1-p)1 - \epsilon &= 0.095,&\quad x = 0,\quad y = 0\\
+							\bP(X=0,Y=1) &= \bP(X=0)\bP_{X = 0}(Y = 1) = &(1-p)\epsilon &= 0.005,&\quad x = 0,\quad y = 1\\
+							\bP(X=1,Y=0) &= \bP(X=1)\bP_{X = 1}(Y = 0) = &p\epsilon &= 0.045,&\quad x = 1,\quad y = 0\\
+							\bP(X=1,Y=1) &= \bP(X=1)\bP_{X = 1}(Y = 1) = &p(1 - \epsilon) &= 0.855,&\quad x = 1,\quad y = 1
+						\end{aligned}
+					\end{cases}
+			\]
 		
 		\subsection*{Answer}
 		
-			\[\boxed{f(x,y) = 0.576\,xy + 0.112\,x + 0.072\,y + 0.014}\]
+			\[\boxed{\text{See above.}}\]
 	\end{enumerate}
 	
 \end{document}
