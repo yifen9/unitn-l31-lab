@@ -46,11 +46,14 @@
 			Then we have the $pdf$ of $X$
 			
 			\[
-			\begin{aligned}
-				p(1) &= \frac{6\times 5\times 4}{6^3} &= \frac{5}{9}\\
-				p(2) &= \frac{6\times 3\times 5}{6^3} &= \frac{5}{12}\\
-				p(3) &= \frac{6}{6^3} &= \frac{1}{36}
-			\end{aligned}
+			p(x) =
+			\begin{cases}
+				\begin{aligned}
+					\frac{6\times 5\times 4}{6^3} &= \frac{5}{9},&\quad x = 1\\
+					\frac{6\times 3\times 5}{6^3} &= \frac{5}{12},&\quad x = 2\\
+					\frac{6}{6^3} &= \frac{1}{36},&\quad x = 3
+				\end{aligned}
+			\end{cases}
 			\]
 			
 			Or a general formula, with $N_i \in \{1,2,3\},\, i\in \{1,2,\dots,6\}$ denotes the absolute frequency of every face ($i.e.$ $N_1 = 2$ means that face $1$ shows $2$ times)
@@ -61,7 +64,14 @@
 		
 		\subsection*{Answer}
 		
-			\[\boxed{\text{See above.}}\]
+			\[\boxed{p(x) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{5}{9},&\quad x = 1\\
+						\frac{5}{12},&\quad x = 2\\
+						\frac{1}{36},&\quad x = 3
+					\end{aligned}
+			\end{cases}}\]
 	\end{enumerate}
 	
 \end{document}
