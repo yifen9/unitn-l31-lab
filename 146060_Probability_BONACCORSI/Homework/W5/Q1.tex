@@ -35,10 +35,26 @@
 			
 			\[
 			\begin{aligned}
+				\bP(Y=0) &= \bP(X=0)\bP_{X=0}(Y=0) + \bP(X=1)\bP_{X=1}(Y=0)\\
+				&= (1-p)(1-\epsilon) + p\epsilon\\
+				&= 2p\epsilon - p - \epsilon + 1
+			\end{aligned}
+			\]
+			
+			Similiarly, we have
+			
+			\[
+			\begin{aligned}
 				\bP(Y=1) &= \bP(X=0)\bP_{X=0}(Y=1) + \bP(X=1)\bP_{X=1}(Y=1)\\
 				&= (1-p)\epsilon + p(1-\epsilon)\\
 				&= -2p\epsilon + p + \epsilon
 			\end{aligned}
+			\]
+			
+			Then we have
+			
+			\[
+				0 < \bP(Y=0), \bP(Y=1) < 1,\quad\text{and}\quad \bP(Y=0) + \bP(Y=1) = 1
 			\]
 			
 			Then we can say that $Y$ is a Bernouli distribution in sample space $\Omega = \{0,1\}$ with parameter
