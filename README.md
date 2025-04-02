@@ -160,6 +160,8 @@
       - [Fondamenti Matematici per l'Informatica](https://pignatelli.maths.unitn.it/didattica/fmi)
     - Peano's Axioms
       - [Construction of Number Systems - N. Mohan Kumar](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
+    - Recurrence Theorem
+      - [Chapter Four: The Natural Numbers, Induction, and Recursive Definition](https://www.asc.ohio-state.edu/pollard.4/680/chapters/induction.pdf)
 
 ### In Advance
 
