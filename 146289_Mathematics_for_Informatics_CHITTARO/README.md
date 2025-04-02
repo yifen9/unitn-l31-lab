@@ -66,24 +66,42 @@
     - [9.2 The Greatest Common Divisor](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.2)
 - Lecture 7
   - Greatest common divisor (existence and uniqueness)
+    - [9.2.4 Properties of the Greatest Common Divisor](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.2.4)
   - Extended Euclidean Division Algorithm
+    - [9.2.2 The Pulverizer](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.2.2)
   - Properties of coprime numbers
+    - [9.3 Prime Mysteries](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.3)
   - Characterization of prime numbers
+    - [9.3 Prime Mysteries](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.3)
 - Lecture 8
   - Least common multiple: definition, existence and uniqueness
+    - [9.4 The Fundamental Theorem of Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.4)
   - The fundamental Theorem of Arithmetics
+    - [9.4 The Fundamental Theorem of Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.4)
   - Prime numbers are infinite
+    - [9.4 The Fundamental Theorem of Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.4)
   - Equivalence relations (definition)
+    - [10.10 Equivalence Relations](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.10.10)
 - Lecture 9
   - Equivalence classes
+    - [10.10.1 Equivalence Classes](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.10.10.1)
   - Congruences modulo n
+    - [9.6 Modular Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.6)
   - The remainder classes
+    - [9.7 Remainder Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.7)
   - The set Z/nZ
+    - [9.7.1 The ring Z_n](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.7.1)
   - Addition and product of congruence classes
+    - [9.7.1 The ring Z_n](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.7.1)
 - Lecture 10
   - The Chinese Remainder Theorem
+    - [Problem 9.66.](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#problem.9.66)
   - Systems of Congruences
+    - [9.6 Modular Arithmetic](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.6)
 - Lecture 11
   - Invertibility modulo n
+    - [9.9 Multiplicative Inverses and Cancelling](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.9)
   - Cancellability modulo n
-  - Lienar equations mod n
+    - [9.9.2 Cancellation](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.9.2)
+  - Linear equations mod n
+    - [10.10 Equivalence Relations](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.10.10)
