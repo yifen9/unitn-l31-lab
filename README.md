@@ -89,7 +89,7 @@
     - RISC-V Reference Data
       - [RISC-V Reference Data Card (“Green Card”)](https://www.oreilly.com/library/view/computer-organization-and/9780128122761/xhtml/htu002.xhtml)
     - RISC-V GCC translation
-      - <[Calling Convention](https://riscv.org/wp-content/uploads/2024/12/riscv-calling.pdf)>
+      - [Calling Convention](https://riscv.org/wp-content/uploads/2024/12/riscv-calling.pdf)
     - Compiler Explorer
       - [Compiler Explorer](https://godbolt.org)
 - [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332)
@@ -121,7 +121,7 @@
       - [Sample Quantiles in Statistical Packages](https://www.researchgate.net/publication/222105754_Sample_Quantiles_in_Statistical_Packages)
     - Gini Index
       - [Understanding the Gini Coefficient - A Measure of Income Inequality](https://didatticaonline.unitn.it/dol/pluginfile.php/1925084/mod_assign/introattachment/0/Notes.pdf)
-      - <[The Gini Index and Measures of Inequality - Frank A Farris - Santa Clara University](https://www.researchgate.net/publication/233688184_The_Gini_Index_and_Measures_of_Inequality)>
+      - [The Gini Index and Measures of Inequality - Frank A Farris - Santa Clara University](https://www.researchgate.net/publication/233688184_The_Gini_Index_and_Measures_of_Inequality)
 - [[146062] Computer Programming 2 - MARCHESE](https://didatticaonline.unitn.it/dol/course/view.php?id=41190)
   - Textbook
     - [Thinking in Java - Bruce Eckel - Fourth Edition](https://libgen.li/ads.php?md5=59224dba18dd9c3808542ae6251c8b8f)
@@ -160,14 +160,14 @@
 ##### Semester 1
 - [[145937] Introduction to Computer and Network Security - RANISE](https://didatticaonline.unitn.it/dol/course/view.php?id=39628)
   - Textbook
-    - <[Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)>
+    - [Computer Security - Dieter Gollmann - Third Edition - Hamburg University of Technology](https://archive.org/details/DieterGollmannWileyComputerSecurity3rdEdition)
   - About
     - [CyBOK](https://www.cybok.org)
 - [[145993] Databases - SIRACUSA](https://didatticaonline.unitn.it/dol/course/view.php?id=39296)
   - Textbook
-    - <[Database System Concepts - Abraham Silberschatz, Henry F. Korth, S. Sudarshan - Seventh Edition - Yale University, Lehigh University, Indian Institute of Technology](https://libgen.li/ads.php?md5=04f36d657cd818cd1affd507ac4ce15a)>
-    - <[Database Management Systems - Raghu Ramakkrishnan, Johannes Gehrke - Third Edition - University of Wisconsin, Cornell University](https://archive.org/details/Ramakkrishnan--databaseManagementSystems3rdEdtiongnsecbooks)>
-    - <[Database Systems: Concepts, Languages & Architectures - Paolo Atzeni, Stefano Ceri, Stefano Paraboschi, Riccardo Torlone](https://libgen.li/ads.php?md5=20e487eda59e2332826b149baa54efdb)>
+    - [Database System Concepts - Abraham Silberschatz, Henry F. Korth, S. Sudarshan - Seventh Edition - Yale University, Lehigh University, Indian Institute of Technology](https://libgen.li/ads.php?md5=04f36d657cd818cd1affd507ac4ce15a)
+    - [Database Management Systems - Raghu Ramakkrishnan, Johannes Gehrke - Third Edition - University of Wisconsin, Cornell University](https://archive.org/details/Ramakkrishnan--databaseManagementSystems3rdEdtiongnsecbooks)
+    - [Database Systems: Concepts, Languages & Architectures - Paolo Atzeni, Stefano Ceri, Stefano Paraboschi, Riccardo Torlone](https://libgen.li/ads.php?md5=20e487eda59e2332826b149baa54efdb)
 - [[146145] Fundamentals of communications (Module 1: Signal processing) - SACCHI](https://didatticaonline.unitn.it/dol/course/view.php?id=39126)
 - [[146145] Fundamentals of communications (Module 2: Networking) - SEGATA](https://didatticaonline.unitn.it/dol/course/view.php?id=39124)
 - [[146146] Fundamentals of electronics (Module 1: Logic networks) - VELHA](https://didatticaonline.unitn.it/dol/course/view.php?id=39261)
@@ -209,7 +209,7 @@
 ##### Semester 2
 - [[146141] Calculus 2 - SORESINA/WIYGUL](https://didatticaonline.unitn.it/dol/course/view.php?id=40310)
   - Textbook
-    - <[Mathematical Analysis II - Claudio Canuto, Anita Tabacco - Second Edition - Politecnico di Torino](https://libgen.li/ads.php?md5=74072560da46a542280fae628b8187ac)>
+    - [Mathematical Analysis II - Claudio Canuto, Anita Tabacco - Second Edition - Politecnico di Torino](https://libgen.li/ads.php?md5=74072560da46a542280fae628b8187ac)
 
 #### Year 3
 ##### Semester 1
