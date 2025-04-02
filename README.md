@@ -86,6 +86,12 @@
   - About
     - Floating-Point – Loss of Precision
       - [Decimal to 64 Bit IEEE 754 Binary: Convert Number 0.1 to 64 Bit Double Precision IEEE 754 Binary Floating Point Representation Standard, From Base Ten Decimal System](https://binary-system.base-conversion.ro/real-number-converted-from-decimal-system-to-64bit-double-precision-IEEE754-binary-floating-point.php?decimal_number_base_ten=0.1#google_vignette)
+    - RISC-V Reference Data
+      - [RISC-V Reference Data Card (“Green Card”)](https://www.oreilly.com/library/view/computer-organization-and/9780128122761/xhtml/htu002.xhtml)
+    - RISC-V GCC translation
+      - <[Calling Convention](https://riscv.org/wp-content/uploads/2024/12/riscv-calling.pdf)>
+    - Compiler Explorer
+      - [Compiler Explorer](https://godbolt.org)
 - [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332)
   - Textbook
     - [Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)
