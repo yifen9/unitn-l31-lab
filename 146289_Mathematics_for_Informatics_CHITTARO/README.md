@@ -43,17 +43,27 @@
     - [Chapter Four: The Natural Numbers, Induction, and Recursive Definition](https://www.asc.ohio-state.edu/pollard.4/680/chapters/induction.pdf)
 - Lecture 4
   - Partial and total orderings
+    - [10.6 Partial Orders](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.10.6)
   - The set of natural numbers is a totally ordered set
+    - [Wikipedia](https://en.wikipedia.org/wiki/Total_order)
   - The shifted induction principle
+    - [The Principle of Induction](https://www.ucd.ie/mathstat/t4media/Induction_principle_slides_web.pdf)
 - Lecture 5
   - Well orderings
+    - [2 The Well Ordering Principle](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#chapter.2)
   - The set of natural numbers is well ordered
+    - [2 The Well Ordering Principle](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#chapter.2)
   - The strong induction principle
+    - [5.2.1 A Rule for Strong Induction](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.5.2.1)
 - Lecture 6
   - Integer division
+    - [9.1 Divisibility](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.1)
   - The Euclidean algorithm of division
+    - [9.2.1 Euclid’s Algorithm](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.9.2.1)
   - Representability of integers in base b
+    - [Positional notation](https://en.wikipedia.org/wiki/Positional_notation)
   - Greatest common divisor
+    - [9.2 The Greatest Common Divisor](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.9.2)
 - Lecture 7
   - Greatest common divisor (existence and uniqueness)
   - Extended Euclidean Division Algorithm
