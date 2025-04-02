@@ -158,6 +158,8 @@
       - [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
     - Material and Exam mode
       - [Fondamenti Matematici per l'Informatica](https://pignatelli.maths.unitn.it/didattica/fmi)
+    - Peano's Axioms
+      - [Construction of Number Systems - N. Mohan Kumar](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
 
 ### In Advance
 
