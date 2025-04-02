@@ -92,6 +92,8 @@
       - [Calling Convention](https://riscv.org/wp-content/uploads/2024/12/riscv-calling.pdf)
     - Compiler Explorer
       - [Compiler Explorer](https://godbolt.org)
+    - Intel instructions
+      - [x86 instruction listings](https://en.wikipedia.org/wiki/X86_instruction_listings)
 - [[146060] Probability - BONACCORSI](https://didatticaonline.unitn.it/dol/course/view.php?id=40332)
   - Textbook
     - [Probability and Information: An Integrated Approach - David Applebaum - Second Edition - University of Sheffield](https://libgen.li/ads.php?md5=5a5fd1c2e44a0baaac3ee4d1db73927c)
