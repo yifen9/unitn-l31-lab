@@ -124,6 +124,8 @@
     - Gini Index
       - [Understanding the Gini Coefficient - A Measure of Income Inequality](https://didatticaonline.unitn.it/dol/pluginfile.php/1925084/mod_assign/introattachment/0/Notes.pdf)
       - [The Gini Index and Measures of Inequality - Frank A Farris - Santa Clara University](https://www.researchgate.net/publication/233688184_The_Gini_Index_and_Measures_of_Inequality)
+    - MATLAB usage
+      - [MATLAB Tutorials](https://www.youtube.com/playlist?list=PL7CAABC40B2825C8B)
 - [[146062] Computer Programming 2 - MARCHESE](https://didatticaonline.unitn.it/dol/course/view.php?id=41190)
   - Textbook
     - [Thinking in Java - Bruce Eckel - Fourth Edition](https://libgen.li/ads.php?md5=59224dba18dd9c3808542ae6251c8b8f)
