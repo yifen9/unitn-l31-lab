@@ -162,6 +162,8 @@
       - [Construction of Number Systems - N. Mohan Kumar](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
     - Recurrence Theorem
       - [Chapter Four: The Natural Numbers, Induction, and Recursive Definition](https://www.asc.ohio-state.edu/pollard.4/680/chapters/induction.pdf)
+    - The shifted induction principle
+      - [The Principle of Induction](https://www.ucd.ie/mathstat/t4media/Induction_principle_slides_web.pdf)
 
 ### In Advance
 
