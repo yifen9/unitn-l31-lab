@@ -3,14 +3,26 @@
 ## REFERENCE
 - Lecture 1
   - Sets
-  - Axiom of extensionality
+    - [4.1 Sets, 4 Mathematical Data Types](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.4.1)
+  - Axiom of Extensionality
+    - [4.1.5 Proving Set Equalities](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.1.5)
+    - [8.3.2 The ZFC Axioms for Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.8.3.2)
   - Subsets
+    - [4.1.2 Comparing and Combining Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.1.2)
+    - [8.3.2 The ZFC Axioms for Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.8.3.2)
+    - [10.7 Representing Partial Orders by Set Containment](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.10.7)
   - Empty set
+    - [4.1.1 Some Popular Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.1.1)
   - Axiom of Specification
+    - [8.3.2 The ZFC Axioms for Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.8.3.2)
   - Operations between sets
+    - [4.1.2 Comparing and Combining Sets](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.1.2)
   - Binary relations
+    - [4.4 Binary Relations](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.4.4)
   - Functions
+    - [4.3 Functions](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#section.4.3)
   - Injective functions, surjective functions, bijective functions
+    - [4.4.1 Relation Diagrams](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.4.1)
 - Lecture 2
   - Identity function
   - Inverse of a bijective function
