@@ -36,8 +36,11 @@
     - [Construction of Number Systems - N. Mohan Kumar](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
 - Lecture 3
   - Induction principle
+    - [5.1.1 A Rule for Ordinary Induction](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.5.1.1)
   - Recurrence Theorem
+    - [V Recurrences](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#part.5)
   - Definition of the sum in the set N (using Recurrence theorem)
+    - [Chapter Four: The Natural Numbers, Induction, and Recursive Definition](https://www.asc.ohio-state.edu/pollard.4/680/chapters/induction.pdf)
 - Lecture 4
   - Partial and total orderings
   - The set of natural numbers is a totally ordered set
