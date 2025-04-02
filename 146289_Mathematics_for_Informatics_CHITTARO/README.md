@@ -1,0 +1,59 @@
+# CONTENT
+
+## REFERENCE
+- Lecture 1
+  - Sets
+  - Axiom of extensionality
+  - Subsets
+  - Empty set
+  - Axiom of Specification
+  - Operations between sets
+  - Binary relations
+  - Functions
+  - Injective functions, surjective functions, bijective functions
+- Lecture 2
+  - Identity function
+  - Inverse of a bijective function
+  - Inverse image of a set with respect to a function
+  - Axiomatic definition of the set of natural numbers: Peano's axioms
+  - Every non-zero natural number is the successor of a natural number
+- Lecture 3
+  - Induction principle
+  - Recurrence Theorem
+  - Definition of the sum in the set N (using Recurrence theorem)
+- Lecture 4
+  - Partial and total orderings
+  - The set of natural numbers is a totally ordered set
+  - The shifted induction principle
+- Lecture 5
+  - Well orderings
+  - The set of natural numbers is well ordered
+  - The strong induction principle
+- Lecture 6
+  - Integer division
+  - The Euclidean algorithm of division
+  - Representability of integers in base b
+  - Greatest common divisor
+- Lecture 7
+  - Greatest common divisor (existence and uniqueness)
+  - Extended Euclidean Division Algorithm
+  - Properties of coprime numbers
+  - Characterization of prime numbers
+- Lecture 8
+  - Least common multiple: definition, existence and uniqueness
+  - The fundamental Theorem of Arithmetics
+  - Prime numbers are infinite
+  - Equivalence relations (definition)
+- Lecture 9
+  - Equivalence classes
+  - Congruences modulo n
+  - The remainder classes
+  - The set Z/nZ
+  - Addition and product of congruence classes
+- Lecture 10
+  - The Chinese Remainder Theorem
+  - Systems of Congruences
+- Lecture 11
+  - Invertibility modulo n
+  - Cancellability modulo n
+  - Lienar equations mod n
