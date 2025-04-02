@@ -25,10 +25,15 @@
     - [4.4.1 Relation Diagrams](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.4.1)
 - Lecture 2
   - Identity function
+    - [Problem 4.34.](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#problem.4.34)
   - Inverse of a bijective function
+    - [4.4.2 Relational Images](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.4.2)
   - Inverse image of a set with respect to a function
+    - [4.4.2 Relational Images](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf#subsection.4.4.2)
   - Axiomatic definition of the set of natural numbers: Peano's axioms
+    - [CONSTRUCTION OF NUMBER SYSTEMS - N. MOHAN KUMAR](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
   - Every non-zero natural number is the successor of a natural number
+    - [CONSTRUCTION OF NUMBER SYSTEMS - N. MOHAN KUMAR](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
 - Lecture 3
   - Induction principle
   - Recurrence Theorem
