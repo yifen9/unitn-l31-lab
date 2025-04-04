@@ -63,3 +63,41 @@
   - Local environments using let
   - Decomposing the result of a function
   - Splitting lists
+
+## Mar 28
+- Exercise 1
+  - Input and Output
+  - Printing
+  - Printing non-strings
+  - Other conversions
+- Exercise 2
+  - Input
+  - Instreams
+  - Reading lines of a file
+  - Reading complete files
+  - Read a single character
+  - Lookahead
+  - Are there n characters left?
+- Exercise 3
+  - Exceptions
+  - User-defined exceptions
+  - Exceptions with parameters
+  - Handling exceptions
+
+## Apr 4
+- Exercise 1
+  - Polymorphic functions
+  - More on polymorphic functions
+  - Equality types
+  - Reversing lists
+  - Testing for empty list
+- Exercise 2
+  - Higher-order functions
+  - Integration
+  - Some higher-order functions
+  - Map
+  - reduce
+  - Definition of reduce
+  - Using reduce to compute variance
+  - Infix operators
+  - Filter
