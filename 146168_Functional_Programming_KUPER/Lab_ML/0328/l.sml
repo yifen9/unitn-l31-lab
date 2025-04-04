@@ -157,18 +157,17 @@ fun comb1(n,m) =
                 comb(n-1,m) + comb(n-1,m-1)
 ;
 
-fun comb(n,m) =
-    comb1(n,m) handle
-        OutOfRange(0,0) => 1
-        | OutOfRange(n,m) => (
-            print("out of range: n=");
-            print(Int.toString(n));
-            print(" m=");
-            print(Int.toString(m));
-            print("\n");
+fun comb(n,m) = comb1(n,m) handle
+    OutOfRange(0,0) => 1
+    | OutOfRange(n,m) => (
+        print("out of range: n=");
+        print(Int.toString(n));
+        print(" m=");
+        print(Int.toString(m));
+        print("\n");
 
-            0
-        )
+        0
+    )
 ;
 
 exception shortList of int list;
@@ -182,14 +181,11 @@ fun returnThird1 L =
         hd(tl(tl(L)))
 ;
 
-fun returnThird L =
-    returnThird1 L handle
-        shortList L => (
-            print("List too short\n");
+fun returnThird L = returnThird1 L handle shortList L => (
+    print("List too short\n");
 
-            0
-        )
-;
+    0
+);
 
 exception Negative of int;
 
@@ -207,16 +203,13 @@ fun fact1(n) =
             n * fact1(n-1)
 ;
 
-fun fact(n) =
-    fact1(n) handle
-        Negative(n) => (
-            print("negative argument ");
-            print(Int.toString(n));
-            print("\n");
+fun fact(n) = fact1(n) handle Negative(n) => (
+    print("negative argument ");
+    print(Int.toString(n));
+    print("\n");
 
-            0
-        )
-;
+    0
+);
 
 fun identity(x) = x;
 
