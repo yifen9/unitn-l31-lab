@@ -33,7 +33,7 @@
 				\frac{1}{8}, &\quad k = 0\\
 				\frac{1}{4}, &\quad k = 1\\
 				\frac{1}{4}, &\quad k = 2\\
-				0, &\quad otherwise
+				0, &\quad \text{otherwise}
 			\end{aligned}
 		\end{cases}
 	\]
@@ -45,20 +45,33 @@
 	\begin{enumerate}[label={},leftmargin=0in]\item
 		\subsection*{Solution}
 		
-			Easy to get the $pdf$ of $Y$
+			Easy to see that
 			
 			\[
-			p_Y(k) =
-			\begin{cases}
-				\begin{aligned}
-					(p_X(-2) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = -2\\
-					(p_X(-1) + 1)^2 &= \frac{81}{64} &\approx 1.266 &\quad k = -1\\
-					(p_X(0) + 1)^2 &= \frac{81}{64} &\approx 1.266 &\quad k = 0\\
-					(p_X(1) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = 1\\
-					(p_X(2) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = 2\\
-					(0 + 1)^2 &= 1 & &\quad otherwise
-				\end{aligned}
-			\end{cases}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$X$  & $(X+1)^2=Y$ & $\bP(X)$       \\ \hline
+					$-2$ & $1$         & $\frac{1}{4}$  \\ \hline
+					$-1$ & $0$         & $\frac{1}{8}$  \\ \hline
+					$0$  & $1$         & $\frac{1}{8}$  \\ \hline
+					$1$  & $4$         & $\frac{1}{4}$  \\ \hline
+					$2$  & $9$         & $\frac{1}{4}$  \\ \hline
+				\end{tabular}
+			\]
+			
+			Then we have the $pdf$ of $Y$
+			
+			\[
+				p_Y(k) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{1}{8}, &\quad k = 0\\
+						\frac{1}{4} + \frac{1}{8} = \frac{3}{8}, &\quad k = 1\\
+						\frac{1}{4}, &\quad k = 4\\
+						\frac{1}{4}, &\quad k = 9\\
+						0, &\quad \text{otherwise}
+					\end{aligned}
+				\end{cases}
 			\]
 		
 		\subsection*{Answer}
@@ -66,12 +79,11 @@
 			\[\boxed{p_Y(k) =
 				\begin{cases}
 					\begin{aligned}
-						\frac{25}{16} &\approx 1.563 &\quad k = -2\\
-						\frac{81}{64} &\approx 1.266 &\quad k = -1\\
-						\frac{81}{64} &\approx 1.266 &\quad k = 0\\
-						\frac{25}{16} &\approx 1.563 &\quad k = 1\\
-						\frac{25}{16} &\approx 1.563 &\quad k = 2\\
-						1 & &\quad otherwise
+						\frac{1}{8}, &\quad k = 0\\
+						\frac{1}{4} + \frac{1}{8} = \frac{3}{8}, &\quad k = 1\\
+						\frac{1}{4}, &\quad k = 4\\
+						\frac{1}{4}, &\quad k = 9\\
+						0, &\quad \text{otherwise}
 					\end{aligned}
 			\end{cases}}\]
 	\end{enumerate}
