@@ -29,9 +29,43 @@
 	\begin{enumerate}[label={},leftmargin=0in]\item
 		\subsection*{Solution}
 		
+			By applying the principle of symmetry, easy to define the probability space as
+			
+			\[
+			\begin{aligned}
+				\Omega &= \{1,2,\dots,6\}\\
+				\mathcal{F} &= \mathcal{P}(\Omega)\\
+				\bP &:\enspace \bP(\{1,2\}) = \bP(\{1,3\}) = \dots = \bP(\{6,5\}) = \frac{1}{6}\times \frac{1}{5} = \frac{1}{30}
+			\end{aligned}
+			\]
+			
+			Then we have the $pdf$ of $X$
+			
+			\[
+				p(x) =
+				\begin{cases}
+					\begin{aligned}
+						\bP(X = 1) &= \bP(\{1,2\},\{2,1\},\dots,\{6,5\}) &= \frac{5}{15} &\approx 0.333,&\quad x = 1\\
+						\bP(X = 2) &= \bP(\{1,3\},\{2,4\},\dots,\{6,4\}) &= \frac{4}{15} &\approx 0.267,&\quad x = 2\\
+						\bP(X = 3) &= \bP(\{1,4\},\{2,5\},\dots,\{6,3\}) &= \frac{3}{15} &= 0.2,&\quad x = 3\\
+						\bP(X = 4) &= \bP(\{1,5\},\{2,6\},\dots,\{6,2\}) &= \frac{2}{15} &\approx 0.133,&\quad x = 4\\
+						\bP(X = 5) &= \bP(\{1,6\},\{6,1\}) &= \frac{1}{15} &\approx 0.067,&\quad x = 5
+					\end{aligned}
+				\end{cases}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{p(x) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{5}{15} &\approx 0.333,&\quad x = 1\\
+						\frac{4}{15} &\approx 0.267,&\quad x = 2\\
+						\frac{3}{15} &= 0.2,&\quad x = 3\\
+						\frac{2}{15} &\approx 0.133,&\quad x = 4\\
+						\frac{1}{15} &\approx 0.067,&\quad x = 5
+					\end{aligned}
+			\end{cases}}\]
 	\end{enumerate}
 	
 \end{document}
