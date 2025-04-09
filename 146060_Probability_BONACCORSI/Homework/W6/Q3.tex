@@ -31,73 +31,98 @@
 		
 		\subsection*{Solution}
 		
-			Let $\it{head}$ and $\it{tail}$ denote the results of a drop. By applying the principle of symmetry, define the probability space as
+			As given, we can define the Bernoulli distribution with sample space $\Omega = \{\text{head},\text{tail}\}$ ($head$ denotes $drop\enspace headed$ and $tail$ denotes $drop\enspace tailed$) and with parameter $p = 0.5$ (by applying the principle of symmetry), then we can define the Binomial distribution of both $X$ and $Y$ as
 			
 			\[
-			\begin{aligned}
-				\Omega &= \{\mathrm{head},\,\mathrm{tail}\}\\
-				\mathcal{F} &= \mathcal{P}(\Omega)\\
-				\bP &:\enspace \bP(\{\text{head}\}) = \bP(\{\text{tail}\}) = \frac{1}{2}
-			\end{aligned}
+				\begin{aligned}
+					X\sim &\text{Bin}(n,p)\\
+					Y\sim &\text{Bin}(n+1,p)
+				\end{aligned}
 			\]
 			
-			Then we have the expected values of both $X$ (E[X]) and $Y$ (E[Y])
+			Let as define $Z = Y - X$, then we have
+			
+			\[Z\sim \text{Bin}(1,p)\]
+			
+			Then we have the distribution of $Z$
 			
 			\[
-			\begin{aligned}
-				E[X] &= \sum_{i=1}^n\frac{1}{2} &= \frac{n}{2}\\
-				E[Y] &= \sum_{i=1}^{n+1}\frac{1}{2} &= \frac{n+1}{2}
-			\end{aligned}
+				p(z) =
+				\begin{cases}
+					\begin{aligned}
+						0.5,\quad z = 0\\
+						0.5,\quad z = 1
+					\end{aligned}
+				\end{cases}
 			\]
 			
-			Easy to see that
+			That is
 			
 			\[
-			\begin{aligned}
-				E[Y] &= E[X] + \frac{1}{2}\\
-				&\downarrow\\
-				E[Y] &> E[X]\\
-				&\downarrow\\
-				\bP(Y&>X) > \frac{1}{2}
-			\end{aligned}
+				\begin{aligned}
+					\bP(Y > X) &= \bP(Z > 0)\\
+					&= \frac{p(1)}{p(0) + p(1)}\\
+					&= \frac{1}{2}
+				\end{aligned}
 			\]
-			
-			Then we say that the bet is unfair, with Bob has a higher probability to win.
 		
 		\subsection*{Answer}
 		
-			\[\boxed{\text{Unfair, Bob tends to win more.}}\]
+			\[\boxed{\text{Fair.}}\]
 		
 		\bigskip\item Compute the answer for a general coin.
 		
 		\subsection*{Solution}
 		
-			Similarly, by denoting both $X$ and $Y$ in general case as $X_g$ and $Y_g$ with $\bP(\{\text{head}\}) = p$, we have
+			Here we let $p_g$ denote a random variable in $(0,1)$, then we have the $Z$ in general case
+			
+			\[Z_g\sim \text{Bin}(1,p_g)\]
+			
+			Then we have the distribution of $Z_g$
 			
 			\[
-			\begin{aligned}
-				E[X_g] &= \sum_{i=1}^np &= np\\
-				E[Y_g] &= \sum_{i=1}^{n+1}p &= (n+1)p
-			\end{aligned}
+				p_g(z) =
+				\begin{cases}
+					\begin{aligned}
+						1-p_g,\quad z = 0\\
+						p_g,\quad z = 1
+					\end{aligned}
+				\end{cases}
 			\]
 			
-			Easy to see that
+			By denoting $X$ and $Y$ in general case as $X_g$ and $Y_g$, we have
 			
 			\[
-			\begin{aligned}
-				E[Y_g] &= E[X_g] + p,\quad p > 0\\
-				&\downarrow\\
-				E[Y_g] &> E[X_g]\\
-				&\downarrow\\
-				\bP(Y_g & > X_g) > \frac{1}{2}
-			\end{aligned}
+				\begin{aligned}
+					\bP(Y_g > X_g) &= \bP(Z_g > 0)\\
+					&= \frac{p_g(1)}{p_g(0) + p_g(1)}\\
+					&= p_g
+				\end{aligned}
 			\]
 			
-			Then we say that the bet is unfair, with Bob has a higher probability to win.
+			That is
+			
+			\[
+				\text{Bet is}
+				\begin{cases}
+					\begin{aligned}
+						\text{Unfair, Alice tends to win more},&\quad p_g < 0.5\\
+						\text{Fair},&\quad p_g = 0.5\\
+						\text{Unfair, Bob tends to win more},&\quad p_g > 0.5
+					\end{aligned}
+				\end{cases}
+			\]
 		
 		\subsection*{Answer}
 		
-			\[\boxed{\text{Unfair, Bob tends to win more.}}\]
+			\[\boxed{\text{Bet is}
+				\begin{cases}
+					\begin{aligned}
+						\text{Unfair, Alice tends to win more},&\quad p_g < 0.5\\
+						\text{Fair},&\quad p_g = 0.5\\
+						\text{Unfair, Bob tends to win more},&\quad p_g > 0.5
+					\end{aligned}
+			\end{cases}}\]
 	\end{enumerate}
 	
 \end{document}
