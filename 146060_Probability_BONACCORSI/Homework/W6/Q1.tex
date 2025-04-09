@@ -31,25 +31,81 @@
 		
 		\subsection*{Solution}
 		
+		As given, easy to know that $X$ has a geometric distribution with parameter $p$, that is
+		
+		\[X\sim\text{Geo}(p),\quad p = 0.2,\quad X \in \{1,2,3,4\}\]
+		
+		We know that
+		
+		\[\bP(X = k) = (1-p)^{k-1}p,\quad k\in X\]
+		
+		Then we have
+		
+		\[
+			\bP(X = k) =
+				\begin{cases}
+					\begin{aligned}
+						(1-0.2)^{1-1} 0.2 &= \frac{1}{5} &= 0.2, &\quad k = 1\\
+						(1-0.2)^{2-1} 0.2 &= \frac{4}{25} &= 0.16, &\quad k = 2\\
+						(1-0.2)^{3-1} 0.2 &= \frac{16}{125} &= 0.128, &\quad k = 3\\
+						(1-0.2)^{4-1} 0.2 &= \frac{64}{625} &= 0.102\,4, &\quad k = 4
+					\end{aligned}
+				\end{cases}
+		\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP(X = k) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{1}{5} &= 0.2, &\quad k = 1\\
+						\frac{4}{25} &= 0.16, &\quad k = 2\\
+						\frac{16}{125} &= 0.128, &\quad k = 3\\
+						\frac{64}{625} &= 0.102\,4, &\quad k = 4
+					\end{aligned}
+			\end{cases}}\]
 		
 		\bigskip\item What is the probability that Hugo successfully completes his collection?
 		
 		\subsection*{Solution}
 		
+		Let event $C$ denotes that Hugo completes his collection, easy to know that
+		
+		\[C = \bigcup_{k=1}^4(X = k)\]
+		
+		Then we have
+		
+		\[
+			\begin{aligned}
+				\bP(C) &= \sum_{k=1}^4\bP(X = k)\\
+				&= \frac{1}{5} + \frac{4}{25} +\dots + \frac{64}{625}\\
+				&= \frac{369}{625}\\
+				&= 0.590\,4
+			\end{aligned}
+		\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP(C) = \frac{369}{625} = 0.590\,4}\]
 			
 		\bigskip\item Given that Hugo completes the collection, what is the probability that he only buys one pack?
 		
 		\subsection*{Solution}
 		
+		By applying the Bayes’ Theorem, we know that
+		
+		\[
+			\begin{aligned}
+				\bP_C(X = 1) &= \frac{\bP_{X = 1}(C)\bP(X = 1)}{\bP(C)}\\
+				&= \frac{1\times \frac{1}{5}}{\frac{369}{625}}\\
+				&= \frac{125}{369}\\
+				&\approx 0.339
+			\end{aligned}
+		\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP_C(X = 1) = \frac{125}{369} \approx 0.339}\]
 	\end{enumerate}
 	
 \end{document}
