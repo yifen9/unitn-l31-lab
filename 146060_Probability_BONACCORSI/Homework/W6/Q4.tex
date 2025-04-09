@@ -26,16 +26,16 @@
 	
 	\[
 		p_X(k) =
-			\begin{cases}
-				\begin{aligned}
-					\frac{1}{4}, &\quad k = -2\\
-					\frac{1}{8}, &\quad k = -1\\
-					\frac{1}{8}, &\quad k = 0\\
-					\frac{1}{4}, &\quad k = 1\\
-					\frac{1}{4}, &\quad k = 2\\
-					0, &\quad otherwise
-				\end{aligned}
-			\end{cases}
+		\begin{cases}
+			\begin{aligned}
+				\frac{1}{4}, &\quad k = -2\\
+				\frac{1}{8}, &\quad k = -1\\
+				\frac{1}{8}, &\quad k = 0\\
+				\frac{1}{4}, &\quad k = 1\\
+				\frac{1}{4}, &\quad k = 2\\
+				0, &\quad otherwise
+			\end{aligned}
+		\end{cases}
 	\]
 	
 	\noindent We define a new random variable $Y$ as $Y = (X + 1)^2$. Find the probability distribution function (PDF) of $Y$.
@@ -45,9 +45,35 @@
 	\begin{enumerate}[label={},leftmargin=0in]\item
 		\subsection*{Solution}
 		
+			Easy to get the $pdf$ of $Y$
+			
+			\[
+			p_Y(k) =
+			\begin{cases}
+				\begin{aligned}
+					(p_X(-2) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = -2\\
+					(p_X(-1) + 1)^2 &= \frac{81}{64} &\approx 1.266 &\quad k = -1\\
+					(p_X(0) + 1)^2 &= \frac{81}{64} &\approx 1.266 &\quad k = 0\\
+					(p_X(1) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = 1\\
+					(p_X(2) + 1)^2 &= \frac{25}{16} &\approx 1.563 &\quad k = 2\\
+					(0 + 1)^2 &= 1 & &\quad otherwise
+				\end{aligned}
+			\end{cases}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{p_Y(k) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{25}{16} &\approx 1.563 &\quad k = -2\\
+						\frac{81}{64} &\approx 1.266 &\quad k = -1\\
+						\frac{81}{64} &\approx 1.266 &\quad k = 0\\
+						\frac{25}{16} &\approx 1.563 &\quad k = 1\\
+						\frac{25}{16} &\approx 1.563 &\quad k = 2\\
+						1 & &\quad otherwise
+					\end{aligned}
+			\end{cases}}\]
 	\end{enumerate}
 	
 \end{document}
