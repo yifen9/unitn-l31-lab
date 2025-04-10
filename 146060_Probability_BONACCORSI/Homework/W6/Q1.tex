@@ -69,16 +69,16 @@
 		
 		\subsection*{Solution}
 		
-			Let event $C$ denotes that Hugo completes his collection, easy to know that
+			Let event $C$ denotes that Hugo completes his collection and let $C_4$ denotes that Hugo completes his collection when opening the fourth pack, easy to know that
 			
-			\[C = \bigcup_{k=1}^4(X = k)\]
+			\[C = C_4 + \bigcup_{k=1}^3(X = k),\quad \bP(C_4) = (1-p)^{4-1}p\]
 			
 			Then we have
 			
 			\[
 				\begin{aligned}
-					\bP(C) &= \sum_{k=1}^4\bP(X = k)\\
-					&= \frac{1}{5} + \frac{4}{25} +\dots + \frac{64}{625}\\
+					\bP(C) &= \bP(C_4) + \sum_{k=1}^3\bP(X = k)\\
+					&= (1-0.2)^{3}0.2 + \frac{1}{5} + \frac{4}{25} + \frac{16}{125}\\
 					&= \frac{369}{625}\\
 					&= 0.590\,4
 				\end{aligned}
