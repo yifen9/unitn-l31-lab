@@ -5,7 +5,6 @@ Pkg.instantiate()
 using Markdown
 using Dates
 using Printf
-using Glob
 
 # === Configuration ===
 const SRC_DIR = "src"                        # Folder containing raw course files
