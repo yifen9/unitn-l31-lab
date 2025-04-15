@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     logo.addEventListener("click", function (event) {
       event.preventDefault();
-      window.open("https://www.unitn.it/", "_blank");
+      window.open("https://webapps.unitn.it/gestionecorsi", "_blank");
     });
   }
 });
