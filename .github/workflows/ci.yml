@@ -28,7 +28,7 @@ jobs:
           version: '1.10'
 
       - name: Generate docs
-        run: julia generate_docs.jl
+        run: julia scripts/generate_docs.jl
 
       - name: Set up Python
         uses: actions/setup-python@v4
