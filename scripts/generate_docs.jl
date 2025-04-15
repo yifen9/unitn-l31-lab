@@ -135,7 +135,7 @@ function build_nested_nav(path::String)
     for entry in entries
         name = prettify_name(basename(entry))
         rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
-    
+
         if isdir(entry)
             index_path = joinpath(rel, "index.md")
             children_nav = build_nested_nav(entry)
@@ -150,41 +150,59 @@ end
 
 function update_mkdocs_nav()
     mkdocs_path = "mkdocs.yml"
-    original_lines = readlines(mkdocs_path)
+    backup_path = "mkdocs.yml.bak"
+    cp(mkdocs_path, backup_path; force=true)
+
+    original_lines = readlines(backup_path)
     new_lines = String[]
 
-    nav_indent = 0
     in_nav_section = false
+    skip_courses = false
 
     for line in original_lines
-        if startswith(strip(line), "nav:")
+        stripped = strip(line)
+
+        if stripped == "nav:"
             push!(new_lines, "nav:")
-            nav_indent = length(line) - length(lstrip(line)) + 2
             in_nav_section = true
             continue
         end
 
-        if in_nav_section && startswith(strip(line), "- Courses:")
-            continue
+        if in_nav_section
+            if startswith(stripped, "- Courses:")
+                skip_courses = true
+                continue
+            elseif startswith(stripped, "-")
+                in_nav_section = false
+                skip_courses = false
+            end
         end
 
-        if in_nav_section && startswith(strip(line), "-")
-            in_nav_section = false
+        if !skip_courses
+            push!(new_lines, line)
         end
-
-        push!(new_lines, line)
     end
 
+    # Inject custom nav structure
+    push!(new_lines, "  - Courses:")
     nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
-    nav_yaml = YAML.write(Dict("Courses" => nav_tree))
-    nav_yaml_lines = split(nav_yaml, "\n")
-    indented = [" "^nav_indent * repeat(" ", nav_indent) * l for l in nav_yaml_lines if !isempty(l)]
-    append!(new_lines, indented)
 
+    for item in nav_tree
+        yaml_block = YAML.write(item)
+        for line in split(yaml_block, "\n")
+            if !isempty(line)
+                push!(new_lines, "    " * line)
+            end
+        end
+    end
+
+    # Write final nav structure
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
-    end  # ✅ 正确关闭 open block
-end  # ✅ 正确关闭函数定义
+    end
+
+    println("[INFO] mkdocs.yml navigation updated successfully.")
+end
 
 function main()
     mkpath(DOCS_DIR)
