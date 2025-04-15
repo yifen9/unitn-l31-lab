@@ -25,9 +25,30 @@ function extract_course_info(name::String)
     end
     return (
         id = parts[1],
-        prof = uppercasefirst(lowercase(String(parts[2]))),
-        title = prettify_name(String(parts[3]))
+        # prof = uppercasefirst(lowercase(String(parts[2]))),
+        # title = prettify_name(String(parts[3]))
+        prof = parts[2],
+        title = parts[3]
     )
+end
+
+function generate_courses_index(course_dirs::Vector{String})
+    path = joinpath(COURSES_DIR, "index.md")
+    open(path, "w") do f
+        println(f, "# Courses")
+        println(f, "\n<style>table { width: 100%; table-layout: fixed; } th, td { width: 25%; word-wrap: break-word; }</style>")
+        println(f, "| Course Name | ID | Professor |")
+        println(f, "|-------------|----|-----------|")
+        for dir in course_dirs
+            info = extract_course_info(basename(dir))
+            if info !== nothing
+                name = prettify_name(info.title)
+                id = info.id
+                prof = info.prof
+                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof |")
+            end
+        end
+    end
 end
 
 function list_directory_table(src_path::String, rel_web::String)
@@ -72,11 +93,15 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
 
     is_course_root = course_dir == joinpath(SRC_DIR, string(course_info.id, "_", course_info.prof, "_", replace(course_info.title, " " => "_")))
 
+    course_info_id = course_info.id
+    course_info_prof = uppercasefirst(lowercase(String(course_info.prof)))
+    course_info_title = prettify_name(String(course_info.title))
+
     open(joinpath(target_dir, "index.md"), "w") do f
         if is_course_root
-            println(f, "# ", course_info.title)
-            println(f, "\n- **Course ID:** ", course_info.id)
-            println(f, "- **Professor:** ", course_info.prof)
+            println(f, "# ", course_info_title)
+            println(f, "\n- **Course ID:** ", course_info_id)
+            println(f, "- **Professor:** ", course_info_prof)
         else
             println(f, "# ", prettify_name(basename(course_dir)))
             println(f, "\n**Course:** ", course_info.title)
@@ -86,12 +111,10 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
         println(f, generate_directory_tree(course_dir, SRC_DIR, course_info.title))
         println(f, "```")
 
-        println(f, "\n## Directory Contents { #directory-contents }\n")
         println(f, list_directory_table(course_dir, rel_web))
 
         readme_path = joinpath(course_dir, "README.md")
         if isfile(readme_path)
-            println(f, "\n## README.md\n")
             println(f, read(readme_path, String))
         end
     end
@@ -202,6 +225,8 @@ function main()
     mkpath(COURSES_DIR)
     all = joinpath.(SRC_DIR, readdir(SRC_DIR))
     course_dirs = filter(isdir, all)
+
+    generate_courses_index(course_dirs)
 
     for course_dir in course_dirs
         generate_course_page(course_dir)

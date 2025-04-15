@@ -32,6 +32,7 @@ theme:
 # Custom CSS and JS for layout + logo effects
 extra_css:
   - overrides/extra.css
+  - assets/stylesheets/extra.css
 extra_javascript:
   - overrides/extra.js
 
