@@ -179,7 +179,7 @@ function update_mkdocs_nav()
     end
 
     # ✅ 重新生成合法结构
-    nested_courses = ["courses/index.md"]
+    nested_courses = Any["courses/index.md"]
     append!(nested_courses, build_nested_nav(joinpath(DOCS_DIR, "courses")))
     courses_entry = Dict("Courses" => nested_courses)
 
