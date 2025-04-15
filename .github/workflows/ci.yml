@@ -23,13 +23,17 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
 
       - name: Set up Julia
-        uses: julia-actions/setup-julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.10'
 
       - name: Generate docs
         run: julia scripts/generate_docs.jl
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
 
       - name: Install tools
         run: pip install mkdocs-material mkdocs-awesome-pages-plugin ghp-import
