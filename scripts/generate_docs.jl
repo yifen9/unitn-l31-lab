@@ -5,6 +5,7 @@ Pkg.instantiate()
 using Markdown
 using Dates
 using Printf
+using YAML
 
 const SRC_DIR = "src"
 const DOCS_DIR = "docs"
@@ -126,56 +127,61 @@ function copy_readme_to_index()
     end
 end
 
-function update_mkdocs_nav(course_dirs::Vector{String})
-    function build_nested_nav(path::String)
-        entries = readdir(path)
-        dirs = filter(name -> isdir(joinpath(path, name)), entries)
-        navs = []
-        for d in sort(dirs)
-            subpath = joinpath(path, d)
-            nested = build_nested_nav(subpath)
-            idx = joinpath(subpath, "index.md")
-            item = Dict(prettify_name(d) => [idx])
-            if !isempty(nested)
-                append!(item[prettify_name(d)], nested)
-            end
-            push!(navs, item)
+function build_nested_nav(path::String)
+    entries = readdir(path; join=true, sort=true)
+    nav = Any[]
+
+    for entry in entries
+        name = prettify_name(basename(entry))
+        relpath = joinpath("courses", relative_path(entry, joinpath(DOCS_DIR, "courses")))
+
+        if isdir(entry)
+            index_path = joinpath(relpath, "index.md")
+            children_nav = build_nested_nav(entry)
+            push!(nav, Dict(name => vcat([index_path], children_nav)))
+        elseif endswith(entry, "index.md")
+            continue  # handled via directory case
         end
-        return navs
     end
 
-    mkdocs_file = "mkdocs.yml"
-    backup_file = "mkdocs.yml.bak"
-    cp(mkdocs_file, backup_file; force=true)
-    open(mkdocs_file, "w") do out
-        open(backup_file, "r") do f
-            inside_nav = false
-            for line in eachline(f)
-                if occursin("nav:", line)
-                    inside_nav = true
-                    println(out, "nav:")
-                    println(out, "  - Home: index.md")
-                    println(out, "  - Courses:")
-                    for course_dir in course_dirs
-                        base = basename(course_dir)
-                        info = extract_course_info(base)
-                        index_path = "courses/$base/index.md"
-                        nested = build_nested_nav(joinpath(DOCS_DIR, "courses", base))
-                        println(out, "    - ", prettify_name(info.title), ":")
-                        println(out, "      - ", index_path)
-                        for item in nested
-                            YAML.write(out, item, indent=6)
-                        end
-                    end
-                elseif inside_nav && occursin("- Courses:", line)
-                    continue
-                else
-                    println(out, line)
-                end
-            end
+    return nav
+end
+
+function update_mkdocs_nav()
+    mkdocs_path = "mkdocs.yml"
+    original_lines = readlines(mkdocs_path)
+    new_lines = String[]
+
+    nav_indent = 0
+    in_nav_section = false
+
+    for line in original_lines
+        if startswith(strip(line), "nav:")
+            push!(new_lines, "nav:")
+            nav_indent = length(line) - length(lstrip(line)) + 2
+            in_nav_section = true
+            continue
         end
+
+        if in_nav_section && startswith(strip(line), "- Courses:")
+            continue  # skip existing courses nav
+
+        if in_nav_section && startswith(strip(line), "-")
+            in_nav_section = false
+        end
+
+        push!(new_lines, line)
     end
-    println("[INFO] mkdocs.yml navigation updated with nested structure")
+
+    nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
+    nav_yaml = YAML.write(Dict("Courses" => nav_tree))
+    nav_yaml_lines = split(nav_yaml, "\n")
+    indented = [" "^nav_indent * repeat(" ", nav_indent) * l for l in nav_yaml_lines if !isempty(l)]
+    append!(new_lines, indented)
+
+    open(mkdocs_path, "w") do f
+        write(f, join(new_lines, "\n"))
+    end
 end
 
 function main()
