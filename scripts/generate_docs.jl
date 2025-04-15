@@ -81,7 +81,7 @@ function list_directory_table(src_path::String, rel_web::String)
         push!(table, "| [$name]($d/) | Directory | $desc | $mtime |")
     end
     for f in sort(files)
-        full_path = joinpath(src_path, d)
+        full_path = joinpath(src_path, f)
         name = prettify_name(f)
         size_str = human_readable_size(stat(full_path).size)
         mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
