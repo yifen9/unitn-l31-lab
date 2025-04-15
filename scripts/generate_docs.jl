@@ -88,7 +88,7 @@ function generate_courses_md(course_dirs::Vector{String})
         for dir in course_dirs
             info = extract_course_info(basename(dir))
             if info !== nothing
-                course_path = "courses/" * basename(dir)
+                course_path = basename(dir)
                 println(f, "| ", info.id, " | ", info.title, " | ", info.prof, " | [View]($course_path/) |")
             end
         end
