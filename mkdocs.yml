@@ -49,8 +49,3 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages
-
-# Navigation bar
-nav:
-  - Home: index.md
-  - Courses: courses.md

@@ -34,8 +34,7 @@ function list_directory_table(src_path::String, rel_web::String)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "\n<div class='table-wrapper'>\n")
-    push!(table, "| Name | Type | Description | Link |")
+    push!(table, "\n\n| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
         readme = joinpath(src_path, d, "README.md")
@@ -47,7 +46,6 @@ function list_directory_table(src_path::String, rel_web::String)
         name = prettify_name(f)
         push!(table, "| $name | File |  | [$name]($rel_web/$f) |")
     end
-    push!(table, "</div>\n")
     return join(table, "\n")
 end
 
@@ -57,9 +55,8 @@ function generate_directory_tree(full_path::String, root_path::String)
     for (i, part) in enumerate(rel_parts)
         indent = repeat("    ", i - 1)
         icon = i == length(rel_parts) ? "└──" : "├──"
-        link_path = joinpath(rel_parts[1:i]...) * "/"
         display_name = prettify_name(part)
-        push!(acc, "$indent$icon [$display_name]($link_path)")
+        push!(acc, "$indent$icon $display_name")
     end
     return join(acc, "\n")
 end
@@ -127,25 +124,25 @@ function copy_readme_to_index()
     end
 end
 
-function generate_courses_md(course_dirs::Vector{String})
-    path = joinpath(DOCS_DIR, "courses.md")
-    open(path, "w") do f
-        println(f, "# Course Directory\n")
-        println(f, "This page lists all archived course notes, organized by course ID, name, and instructor.\n")
-        println(f, "| Course ID | Course Name | Professor | Link |")
-        println(f, "|-----------|-------------|-----------|------|")
-        for dir in course_dirs
-            info = extract_course_info(basename(dir))
-            if info !== nothing
-                course_path = basename(dir)
-                println(f, "| ", info.id, " | ", info.title, " | ", info.prof, " | [View]($course_path/) |")
-            end
-        end
-    end
-    println("[INFO] courses.md generated")
-end
-
 function update_mkdocs_nav(course_dirs::Vector{String})
+    function build_nested_nav(path::String)
+        entries = readdir(path)
+        dirs = filter(name -> isdir(joinpath(path, name)), entries)
+        files = filter(name -> isfile(joinpath(path, name)) && name != "README.md" && endswith(name, ".md"), entries)
+        navs = []
+        for d in sort(dirs)
+            subpath = joinpath(path, d)
+            children = build_nested_nav(subpath)
+            push!(navs, Dict(prettify_name(d) => children))
+        end
+        for f in sort(files)
+            title = prettify_name(splitext(f)[1])
+            rel = relpath(joinpath(path, f), DOCS_DIR)
+            push!(navs, Dict(title => rel))
+        end
+        return navs
+    end
+
     mkdocs_file = "mkdocs.yml"
     backup_file = "mkdocs.yml.bak"
     cp(mkdocs_file, backup_file; force=true)
@@ -158,10 +155,15 @@ function update_mkdocs_nav(course_dirs::Vector{String})
                     println(out, "nav:")
                     println(out, "  - Home: index.md")
                     println(out, "  - Courses:")
-                    for dir in course_dirs
-                        name = basename(dir)
-                        title = prettify_name(name)
-                        println(out, "    - $title: courses/$name/README.md")
+                    for course_dir in course_dirs
+                        base = basename(course_dir)
+                        info = extract_course_info(base)
+                        root_readme = "courses/$base/README.md"
+                        nested = build_nested_nav(joinpath(DOCS_DIR, "courses", base))
+                        println(out, "    - ", prettify_name(base), ": $root_readme")
+                        for item in nested
+                            YAML.write(out, item, indent=6)
+                        end
                     end
                 elseif inside_nav && occursin("- Courses:", line)
                     continue
@@ -171,7 +173,7 @@ function update_mkdocs_nav(course_dirs::Vector{String})
             end
         end
     end
-    println("[INFO] mkdocs.yml navigation updated")
+    println("[INFO] mkdocs.yml navigation updated with nested structure")
 end
 
 function main()
@@ -185,9 +187,8 @@ function main()
     end
 
     copy_readme_to_index()
-    generate_courses_md(course_dirs)
     update_mkdocs_nav(course_dirs)
-    println("[DONE] Course documentation generated and mkdocs.yml updated.")
+    println("[DONE] Course documentation and navigation fully updated.")
 end
 
 main()
