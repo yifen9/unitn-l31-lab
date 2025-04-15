@@ -6,7 +6,6 @@ using Markdown
 using Dates
 using Printf
 
-# === Configuration ===
 const SRC_DIR = "src"
 const DOCS_DIR = "docs"
 const COURSES_DIR = joinpath(DOCS_DIR, "courses")
@@ -27,12 +26,6 @@ function extract_course_info(name::String)
         prof = uppercasefirst(lowercase(String(parts[2]))),
         title = prettify_name(String(parts[3]))
     )
-end
-
-function list_files_md(path::String, rel_link::String)
-    entries = readdir(path)
-    files = filter(f -> isfile(joinpath(path, f)), entries)
-    return join(["- [$f]($rel_link/$f)" for f in sort(files)], "\n")
 end
 
 function list_directory_table(src_path::String, rel_web::String)
@@ -152,6 +145,35 @@ function generate_courses_md(course_dirs::Vector{String})
     println("[INFO] courses.md generated")
 end
 
+function update_mkdocs_nav(course_dirs::Vector{String})
+    mkdocs_file = "mkdocs.yml"
+    backup_file = "mkdocs.yml.bak"
+    cp(mkdocs_file, backup_file; force=true)
+    open(mkdocs_file, "w") do out
+        open(backup_file, "r") do f
+            inside_nav = false
+            for line in eachline(f)
+                if occursin("nav:", line)
+                    inside_nav = true
+                    println(out, "nav:")
+                    println(out, "  - Home: index.md")
+                    println(out, "  - Courses:")
+                    for dir in course_dirs
+                        name = basename(dir)
+                        title = prettify_name(name)
+                        println(out, "    - $title: courses/$name/README.md")
+                    end
+                elseif inside_nav && occursin("- Courses:", line)
+                    continue
+                else
+                    println(out, line)
+                end
+            end
+        end
+    end
+    println("[INFO] mkdocs.yml navigation updated")
+end
+
 function main()
     mkpath(DOCS_DIR)
     mkpath(COURSES_DIR)
@@ -164,7 +186,8 @@ function main()
 
     copy_readme_to_index()
     generate_courses_md(course_dirs)
-    println("[DONE] Course documentation generated under docs/courses/")
+    update_mkdocs_nav(course_dirs)
+    println("[DONE] Course documentation generated and mkdocs.yml updated.")
 end
 
 main()
