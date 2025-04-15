@@ -1,6 +1,7 @@
 import Pkg
 Pkg.activate(".")
 Pkg.instantiate()
+Pkg.add("YAML")
 
 using Markdown
 using Dates
