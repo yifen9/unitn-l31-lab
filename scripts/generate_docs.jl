@@ -14,7 +14,7 @@ const BASE_URL = "/UNITN.BSc"               # Base URL used for absolute links i
 
 # Capitalize the first letter of each word, replacing _ and - with space
 function prettify_name(text::String)
-    cleaned = replace(text, ["_" => " ", "-" => " "])
+    cleaned = replace(replace(text, "_" => " "), "-" => " ")
     return join([uppercasefirst(lowercase(w)) for w in split(cleaned)], " ")
 end
 
