@@ -6,7 +6,7 @@ repo_url: https://github.com/yifen9/UNITN.BSc
 
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/overrides
   palette:
     - scheme: default
       primary: custom   # Custom color defined in extra CSS

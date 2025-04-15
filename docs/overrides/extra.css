@@ -8,7 +8,7 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.25s ease;
-  height: 2.8rem !important;
+  height: 2.5rem !important;
   max-height: unset;
 }
 
@@ -26,4 +26,18 @@
 /* Change destination of the logo to UniTrento website */
 .md-header__button.md-logo {
   cursor: pointer;
+}
+
+/* Footer background + text color */
+.md-footer {
+  background-color: #cc0033 !important;  /* 深红背景 */
+  color: white !important;
+}
+
+.md-footer a {
+  color: white !important;
+}
+
+.md-footer a:hover {
+  text-decoration: underline;
 }
