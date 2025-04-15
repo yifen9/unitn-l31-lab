@@ -72,6 +72,12 @@
 }
 
 .table-wrapper {
-  max-width: 100%;
   overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+  width: 100%;
+  border-collapse: collapse;
 }
