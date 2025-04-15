@@ -180,16 +180,17 @@ function update_mkdocs_nav()
 
     # ✅ 插入新的 Courses 部分，结构合法
     push!(new_lines, "  - Courses:")
-    push!(new_lines, "    - courses/index.md")
 
-    nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
-    @show nav_tree
-    for item in nav_tree
-        yaml = YAML.write(item)
-        for line in split(yaml, "\n")
-            if !isempty(strip(line))
-                push!(new_lines, "    " * line)
-            end
+    # 合成完整 Courses 项目，结构为：Dict("Courses" => [courses/index.md, Dict(...), ...])
+    courses_nav = ["courses/index.md"]
+    append!(courses_nav, build_nested_nav(joinpath(DOCS_DIR, "courses")))
+
+    courses_dict = Dict("Courses" => courses_nav)
+
+    yaml_lines = split(YAML.write(courses_dict), "\n")
+    for line in yaml_lines
+        if !isempty(strip(line))
+            push!(new_lines, "  " * line)
         end
     end
 
