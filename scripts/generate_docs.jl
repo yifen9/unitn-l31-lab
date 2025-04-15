@@ -37,17 +37,30 @@ function generate_courses_index(course_dirs::Vector{String})
     open(path, "w") do f
         println(f, "# Courses")
         println(f, "\n")
-        println(f, "| Course Name | ID | Professor | Link |")
-        println(f, "|-------------|----|-----------|------|")
+        println(f, "| Course Name | ID | Professor | Last Modified |")
+        println(f, "|-------------|----|-----------|---------------|")
         for dir in course_dirs
             info = extract_course_info(basename(dir))
             if info !== nothing
                 name = prettify_name(info.title)
                 id = info.id
                 prof = info.prof
-                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof | [view]($dir)")
+                mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
+                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof | $mtime |")
             end
         end
+    end
+end
+
+function human_readable_size(size::Integer)
+    if size < 1024
+        return "$size B"
+    elseif size < 1024^2
+        return @sprintf("%.1f KB", size / 1024)
+    elseif size < 1024^3
+        return @sprintf("%.1f MB", size / 1024^2)
+    else
+        return @sprintf("%.1f GB", size / 1024^3)
     end
 end
 
@@ -58,17 +71,19 @@ function list_directory_table(src_path::String, rel_web::String)
 
     table = String[]
     push!(table, "\n")
-    push!(table, "| Name | Type | Description | Link |")
-    push!(table, "|------|------|-------------|------|")
+    push!(table, "| Name | Type | Description | Last Modified |")
+    push!(table, "|------|------|-------------|---------------|")
     for d in sort(dirs)
-        readme = joinpath(src_path, d, "README.md")
-        desc = isfile(readme) ? first(split(read(readme, String), "\n")) : ""
         name = prettify_name(d)
-        push!(table, "| $name | Directory | $desc | [$name]($d/) |")
+        desc = "$(length(readdir(full_path))) item(s)"
+        mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
+        push!(table, "| [$name]($d/) | Directory | $desc | $mtime |")
     end
     for f in sort(files)
         name = prettify_name(f)
-        push!(table, "| $name | File |  | [$name]($rel_web/$f) |")
+        size_str = human_readable_size(stat(full_path).size)
+        mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
+        push!(table, "| [$name]($d/) | File | $size_str | $mtime |")
     end
     return join(table, "\n")
 end
