@@ -13,8 +13,8 @@ const COURSES_DIR = joinpath(DOCS_DIR, "courses")  # Where all generated course 
 const BASE_URL = "/UNITN.BSc"               # Base URL used for absolute links in GitHub Pages
 
 # Capitalize the first letter of each word, replacing _ and - with space
-function prettify_name(text::String)
-    cleaned = replace(replace(text, "_" => " "), "-" => " ")
+function prettify_name(text::AbstractString)
+    cleaned = replace(replace(String(text), "_" => " "), "-" => " ")
     return join([uppercasefirst(lowercase(w)) for w in split(cleaned)], " ")
 end
 
