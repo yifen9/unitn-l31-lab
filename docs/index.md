@@ -13,4 +13,4 @@
 
 - [Manifesto_LT_INFO_EN_24-25.pdf](../../src/Manifesto_LT_INFO_EN_24-25.pdf)
 
-_Last update 2025-04-15 17:00_
+_Last update 2025-04-15 17:11_

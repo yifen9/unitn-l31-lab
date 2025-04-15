@@ -1,9 +1,13 @@
+import Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+
 using Markdown
 using Dates
 using Printf
 
-const SRC_DIR = "../UNITN.BSc/src"
-const DOCS_DIR = "../docs"
+const SRC_DIR = "src"
+const DOCS_DIR = "docs"
 
 function extract_course_info(name::String)
     parts = split(name, "_", limit=3)
