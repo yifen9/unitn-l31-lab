@@ -8,6 +8,7 @@ using Printf
 
 const SRC_DIR = "src"
 const DOCS_DIR = "docs"
+const BASE_URL = "/UNITN.BSc"
 
 function extract_course_info(name::String)
     parts = split(name, "_", limit=3)
@@ -17,12 +18,12 @@ function extract_course_info(name::String)
     return (id = parts[1], prof = parts[2], title = parts[3])
 end
 
-function list_files_md(src_path::String, rel_path::String)
+function list_files_md(src_path::String, web_path::String)
     lines = String[]
     for file in sort(readdir(src_path))
         full = joinpath(src_path, file)
         if isfile(full)
-            push!(lines, "- [$file]($rel_path/$file)")
+            push!(lines, "- [$file]($web_path/$file)")
         end
     end
     return join(lines, "\n")
@@ -38,13 +39,15 @@ function generate_course_page(course_dir::String)
     target_dir = joinpath(DOCS_DIR, basename(course_dir))
     mkpath(target_dir)
 
+    web_path = "$BASE_URL/$SRC_DIR/$(basename(course_dir))"
+    content = list_files_md(course_dir, web_path)
+
     readme_path = joinpath(target_dir, "README.md")
     open(readme_path, "w") do f
         println(f, "# 📘 ", info.title)
         println(f, "* **Course ID:** ", info.id)
         println(f, "* **Professor:** ", info.prof)
         println(f, "\n## 📂 Files\n")
-        content = list_files_md(course_dir, "../../$SRC_DIR/$(basename(course_dir))")
         println(f, content)
     end
 end
@@ -64,7 +67,7 @@ function generate_index(course_dirs::Vector{String}, extra_files::Vector{String}
         if !isempty(extra_files)
             println(f, "\n## 📎 Attach\n")
             for file in extra_files
-                println(f, "- [$file](../$SRC_DIR/$file)")
+                println(f, "- [$file]($BASE_URL/$SRC_DIR/$file)")
             end
         end
         println(f, "\n_Last update $(Dates.format(now(), "yyyy-mm-dd HH:MM"))_")
@@ -81,7 +84,7 @@ function main()
         generate_course_page(course_dir)
     end
     generate_index(course_dirs, basename.(extra_files))
-    println("✅ 所有 README 页面已生成于 docs/")
+    println("✅ docs/")
 end
 
 main()
