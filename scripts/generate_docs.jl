@@ -7,19 +7,16 @@ using Dates
 using Printf
 
 # === Configuration ===
-const SRC_DIR = "src"                        # Folder containing raw course files
-const DOCS_DIR = "docs"                      # Output folder for MkDocs
-const COURSES_DIR = joinpath(DOCS_DIR, "courses")  # Where all generated course pages go
-const BASE_URL = "/UNITN.BSc"               # Base URL used for absolute links in GitHub Pages
+const SRC_DIR = "src"
+const DOCS_DIR = "docs"
+const COURSES_DIR = joinpath(DOCS_DIR, "courses")
+const BASE_URL = "/UNITN.BSc"
 
-# Capitalize the first letter of each word, replacing _ and - with space
 function prettify_name(text::AbstractString)
     cleaned = replace(replace(String(text), "_" => " "), "-" => " ")
     return join([uppercasefirst(lowercase(w)) for w in split(cleaned)], " ")
 end
 
-# Extract course information from folder name
-# Expected format: COURSEID_PROFESSOR_COURSENAME
 function extract_course_info(name::String)
     parts = split(name, "_", limit=3)
     if length(parts) < 3
@@ -32,22 +29,20 @@ function extract_course_info(name::String)
     )
 end
 
-# Generate a Markdown list of files in the given directory
 function list_files_md(path::String, rel_link::String)
     entries = readdir(path)
     files = filter(f -> isfile(joinpath(path, f)), entries)
     return join(["- [$f]($rel_link/$f)" for f in sort(files)], "\n")
 end
 
-# Generate table for immediate contents of a directory
 function list_directory_table(src_path::String, rel_web::String)
     entries = readdir(src_path)
     dirs = filter(name -> isdir(joinpath(src_path, name)), entries)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "<div style='width: 100%; overflow-x: auto;'>\n\n")
-    push!(table, "| Name | Type | Description | Link |")
+    push!(table, "<div class='table-wrapper'>")
+    push!(table, "\n\n| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
         readme = joinpath(src_path, d, "README.md")
@@ -63,7 +58,6 @@ function list_directory_table(src_path::String, rel_web::String)
     return join(table, "\n")
 end
 
-# Generate directory tree with clickable links
 function generate_directory_tree(full_path::String, root_path::String)
     rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
     acc = []
@@ -80,29 +74,31 @@ function generate_directory_tree(full_path::String, root_path::String)
     return join(acc, "\n")
 end
 
-# Generate index.md for course and all subfolders recursively
-function generate_nested_pages(course_dir::String, target_dir::String, rel_web::String, course_name::String)
+function generate_nested_pages(course_dir::String, target_dir::String, rel_web::String, course_info)
     mkpath(target_dir)
-
     entries = readdir(course_dir)
     dirs = filter(name -> isdir(joinpath(course_dir, name)), entries)
     files = filter(name -> isfile(joinpath(course_dir, name)), entries)
 
-    open(joinpath(target_dir, "README.md"), "w") do f
-        # Title
-        println(f, "# ", prettify_name(basename(course_dir)))
-        println(f, "\n**Course:** $course_name\n")
+    is_course_root = course_dir == joinpath(SRC_DIR, string(course_info.id, "_", course_info.prof, "_", replace(course_info.title, " " => "_")))
 
-        # Directory tree
-        println(f, "```")
+    open(joinpath(target_dir, "README.md"), "w") do f
+        if is_course_root
+            println(f, "# ", course_info.title)
+            println(f, "\n**Course ID:** ", course_info.id)
+            println(f, "<br>**Professor:** ", course_info.prof)
+        else
+            println(f, "# ", prettify_name(basename(course_dir)))
+            println(f, "\n**Course:** ", course_info.title)
+        end
+
+        println(f, "\n```")
         println(f, generate_directory_tree(course_dir, SRC_DIR))
         println(f, "```")
 
-        # Directory table
         println(f, "\n## Directory Contents\n")
         println(f, list_directory_table(course_dir, rel_web))
 
-        # README if present
         readme_path = joinpath(course_dir, "README.md")
         if isfile(readme_path)
             println(f, "\n## README.md\n")
@@ -115,25 +111,22 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
             joinpath(course_dir, d),
             joinpath(target_dir, d),
             joinpath(rel_web, d),
-            course_name
+            course_info
         )
     end
 end
 
-# Generate courses/CourseName/README.md for each course
 function generate_course_page(course_dir::String)
     info = extract_course_info(basename(course_dir))
     if info === nothing
         println("[WARN] Skipping unrecognized directory: $course_dir")
         return
     end
-
     target_dir = joinpath(COURSES_DIR, basename(course_dir))
     rel_web = joinpath("src", basename(course_dir))
-    generate_nested_pages(course_dir, target_dir, rel_web, info.title)
+    generate_nested_pages(course_dir, target_dir, rel_web, info)
 end
 
-# Copy root-level README.md to docs/index.md
 function copy_readme_to_index()
     src = "README.md"
     dest = joinpath(DOCS_DIR, "index.md")
@@ -145,7 +138,6 @@ function copy_readme_to_index()
     end
 end
 
-# Generate docs/courses.md overview table
 function generate_courses_md(course_dirs::Vector{String})
     path = joinpath(DOCS_DIR, "courses.md")
     open(path, "w") do f
