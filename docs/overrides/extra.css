@@ -1,6 +1,6 @@
 :root {
     --md-primary-fg-color: #cc0033;
-    --md-accent-fg-color: #003366;
+    --md-accent-fg-color: #cc0033;
   }
 
 /* Override header logo appearance */
@@ -8,14 +8,17 @@
   border-radius: 0.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.25s ease;
-  height: 2.5rem !important;
-  max-height: unset;
+
+  height: 2.6rem !important;
+  padding: 0.3rem 0.4rem;
+  background: white;
+  box-sizing: content-box;
 }
 
 /* Hover effect: slight scale-up */
 .md-header__button.md-logo:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Make the entire logo clickable */
@@ -50,10 +53,19 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #99002b;
-  --md-accent-fg-color: #6699cc;
-  --md-default-bg-color: #0d0d0d;
-  --md-default-fg-color: #f2f2f2;
+  --md-primary-fg-color: #aa002b;
+  --md-accent-fg-color: #cc0033;
+
+  --md-default-bg-color: #111;
+  --md-default-fg-color: #f0f0f0;
   --md-typeset-color: var(--md-default-fg-color);
-  --md-footer-bg-color: #1a1a1a;
+
+  --md-typeset-a-color: #ff3355;
+  --md-typeset-a-hover-color: #ffffff;
+}
+
+.md-typeset a {
+  color: var(--md-typeset-a-color);
+  font-weight: 500;
+  text-decoration: underline dotted;
 }
