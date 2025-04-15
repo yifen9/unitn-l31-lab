@@ -5,112 +5,83 @@ Pkg.instantiate()
 using Markdown
 using Dates
 using Printf
+using Glob
 
 # === Configuration ===
 const SRC_DIR = "src"                        # Folder containing raw course files
 const DOCS_DIR = "docs"                      # Output folder for MkDocs
-const COURSES_DIR = joinpath(DOCS_DIR, "courses")  # Where all generated course pages go
 const BASE_URL = "/UNITN.BSc"               # Base URL used for absolute links in GitHub Pages
 
-# Capitalize the first letter of each word, lowercase the rest
 function capitalize_title(text::String)
     return join([uppercasefirst(lowercase(w)) for w in split(text, r"[ _]+")], " ")
 end
 
-# Extract course information from folder name
-# Expected format: COURSEID_PROFESSOR_COURSENAME
-function extract_course_info(name::String)
-    parts = split(name, "_", limit=3)
-    if length(parts) < 3
-        return nothing
-    end
-    return (
-        id = parts[1],
-        prof = uppercasefirst(lowercase(String(parts[2]))),
-        title = capitalize_title(String(parts[3]))
-    )
+"Generate a Markdown list of files in the given directory"
+function list_files_md(path::String, rel_link::String)
+    entries = readdir(path)
+    files = filter(f -> isfile(joinpath(path, f)), entries)
+    return join(["- [$f]($rel_link/$f)" for f in sort(files)], "\n")
 end
 
-# Generate markdown bullet list of files in a course directory
-function list_files_md(src_path::String, web_path::String)
-    lines = String[]
-    for file in sort(readdir(src_path))
-        full = joinpath(src_path, file)
-        if isfile(full)
-            push!(lines, "- [$file]($web_path/$file)")
-        end
-    end
-    return join(lines, "\n")
-end
+"Recursively generate index.md files for all folders in SRC_DIR"
+function generate_recursive_index(src_path::String, doc_path::String, rel_web::String)
+    mkpath(doc_path)
 
-# Generate courses/CourseName/README.md for each course
-function generate_course_page(course_dir::String)
-    info = extract_course_info(basename(course_dir))
-    if info === nothing
-        println("[WARN] Skipping unrecognized directory: $course_dir")
-        return
-    end
+    entries = readdir(src_path)
+    dirs = filter(name -> isdir(joinpath(src_path, name)), entries)
+    files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
-    target_dir = joinpath(COURSES_DIR, basename(course_dir))
-    mkpath(target_dir)
-
-    web_path = "$BASE_URL/$SRC_DIR/$(basename(course_dir))"
-    content = list_files_md(course_dir, web_path)
-
-    readme_path = joinpath(target_dir, "README.md")
-    open(readme_path, "w") do f
-        println(f, "# ", info.title)
-        println(f, "**Course ID:** ", info.id)
-        println(f, "\n**Professor:** ", info.prof)
-        println(f, "\n## Files\n")
-        println(f, content)
-    end
-end
-
-# Generate docs/index.md by copying GitHub repo README.md
-function copy_readme_to_index()
-    if isfile("README.md")
-        cp("README.md", joinpath(DOCS_DIR, "index.md"); force=true)
-        println("[INFO] index.md generated from root README.md")
-    else
-        println("[WARN] README.md not found in project root")
-    end
-end
-
-# Generate docs/courses.md: an overview of all courses in a table format
-function generate_courses_md(course_dirs::Vector{String})
-    path = joinpath(DOCS_DIR, "courses.md")
-    open(path, "w") do f
-        println(f, "# Course Directory\n")
-        println(f, "This page lists all archived course notes, organized by course ID, name, and instructor.\n")
-        println(f, "| Course ID | Course Name | Professor | Link |")
-        println(f, "|-----------|-------------|-----------|------|")
-        for dir in course_dirs
-            info = extract_course_info(basename(dir))
-            if info !== nothing
-                course_path = basename(dir)
-                println(f, "| ", info.id, " | ", info.title, " | ", info.prof, " | [View]($course_path/) |")
+    index_path = joinpath(doc_path, "index.md")
+    open(index_path, "w") do f
+        println(f, "# Directory: ", basename(src_path))
+        if !isempty(dirs)
+            println(f, "\n## Subdirectories\n")
+            println(f, "| Name | Description | Link |")
+            println(f, "|------|-------------|------|")
+            for d in sort(dirs)
+                subreadme = joinpath(src_path, d, "README.md")
+                has_readme = isfile(subreadme)
+                desc = has_readme ? first(split(read(subreadme, String), "\n")) : ""
+                println(f, "| ", d, " | ", desc, " | [Open]($d/) |")
             end
         end
+
+        if !isempty(files)
+            println(f, "\n## Files\n")
+            println(f, list_files_md(src_path, "../$rel_web"))
+        end
+
+        # Copy README.md content if exists
+        readme_path = joinpath(src_path, "README.md")
+        if isfile(readme_path)
+            println(f, "\n## README\n")
+            println(f, read(readme_path, String))
+        end
     end
-    println("[INFO] courses.md generated")
+
+    # Recurse into subdirectories
+    for d in dirs
+        generate_recursive_index(joinpath(src_path, d), joinpath(doc_path, d), joinpath(rel_web, d))
+    end
 end
 
-# Generate the full website structure
+"Generate the top-level site index from root README.md"
+function generate_top_index()
+    src = "README.md"
+    dest = joinpath(DOCS_DIR, "index.md")
+    if isfile(src)
+        cp(src, dest; force=true)
+        println("[INFO] Copied top-level README.md to index.md")
+    else
+        println("[WARN] No top-level README.md found")
+    end
+end
+
 function main()
     mkpath(DOCS_DIR)
-    mkpath(COURSES_DIR)
-    all = joinpath.(SRC_DIR, readdir(SRC_DIR))
-    course_dirs = filter(isdir, all)
-    extra_files = filter(f -> isfile(f) && endswith(f, ".pdf"), all)
-
-    for course_dir in course_dirs
-        generate_course_page(course_dir)
-    end
-
-    copy_readme_to_index()
-    generate_courses_md(course_dirs)
-    println("[DONE] All course pages and index files have been generated under docs/")
+    generate_recursive_index(SRC_DIR, joinpath(DOCS_DIR, SRC_DIR), SRC_DIR)
+    generate_top_index()
+    println("[DONE] Recursive documentation structure generated under docs/src/")
 end
 
 main()
