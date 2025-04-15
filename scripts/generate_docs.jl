@@ -150,58 +150,59 @@ end
 
 function update_mkdocs_nav()
     mkdocs_path = "mkdocs.yml"
-    backup_path = "mkdocs.yml.bak"
+    backup_path = mkdocs_path * ".bak"
     cp(mkdocs_path, backup_path; force=true)
 
     original_lines = readlines(backup_path)
     new_lines = String[]
 
-    in_nav_section = false
-    skip_courses = false
+    in_nav = false
+    skipping_courses = false
 
     for line in original_lines
         stripped = strip(line)
 
         if stripped == "nav:"
+            in_nav = true
             push!(new_lines, "nav:")
-            in_nav_section = true
             continue
         end
 
-        if in_nav_section
+        if in_nav
             if startswith(stripped, "- Courses:")
-                skip_courses = true
+                skipping_courses = true
                 continue
             elseif startswith(stripped, "-")
-                in_nav_section = false
-                skip_courses = false
+                skipping_courses = false
+                in_nav = false
             end
         end
 
-        if !skip_courses
+        if !skipping_courses
             push!(new_lines, line)
         end
     end
 
-    # Inject custom nav structure
+    # 写入新的 Courses 区块
     push!(new_lines, "  - Courses:")
+    push!(new_lines, "    - courses/index.md")
+
     nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
 
     for item in nav_tree
-        yaml_block = YAML.write(item)
-        for line in split(yaml_block, "\n")
+        yaml_lines = split(YAML.write(item), "\n")
+        for line in yaml_lines
             if !isempty(line)
                 push!(new_lines, "    " * line)
             end
         end
     end
 
-    # Write final nav structure
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
     end
 
-    println("[INFO] mkdocs.yml navigation updated successfully.")
+    println("[INFO] mkdocs.yml navigation successfully updated.")
 end
 
 function main()
