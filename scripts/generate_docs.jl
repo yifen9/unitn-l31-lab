@@ -130,16 +130,15 @@ end
 
 function build_nested_nav(path::String)
     entries = readdir(path; join=true, sort=true)
-    nav = Any[]
+    nav = Vector{Any}()
 
     for entry in entries
-        name = prettify_name(basename(entry))
-        rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
-
         if isdir(entry)
+            name = prettify_name(basename(entry))
+            rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
             index_path = joinpath(rel, "index.md")
-            children_nav = build_nested_nav(entry)
-            push!(nav, Dict(name => vcat([index_path], children_nav)))
+            children = build_nested_nav(entry)
+            push!(nav, Dict(name => vcat([index_path], children)))
         end
     end
 
@@ -179,11 +178,11 @@ function update_mkdocs_nav()
         end
     end
 
+    # Append new Courses block
     push!(new_lines, "  - Courses:")
     push!(new_lines, "    - courses/index.md")
 
     nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
-
     for item in nav_tree
         yaml_lines = split(YAML.write(item), "\n")
         for line in yaml_lines
