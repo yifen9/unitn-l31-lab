@@ -25,8 +25,8 @@ function extract_course_info(name::String)
     end
     return (
         id = parts[1],
-        prof = uppercasefirst(lowercase(parts[2])),
-        title = capitalize_title(parts[3])
+        prof = uppercasefirst(lowercase(String(parts[2]))),
+        title = capitalize_title(String(parts[3]))
     )
 end
 
