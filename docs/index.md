@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# 🎓 UNITN BSc
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## 📚 Course List
 
-## Commands
+- [Probability (BONACCORSI)](146060_BONACCORSI_Probability/)
+- [Computer_Programming_2 (MARCHESE)](146062_MARCHESE_Computer_Programming_2/)
+- [Computer_Programming_1 (MARCHETTO)](146140_MARCHETTO_Computer_Programming_1/)
+- [Functional_Programming (KUPER)](146168_KUPER_Functional_Programming/)
+- [Mathematics_for_Informatics (CHITTARO)](146289_CHITTARO_Mathematics_for_Informatics/)
+- [Algorithms_and_Data_Structures_part_1 (VELLA)](146290_VELLA_Algorithms_and_Data_Structures_part_1/)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## 📎 Attach
 
-## Project layout
+- [Manifesto_LT_INFO_EN_24-25.pdf](../../src/Manifesto_LT_INFO_EN_24-25.pdf)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+_Last update 2025-04-15 17:00_
