@@ -1,6 +1,7 @@
 import Pkg
 Pkg.activate(".")
 Pkg.instantiate()
+Pkg.add("FilePathsBase")
 Pkg.add("YAML")
 
 using Markdown
