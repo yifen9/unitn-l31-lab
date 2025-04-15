@@ -1,5 +1,5 @@
 site_name: UNITN BSc
-https://yifen9.github.io/UNITN.BSc/
+site_url: https://yifen9.github.io/UNITN.BSc
 theme:
   name: material
   features:
