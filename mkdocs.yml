@@ -2,7 +2,7 @@ site_name: UniTrento Bachelor of Computer Science
 site_url: https://yifen9.github.io/UNITN.BSc
 
 repo_name: UNITN BSc
-repo_url: https://yifen9.github.io/UNITN.BSc
+repo_url: https://github.com/UNITN.BSc
 
 theme:
   name: material
@@ -22,8 +22,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  logo: assets/logo.jpg
-  favicon: assets/favicon.png
+  logo: assets/logo.png
+  favicon: assets/logo.png
   features:
     - navigation.tabs
     - content.code.copy
