@@ -2,7 +2,7 @@ using Markdown
 using Dates
 using Printf
 
-const SRC_DIR = "../src"
+const SRC_DIR = "../UNITN.BSc/src"
 const DOCS_DIR = "../docs"
 
 function extract_course_info(name::String)
