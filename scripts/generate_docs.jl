@@ -7,6 +7,7 @@ using Markdown
 using Dates
 using Printf
 using YAML
+using FilePathsBase
 
 const SRC_DIR = "src"
 const DOCS_DIR = "docs"
@@ -36,7 +37,12 @@ function list_directory_table(src_path::String, rel_web::String)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "\n\n<style>table { width: 100%; table-layout: fixed; } th, td { width: 25%; word-wrap: break-word; }</style>")
+    push!(table, """
+<style>
+table { width: 100%; table-layout: fixed; }
+th, td { width: 25%; word-wrap: break-word; text-align: left; }
+</style>
+""")
     push!(table, "| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
@@ -53,7 +59,7 @@ function list_directory_table(src_path::String, rel_web::String)
 end
 
 function generate_directory_tree(full_path::String, root_path::String, root_name::String)
-    rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
+    rel_parts = split(FilePathsBase.relpath(full_path, root_path), Base.Filesystem.path_separator)
     acc = ["$root_name/"]
     for (i, part) in enumerate(rel_parts)
         indent = repeat("    ", i)
@@ -128,88 +134,76 @@ function copy_readme_to_index()
     end
 end
 
-function build_nested_nav(path::String)
-    entries = readdir(path; join=true, sort=true)
-    nav = Vector{Any}()
-
-    for entry in entries
-        if isdir(entry)
-            name = prettify_name(basename(entry))
-            rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
-            index_path = joinpath(rel, "index.md")
-            children = build_nested_nav(entry)
-            push!(nav, Dict(name => vcat([index_path], children)))
+function generate_courses_index(course_dirs)
+    path = joinpath(COURSES_DIR, "index.md")
+    open(path, "w") do f
+        println(f, "# Courses\n")
+        println(f, "| Course Name | ID | Professor |")
+        println(f, "|-------------|----|-----------|")
+        for dir in course_dirs
+            info = extract_course_info(basename(dir))
+            if info !== nothing
+                name = prettify_name(info.title)
+                id = info.id
+                prof = info.prof
+                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof |")
+            end
         end
     end
+end
 
+function build_nav(path::String)
+    entries = readdir(path; join=true, sort=true)
+    nav = Any[]
+    for entry in entries
+        if isdir(entry)
+            info = extract_course_info(basename(entry))
+            display = info === nothing ? prettify_name(basename(entry)) : info.title
+            course_nav = build_nav(entry)
+            push!(nav, Dict(display => vcat([joinpath("courses", basename(entry), "index.md")], course_nav)))
+        end
+    end
     return nav
 end
 
-function update_mkdocs_nav()
+function update_mkdocs_nav(course_dirs)
     mkdocs_path = "mkdocs.yml"
-    backup_path = mkdocs_path * ".bak"
-    cp(mkdocs_path, backup_path; force=true)
-
-    original_lines = readlines(backup_path)
+    original_lines = readlines(mkdocs_path)
     new_lines = String[]
-
     in_nav = false
-    skipping_courses = false
 
     for line in original_lines
-        stripped = strip(line)
-
-        if stripped == "nav:"
+        if startswith(strip(line), "nav:")
             in_nav = true
-            push!(new_lines, "nav:")
-            continue
-        end
-
-        if in_nav && startswith(stripped, "- Courses:")
-            skipping_courses = true
-            continue
-        elseif in_nav && startswith(stripped, "- ")
-            in_nav = false
-            skipping_courses = false
-        end
-
-        if !skipping_courses
             push!(new_lines, line)
+            continue
         end
+        if in_nav && occursin("- Courses:", line)
+            continue
+        end
+        push!(new_lines, line)
     end
 
-    # ✅ 重新生成合法结构
-    nested_courses = Any["courses/index.md"]
-    append!(nested_courses, build_nested_nav(joinpath(DOCS_DIR, "courses")))
-    courses_entry = Dict("Courses" => nested_courses)
-
-    nav_yaml_lines = split(YAML.write([courses_entry]), "\n")
-    for line in nav_yaml_lines
-        if !isempty(strip(line))
-            push!(new_lines, "  " * line)
-        end
-    end
+    nav_tree = build_nav(joinpath(DOCS_DIR, "courses"))
+    full_nav = YAML.write(Dict("Courses" => vcat(["courses/index.md"], nav_tree)))
+    append!(new_lines, split(full_nav, "\n"))
 
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
     end
-
-    println("[INFO] mkdocs.yml navigation successfully updated.")
 end
 
 function main()
     mkpath(DOCS_DIR)
     mkpath(COURSES_DIR)
-    all = joinpath.(SRC_DIR, readdir(SRC_DIR))
-    course_dirs = filter(isdir, all)
-
-    for course_dir in course_dirs
-        generate_course_page(course_dir)
+    course_dirs = filter(isdir, joinpath.(SRC_DIR, readdir(SRC_DIR)))
+    for dir in course_dirs
+        generate_course_page(dir)
     end
-
     copy_readme_to_index()
-    update_mkdocs_nav()
-    println("[DONE] All course pages and navigation structure updated.")
+    generate_courses_index(course_dirs)
+    update_mkdocs_nav(course_dirs)
+    println("[DONE] All docs generated and mkdocs.yml updated.")
 end
 
 main()
