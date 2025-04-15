@@ -41,14 +41,14 @@ function list_directory_table(src_path::String, rel_web::String)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "<div class='table-wrapper'>")
-    push!(table, "\n\n| Name | Type | Description | Link |")
+    push!(table, "<div class='table-wrapper'>\n")
+    push!(table, "\n| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
         readme = joinpath(src_path, d, "README.md")
         desc = isfile(readme) ? first(split(read(readme, String), "\n")) : ""
         name = prettify_name(d)
-        push!(table, "| $name | Directory | $desc | [$d/]($d/) |")
+        push!(table, "| $name | Directory | $desc | [$d]($d/) |")
     end
     for f in sort(files)
         name = prettify_name(f)
@@ -58,18 +58,17 @@ function list_directory_table(src_path::String, rel_web::String)
     return join(table, "\n")
 end
 
-function generate_directory_tree(full_path::String, root_path::String)
+function generate_directory_tree(full_path::String, root_path::String, relative_web::String)
     rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
     acc = []
-    push!(acc, "docs/")
-    push!(acc, "└── courses/")
+    push!(acc, "courses/")
     for (i, part) in enumerate(rel_parts)
-        link = joinpath("../" ^ (length(rel_parts)-i), part, "")
+        path = joinpath(rel_parts[1:i]...)
         indent = repeat("    ", i)
+        icon = i == length(rel_parts) ? "├──" : "└──"
         display_name = prettify_name(part)
-        is_last = i == length(rel_parts)
-        icon = is_last ? "├──" : "└──"
-        push!(acc, "$indent$icon [$display_name]($link)")
+        link = "[$display_name]($path/)"
+        push!(acc, "$indent$icon $link")
     end
     return join(acc, "\n")
 end
@@ -85,15 +84,14 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
     open(joinpath(target_dir, "README.md"), "w") do f
         if is_course_root
             println(f, "# ", course_info.title)
-            println(f, "\n**Course ID:** ", course_info.id)
-            println(f, "<br>**Professor:** ", course_info.prof)
+            println(f, "\n**Course ID:** ", course_info.id, "<br>**Professor:** ", course_info.prof)
         else
             println(f, "# ", prettify_name(basename(course_dir)))
             println(f, "\n**Course:** ", course_info.title)
         end
 
         println(f, "\n```")
-        println(f, generate_directory_tree(course_dir, SRC_DIR))
+        println(f, generate_directory_tree(course_dir, SRC_DIR, rel_web))
         println(f, "```")
 
         println(f, "\n## Directory Contents\n")
