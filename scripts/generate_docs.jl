@@ -165,7 +165,8 @@ function update_mkdocs_nav()
         end
 
         if in_nav_section && startswith(strip(line), "- Courses:")
-            continue  # skip existing courses nav
+            continue
+        end
 
         if in_nav_section && startswith(strip(line), "-")
             in_nav_section = false
@@ -182,8 +183,8 @@ function update_mkdocs_nav()
 
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
-    end
-end
+    end  # ✅ 正确关闭 open block
+end  # ✅ 正确关闭函数定义
 
 function main()
     mkpath(DOCS_DIR)
@@ -196,7 +197,7 @@ function main()
     end
 
     copy_readme_to_index()
-    update_mkdocs_nav(course_dirs)
+    update_mkdocs_nav()
     println("[DONE] All course pages and navigation structure updated.")
 end
 
