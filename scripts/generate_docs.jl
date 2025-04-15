@@ -45,7 +45,7 @@ function generate_courses_index(course_dirs::Vector{String})
                 name = prettify_name(info.title)
                 id = info.id
                 prof = info.prof
-                mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
+                mtime = Dates.format(Dates.unix2datetime(stat(joinpath("./", basename(dir))).mtime), "yyyy-mm-dd")
                 println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof | $mtime |")
             end
         end
@@ -74,12 +74,14 @@ function list_directory_table(src_path::String, rel_web::String)
     push!(table, "| Name | Type | Description | Last Modified |")
     push!(table, "|------|------|-------------|---------------|")
     for d in sort(dirs)
+        full_path = joinpath(src_path, d)
         name = prettify_name(d)
         desc = "$(length(readdir(full_path))) item(s)"
         mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
         push!(table, "| [$name]($d/) | Directory | $desc | $mtime |")
     end
     for f in sort(files)
+        full_path = joinpath(src_path, d)
         name = prettify_name(f)
         size_str = human_readable_size(stat(full_path).size)
         mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
