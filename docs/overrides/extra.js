@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (logo) {
     logo.setAttribute("title", "Visit UniTrento homepage");
     logo.style.cursor = "pointer";
-    logo.onclick = () => window.open("https://www.unitn.it/", "_blank");
+
+    logo.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.open("https://www.unitn.it/", "_blank");
+    });
   }
 });
