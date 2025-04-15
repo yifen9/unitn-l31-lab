@@ -11,6 +11,11 @@ const SRC_DIR = "src"              # Folder containing raw course files
 const DOCS_DIR = "docs"            # Output folder for MkDocs
 const BASE_URL = "/UNITN.BSc"     # Base URL used for absolute links in GitHub Pages
 
+# Capitalize the first letter of each word, lowercase the rest
+function capitalize_title(text::String)
+    return join([uppercasefirst(lowercase(w)) for w in split(text, r"[ _]+")], " ")
+end
+
 # Extract course information from folder name
 # Expected format: COURSEID_PROFESSOR_COURSENAME
 function extract_course_info(name::String)
@@ -18,7 +23,11 @@ function extract_course_info(name::String)
     if length(parts) < 3
         return nothing
     end
-    return (id = parts[1], prof = parts[2], title = parts[3])
+    return (
+        id = parts[1],
+        prof = uppercasefirst(lowercase(parts[2])),
+        title = capitalize_title(parts[3])
+    )
 end
 
 # Generate markdown bullet list of files in a course directory
