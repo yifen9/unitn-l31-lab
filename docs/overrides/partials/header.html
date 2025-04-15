@@ -1,11 +1,6 @@
-{% set header_title = "Bachelor of Computer Science" %}
-
-<a href="/" class="md-header__button md-logo" aria-label="{{ config.site_name }}">
-  {% if config.theme.logo %}
-    <img src="{{ config.theme.logo | url }}" alt="logo">
-  {% endif %}
-</a>
-
-<a href="/" class="md-header__title">
-  {{ header_title }}
-</a>
+{% extends "partials/header.html" %}
+{% block site_name %}
+  <a class="md-header__title" href="/">
+    Bachelor of Computer Science
+  </a>
+{% endblock %}
