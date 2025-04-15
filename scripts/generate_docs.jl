@@ -134,14 +134,14 @@ function build_nested_nav(path::String)
 
     for entry in entries
         name = prettify_name(basename(entry))
-        relpath = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
-
+        rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
+    
         if isdir(entry)
-            index_path = joinpath(relpath, "index.md")
+            index_path = joinpath(rel, "index.md")
             children_nav = build_nested_nav(entry)
             push!(nav, Dict(name => vcat([index_path], children_nav)))
         elseif endswith(entry, "index.md")
-            continue  # handled via directory case
+            continue
         end
     end
 
