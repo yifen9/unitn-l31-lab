@@ -36,16 +36,16 @@ function generate_courses_index(course_dirs::Vector{String})
     path = joinpath(COURSES_DIR, "index.md")
     open(path, "w") do f
         println(f, "# Courses")
-        println(f, "\n<style>table { width: 100%; table-layout: fixed; } th, td { width: 25%; word-wrap: break-word; }</style>")
-        println(f, "| Course Name | ID | Professor |")
-        println(f, "|-------------|----|-----------|")
+        println(f, "\n")
+        println(f, "| Course Name | ID | Professor | Link |")
+        println(f, "|-------------|----|-----------|------|")
         for dir in course_dirs
             info = extract_course_info(basename(dir))
             if info !== nothing
                 name = prettify_name(info.title)
                 id = info.id
                 prof = info.prof
-                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof |")
+                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof | [view]($dir)")
             end
         end
     end
@@ -57,7 +57,7 @@ function list_directory_table(src_path::String, rel_web::String)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "\n\n<style>table { width: 100%; table-layout: fixed; } th, td { width: 25%; word-wrap: break-word; }</style>")
+    push!(table, "\n")
     push!(table, "| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
@@ -202,7 +202,6 @@ function update_mkdocs_nav()
         end
     end
 
-    # ✅ 重新生成合法结构
     nested_courses = Any["courses/index.md"]
     append!(nested_courses, build_nested_nav(joinpath(DOCS_DIR, "courses")))
     courses_entry = Dict("Courses" => nested_courses)
