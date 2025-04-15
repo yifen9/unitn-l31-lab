@@ -34,7 +34,8 @@ function list_directory_table(src_path::String, rel_web::String)
     files = filter(name -> isfile(joinpath(src_path, name)), entries)
 
     table = String[]
-    push!(table, "\n\n| Name | Type | Description | Link |")
+    push!(table, "\n\n<style>table { width: 100%; table-layout: fixed; } th, td { width: 25%; word-wrap: break-word; }</style>")
+    push!(table, "| Name | Type | Description | Link |")
     push!(table, "|------|------|-------------|------|")
     for d in sort(dirs)
         readme = joinpath(src_path, d, "README.md")
@@ -49,11 +50,11 @@ function list_directory_table(src_path::String, rel_web::String)
     return join(table, "\n")
 end
 
-function generate_directory_tree(full_path::String, root_path::String)
+function generate_directory_tree(full_path::String, root_path::String, root_name::String)
     rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
-    acc = []
+    acc = ["$root_name/"]
     for (i, part) in enumerate(rel_parts)
-        indent = repeat("    ", i - 1)
+        indent = repeat("    ", i)
         icon = i == length(rel_parts) ? "└──" : "├──"
         display_name = prettify_name(part)
         push!(acc, "$indent$icon $display_name")
@@ -69,20 +70,21 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
 
     is_course_root = course_dir == joinpath(SRC_DIR, string(course_info.id, "_", course_info.prof, "_", replace(course_info.title, " " => "_")))
 
-    open(joinpath(target_dir, "README.md"), "w") do f
+    open(joinpath(target_dir, "index.md"), "w") do f
         if is_course_root
             println(f, "# ", course_info.title)
-            println(f, "\n**Course ID:** ", course_info.id, "<br>**Professor:** ", course_info.prof)
+            println(f, "\n**Course ID:** ", course_info.id, "  ")
+            println(f, "**Professor:** ", course_info.prof)
         else
             println(f, "# ", prettify_name(basename(course_dir)))
             println(f, "\n**Course:** ", course_info.title)
         end
 
         println(f, "\n```text")
-        println(f, generate_directory_tree(course_dir, SRC_DIR))
+        println(f, generate_directory_tree(course_dir, SRC_DIR, prettify_name(basename(course_dir))))
         println(f, "```")
 
-        println(f, "\n## Directory Contents\n")
+        println(f, "\n## Directory Contents { #directory-contents }\n")
         println(f, list_directory_table(course_dir, rel_web))
 
         readme_path = joinpath(course_dir, "README.md")
@@ -128,17 +130,14 @@ function update_mkdocs_nav(course_dirs::Vector{String})
     function build_nested_nav(path::String)
         entries = readdir(path)
         dirs = filter(name -> isdir(joinpath(path, name)), entries)
-        files = filter(name -> isfile(joinpath(path, name)) && name != "README.md" && endswith(name, ".md"), entries)
+        files = filter(name -> isfile(joinpath(path, name)) && endswith(name, ".md"), entries)
         navs = []
         for d in sort(dirs)
             subpath = joinpath(path, d)
-            children = build_nested_nav(subpath)
-            push!(navs, Dict(prettify_name(d) => children))
-        end
-        for f in sort(files)
-            title = prettify_name(splitext(f)[1])
-            rel = relpath(joinpath(path, f), DOCS_DIR)
-            push!(navs, Dict(title => rel))
+            nested = build_nested_nav(subpath)
+            idx = joinpath(subpath, "index.md")
+            push!(navs, Dict(prettify_name(d) => [idx]))
+            append!(navs[end][prettify_name(d)], nested)
         end
         return navs
     end
@@ -158,9 +157,10 @@ function update_mkdocs_nav(course_dirs::Vector{String})
                     for course_dir in course_dirs
                         base = basename(course_dir)
                         info = extract_course_info(base)
-                        root_readme = "courses/$base/README.md"
+                        index_path = "courses/$base/index.md"
                         nested = build_nested_nav(joinpath(DOCS_DIR, "courses", base))
-                        println(out, "    - ", prettify_name(base), ": $root_readme")
+                        println(out, "    - ", prettify_name(info.title), ":")
+                        println(out, "      - ", index_path)
                         for item in nested
                             YAML.write(out, item, indent=6)
                         end
@@ -188,7 +188,7 @@ function main()
 
     copy_readme_to_index()
     update_mkdocs_nav(course_dirs)
-    println("[DONE] Course documentation and navigation fully updated.")
+    println("[DONE] All course pages and navigation structure updated.")
 end
 
 main()
