@@ -134,7 +134,7 @@ function build_nested_nav(path::String)
 
     for entry in entries
         name = prettify_name(basename(entry))
-        relpath = joinpath("courses", relative_path(entry, joinpath(DOCS_DIR, "courses")))
+        relpath = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
 
         if isdir(entry)
             index_path = joinpath(relpath, "index.md")
