@@ -7,9 +7,10 @@ using Dates
 using Printf
 
 # === Configuration ===
-const SRC_DIR = "src"              # Folder containing raw course files
-const DOCS_DIR = "docs"            # Output folder for MkDocs
-const BASE_URL = "/UNITN.BSc"     # Base URL used for absolute links in GitHub Pages
+const SRC_DIR = "src"                        # Folder containing raw course files
+const DOCS_DIR = "docs"                      # Output folder for MkDocs
+const COURSES_DIR = joinpath(DOCS_DIR, "courses")  # Where all generated course pages go
+const BASE_URL = "/UNITN.BSc"               # Base URL used for absolute links in GitHub Pages
 
 # Capitalize the first letter of each word, lowercase the rest
 function capitalize_title(text::String)
@@ -42,7 +43,7 @@ function list_files_md(src_path::String, web_path::String)
     return join(lines, "\n")
 end
 
-# Generate docs/CourseName/README.md for each course
+# Generate courses/CourseName/README.md for each course
 function generate_course_page(course_dir::String)
     info = extract_course_info(basename(course_dir))
     if info === nothing
@@ -50,7 +51,7 @@ function generate_course_page(course_dir::String)
         return
     end
 
-    target_dir = joinpath(DOCS_DIR, basename(course_dir))
+    target_dir = joinpath(COURSES_DIR, basename(course_dir))
     mkpath(target_dir)
 
     web_path = "$BASE_URL/$SRC_DIR/$(basename(course_dir))"
@@ -87,7 +88,7 @@ function generate_courses_md(course_dirs::Vector{String})
         for dir in course_dirs
             info = extract_course_info(basename(dir))
             if info !== nothing
-                course_path = basename(dir)
+                course_path = "courses/" * basename(dir)
                 println(f, "| ", info.id, " | ", info.title, " | ", info.prof, " | [View]($course_path/) |")
             end
         end
@@ -98,6 +99,7 @@ end
 # Generate the full website structure
 function main()
     mkpath(DOCS_DIR)
+    mkpath(COURSES_DIR)
     all = joinpath.(SRC_DIR, readdir(SRC_DIR))
     course_dirs = filter(isdir, all)
     extra_files = filter(f -> isfile(f) && endswith(f, ".pdf"), all)
