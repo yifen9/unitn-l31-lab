@@ -20,7 +20,7 @@ jobs:
         with:
           version: '1.10'
       - name: Generate docs with Julia
-        run: julia generate_docs.jl
+        run: julia scripts/generate_docs.jl
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
