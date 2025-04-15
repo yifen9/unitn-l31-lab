@@ -178,17 +178,13 @@ function update_mkdocs_nav()
         end
     end
 
-    # ✅ 插入新的 Courses 部分，结构合法
-    push!(new_lines, "  - Courses:")
+    # ✅ 重新生成合法结构
+    nested_courses = ["courses/index.md"]
+    append!(nested_courses, build_nested_nav(joinpath(DOCS_DIR, "courses")))
+    courses_entry = Dict("Courses" => nested_courses)
 
-    # 合成完整 Courses 项目，结构为：Dict("Courses" => [courses/index.md, Dict(...), ...])
-    courses_nav = ["courses/index.md"]
-    append!(courses_nav, build_nested_nav(joinpath(DOCS_DIR, "courses")))
-
-    courses_dict = Dict("Courses" => courses_nav)
-
-    yaml_lines = split(YAML.write(courses_dict), "\n")
-    for line in yaml_lines
+    nav_yaml_lines = split(YAML.write([courses_entry]), "\n")
+    for line in nav_yaml_lines
         if !isempty(strip(line))
             push!(new_lines, "  " * line)
         end
@@ -197,6 +193,8 @@ function update_mkdocs_nav()
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
     end
+
+    println("[INFO] mkdocs.yml navigation successfully updated.")
 end
 
 function main()
