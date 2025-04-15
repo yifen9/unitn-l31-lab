@@ -71,13 +71,14 @@
   text-decoration: underline dotted;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-  margin-bottom: 1em;
+.md-typeset table {
+  width: 100%;
+  table-layout: fixed;
 }
 
-.table-wrapper table {
-  min-width: 600px;
-  width: 100%;
-  border-collapse: collapse;
+.md-typeset th,
+.md-typeset td {
+  width: 25%;
+  word-wrap: break-word;
+  text-align: left;
 }

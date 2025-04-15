@@ -1,8 +1,0 @@
-.md-typeset table {
-    width: 100%;
-    table-layout: fixed;
-}
-.md-typeset th, .md-typeset td {
-    width: 25%;
-    word-wrap: break-word;
-}
