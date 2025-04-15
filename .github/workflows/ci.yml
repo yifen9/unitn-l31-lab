@@ -15,12 +15,6 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-      - name: Set up Julia
-        uses: julia-actions/setup-julia@v1
-        with:
-          version: '1.10'
-      - name: Generate docs from src
-        run: julia generate_docs.jl
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
