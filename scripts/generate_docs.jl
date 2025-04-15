@@ -83,7 +83,7 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
         end
 
         println(f, "\n```text")
-        println(f, generate_directory_tree(course_dir, SRC_DIR, prettify_name(basename(course_dir))))
+        println(f, generate_directory_tree(course_dir, SRC_DIR, course_info.title))
         println(f, "```")
 
         println(f, "\n## Directory Contents { #directory-contents }\n")
@@ -140,8 +140,6 @@ function build_nested_nav(path::String)
             index_path = joinpath(rel, "index.md")
             children_nav = build_nested_nav(entry)
             push!(nav, Dict(name => vcat([index_path], children_nav)))
-        elseif endswith(entry, "index.md")
-            continue
         end
     end
 
@@ -168,14 +166,12 @@ function update_mkdocs_nav()
             continue
         end
 
-        if in_nav
-            if startswith(stripped, "- Courses:")
-                skipping_courses = true
-                continue
-            elseif startswith(stripped, "-")
-                skipping_courses = false
-                in_nav = false
-            end
+        if in_nav && startswith(stripped, "- Courses:")
+            skipping_courses = true
+            continue
+        elseif in_nav && startswith(stripped, "-")
+            skipping_courses = false
+            in_nav = false
         end
 
         if !skipping_courses
@@ -183,7 +179,6 @@ function update_mkdocs_nav()
         end
     end
 
-    # 写入新的 Courses 区块
     push!(new_lines, "  - Courses:")
     push!(new_lines, "    - courses/index.md")
 
