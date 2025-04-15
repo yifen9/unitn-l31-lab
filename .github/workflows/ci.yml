@@ -1,35 +1,48 @@
-name: ci 
+name: ci
+
 on:
   push:
     branches:
-      - master 
       - main
+      - master
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Configure Git Credentials
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Git identity
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
+
       - name: Set up Julia
         uses: julia-actions/setup-julia@v1
         with:
           version: '1.10'
-      - name: Generate docs with Julia
-        run: julia scripts/generate_docs.jl
-      - uses: actions/setup-python@v4
+
+      - name: Generate docs
+        run: julia generate_docs.jl
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material mkdocs-awesome-pages-plugin
-      - run: mkdocs gh-deploy --force
+
+      - name: Install tools
+        run: pip install mkdocs-material mkdocs-awesome-pages-plugin ghp-import
+
+      - name: Build site and copy src/
+        run: |
+          mkdir -p build
+          mkdocs build -d build/docs
+          cp -r src build/src
+
+      - name: Deploy manually via ghp-import
+        run: ghp-import -n -p build
