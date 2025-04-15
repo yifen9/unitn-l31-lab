@@ -1,10 +1,35 @@
-site_name: UNITN BSc
+site_name: UniTrento Bachelor of Computer Science
 site_url: https://yifen9.github.io/UNITN.BSc
+
+repo_name: UNITN BSc
+repo_url: https://yifen9.github.io/UNITN.BSc
+
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: custom
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/logo.jpg
+  favicon: assets/favicon.png
   features:
     - navigation.tabs
     - content.code.copy
+
+extra_css:
+  - overrides/extra.css
 
 plugins:
   - search
