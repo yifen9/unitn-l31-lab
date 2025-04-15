@@ -115,7 +115,7 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
 
         readme_path = joinpath(course_dir, "README.md")
         if isfile(readme_path)
-            printIn(f, "\n")
+            println(f, "\n")
             println(f, read(readme_path, String))
         end
     end
