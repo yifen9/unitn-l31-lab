@@ -73,7 +73,7 @@ function list_directory_table(src_path::String, rel_web::String)
     return join(table, "\n")
 end
 
-function generate_directory_tree(full_path::String, root_path::String, root_name::String)
+function generate_directory_tree(full_path::String, root_path::String, root_name::AbstractString)
     rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
     acc = ["$root_name/"]
     for (i, part) in enumerate(rel_parts)
