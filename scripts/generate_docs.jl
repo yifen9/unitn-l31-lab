@@ -37,7 +37,7 @@ function generate_courses_index(course_dirs::Vector{String})
     open(path, "w") do f
         println(f, "# Courses")
         println(f, "\n")
-        println(f, "| Course Name | ID | Professor | Last Modified |")
+        println(f, "| Course | ID | Professor | Last Modified |")
         println(f, "|-------------|----|-----------|---------------|")
         for dir in course_dirs
             info = extract_course_info(basename(dir))
@@ -85,7 +85,7 @@ function list_directory_table(src_path::String, rel_web::String)
         name = prettify_name(f)
         size_str = human_readable_size(stat(full_path).size)
         mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($d/) | File | $size_str | $mtime |")
+        push!(table, "| [$name]($f/) | File | $size_str | $mtime |")
     end
     return join(table, "\n")
 end
