@@ -2,3 +2,28 @@
     --md-primary-fg-color: #cc0033;
     --md-accent-fg-color: #003366;
   }
+
+/* Override header logo appearance */
+.md-header__button.md-logo img {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+  height: 2.8rem !important;
+  max-height: unset;
+}
+
+/* Hover effect: slight scale-up */
+.md-header__button.md-logo:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Make the entire logo clickable */
+.md-header__button.md-logo {
+  pointer-events: auto;
+}
+
+/* Change destination of the logo to UniTrento website */
+.md-header__button.md-logo {
+  cursor: pointer;
+}
