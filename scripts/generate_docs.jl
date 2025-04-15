@@ -73,8 +73,8 @@ function generate_nested_pages(course_dir::String, target_dir::String, rel_web::
     open(joinpath(target_dir, "index.md"), "w") do f
         if is_course_root
             println(f, "# ", course_info.title)
-            println(f, "\n**Course ID:** ", course_info.id, "  ")
-            println(f, "**Professor:** ", course_info.prof)
+            println(f, "\n- **Course ID:** ", course_info.id)
+            println(f, "- **Professor:** ", course_info.prof)
         else
             println(f, "# ", prettify_name(basename(course_dir)))
             println(f, "\n**Course:** ", course_info.title)
@@ -130,14 +130,16 @@ function update_mkdocs_nav(course_dirs::Vector{String})
     function build_nested_nav(path::String)
         entries = readdir(path)
         dirs = filter(name -> isdir(joinpath(path, name)), entries)
-        files = filter(name -> isfile(joinpath(path, name)) && endswith(name, ".md"), entries)
         navs = []
         for d in sort(dirs)
             subpath = joinpath(path, d)
             nested = build_nested_nav(subpath)
             idx = joinpath(subpath, "index.md")
-            push!(navs, Dict(prettify_name(d) => [idx]))
-            append!(navs[end][prettify_name(d)], nested)
+            item = Dict(prettify_name(d) => [idx])
+            if !isempty(nested)
+                append!(item[prettify_name(d)], nested)
+            end
+            push!(navs, item)
         end
         return navs
     end
