@@ -168,9 +168,9 @@ function update_mkdocs_nav()
         if in_nav && startswith(stripped, "- Courses:")
             skipping_courses = true
             continue
-        elseif in_nav && startswith(stripped, "-")
-            skipping_courses = false
+        elseif in_nav && startswith(stripped, "- ")
             in_nav = false
+            skipping_courses = false
         end
 
         if !skipping_courses
@@ -178,15 +178,16 @@ function update_mkdocs_nav()
         end
     end
 
-    # Append new Courses block
+    # ✅ 插入新的 Courses 部分，结构合法
     push!(new_lines, "  - Courses:")
     push!(new_lines, "    - courses/index.md")
 
     nav_tree = build_nested_nav(joinpath(DOCS_DIR, "courses"))
+    @show nav_tree
     for item in nav_tree
-        yaml_lines = split(YAML.write(item), "\n")
-        for line in yaml_lines
-            if !isempty(line)
+        yaml = YAML.write(item)
+        for line in split(yaml, "\n")
+            if !isempty(strip(line))
                 push!(new_lines, "    " * line)
             end
         end
@@ -195,8 +196,6 @@ function update_mkdocs_nav()
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
     end
-
-    println("[INFO] mkdocs.yml navigation successfully updated.")
 end
 
 function main()
