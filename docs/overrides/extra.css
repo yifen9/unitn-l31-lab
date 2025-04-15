@@ -28,6 +28,13 @@
   cursor: pointer;
 }
 
+.md-header__title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-left: 0.75rem;
+  white-space: nowrap;
+}
+
 /* Footer background + text color */
 .md-footer {
   background-color: #cc0033 !important;  /* 深红背景 */
@@ -40,4 +47,13 @@
 
 .md-footer a:hover {
   text-decoration: underline;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #99002b;
+  --md-accent-fg-color: #6699cc;
+  --md-default-bg-color: #0d0d0d;
+  --md-default-fg-color: #f2f2f2;
+  --md-typeset-color: var(--md-default-fg-color);
+  --md-footer-bg-color: #1a1a1a;
 }
