@@ -2,19 +2,13 @@ import Pkg
 
 Pkg.activate(".")
 Pkg.instantiate()
-Pkg.add("CSV")
-Pkg.add("DataFrames")
 Pkg.add("StringEncodings")
-Pkg.add("XLSX")
 Pkg.add("YAML")
 
-using CSV
-using DataFrames
 using Dates
 using Markdown
 using Printf
 using StringEncodings
-using XLSX
 using YAML
 
 const DIR_BASE = "/UNITN.BSc"
@@ -187,12 +181,6 @@ function readme_to_index_copy(dir_src, dir_docs)
     end
 end
 
-function preview_as_markdown_table(df::DataFrame)::String
-    io = IOBuffer()
-    show(io, MIME"text/markdown"(), df)
-    return String(take!(io))
-end
-
 # Generate the preview section for file page
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
@@ -213,23 +201,6 @@ function file_preview_generate(file_src::String)::String
         return """
             <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
         """
-    elseif ext == "csv"
-        try
-            df = CSV.read(file_src, DataFrame; limit=64)
-            return preview_as_markdown_table(df)
-        catch e
-            return ""
-        end
-    elseif ext == "xlsx"
-        try
-            xf = XLSX.readxlsx(file_src)
-            sheet = first(values(xf))
-            data = DataFrame(XLSX.gettable(sheet)...)
-            first64 = first(data, min(64, nrow(data)))
-            return preview_as_markdown_table(first64)
-        catch e
-            return ""
-        end
     else
         try
             bytes = read(file_src)
