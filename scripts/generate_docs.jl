@@ -76,7 +76,7 @@ function size_human_readable(size::Integer)::String
 end
 
 # Generate Course Index Table
-function courses_index_generate(path_src::Vector{String})
+function course_index_generate(path_src::Vector{String})
     path_docs = joinpath(DIR_DOCS_COURSES, "index.md")
     
     open(path_docs, "w") do f
@@ -220,7 +220,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 end
 
 # Generate pages
-function course_pages_generate(dir_course::String)
+function course_page_generate(dir_course::String)
     course_info = course_info_extract(basename(dir_course))
     if info === nothing
         println("[WARN] Skipping unrecognized directory: $dir_course")
@@ -304,7 +304,7 @@ function main()
     all = joinpath.(DIR_SRC, readdir(DIR_SRC))
     course_dirs = filter(isdir, all)
 
-    courses_index_generate(course_dirs)
+    course_index_generate(course_dirs)
 
     for course_dir in course_dirs
         course_page_generate(course_dir)
