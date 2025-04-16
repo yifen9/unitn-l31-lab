@@ -178,7 +178,7 @@ function readme_to_index_copy(dir_src, dir_docs)
     file_src = joinpath(dir_src, "README.md")
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
-        open(file_docs, "w") do f
+        open(file_docs, "a") do f
             println(f, read(file_src, String))
         end
         println("[INFO] Copied $file_src to $file_docs")
@@ -244,10 +244,11 @@ function file_preview_generate(file_src::String)::String
                 return ""
             end
     
-            lang = ext
+            escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-                ```$lang
-                $content
+            <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
+            $escaped
+            </code></pre>
             """
         catch
             return ""
@@ -286,20 +287,20 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     open(file_docs, "w") do f
         if is_root_course
             println(f, "# ", course_info_name, "\n")
+            println(f, "[← Back](../index.md)", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
-            println(f, "[← Back](../index.md)", "\n")
             println(f, directory_table_generate(dir_src))
 
             # Prepare for copying Readme
             println(f, "\n")
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)), "\n")
+            println(f, "[← Back](../index.md)", "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "\n")
-            println(f, "[← Back](../index.md)", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
