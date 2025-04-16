@@ -1,58 +1,69 @@
 import Pkg
+
 Pkg.activate(".")
 Pkg.instantiate()
 Pkg.add("YAML")
 
-using Markdown
 using Dates
+using Markdown
 using Printf
 using YAML
 
-const SRC_DIR = "src"
-const DOCS_DIR = "docs"
-const COURSES_DIR = joinpath(DOCS_DIR, "courses")
-const BASE_URL = "/UNITN.BSc"
+const DIR_BASE = "/UNITN.BSc"
+const DIR_SRC = "src"
+const DIR_DOCS = "docs"
 
-function prettify_name(text::AbstractString)
-    cleaned = replace(replace(String(text), "_" => " "), "-" => " ")
-    return join([uppercasefirst(lowercase(w)) for w in split(cleaned)], " ")
+const DIR_SRC_COURSES = joinpath(DIR_SRC, "courses")
+const DIR_DOCS_COURSES = joinpath(DIR_DOCS, "courses")
+
+# Which will give you a nice String
+# e.g., "146140_MARCHETTO_Computer_Programming_1" -> "146140 MARCHETTO Computer Programming 1"
+function name_clean(text::AbstractString)::String
+    return replace(replace(String(text), "_" => " "), "-" => " ")
 end
 
-function extract_course_info(name::String)
-    parts = split(name, "_", limit=3)
+# Formatting the name, also do the work of name_clean()
+# e.g., "MARCHETTO" -> "Marchetto"
+function name_prettify(text::AbstractString)::String
+    return join([uppercasefirst(lowercase(w)) for w in split(name_clean(text))], " ")
+end
+
+# e.g., "146140_MARCHETTO_Computer_Programming_1" -> (
+#   id=146140,
+#   prof = MARCHETTO,
+#   name = Computer_Programming_1
+#   )
+function course_info_extract(course::String)
+    parts = split(course, "_", limit=3)
     if length(parts) < 3
         return nothing
     end
     return (
         id = parts[1],
-        # prof = uppercasefirst(lowercase(String(parts[2]))),
-        # title = prettify_name(String(parts[3]))
         prof = parts[2],
-        title = parts[3]
+        name = parts[3]
     )
 end
 
-function generate_courses_index(course_dirs::Vector{String})
-    path = joinpath(COURSES_DIR, "index.md")
-    open(path, "w") do f
-        println(f, "# Courses")
-        println(f, "\n")
-        println(f, "| Course | ID | Professor | Last Modified |")
-        println(f, "|-------------|----|-----------|---------------|")
-        for dir in course_dirs
-            info = extract_course_info(basename(dir))
-            if info !== nothing
-                name = prettify_name(info.title)
-                id = info.id
-                prof = info.prof
-                mtime = Dates.format(Dates.unix2datetime(stat(joinpath("./", basename(dir))).mtime), "yyyy-mm-dd")
-                println(f, "| [$name](./$(basename(dir))/index.md) | $id | $prof | $mtime |")
-            end
-        end
+# The reverse of course_info_extract()
+function course_info_whole(course_info)::String
+    return string(course_info.id, "_", course_info.prof, "_", replace(course_info.name, " " => "_"))
+end
+
+# Classify cases and return a proper String indicating the number of items in a dir
+function dir_item_count(dir::String)::String
+    n = length(readdir(dir))
+    if n == 0
+        return nothing
+    elseif n == 1
+        return "$n item"
+    else
+        return "$n items"
     end
 end
 
-function human_readable_size(size::Integer)
+# Return the size of a file in readable format
+function size_human_readable(size::Integer)::String
     if size < 1024
         return "$size B"
     elseif size < 1024^2
@@ -64,119 +75,169 @@ function human_readable_size(size::Integer)
     end
 end
 
-function list_directory_table(src_path::String, rel_web::String)
-    entries = readdir(src_path)
-    dirs = filter(name -> isdir(joinpath(src_path, name)), entries)
-    files = filter(name -> isfile(joinpath(src_path, name)), entries)
+# Generate Course Index Table
+function courses_index_generate(path_src::Vector{String})
+    path_docs = joinpath(DIR_DOCS_COURSES, "index.md")
+    
+    open(path_docs, "w") do f
+        println(f, "# Courses Index")
+        println(f, "\n")
+        println(f, "### Directory")
+        println(f, "\n")
+        println(f, "| Course | ID | Professor | Last Modified |")
+        println(f, "|--------|----|-----------|---------------|")
+        for course in path_src
+            info = course_info_extract(basename(course))
+            if info !== nothing
+                name = name_clean(info.name)
+                id = info.id
+                prof = name_prettify(info.prof)
+                time_m = Dates.format(Dates.unix2datetime(stat(course).mtime), "yyyy-mm-dd")
+                println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_m |")
+            end
+        end
+    end
+end
+
+# Generate a nice directory tree
+# e.g.,
+# Computer_Programming_1
+# └──Lecture_41_LAB_Simulation
+#    └──1.cpp
+function directory_tree_generate(path_src::String, path_root::String, name_root::AbstractString)
+    rel_parts = split(relpath(path_src, path_root), Base.Filesystem.path_separator)
+    tree = String["$name_root/"]
+    push!(tree, "\n")
+    push!(tree, "```")
+    for (i, part) in enumerate(rel_parts)
+        indent = ($repeat("   ", i))
+        icon = "└──"
+        name_display = name_clean(part)
+        push!(tree, "$indent$icon $name_display")
+    end
+    push!(tree, "\n")
+    push!(tree, "```")
+    return tree
+end
+
+# Generate directory table
+function directory_table_generate(path_src::String)
+    entries = readdir(path_src)
+    dirs = filter(name -> isdir(joinpath(path_src, name)), entries)
+    files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
+    push!(table, "\n")
+    push!(table, "### Directory Table")
     push!(table, "\n")
     push!(table, "| Name | Type | Description | Last Modified |")
     push!(table, "|------|------|-------------|---------------|")
     for d in sort(dirs)
-        full_path = joinpath(src_path, d)
-        name = prettify_name(d)
-        desc = "$(length(readdir(full_path))) item(s)"
-        mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($d/) | Directory | $desc | $mtime |")
+        path_src_full = joinpath(path_src, d)
+        name = name_clean(d)
+        desc = dir_item_count(path_src_full)
+        time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
+        push!(table, "| [$name]($d/) | Directory | $desc | $time_m |")
     end
     for f in sort(files)
-        full_path = joinpath(src_path, f)
-        name = prettify_name(f)
-        size_str = human_readable_size(stat(full_path).size)
-        mtime = Dates.format(Dates.unix2datetime(stat(full_path).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($f/) | File | $size_str | $mtime |")
+        path_src_full = joinpath(path_src, f)
+        name = name_clean(f)
+        desc = size_human_readable(stat(path_src_full).size)
+        time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
+        push!(table, "| [$name]($f/) | File | $desc | $time_m |")
     end
-    return join(table, "\n")
+    push!(table, "\n")
+    return table
 end
 
-function generate_directory_tree(full_path::String, root_path::String, root_name::AbstractString)
-    rel_parts = split(relpath(full_path, root_path), Base.Filesystem.path_separator)
-    acc = ["$root_name/"]
-    for (i, part) in enumerate(rel_parts)
-        indent = repeat("    ", i)
-        icon = i == length(rel_parts) ? "└──" : "├──"
-        display_name = prettify_name(part)
-        push!(acc, "$indent$icon $display_name")
+# As the name says
+function readme_to_index_copy(dir_src, dir_docs)
+    file_src = joinpath(dir_src, "README.md")
+    file_docs = joinpath(dir_docs, "index.md")
+    if isfile(file_src)
+        open(file_docs, "w") do f
+            println(f, "\n")
+            println(f, read(file_src, String))
+        end
+        println("[INFO] Copied $file_src to $file_docs")
+    else
+        println("[WARN] $file_src not found")
     end
-    return join(acc, "\n")
 end
 
-function generate_nested_pages(course_dir::String, target_dir::String, rel_web::String, course_info)
-    mkpath(target_dir)
-    entries = readdir(course_dir)
-    dirs = filter(name -> isdir(joinpath(course_dir, name)), entries)
-    files = filter(name -> isfile(joinpath(course_dir, name)), entries)
+# Generate nested pages
+# e.g.,
+# 146140_MARCHETTO_Computer_Programming_1
+# ├──index.md <- Generated
+# └──Lecture_41_LAB_Simulation
+#    ├──index.md <- Generated
+#    └──1.cpp
+#       └──index.md <- Generated
+function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
+    mkpath(dir_docs)
+    entries = readdir(dir_src)
+    dirs = filter(name -> isdir(joinpath(dir_src, name)), entries)
+    files = filter(name -> isfile(joinpath(dir_src, name)), entries)
 
-    is_course_root = course_dir == joinpath(SRC_DIR, string(course_info.id, "_", course_info.prof, "_", replace(course_info.title, " " => "_")))
+    dir_course = joinpath(DIR_SRC, course_info_whole(course_info))
+    is_root_course = dir_src == dir_course
 
     course_info_id = course_info.id
-    course_info_prof = uppercasefirst(lowercase(String(course_info.prof)))
-    course_info_title = prettify_name(String(course_info.title))
+    course_info_prof = name_prettify(course_info.prof)
+    course_info_name = name_clean(course_info.name)
 
-    open(joinpath(target_dir, "index.md"), "w") do f
-        if is_course_root
-            println(f, "# ", course_info_title)
-            println(f, "\n- **Course ID:** ", course_info_id)
+    file_docs = joinpath(dir_docs, "index.md")
+
+    open(file_docs, "w") do f
+        if is_root_course
+            println(f, "# ", course_info_name)
+            println(f, "\n")
+            println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
         else
-            println(f, "# ", prettify_name(basename(course_dir)))
-            println(f, "\n**Course:** ", course_info.title)
-        end
-
-        println(f, "\n```text")
-        println(f, generate_directory_tree(course_dir, SRC_DIR, course_info.title))
-        println(f, "```")
-
-        println(f, list_directory_table(course_dir, rel_web))
-
-        readme_path = joinpath(course_dir, "README.md")
-        if isfile(readme_path)
+            println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
-            println(f, read(readme_path, String))
+            println("**Course:** ", course_info.name)
         end
+        println(f, "\n")
+        println(f, "```")
+        println(f, directory_tree_generate(dir_src, dir_course, course_info.name))
+        println(f, "```")
+        println(f, directory_table_generate(dir_src))
     end
 
+    # Copy Readme
+    readme_to_index_copy(joinpath(dir_src, "README.md"), file_docs)
+
+    # Recursive
     for d in dirs
-        generate_nested_pages(
-            joinpath(course_dir, d),
-            joinpath(target_dir, d),
-            joinpath(rel_web, d),
+        nested_pages_generate(
+            joinpath(dir_src, d),
+            joinpath(dir_docs, d),
             course_info
         )
     end
 end
 
-function generate_course_page(course_dir::String)
-    info = extract_course_info(basename(course_dir))
+# Generate pages
+function courses_pages_generate(dir_course::String)
+    course_info = course_info_extract(basename(dir_course))
     if info === nothing
-        println("[WARN] Skipping unrecognized directory: $course_dir")
+        println("[WARN] Skipping unrecognized directory: $dir_course")
         return
     end
-    target_dir = joinpath(COURSES_DIR, basename(course_dir))
-    rel_web = joinpath("src", basename(course_dir))
-    generate_nested_pages(course_dir, target_dir, rel_web, info)
+    dir_docs = joinpath(DIR_DOCS_COURSES, basename(dir_course))
+    nested_pages_generate(course_info, dir_course, dir_docs)
 end
 
-function copy_readme_to_index()
-    src = "README.md"
-    dest = joinpath(DOCS_DIR, "index.md")
-    if isfile(src)
-        cp(src, dest; force=true)
-        println("[INFO] Copied root README.md to index.md")
-    else
-        println("[WARN] README.md not found")
-    end
-end
-
-function build_nested_nav(path::String)
+function nested_nav_build(path::String)
     entries = readdir(path; join=true, sort=true)
     nav = Vector{Any}()
 
     for entry in entries
         if isdir(entry)
             name = prettify_name(basename(entry))
-            rel = joinpath("courses", relpath(entry, joinpath(DOCS_DIR, "courses")))
+            rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
             children = build_nested_nav(entry)
             push!(nav, Dict(name => vcat([index_path], children)))
@@ -220,7 +281,7 @@ function update_mkdocs_nav()
     end
 
     nested_courses = Any["courses/index.md"]
-    append!(nested_courses, build_nested_nav(joinpath(DOCS_DIR, "courses")))
+    append!(nested_courses, build_nested_nav(DIR_DOCS_COURSES))
     courses_entry = Dict("Courses" => nested_courses)
 
     nav_yaml_lines = split(YAML.write([courses_entry]), "\n")
@@ -238,19 +299,21 @@ function update_mkdocs_nav()
 end
 
 function main()
-    mkpath(DOCS_DIR)
-    mkpath(COURSES_DIR)
-    all = joinpath.(SRC_DIR, readdir(SRC_DIR))
+    mkpath(DIR_DOCS)
+    mkpath(DIR_DOCS_COURSES)
+    all = joinpath.(DIR_SRC, readdir(DIR_SRC))
     course_dirs = filter(isdir, all)
 
-    generate_courses_index(course_dirs)
+    courses_index_generate(course_dirs)
 
     for course_dir in course_dirs
-        generate_course_page(course_dir)
+        course_page_generate(course_dir)
     end
 
-    copy_readme_to_index()
+    readme_to_index_copy(joinpath(DIR_SRC, "README.md"), joinpath(DIR_DOCS, "index.md"))
+
     update_mkdocs_nav()
+    
     println("[DONE] All course pages and navigation structure updated.")
 end
 
