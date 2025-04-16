@@ -38,7 +38,7 @@ theme:
 
 extra:
   social:
-    - icon: fontawesome/solid/graduation/cap
+    - icon: fontawesome/solid/graduation-cap
       link: mailto:<yifeng.li@studenti.unitn.it>
     - icon: fontawesome/brands/yandex
       link: mailto:<yifen9@yandex.com>
