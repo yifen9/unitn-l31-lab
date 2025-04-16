@@ -168,14 +168,20 @@ function directory_table_generate(path_src::String)
 end
 
 # As the name says
-function readme_to_index_copy(dir_src, dir_docs)
+function readme_to_index_copy_and_delete(dir_src, dir_docs)
     file_src = joinpath(dir_src, "README.md")
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "a") do f
             println(f, read(file_src, String))
         end
-        println("[INFO] Copied $file_src to $file_docs")
+
+        # Delete README.md
+        try
+            rm(file_src)
+        catch e
+            println("[WARN] Failed to delete $file_src: ", e)
+        end
     else
         println("[WARN] $file_src not found")
     end
@@ -296,7 +302,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
     if is_dir
         # Copy Readme
-        readme_to_index_copy(dir_src, dir_docs)
+        readme_to_index_copy_and_delete(dir_src, dir_docs)
 
         # Recursive
         for d in dirs
@@ -393,8 +399,6 @@ function update_mkdocs_nav()
     open(mkdocs_path, "w") do f
         write(f, join(new_lines, "\n"))
     end
-
-    println("[INFO] mkdocs.yml navigation successfully updated.")
 end
 
 function main()
@@ -409,7 +413,7 @@ function main()
         course_page_generate(course_dir)
     end
 
-    readme_to_index_copy("", DIR_DOCS)
+    readme_to_index_copy_and_delete("", DIR_DOCS)
 
     update_mkdocs_nav()
 
