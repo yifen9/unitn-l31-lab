@@ -299,9 +299,9 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "# ", course_info_name, "\n")
             println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
-            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
+            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
 
@@ -311,23 +311,23 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "# ", name_clean(basename(dir_src)), "\n")
             println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
-            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
+            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
-            
+
             # Prepare for copying Readme
             println(f, "\n")
         else
             println(f, "# ", name_clean(splitext(basename(dir_src))[1]), "\n")
             println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
-            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Type:    **", file_extension_get(dir_src))
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
+            println(f, "- **[Origin]($file_origin)**", "\n")
 
             link_download = joinpath(DIR_BASE, dir_src)
             println(f, "- **<a href=\"$link_download\" download>Download</a>**")
@@ -452,13 +452,11 @@ hide:
 title: ""
 ---
 
+#
+
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Hide the first H1 (which is site_name or filename) */
-  .md-content__inner h1:first-of-type {
-    display: none;
-  }
 
   .homepage-container {
     text-align: center;
