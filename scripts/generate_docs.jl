@@ -454,6 +454,11 @@ title: ""
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+  /* Hide the first H1 (which is site_name or filename) */
+  .md-content__inner h1:first-of-type {
+    display: none;
+  }
+
   .homepage-container {
     text-align: center;
     margin-top: 6rem;
