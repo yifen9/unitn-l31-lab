@@ -224,9 +224,7 @@ function file_preview_generate(file_src::String)::String
             end
     
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
-            return "``` $ext
-                $escaped
-            ```"
+            return "```plaintext\n" * escaped * "\n```"
         catch
             return ""
         end
