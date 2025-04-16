@@ -164,6 +164,7 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
+    push!(table, "<div class=\"table-wrapper\">")
     push!(table, "| Name | Type | Size | Last Modified |")
     push!(table, "|------|------|------|---------------|")
     for d in sort(dirs)
@@ -181,6 +182,7 @@ function directory_table_generate(path_src::String)
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
         push!(table, "| [$name]($f/) | $ext | $size | $time_m |")
     end
+    push!(table, "</div>")
     return join(table, "\n")
 end
 
@@ -533,6 +535,23 @@ title: ""
     end
 end
 
+function patch_extra_css()
+    mkpath(joinpath("$DIR_DOCS", "/assets/stylesheets"))
+    open(joinpath("$DIR_DOCS", "/assets/stylesheets/table.css"), "w") do f
+        write(f, """
+.md-typeset .table-wrapper table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+.md-typeset .table-wrapper th,
+.md-typeset .table-wrapper td {
+  width: 25% !important;
+  word-wrap: break-word !important;
+}
+""")
+    end
+end
+
 function main()
     mkpath(DIR_DOCS)
     mkpath(DIR_DOCS_COURSES)
@@ -548,6 +567,8 @@ function main()
     update_mkdocs_nav()
 
     page_home_generate(DIR_DOCS)
+
+    patch_extra_css()
 
     println("[DONE] All course pages and navigation structure updated.")
 end
