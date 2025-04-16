@@ -238,12 +238,14 @@ function file_preview_generate(file_src::String)::String
             catch
                 String(bytes, enc"Windows-1252")
             end
-            lang = get(LANGUAGE_MAP, ext, "plaintext")
+
+            # fallback: use file extension directly
+            lang = isempty(ext) ? "plaintext" : ext
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-                <pre style="width: 100%; overflow-x: auto;"><code class="language-$lang">
-                    $escaped
-                </code></pre>
+            <pre style="width: 100%; overflow-x: auto;"><code class="language-$lang">
+                $escaped
+            </code></pre>
             """
         catch
             return ""
@@ -309,7 +311,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
 
             link_download = joinpath(DIR_BASE, dir_src)
-            println(f, "**<a href=\"$link_download\" download>Download</a>**")
+            println(f, "- **<a href=\"$link_download\" download>Download</a>**")
 
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))

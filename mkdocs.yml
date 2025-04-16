@@ -44,6 +44,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.details
   - pymdownx.emoji
+  - pymdownx.highlight:
+      anchor_linenums: true
 
 # Plugins
 plugins:
