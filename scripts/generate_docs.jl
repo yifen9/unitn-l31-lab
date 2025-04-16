@@ -104,11 +104,11 @@ function size_human_readable(size::Integer)::String
     if size < 1024
         return "$size B"
     elseif size < 1024^2
-        return @sprintf("%d KiB", size / 1024)
+        return @sprintf("%.3f KiB", size / 1024)
     elseif size < 1024^3
-        return @sprintf("%d MiB", size / 1024^2)
+        return @sprintf("%.3f MiB", size / 1024^2)
     else
-        return @sprintf("%d GiB", size / 1024^3)
+        return @sprintf("%.3f GiB", size / 1024^3)
     end
 end
 
@@ -300,7 +300,6 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
-            println(f, "### Directory Table", "\n")
             println(f, directory_table_generate(dir_src))
 
             # Prepare for copying Readme
@@ -313,10 +312,8 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "\n")
-            println(f, "### Directory Tree", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
-            println(f, "### Directory Table", "\n")
             println(f, directory_table_generate(dir_src))
             
             # Prepare for copying Readme
@@ -333,7 +330,6 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **<a href=\"$link_download\" download>Download</a>**")
 
             println(f, "\n")
-            println(f, "### Directory Tree", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
             println(f, "## Preview", "\n")
