@@ -443,6 +443,7 @@ function page_home_generate(path::String)
     open(file, "w") do f
         println(f, raw"""---
 hide:
+  - navigation
   - toc
 ---
 
@@ -454,19 +455,16 @@ hide:
 <div style="text-align: center; margin-top: 2rem;">
   <input type="text"
          id="custom-search"
-         placeholder="I need to learn something..."
+         placeholder="I need to learn something, but where ..."
          style="width: 60%; padding: 0.75em; font-size: 1.2em; border-radius: 0.25em; border: 1px solid #ccc;" />
 </div>
 
 <script>
   document.getElementById('custom-search').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-      const query = this.value;
-      const searchInput = document.querySelector('input.md-search__input');
-      if (searchInput) {
-        searchInput.value = query;
-        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-        searchInput.focus();
+      const query = encodeURIComponent(this.value);
+      if (query.trim() !== '') {
+        window.location.href = `/search/?q=${query}`;
       }
     }
   });
