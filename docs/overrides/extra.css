@@ -71,10 +71,6 @@
   text-decoration: underline dotted;
 }
 
-.md-content__inner h1:first-of-type {
-  display: none;
-}
-
 .md-typeset__table {
   overflow: visible !important;
 }
