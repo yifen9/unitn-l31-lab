@@ -451,7 +451,33 @@ function main()
     end
 
     open(joinpath(DIR_DOCS, "index.md"), "w") do f
-        println(f, "---\n", "hide:\n", "  - navigation\n", "  - toc\n", "---\n")
+        println(f, """
+            ---
+            hide:
+            - navigation
+            - toc
+            ---
+            
+            <div style="text-align: center; margin-top: 2rem;">
+            <h1>Welcome to UNITN.BSc</h1>
+            <p style="max-width: 600px; margin: auto;">Did you study today?</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+            <input type="text" placeholder="Search courses..." style="width: 60%; padding: 0.5em; font-size: 1em; border-radius: 0.25em; border: 1px solid #ccc;" oninput="searchCourses(this.value)">
+            </div>
+            
+            <script>
+            function searchCourses(keyword) {
+                const links = document.querySelectorAll('main a[href]');
+                keyword = keyword.toLowerCase();
+                links.forEach(link => {
+                const match = link.textContent.toLowerCase().includes(keyword);
+                link.parentElement.style.display = match ? '' : 'none';
+                });
+            }
+            </script>
+        """)
     end
 
     readme_to_index_copy("", DIR_DOCS; with_divider=false)

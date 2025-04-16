@@ -1,12 +1,5 @@
 # UniTrento BSc 2024/2025
 
-## About
-
-- Will update as soon as possible
-- If you find bugs or have better solutions please upload and share with me :)
-
-## Stats
-
 <p align="center">
   <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
 </p>

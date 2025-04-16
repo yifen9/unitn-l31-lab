@@ -32,6 +32,9 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
 
 # Custom CSS and JS for layout + logo effects
 extra_css:
@@ -65,5 +68,5 @@ plugins:
 nav:
   - Home:
     - index.md
-  - Contacts:
-    - contacts.md
+  - About:
+    - src/about.md
