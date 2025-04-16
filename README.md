@@ -1,17 +1,9 @@
----
-hide:
-  - navigation
-  - toc
----
-
 # UniTrento BSc 2024/2025
 
 ## About
 
 - Will update as soon as possible
 - If you find bugs or have better solutions please upload and share with me :)
-
----
 
 ## Stats
 
