@@ -455,7 +455,7 @@ hide:
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-  [data-md-page="index"] .md-content h1{
+  .md-content h1{
     display: none !important;
   }
 
