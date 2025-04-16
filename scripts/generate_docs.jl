@@ -198,7 +198,7 @@ function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
     file_src_full = joinpath(DIR_BASE, file_src)
 
-    if ext in ["png", "jpg", "jpeg", "gif", "svg"]
+    if ext in ["png", "jpg", "jpeg", "gif", "svg", "ppm"]
         return """
             <img src=\"$file_src_full\" alt=\"Image Preview\" style=\"width: 100%; height: auto; display: block; margin: auto;\" />
         """
@@ -233,23 +233,27 @@ function file_preview_generate(file_src::String)::String
     else
         try
             bytes = read(file_src)
+    
             content = try
                 String(bytes)
             catch
                 String(bytes, enc"Windows-1252")
             end
-
-            # fallback: use file extension directly
-            lang = isempty(ext) ? "plaintext" : ext
+    
+            if any(c -> c < ' ' && c != '\n' && c != '\t', content)
+                return "_Preview unavailable: file may contain binary or non-text content._"
+            end
+    
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-            <pre style="width: 100%; overflow-x: auto;"><code class="language-$lang">
-                $escaped
+            <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
+            $escaped
             </code></pre>
             """
         catch
-            return ""
+            return "_Preview unavailable for this file type._"
         end
+    end
     end
 end
 
