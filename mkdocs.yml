@@ -46,6 +46,7 @@ markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
+  - meta
   - pymdownx.details
   - pymdownx.emoji
   - pymdownx.highlight:

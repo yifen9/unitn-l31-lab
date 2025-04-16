@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # UniTrento BSc 2024/2025
 
 - Repository: [https://github.com/yifen9/UNITN.BSc](https://github.com/yifen9/UNITN.BSc)

@@ -450,6 +450,10 @@ function main()
         course_page_generate(course_dir)
     end
 
+    open(joinpath(DIR_DOCS, "index.md"), "w") do f
+        println(f, "---\n", "hide:\n", "  - navigation\n", "  - toc\n", "---\n")
+    end
+
     readme_to_index_copy("", DIR_DOCS; with_divider=false)
 
     update_mkdocs_nav()
