@@ -201,7 +201,7 @@ function file_preview_generate(file_src::String)::String
             <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
         """
     elseif ext in ["csv", "xlsx"]
-        return nothing
+        return ""
     else
         try
             bytes = read(file_src)
@@ -213,7 +213,7 @@ function file_preview_generate(file_src::String)::String
             end
     
             if any(c -> c < ' ' && c != '\n' && c != '\t', content)
-                return nothing
+                return ""
             end
     
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
@@ -223,7 +223,7 @@ function file_preview_generate(file_src::String)::String
                 </code></pre>
             """
         catch
-            return nothing
+            return ""
         end
     end
 end
