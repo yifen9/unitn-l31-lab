@@ -1,4 +1,22 @@
-# CONTENT
+- [[146289] Mathematics for Informatics - CHITTARO](https://didatticaonline.unitn.it/dol/course/view.php?id=40688)
+  - Textbook
+    - [Mathematics for Computer Science - Eric Lehman, F Thomson Leighton, Albert R Meyer](https://courses.csail.mit.edu/6.042/spring18/mcs.pdf)
+    - [Algebretta - Benedetto Scimemi](https://libgen.li/ads.php?md5=de18d40e2c67fefa376a9780b5f1cec3)
+    - [Matematica Discreta - Costantino Delizia, Patrizia Longobardi, Mercede Maj, Chiara Nicotera](https://libgen.li/ads.php?md5=f23e852665feb2a5d950c137e56b5424)
+    - [Algebra e Matematica Discreta - Alberto Facchini](https://libgen.li/ads.php?md5=c281a823475b7b33176eb39ff695001a)
+    - [Invitation to Discrete Mathematics - Jiří Matoušek, Jaroslav Nešetřil](https://libgen.li/ads.php?md5=be2e4b9197256bd4f1d884d5a45422d4)
+    - [Discrete Mathematics - Norman L. Biggs](https://archive.org/details/discretemathemat00norm_0)
+  - About
+    - Mathematics for Computer Science
+      - [MIT 6.042J Mathematics for Computer Science, Spring 2015](https://www.youtube.com/playlist?list=PLUl4u3cNGP60UlabZBeeqOuoLuj_KNphQ)
+    - Material and Exam mode
+      - [Fondamenti Matematici per l'Informatica](https://pignatelli.maths.unitn.it/didattica/fmi)
+    - Peano's Axioms
+      - [Construction of Number Systems - N. Mohan Kumar](https://www.math.wustl.edu/~kumar/courses/310-2011/Peano.pdf)
+    - Recurrence Theorem
+      - [Chapter Four: The Natural Numbers, Induction, and Recursive Definition](https://www.asc.ohio-state.edu/pollard.4/680/chapters/induction.pdf)
+    - The shifted induction principle
+      - [The Principle of Induction](https://www.ucd.ie/mathstat/t4media/Induction_principle_slides_web.pdf)
 
 ## REFERENCE
 - Lecture 1

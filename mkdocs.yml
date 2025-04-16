@@ -30,6 +30,7 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.tabs
+    - navigation.top
     - navigation.tracking
 
 # Custom CSS and JS for layout + logo effects
