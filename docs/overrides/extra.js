@@ -10,3 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document$.subscribe(function() {
+  var tables = document.querySelectorAll("article table")
+  tables.forEach(function(table) {
+    new Tablesort(table)
+  })
+})
+
+document$.subscribe(() => {
+  hljs.highlightAll()
+})

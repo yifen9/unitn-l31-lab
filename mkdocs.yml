@@ -31,8 +31,10 @@ theme:
 
 # Custom CSS and JS for layout + logo effects
 extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
   - overrides/extra.css
 extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
   - overrides/extra.js
 
 # Markdown features
