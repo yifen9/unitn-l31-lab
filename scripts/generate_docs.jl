@@ -478,8 +478,8 @@ function main()
             }
             </script>
 
-            <p align="center">
-                <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
+            <p align=\"center\">
+                <img src=\"https://count.himiku.com/get/@anto?theme=rule34\" alt=\":name\" />
             </p>
         ")
     end
