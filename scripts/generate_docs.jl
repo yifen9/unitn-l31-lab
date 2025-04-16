@@ -119,6 +119,7 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses", "\n")
         println(f, "## Index", "\n")
+        println(f, "\n", "<div class=\"table-wrapper\">")
         println(f, "| Course | ID | Professor | Last Modified |")
         println(f, "|--------|----|-----------|---------------|")
         for course in path_src
@@ -131,6 +132,7 @@ function course_index_generate(path_src::Vector{String})
                 println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_m |")
             end
         end
+        println(fe, "</div>", "\n")
         println(f, "\n---\n")
         println(f, "## Study Plan", "\n")
         println(f, file_preview_generate(joinpath(DIR_SRC, "Manifesto_LT_INFO_EN_24-25.pdf")))
@@ -305,7 +307,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
-            println(f, directory_table_generate(dir_src))
+            println(f, "\n", directory_table_generate(dir_src), "\n")
 
             # Prepare for copying Readme
             println(f, "\n")
@@ -319,7 +321,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
-            println(f, directory_table_generate(dir_src))
+            println(f, "\n", directory_table_generate(dir_src), "\n")
             
             # Prepare for copying Readme
             println(f, "\n")
