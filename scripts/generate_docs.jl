@@ -222,12 +222,12 @@ end
 # Generate pages
 function course_page_generate(dir_course::String)
     course_info = course_info_extract(basename(dir_course))
-    if info === nothing
+    if course_info === nothing
         println("[WARN] Skipping unrecognized directory: $dir_course")
         return
     end
     dir_docs = joinpath(DIR_DOCS_COURSES, basename(dir_course))
-    nested_pages_generate(course_info, dir_course, dir_docs)
+    nested_pages_generate(dir_course, dir_docs, course_info)
 end
 
 function nested_nav_build(path::String)
