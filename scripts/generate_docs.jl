@@ -184,23 +184,22 @@ end
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
 
+    file_src_full = joinpath("./", file_src)
+
     if ext in ["png", "jpg", "jpeg", "gif", "svg"]
         return """
-        <p><strong>Preview:</strong></p>
-        <img src=\"$file_src\" alt=\"Image Preview\" style=\"max-width:100%; height:auto;\" />
+        <img src=\"$file_src_full\" alt=\"Image Preview\" style=\"max-width:100%; height:auto;\" />
         """
     elseif ext in ["mp4", "webm"]
         return """
-        <p><strong>Preview:</strong></p>
         <video controls style=\"max-width:100%; height:auto;\">
-            <source src=\"$file_src\" type=\"video/$ext\">
+            <source src=\"$file_src_full\" type=\"video/$ext\">
             Your browser does not support the video tag.
         </video>
         """
     elseif ext == "pdf"
         return """
-        <p><strong>Preview:</strong></p>
-        <embed src=\"$file_src\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />
+        <embed src=\"$file_src_full\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />
         """
     else
         try
@@ -213,7 +212,6 @@ function file_preview_generate(file_src::String)::String
             lang = lowercase(ext) in keys(LANGUAGE_MAP) ? LANGUAGE_MAP[lowercase(ext)] : "plaintext"
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-            <p><strong>Preview:</strong></p>
             <pre><code class="language-$lang">
             $escaped
             </code></pre>
