@@ -254,7 +254,6 @@ function file_preview_generate(file_src::String)::String
             return "_Preview unavailable for this file type._"
         end
     end
-    end
 end
 
 # Generate nested pages
