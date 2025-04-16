@@ -457,7 +457,7 @@ hide:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  .md-content h1{
+  .md-content h1 {
     display: none !important;
   }
 
@@ -512,6 +512,29 @@ hide:
     display: inline-block;
     max-width: 100%;
     height: auto;
+  }
+
+  /* ========== Dark mode overrides ========== */
+  [data-md-color-scheme="slate"] .homepage-title {
+    color: #f0f0f0;
+  }
+
+  [data-md-color-scheme="slate"] .homepage-subtitle {
+    color: #bbb;
+  }
+
+  [data-md-color-scheme="slate"] .homepage-searchbox input {
+    background-color: #222;
+    color: #eee;
+    border-color: #555;
+  }
+
+  [data-md-color-scheme="slate"] .homepage-searchbox input::placeholder {
+    color: #aaa;
+  }
+
+  [data-md-color-scheme="slate"] .homepage-footer {
+    color: #888;
   }
 </style>
 

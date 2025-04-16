@@ -3,8 +3,6 @@
     --md-accent-fg-color: #cc0033;
     --md-primary-fg-color--light: #cc0033;
     --md-primary-fg-color--dark: #aa002b;
-    --md-footer-bg-color--dark: #cc0033;
-    --md-footer-bg-color--dark: #aa002b;
 }
 
 /* Override header logo appearance */
@@ -59,7 +57,7 @@
 
 /* Footer background + text color */
 .md-footer {
-  background-color: #cc0033 !important;  /* 深红背景 */
+  background-color: var(--md-primary-fg-color) !important;
   color: white !important;
 }
 
