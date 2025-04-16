@@ -150,10 +150,9 @@ function directory_table_generate(path_src::String)
     for d in sort(dirs)
         path_src_full = joinpath(path_src, d)
         name = name_clean(d)
-        item_count = dir_item_count(path_src_full)
         size = size_human_readable(size_directory_get(path_src_full))
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($d/) | / | $size ($item_count) | $time_m |")
+        push!(table, "| [$name]($d/) | / | $size | $time_m |")
     end
     for f in sort(files)
         path_src_full = joinpath(path_src, f)
@@ -180,8 +179,48 @@ function readme_to_index_copy(dir_src, dir_docs)
     end
 end
 
-function file_preview_generate(file_src::String, file_docs::String)
-    
+function file_preview_generate(file_src::String)::String
+    ext = lowercase(file_extension_get(file_src))
+    rel_path = joinpath("/", DIR_SRC, relpath(file_src, DIR_SRC))  # Web path
+
+    if ext in ["png", "jpg", "jpeg", "gif", "svg"]
+        return """
+        <p><strong>Preview:</strong></p>
+        <img src=\"$rel_path\" alt=\"Image Preview\" style=\"max-width:100%; height:auto;\" />
+        """
+    elseif ext in ["mp4", "webm"]
+        return """
+        <p><strong>Preview:</strong></p>
+        <video controls style=\"max-width:100%; height:auto;\">
+            <source src=\"$rel_path\" type=\"video/$ext\">
+            Your browser does not support the video tag.
+        </video>
+        """
+    elseif ext == "pdf"
+        return """
+        <p><strong>Preview:</strong></p>
+        <embed src=\"$rel_path\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />
+        """
+    else
+        try
+            bytes = read(file_src)
+            content = try
+                String(bytes)
+            catch
+                String(bytes, enc"Windows-1252")
+            end
+            lang = lowercase(ext) in keys(LANGUAGE_MAP) ? LANGUAGE_MAP[lowercase(ext)] : "plaintext"
+            escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
+            return """
+            <p><strong>Preview:</strong></p>
+            <pre><code class="language-$lang">
+            $escaped
+            </code></pre>
+            """
+        catch
+            return "_Preview not available for this file type or due to encoding issues._"
+        end
+    end
 end
 
 # Generate nested pages
@@ -242,6 +281,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Size:** ", size_human_readable(stat(dir_src).size))
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
+            println(f, file_preview_generate(dir_src))
         end
     end
 
@@ -257,6 +297,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
                 course_info
             )
         end
+
         # I don't know why here I seperate dirs and files, but just in case
         for f in files
             nested_pages_generate(
