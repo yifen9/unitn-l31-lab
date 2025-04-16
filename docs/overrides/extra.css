@@ -74,3 +74,13 @@
 .md-content__inner h1:first-of-type {
   display: none;
 }
+
+.md-typeset table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+.md-typeset th,
+.md-typeset td {
+  width: 25% !important;
+  word-wrap: break-word !important;
+}
