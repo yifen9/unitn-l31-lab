@@ -44,6 +44,7 @@ markdown_extensions:
   - pymdownx.emoji
   - pymdownx.highlight:
       linenums: true
+      linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - toc:
