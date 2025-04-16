@@ -168,11 +168,14 @@ function directory_table_generate(path_src::String)
 end
 
 # As the name says
-function readme_to_index_copy_and_delete(dir_src, dir_docs)
+function readme_to_index_copy_and_delete(dir_src, dir_docs; with_divider::Bool=true)
     file_src = joinpath(dir_src, "README.md")
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "a") do f
+            if with_divider
+                println(f, "\n---\n")
+            end
             println(f, read(file_src, String))
         end
 
@@ -182,8 +185,6 @@ function readme_to_index_copy_and_delete(dir_src, dir_docs)
         catch e
             println("[WARN] Failed to delete $file_src: ", e)
         end
-    else
-        println("[WARN] $file_src not found")
     end
 end
 
@@ -223,11 +224,7 @@ function file_preview_generate(file_src::String)::String
             end
     
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
-            return """
-                <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
-                    $escaped
-                </code></pre>
-            """
+            return "```plaintext\n" * escaped * "\n```"
         catch
             return ""
         end
@@ -296,6 +293,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
+            println(f, "\n---\n")
             println(f, file_preview_generate(dir_src))
         end
     end
@@ -413,7 +411,7 @@ function main()
         course_page_generate(course_dir)
     end
 
-    readme_to_index_copy_and_delete("", DIR_DOCS)
+    readme_to_index_copy_and_delete("", DIR_DOCS; with_divider=false)
 
     update_mkdocs_nav()
 
