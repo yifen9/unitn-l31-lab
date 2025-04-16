@@ -275,8 +275,12 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         else
             println(f, "# ", name_clean(splitext(basename(dir_src))[1]))
             println(f, "\n")
-            println(f, "- **Type:** ", file_extension_get(dir_src))
-            println(f, "- **Size:** ", size_human_readable(stat(dir_src).size))
+            println(f, "- **Type:    **", file_extension_get(dir_src))
+            println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
+
+            link_download = joinpath(DIR_BASE, dir_src)
+            println(f, "- **Download:**", "<a href=\"$link_download\" download>Download file.pdf</a>")
+
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, file_preview_generate(dir_src))
