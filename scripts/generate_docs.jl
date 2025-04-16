@@ -536,8 +536,8 @@ title: ""
 end
 
 function patch_extra_css()
-    mkpath(joinpath(DIR_DOCS, "/assets/stylesheets"))
-    open(joinpath(DIR_DOCS, "/assets/stylesheets/table.css"), "w") do f
+    mkpath(joinpath(DIR_DOCS, "assets/stylesheets"))
+    open(joinpath(DIR_DOCS, "assets/stylesheets/table.css"), "w") do f
         write(f, """
 .md-typeset .table-wrapper table {
   width: 100% !important;
