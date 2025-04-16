@@ -107,13 +107,16 @@ end
 function directory_tree_generate(path_src::String, path_root::String, name_root::AbstractString)
     rel_parts = split(relpath(path_src, path_root), Base.Filesystem.path_separator)
     tree = String[]
-    push!(tree, "$name_root/")
+    push!(tree, "Directory Tree")
+    push!(tree, "```")
+    push!(tree, "$name_root")
     for (i, part) in enumerate(rel_parts)
-        indent = repeat("   ", i)
+        indent = repeat("    ", i-1)
         icon = "└──"
         name_display = name_clean(part)
         push!(tree, "$indent$icon $name_display")
     end
+    push!(tree, "```")
     return join(tree, "\n")
 end
 
@@ -193,11 +196,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
             println("**Course:** ", course_info.name)
         end
-        println(f, "\n")
-        println(f, "```")
-        println(f, directory_tree_generate(dir_src, dir_course, course_info.name))
-        println(f, "```")
-        println(f, "\n")
+        println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         println(f, directory_table_generate(dir_src))
     end
 
@@ -305,7 +304,7 @@ function main()
         course_page_generate(course_dir)
     end
 
-    readme_to_index_copy(DIR_BASE, DIR_DOCS)
+    readme_to_index_copy("", DIR_DOCS)
 
     update_mkdocs_nav()
 
