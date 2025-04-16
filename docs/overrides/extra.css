@@ -79,6 +79,6 @@
   overflow-x: visible !important;
 }
 
-body[data-md-page="index"] .md-content__inner h1:first-of-type {
-  display: none;
+.md-content h1.md-title:only-child {
+  display: none !important;
 }
