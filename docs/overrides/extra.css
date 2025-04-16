@@ -152,9 +152,10 @@
   }
 }
 
-.md-header__source {
-  background-color: #cc0033 !important;
+.md-header__source, .md-source {
+  background-color: var(--md-primary-fg-color) !important;
   color: white !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .md-header__source:hover {
@@ -169,6 +170,32 @@
 .md-source__repository:hover {
   color: #fff !important;
   text-decoration: underline;
+}
+
+@media (prefers-color-scheme: light) {
+  .md-header__source:hover,
+  .md-source:hover,
+  .md-source__repository:hover {
+    background-color: var(--md-primary-fg-color--dark) !important;
+    color: #fff !important;
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-header__source,
+  .md-source {
+    background-color: var(--md-primary-fg-color--dark) !important;
+    color: white !important;
+  }
+
+  .md-header__source:hover,
+  .md-source:hover,
+  .md-source__repository:hover {
+    background-color: #e03a5d !important; /* lighter red for hover */
+    color: white !important;
+    text-decoration: underline;
+  }
 }
 
 /* Apply same styling to sidebar logo (on small screens) */
