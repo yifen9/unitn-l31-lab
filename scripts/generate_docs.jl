@@ -446,7 +446,7 @@ function page_home_generate(path::String)
     file = joinpath(path, "index.md")
     open(file, "w") do f
         println(f, raw"""---
-title: ""
+title: "Bachelor of Computer Science"
 hide:
   - navigation
   - toc
@@ -455,7 +455,7 @@ hide:
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-  .md-content h1.md-title:only-child {
+  [data-md-page="index"] .md-content h1{
     display: none !important;
   }
 
