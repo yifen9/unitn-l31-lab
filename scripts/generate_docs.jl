@@ -50,6 +50,11 @@ function course_info_whole(course_info)::String
     return string(course_info.id, "_", course_info.prof, "_", replace(course_info.name, " " => "_"))
 end
 
+function file_extension_get(f::String)::String
+    ext = lowercase(splitext(basename(f))[2])
+    return startswith(ext, ".") ? ext[2:end] : ext
+end
+
 # Classify cases and return a proper String indicating the number of items in a dir
 function dir_item_count(dir::String)::String
     n = length(readdir(dir))
@@ -60,6 +65,22 @@ function dir_item_count(dir::String)::String
     else
         return "$n items"
     end
+end
+
+# As the name says
+function size_directory_get(path::AbstractString)::Int
+    total = 0
+    for (root, _, files) in walkdir(path)
+        for file in files
+            path_file = joinpath(root, file)
+            try
+                total += stat(path_file).size
+            catch
+                println("[WARN] Skipping file: $file_path")
+            end
+        end
+    end
+    return total
 end
 
 # Return the size of a file in readable format
@@ -125,21 +146,23 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
-    push!(table, "| Name | Type | Description | Last Modified |")
-    push!(table, "|------|------|-------------|---------------|")
+    push!(table, "| Name | Type | Size | Last Modified |")
+    push!(table, "|------|------|------|---------------|")
     for d in sort(dirs)
         path_src_full = joinpath(path_src, d)
         name = name_clean(d)
-        desc = dir_item_count(path_src_full)
+        item_count = dir_item_count(path_src_full)
+        size = size_human_readable(size_directory_get(path_src_full))
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($d/) | Directory | $desc | $time_m |")
+        push!(table, "| [$name]($d/) | $item_count | $size | $time_m |")
     end
     for f in sort(files)
         path_src_full = joinpath(path_src, f)
-        name = name_clean(f)
-        desc = size_human_readable(stat(path_src_full).size)
+        name = name_clean(splitext(f)[1])
+        ext = file_extension_get(f)
+        size = size_human_readable(stat(path_src_full).size)
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($f/) | File | $desc | $time_m |")
+        push!(table, "| [$name]($f/) | $ext | $size | $time_m |")
     end
     return join(table, "\n")
 end
@@ -196,6 +219,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
+            println(f, "\n")
             println(f, directory_table_generate(dir_src))
 
             # Prepare for copying Readme
@@ -203,13 +227,20 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
+            println(f, "- **Count:** ", dir_item_count(dir_src))
+            println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
+            println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
+            println(f, "\n")
             println(f, directory_table_generate(dir_src))
             
             # Prepare for copying Readme
             println(f, "\n")
         else
-            println(f, "# ", name_clean(basename(dir_src)))
+            println(f, "# ", name_clean(splitext(basename(dir_src))[1]))
+            println(f, "\n")
+            println(f, "- **Type:** ", file_extension_get(dir_src))
+            println(f, "- **Size:** ", size_human_readable(stat(dir_src).size))
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         end
