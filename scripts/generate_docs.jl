@@ -462,7 +462,6 @@ hide:
   }
 
   .homepage-container {
-    max-width: 960px;
     width: 90%;
     margin: 6rem auto 0 auto;
     padding: 1rem;
@@ -485,7 +484,6 @@ hide:
 
   .homepage-searchbox {
     width: 100%;
-    max-width: 600px;
     margin: 0 auto 3rem auto;
   }
 
