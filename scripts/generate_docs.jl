@@ -442,35 +442,35 @@ function page_home_generate(path::String)
     file = joinpath(path, "index.md")
     open(file, "w") do f
         println(f, raw"""---
-            hide:
-            - navigation
-            - toc
-            ---
+hide:
+  - navigation
+  - toc
+---
 
-            <div style="text-align: center; margin-top: 2rem;">
-            <h1>UniTrento BSc 2024/2025</h1>
-            <p style="max-width: 600px; margin: auto;">Did you study today?</p>
-            </div>
+<div style="text-align: center; margin-top: 2rem;">
+<h1>UniTrento BSc 2024/2025</h1>
+<p style="max-width: 600px; margin: auto;">Did you study today?</p>
+</div>
 
-            <div style="text-align: center; margin-top: 2rem;">
-            <input type="text" placeholder="Search courses..." style="width: 60%; padding: 0.5em; font-size: 1em; border-radius: 0.25em; border: 1px solid #ccc;" oninput="searchCourses(this.value)">
-            </div>
+<div style="text-align: center; margin-top: 2rem;">
+<input type="text" placeholder="Search courses..." style="width: 60%; padding: 0.5em; font-size: 1em; border-radius: 0.25em; border: 1px solid #ccc;" oninput="searchCourses(this.value)">
+</div>
 
-            <script>
-            function searchCourses(keyword) {
-                const links = document.querySelectorAll('main a[href]');
-                keyword = keyword.toLowerCase();
-                links.forEach(link => {
-                const match = link.textContent.toLowerCase().includes(keyword);
-                link.parentElement.style.display = match ? '' : 'none';
-                });
-            }
-            </script>
+<script>
+function searchCourses(keyword) {
+    const links = document.querySelectorAll('main a[href]');
+    keyword = keyword.toLowerCase();
+    links.forEach(link => {
+    const match = link.textContent.toLowerCase().includes(keyword);
+    link.parentElement.style.display = match ? '' : 'none';
+    });
+}
+</script>
 
-            <p align="center">
-                <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
-            </p>
-        """)
+<p align="center">
+    <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
+</p>
+""")
     end
 end
 
