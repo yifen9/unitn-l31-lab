@@ -185,14 +185,19 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
     file_docs = joinpath(dir_docs, "index.md")
 
+    # Generate basic info about the page
     open(file_docs, "w") do f
         if is_root_course
             println(f, "# ", course_info_name)
+            println(f, "\n")
+            println(f, "## BASIC INFO")
             println(f, "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
         else
             println(f, "# ", name_clean(basename(dir_src)))
+            println(f, "\n")
+            println(f, "## BASIC INFO")
             println(f, "\n")
             println("**Course:** ", course_info.name)
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
