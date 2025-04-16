@@ -107,7 +107,7 @@ end
 function directory_tree_generate(path_src::String, path_root::String, name_root::AbstractString)
     rel_parts = split(relpath(path_src, path_root), Base.Filesystem.path_separator)
     tree = String[]
-    push!(tree, "Directory Tree")
+    push!(tree, "### Directory Tree")
     push!(tree, "```")
     push!(tree, "$name_root")
     for (i, part) in enumerate(rel_parts)
@@ -195,8 +195,8 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
             println("**Course:** ", course_info.name)
+            println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         end
-        println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         println(f, directory_table_generate(dir_src))
     end
 
