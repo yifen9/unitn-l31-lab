@@ -106,18 +106,17 @@ end
 #    └──1.cpp
 function directory_tree_generate(path_src::String, path_root::String, name_root::AbstractString)
     rel_parts = split(relpath(path_src, path_root), Base.Filesystem.path_separator)
-    tree = String["$name_root/"]
-    push!(tree, "\n")
+    tree = String[]
     push!(tree, "```")
+    push!(tree, "$name_root/")
     for (i, part) in enumerate(rel_parts)
         indent = repeat("   ", i)
         icon = "└──"
         name_display = name_clean(part)
         push!(tree, "$indent$icon $name_display")
     end
-    push!(tree, "\n")
     push!(tree, "```")
-    return tree
+    return join(tree, "\n")
 end
 
 # Generate directory table
@@ -127,9 +126,7 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
-    push!(table, "\n")
     push!(table, "### Directory Table")
-    push!(table, "\n")
     push!(table, "| Name | Type | Description | Last Modified |")
     push!(table, "|------|------|-------------|---------------|")
     for d in sort(dirs)
@@ -146,8 +143,7 @@ function directory_table_generate(path_src::String)
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
         push!(table, "| [$name]($f/) | File | $desc | $time_m |")
     end
-    push!(table, "\n")
-    return table
+    return join(table, "\n")
 end
 
 # As the name says
