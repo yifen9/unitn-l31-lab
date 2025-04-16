@@ -184,7 +184,7 @@ end
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
 
-    file_src_full = joinpath("./", file_src)
+    file_src_full = joinpath(DIR_BASE, file_src)
 
     if ext in ["png", "jpg", "jpeg", "gif", "svg"]
         return """
