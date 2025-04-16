@@ -59,6 +59,9 @@ markdown_extensions:
 # Plugins
 plugins:
   - awesome-pages
+  - exclude:
+      glob:
+        - "**/README.md"
   - search
 
 nav:
