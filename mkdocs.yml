@@ -60,11 +60,10 @@ markdown_extensions:
 # Plugins
 plugins:
   - awesome-pages
-  - exclude:
-      glob:
-        - "**/README.md"
   - search
 
 nav:
   - Home:
     - index.md
+  - Contacts:
+    - contacts.md

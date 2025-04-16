@@ -6,11 +6,6 @@ hide:
 
 # UniTrento BSc 2024/2025
 
-- Repository: [https://github.com/yifen9/UNITN.BSc](https://github.com/yifen9/UNITN.BSc)
-- Website: [https://yifen9.github.io/UNITN.BSc](https://yifen9.github.io/UNITN.BSc)
-
----
-
 ## About
 
 - Will update as soon as possible
@@ -33,14 +28,3 @@ hide:
    </picture>
   </a>
 </p>
-
----
-
-## Contacts
-
-Any concerns, please contact
-
-- Email
-  - yifeng.li@studenti.unitn.it
-- Telegram
-  - [yifen9](https://t.me/yifen9)
