@@ -386,7 +386,7 @@ function nested_nav_build(path::String)
             rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
             children = nested_nav_build(entry)
-            push!(nav, Dict("\"$name\"" => vcat([index_path], children)))
+            push!(nav, Dict("$name" => vcat([index_path], children)))
         end
     end
 
