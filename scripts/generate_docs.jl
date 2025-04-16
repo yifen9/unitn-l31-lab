@@ -446,15 +446,18 @@ function page_home_generate(path::String)
     file = joinpath(path, "index.md")
     open(file, "w") do f
         println(f, raw"""---
+title: ""
 hide:
   - navigation
   - toc
-title: ""
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+  .md-content h1.md-title:only-child {
+    display: none !important;
+  }
 
   .homepage-container {
     text-align: center;
@@ -477,7 +480,7 @@ title: ""
   }
 
   .homepage-searchbox input {
-    width: 67%;
+    width: 75%;
     padding: 0.9em 1.2em;
     font-size: 1.1em;
     border: 1px solid #ccc;
