@@ -86,6 +86,7 @@
 .md-typeset table:not([class]) {
   width: 100% !important;
   table-layout: fixed !important;
+  background: #ffffdd !important; /* 用颜色观察有没有生效 */
 }
 
 .md-typeset table:not([class]) th,
