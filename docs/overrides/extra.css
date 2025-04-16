@@ -173,11 +173,17 @@
 }
 
 @media (prefers-color-scheme: light) {
+  .md-header__source,
+  .md-source {
+    background-color: var(--md-primary-fg-color--light) !important;
+    color: white !important;
+  }
+
   .md-header__source:hover,
   .md-source:hover,
   .md-source__repository:hover {
-    background-color: var(--md-primary-fg-color--light) !important;
-    color: #fff !important;
+    background-color: var(--md-primary-fg-color--dark) !important; /* lighter red for hover */
+    color: white !important;
     text-decoration: underline;
   }
 }
@@ -192,7 +198,7 @@
   .md-header__source:hover,
   .md-source:hover,
   .md-source__repository:hover {
-    background-color: #cc0033 !important; /* lighter red for hover */
+    background-color: var(--md-primary-fg-color--light) !important; /* lighter red for hover */
     color: white !important;
     text-decoration: underline;
   }
