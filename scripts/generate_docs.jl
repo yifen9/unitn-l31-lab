@@ -208,6 +208,8 @@ function table_dataframe_to_markdown(df::DataFrame)::String
         println(io, "| ", join(values, " | "), " |")
     end
 
+    @show String(take!(io))
+
     return String(take!(io))
 end
 
