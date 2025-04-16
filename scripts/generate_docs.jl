@@ -2,13 +2,19 @@ import Pkg
 
 Pkg.activate(".")
 Pkg.instantiate()
+Pkg.add("CSV")
+Pkg.add("DataFrames")
 Pkg.add("StringEncodings")
+Pkg.add("XLSX")
 Pkg.add("YAML")
 
+using CSV
+using DataFrames
 using Dates
 using Markdown
 using Printf
 using StringEncodings
+using XLSX
 using YAML
 
 const DIR_BASE = "/UNITN.BSc"
@@ -181,25 +187,49 @@ function readme_to_index_copy(dir_src, dir_docs)
     end
 end
 
+function preview_as_markdown_table(df::DataFrame)::String
+    io = IOBuffer()
+    show(io, MIME"text/markdown"(), df)
+    return String(take!(io))
+end
+
+# Generate the preview section for file page
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
     file_src_full = joinpath(DIR_BASE, file_src)
 
     if ext in ["png", "jpg", "jpeg", "gif", "svg"]
         return """
-        <img src=\"$file_src_full\" alt=\"Image Preview\" style=\"width: 100%; height: auto; display: block; margin: auto;\" />
+            <img src=\"$file_src_full\" alt=\"Image Preview\" style=\"width: 100%; height: auto; display: block; margin: auto;\" />
         """
     elseif ext in ["mp4", "webm"]
         return """
-        <video controls style=\"width: 100%; height: auto; display: block; margin: auto;\">
-            <source src=\"$file_src_full\" type=\"video/$ext\">
-            Your browser does not support the video tag.
-        </video>
+            <video controls style=\"width: 100%; height: auto; display: block; margin: auto;\">
+                <source src=\"$file_src_full\" type=\"video/$ext\">
+                Your browser does not support the video tag.
+            </video>
         """
     elseif ext == "pdf"
         return """
-        <embed src=\"$file_src_full\" type=\"application/pdf\" style=\"width: 100%; min-height: 80vh; border: none;\" />
+            <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
         """
+    elseif ext == "csv"
+        try
+            df = CSV.read(file_src, DataFrame; limit=64)
+            return preview_as_markdown_table(df)
+        catch e
+            return ""
+        end
+    elseif ext == "xlsx"
+        try
+            xf = XLSX.readxlsx(file_src)
+            sheet = first(values(xf))
+            data = DataFrame(XLSX.gettable(sheet)...)
+            first64 = first(data, min(64, nrow(data)))
+            return preview_as_markdown_table(first64)
+        catch e
+            return ""
+        end
     else
         try
             bytes = read(file_src)
@@ -211,12 +241,12 @@ function file_preview_generate(file_src::String)::String
             lang = get(LANGUAGE_MAP, ext, "plaintext")
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-            <pre style="width: 100%; overflow-x: auto;"><code class="language-$lang">
-                $escaped
-            </code></pre>
+                <pre style="width: 100%; overflow-x: auto;"><code class="language-$lang">
+                    $escaped
+                </code></pre>
             """
         catch
-            return "_Preview not available for this file type or due to encoding issues._"
+            return ""
         end
     end
 end
@@ -279,7 +309,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
 
             link_download = joinpath(DIR_BASE, dir_src)
-            println(f, "- **Download:**", "<a href=\"$link_download\" download>Download file.pdf</a>")
+            println(f, "**<a href=\"$link_download\" download>Download</a>**")
 
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
