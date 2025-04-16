@@ -451,20 +451,20 @@ function main()
     end
 
     open(joinpath(DIR_DOCS, "index.md"), "w") do f
-        println(f, """
+        println(f, "
             ---
             hide:
             - navigation
             - toc
             ---
             
-            <div style="text-align: center; margin-top: 2rem;">
-            <h1>Welcome to UNITN.BSc</h1>
+            <div style=\"text-align: center; margin-top: 2rem;\">
+            <h1>UniTrento BSc 2024/2025</h1>
             <p style="max-width: 600px; margin: auto;">Did you study today?</p>
             </div>
             
-            <div style="text-align: center; margin-top: 2rem;">
-            <input type="text" placeholder="Search courses..." style="width: 60%; padding: 0.5em; font-size: 1em; border-radius: 0.25em; border: 1px solid #ccc;" oninput="searchCourses(this.value)">
+            <div style=\"text-align: center; margin-top: 2rem;\">
+            <input type=\"text\" placeholder=\"Search courses...\" style=\"width: 60%; padding: 0.5em; font-size: 1em; border-radius: 0.25em; border: 1px solid #ccc;\" oninput=\"searchCourses(this.value)\">
             </div>
             
             <script>
@@ -477,10 +477,12 @@ function main()
                 });
             }
             </script>
-        """)
-    end
 
-    readme_to_index_copy("", DIR_DOCS; with_divider=false)
+            <p align="center">
+                <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
+            </p>
+        ")
+    end
 
     update_mkdocs_nav()
 

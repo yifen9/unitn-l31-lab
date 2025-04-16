@@ -1,10 +1,6 @@
 # UniTrento BSc 2024/2025
 
 <p align="center">
-  <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
-</p>
-
-<p align="center">
   <a href="https://www.star-history.com/#yifen9/UNITN.BSc&Date">
    <picture>
      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=yifen9/UNITN.BSc&type=Date&theme=dark" />

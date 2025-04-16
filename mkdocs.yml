@@ -68,5 +68,3 @@ plugins:
 nav:
   - Home:
     - index.md
-  - About:
-    - src/about.md
