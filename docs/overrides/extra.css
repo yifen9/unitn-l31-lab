@@ -87,10 +87,6 @@
   text-decoration: underline dotted;
 }
 
-.md-typeset__table {
-  overflow: visible !important;
-}
-
 .md-typeset__scrollwrap {
   overflow-x: visible !important;
 }
@@ -114,7 +110,6 @@
 }
 
 @media (max-width: 1024px) {
-  .md-typeset table,
   .md-typeset th,
   .md-typeset td {
     padding: 0em;
