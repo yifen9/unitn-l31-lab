@@ -183,25 +183,24 @@ end
 
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
-    rel_path = joinpath("/", DIR_SRC, relpath(file_src, DIR_SRC))  # Web path
 
     if ext in ["png", "jpg", "jpeg", "gif", "svg"]
         return """
         <p><strong>Preview:</strong></p>
-        <img src=\"$rel_path\" alt=\"Image Preview\" style=\"max-width:100%; height:auto;\" />
+        <img src=\"$file_src\" alt=\"Image Preview\" style=\"max-width:100%; height:auto;\" />
         """
     elseif ext in ["mp4", "webm"]
         return """
         <p><strong>Preview:</strong></p>
         <video controls style=\"max-width:100%; height:auto;\">
-            <source src=\"$rel_path\" type=\"video/$ext\">
+            <source src=\"$file_src\" type=\"video/$ext\">
             Your browser does not support the video tag.
         </video>
         """
     elseif ext == "pdf"
         return """
         <p><strong>Preview:</strong></p>
-        <embed src=\"$rel_path\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />
+        <embed src=\"$file_src\" type=\"application/pdf\" width=\"100%\" height=\"600px\" />
         """
     else
         try
