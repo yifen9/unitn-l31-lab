@@ -194,13 +194,14 @@ function file_preview_generate(file_src::String)::String
         return """
             <video controls style=\"width: 100%; height: auto; display: block; margin: auto;\">
                 <source src=\"$file_src_full\" type=\"video/$ext\">
-                Your browser does not support the video tag.
             </video>
         """
     elseif ext == "pdf"
         return """
             <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
         """
+    else if ext in ["csv", "xlsx"]
+        return nothing
     else
         try
             bytes = read(file_src)
@@ -212,17 +213,17 @@ function file_preview_generate(file_src::String)::String
             end
     
             if any(c -> c < ' ' && c != '\n' && c != '\t', content)
-                return ""
+                return nothing
             end
     
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return """
-            <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
-            $escaped
-            </code></pre>
+                <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
+                    $escaped
+                </code></pre>
             """
         catch
-            return ""
+            return nothing
         end
     end
 end
