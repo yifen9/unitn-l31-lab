@@ -453,34 +453,39 @@ hide:
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  .md-content h1{
-    display: none !important;
-  }
-
   .homepage-container {
-    text-align: center;
+    max-width: 960px;
+    width: 90%;
     margin: 6rem auto 0 auto;
-    padding: 0 1rem;
+    padding: 1rem;
     font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    text-align: center;
   }
 
   .homepage-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 0.5rem;
     font-weight: 700;
     color: #2e2e2e;
   }
 
   .homepage-subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .homepage-searchbox {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
   }
 
   .homepage-searchbox input {
-    width: 75%;
+    width: 100%;
     padding: 0.9em 1.2em;
     font-size: 1.1em;
     border: 1px solid #ccc;
@@ -499,6 +504,12 @@ hide:
     color: #aaa;
     font-size: 0.9em;
   }
+
+  .homepage-footer img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
 </style>
 
 <div class="homepage-container">
@@ -513,8 +524,8 @@ hide:
   </div>
 
   <div class="homepage-footer">
-    <p style="margin-top: 2.5rem;">
-      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count"/>
+    <p>
+      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count" />
     </p>
   </div>
 </div>

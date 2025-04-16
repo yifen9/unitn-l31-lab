@@ -78,3 +78,17 @@
 .md-typeset__scrollwrap {
   overflow-x: visible !important;
 }
+
+.md-typeset__table {
+  overflow-x: auto;
+}
+
+.md-typeset table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.md-typeset th, .md-typeset td {
+  word-wrap: break-word;
+  width: 25%;
+}
