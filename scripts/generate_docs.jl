@@ -220,7 +220,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 end
 
 # Generate pages
-function courses_pages_generate(dir_course::String)
+function course_pages_generate(dir_course::String)
     course_info = course_info_extract(basename(dir_course))
     if info === nothing
         println("[WARN] Skipping unrecognized directory: $dir_course")
