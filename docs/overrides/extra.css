@@ -84,3 +84,7 @@
   white-space: normal;
   text-align: left;
 }
+
+.md-content__inner h1:first-of-type {
+  display: none;
+}
