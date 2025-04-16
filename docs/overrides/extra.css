@@ -1,6 +1,8 @@
 :root {
     --md-primary-fg-color: #cc0033;
     --md-accent-fg-color: #cc0033;
+    --md-primary-fg-color--dark: #aa002b;
+    --md-primary-fg-color--light: #cc0033;
 }
 
 /* Override header logo appearance */
@@ -144,4 +146,20 @@
 .md-source__repository:hover {
   color: #fff !important;
   text-decoration: underline;
+}
+
+/* Apply same styling to sidebar logo (on small screens) */
+.md-nav__title .md-logo img {
+  border-radius: 0.1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background: white;
+  transition: all 0.25s ease;
+  padding: 0.2rem;
+  max-height: 1.5rem;
+  box-sizing: content-box;
+}
+
+.md-nav__title .md-logo:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

@@ -35,8 +35,8 @@ const DIR_DOCS_COURSES = joinpath(DIR_DOCS, "courses")
 # Which will give you a nice String
 # e.g., "146140_MARCHETTO_Computer_Programming_1" -> "146140 MARCHETTO Computer Programming 1"
 function name_clean(text::AbstractString)::String
-    s = replace(replace(String(text), "_" => " "), "-" => " ")
-    return occursin(r"^\d+$", s) ? @sprintf("%04s", s) : s
+    cleaned = replace(replace(String(text), "_" => " "), "-" => " ")
+    return occursin(r"^0\d+", cleaned) ? replace(cleaned, r"^0" => "0\u200B") : cleaned
 end
 
 # Formatting the name, also do the work of name_clean()

@@ -5,13 +5,20 @@ document$.subscribe(function() {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const logo = document.querySelector(".md-header__button.md-logo");
-  if (logo) {
-    logo.href = "https://webapps.unitn.it/gestionecorsi";
-    logo.setAttribute("target", "_blank");
-    logo.setAttribute("title", "Visit UniTrento homepage");
-  }
+document$.subscribe(() => {
+  const logos = document.querySelectorAll(".md-logo");
+
+  logos.forEach(logo => {
+    const img = logo.querySelector("img");
+    if (img) {
+      img.style.cursor = "pointer";
+      img.title = "Visit UniTrento homepage";
+
+      img.onclick = () => {
+        window.open("https://webapps.unitn.it/gestionecorsi", "_blank");
+      };
+    }
+  });
 });
 
 document$.subscribe(() => {
