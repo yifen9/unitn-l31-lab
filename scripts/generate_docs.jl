@@ -172,14 +172,16 @@ end
 #       └──index.md <- Generated
 function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     mkpath(dir_docs)
-    entries = readdir(dir_src)
-    dirs = filter(name -> isdir(joinpath(dir_src, name)), entries)
-    files = filter(name -> isfile(joinpath(dir_src, name)), entries)
+    is_dir = isdir(dir_src)
+
+    if is_dir
+        entries = readdir(dir_src)
+        dirs = filter(name -> isdir(joinpath(dir_src, name)), entries)
+        files = filter(name -> isfile(joinpath(dir_src, name)), entries)
+    end
 
     dir_course = joinpath(DIR_SRC, course_info_whole(course_info))
-
     is_root_course = dir_src == dir_course
-    is_dir = isdir(dir_src)
 
     course_info_id = course_info.id
     course_info_prof = name_prettify(course_info.prof)
@@ -195,39 +197,44 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, directory_table_generate(dir_src))
+
+            # Prepare for copying Readme
+            println(f, "\n")
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, directory_table_generate(dir_src))
+            
+            # Prepare for copying Readme
+            println(f, "\n")
         else
             println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         end
-
-        # Prepare for copying Readme
-        println(f, "\n")
     end
 
-    # Copy Readme
-    readme_to_index_copy(dir_src, dir_docs)
+    if is_dir
+        # Copy Readme
+        readme_to_index_copy(dir_src, dir_docs)
 
-    # Recursive
-    for d in dirs
-        nested_pages_generate(
-            joinpath(dir_src, d),
-            joinpath(dir_docs, d),
-            course_info
-        )
-    end
-    # I don't know why here I seperate dirs and files, but just in case
-    for f in files
-        nested_pages_generate(
-            joinpath(dir_src, f),
-            joinpath(dir_docs, f),
-            course_info
-        )
+        # Recursive
+        for d in dirs
+            nested_pages_generate(
+                joinpath(dir_src, d),
+                joinpath(dir_docs, d),
+                course_info
+            )
+        end
+        # I don't know why here I seperate dirs and files, but just in case
+        for f in files
+            nested_pages_generate(
+                joinpath(dir_src, f),
+                joinpath(dir_docs, f),
+                course_info
+            )
+        end
     end
 end
 
