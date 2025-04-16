@@ -447,16 +447,64 @@ hide:
   - toc
 ---
 
-<div style="text-align: center; margin-top: 4rem;">
-  <h1>UniTrento BSc 2024/2025</h1>
-  <p style="max-width: 600px; margin: auto;">Did you study today?</p>
-</div>
+<style>
+  .homepage-container {
+    text-align: center;
+    margin-top: 6rem;
+    font-family: system-ui, sans-serif;
+  }
 
-<div style="text-align: center; margin-top: 2rem;">
-  <input type="text"
-         id="custom-search"
-         placeholder="I need to learn something, but where ..."
-         style="width: 60%; padding: 0.75em; font-size: 1.2em; border-radius: 0.25em; border: 1px solid #ccc;" />
+  .homepage-title {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .homepage-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+
+  .homepage-searchbox input {
+    width: 60%;
+    max-width: 600px;
+    padding: 0.8em 1em;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 0.4em;
+    box-shadow: 0 0 8px rgba(0,0,0,0.04);
+    transition: border 0.2s ease;
+  }
+
+  .homepage-searchbox input:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+
+  .homepage-footer {
+    margin-top: 3rem;
+    color: #aaa;
+    font-size: 0.9em;
+  }
+</style>
+
+<div class="homepage-container">
+  <div class="homepage-title">UniTrento BSc 2024/2025</div>
+  <div class="homepage-subtitle">Did you study today?</div>
+
+  <div class="homepage-searchbox">
+    <input type="text"
+           id="custom-search"
+           placeholder="Need to learn but where..."
+    />
+  </div>
+
+  <div class="homepage-footer">
+    <p style="margin-top: 2.5rem;">
+      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count" />
+    </p>
+  </div>
 </div>
 
 <script>
@@ -464,15 +512,11 @@ hide:
     if (e.key === 'Enter') {
       const query = encodeURIComponent(this.value);
       if (query.trim() !== '') {
-        window.location.href = `/search/?q=${query}`;
+        window.location.href = "/UNITN.BSc/search/?q=" + query;
       }
     }
   });
 </script>
-
-<p align="center" style="margin-top: 2rem;">
-  <img src="https://count.himiku.com/get/@anto?theme=rule34" alt=":name" />
-</p>
 """)
     end
 end
