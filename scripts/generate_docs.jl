@@ -5,9 +5,11 @@ Pkg.instantiate()
 Pkg.add("StringEncodings")
 Pkg.add("YAML")
 
+```
 Pkg.add("CSV")
 Pkg.add("DataFrames")
 Pkg.add("XLSX")
+```
 
 using Dates
 using Markdown
@@ -15,9 +17,13 @@ using Printf
 using StringEncodings
 using YAML
 
+```
 using CSV
 using DataFrames
 using XLSX
+```
+
+const DIR_BASE_REPO = "https://github.com/yifen9/UNITN.BSc/tree/main"
 
 const DIR_BASE = "/UNITN.BSc"
 const DIR_SRC = "src"
@@ -98,11 +104,11 @@ function size_human_readable(size::Integer)::String
     if size < 1024
         return "$size B"
     elseif size < 1024^2
-        return @sprintf("%.1f KiB", size / 1024)
+        return @sprintf("%d KiB", size / 1024)
     elseif size < 1024^3
-        return @sprintf("%.1f MiB", size / 1024^2)
+        return @sprintf("%d MiB", size / 1024^2)
     else
-        return @sprintf("%.1f GiB", size / 1024^3)
+        return @sprintf("%d GiB", size / 1024^3)
     end
 end
 
@@ -196,6 +202,8 @@ function readme_to_index_copy_and_delete(dir_src, dir_docs; with_divider::Bool=t
     end
 end
 
+# Somehow I fail to implement this, will positively add this feature in near future
+```
 function table_dataframe_to_markdown(df::DataFrame)::String
     io = IOBuffer()
 
@@ -212,6 +220,7 @@ function table_dataframe_to_markdown(df::DataFrame)::String
 
     return String(take!(io))
 end
+```
 
 # Generate the preview section for file page
 function file_preview_generate(file_src::String)::String
@@ -228,14 +237,15 @@ function file_preview_generate(file_src::String)::String
         return "<iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>"
     elseif ext == "csv"
         try
-            df = CSV.read(file_src, DataFrame; limit=64)
-            return table_dataframe_to_markdown(df)
+            # df = CSV.read(file_src, DataFrame; limit=64)
+            # return table_dataframe_to_markdown(df)
+            return "_Please imagine there is a CSV table_"
         catch e
             println("[WARN] CSV table $file_src failed to generate preview")
-            return ""
+            return "_Please imagine there is a CSV table_"
         end
     elseif ext == "xlsx"
-        return ""
+        return "_Please imagine there is a XLSX table_"
     else
         try
             bytes = read(file_src)
@@ -247,13 +257,13 @@ function file_preview_generate(file_src::String)::String
             end
     
             if any(c -> c < ' ' && c != '\n' && c != '\t', content)
-                return ""
+                return "_Please imagine there is a $ext file_"
             end
     
             escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
             return "```plaintext\n" * escaped * "\n```"
         catch
-            return ""
+            return "_Please imagine there is a $ext file_"
         end
     end
 end
@@ -284,12 +294,14 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     course_info_name = name_clean(course_info.name)
 
     file_docs = joinpath(dir_docs, "index.md")
+    file_origin = joinpath(DIR_BASE_REPO, dir_src)
 
     # Generate basic info about the page
     open(file_docs, "w") do f
         if is_root_course
             println(f, "# ", course_info_name, "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
@@ -300,6 +312,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)), "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "\n")
@@ -312,6 +325,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         else
             println(f, "# ", name_clean(splitext(basename(dir_src))[1]), "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Type:    **", file_extension_get(dir_src))
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
 
