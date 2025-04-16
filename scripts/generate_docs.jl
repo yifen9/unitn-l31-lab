@@ -119,6 +119,10 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses", "\n")
         println(f, "## Index", "\n")
+        println(f, """<style>
+table { width: 100%; table-layout: fixed; }
+table th, table td { width: 25%; word-wrap: break-word; }
+</style>\n""")
         println(f, "| Course | ID | Professor | Last Modified |")
         println(f, "|--------|----|-----------|---------------|")
         for course in path_src
@@ -164,6 +168,10 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
+    push!(table, """<style>
+table { width: 100%; table-layout: fixed; }
+table th, table td { width: 25%; word-wrap: break-word; }
+</style>\n""")
     push!(table, "| Name | Type | Size | Last Modified |")
     push!(table, "|------|------|------|---------------|")
     for d in sort(dirs)
@@ -479,8 +487,7 @@ title: ""
   }
 
   .homepage-searchbox input {
-    width: 75%;
-    max-width: 700px;
+    width: 67%;
     padding: 0.9em 1.2em;
     font-size: 1.1em;
     border: 1px solid #ccc;

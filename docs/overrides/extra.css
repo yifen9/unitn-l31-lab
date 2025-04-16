@@ -71,20 +71,6 @@
   text-decoration: underline dotted;
 }
 
-/* docs/css/extra.css */
-.md-typeset table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-.md-typeset th,
-.md-typeset td {
-  width: 25%;
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: left;
-}
-
 .md-content__inner h1:first-of-type {
   display: none;
 }
