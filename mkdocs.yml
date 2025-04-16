@@ -37,20 +37,22 @@ extra_javascript:
 
 # Markdown features
 markdown_extensions:
-  - toc:
-      permalink: true
   - admonition
-  - codehilite
-  - pymdownx.superfences
+  - codehilite:
+      guess_lang: false
   - pymdownx.details
   - pymdownx.emoji
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - toc:
+      permalink: true
 
 # Plugins
 plugins:
-  - search
   - awesome-pages
+  - search
 
 nav:
   - Home:

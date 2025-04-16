@@ -285,6 +285,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
     # Generate basic info about the page
     open(file_docs, "w") do f
+        println(f, "[← Back](../index.md)", "\n")
         if is_root_course
             println(f, "# ", course_info_name)
             println(f, "\n")
