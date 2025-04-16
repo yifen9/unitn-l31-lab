@@ -460,7 +460,7 @@ function main()
             
             <div style=\"text-align: center; margin-top: 2rem;\">
             <h1>UniTrento BSc 2024/2025</h1>
-            <p style="max-width: 600px; margin: auto;">Did you study today?</p>
+            <p style=\"max-width: 600px; margin: auto;\">Did you study today?</p>
             </div>
             
             <div style=\"text-align: center; margin-top: 2rem;\">
