@@ -182,22 +182,16 @@ function directory_table_generate(path_src::String)
 end
 
 # As the name says
-function readme_to_index_copy_and_delete(dir_src, dir_docs; with_divider::Bool=true)
+function readme_to_index_copy(dir_src, dir_docs; with_divider::Bool=true)
     file_src = joinpath(dir_src, "README.md")
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "a") do f
             if with_divider
                 println(f, "\n---\n")
+                println(f, "## More Info", "\n")
             end
             println(f, read(file_src, String))
-        end
-
-        # Delete README.md
-        try
-            rm(file_src)
-        catch e
-            println("[WARN] Failed to delete $file_src: ", e)
         end
     end
 end
@@ -301,10 +295,12 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         if is_root_course
             println(f, "# ", course_info_name, "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "## Basic Info", "\n")
             println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
+            println(f, "### Directory Table", "\n")
             println(f, directory_table_generate(dir_src))
 
             # Prepare for copying Readme
@@ -312,12 +308,15 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)), "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "## Basic Info", "\n")
             println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "\n")
+            println(f, "### Directory Tree", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
+            println(f, "### Directory Table", "\n")
             println(f, directory_table_generate(dir_src))
             
             # Prepare for copying Readme
@@ -325,6 +324,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         else
             println(f, "# ", name_clean(splitext(basename(dir_src))[1]), "\n")
             println(f, "[← Back](../index.md)", "\n")
+            println(f, "## Basic Info", "\n")
             println(f, "- **[Origin]($file_origin)**", "\n")
             println(f, "- **Type:    **", file_extension_get(dir_src))
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
@@ -333,15 +333,17 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **<a href=\"$link_download\" download>Download</a>**")
 
             println(f, "\n")
+            println(f, "### Directory Tree", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
+            println(f, "## Preview", "\n")
             println(f, file_preview_generate(dir_src))
         end
     end
 
     if is_dir
         # Copy Readme
-        readme_to_index_copy_and_delete(dir_src, dir_docs)
+        readme_to_index_copy(dir_src, dir_docs)
 
         # Recursive
         for d in dirs
@@ -452,7 +454,7 @@ function main()
         course_page_generate(course_dir)
     end
 
-    readme_to_index_copy_and_delete("", DIR_DOCS; with_divider=false)
+    readme_to_index_copy("", DIR_DOCS; with_divider=false)
 
     update_mkdocs_nav()
 
