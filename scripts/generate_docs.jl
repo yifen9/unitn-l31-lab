@@ -194,19 +194,13 @@ function file_preview_generate(file_src::String)::String
     file_src_full = joinpath(DIR_BASE, file_src)
 
     if ext in ["png", "jpg", "jpeg", "gif", "svg", "ppm"]
-        return """
-            <img src=\"$file_src_full\" alt=\"Image Preview\" style=\"width: 100%; height: auto; display: block; margin: auto;\" />
-        """
+        return "<img src=\"$file_src_full\" alt=\"Image Preview\" style=\"width: 100%; height: auto; display: block; margin: auto;\" />"
     elseif ext in ["mp4", "webm"]
-        return """
-            <video controls style=\"width: 100%; height: auto; display: block; margin: auto;\">
-                <source src=\"$file_src_full\" type=\"video/$ext\">
-            </video>
-        """
+        return "<video controls style=\"width: 100%; height: auto; display: block; margin: auto;\">
+            <source src=\"$file_src_full\" type=\"video/$ext\">
+        </video>"
     elseif ext == "pdf"
-        return """
-            <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
-        """
+        return "<iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>"
     elseif ext in ["csv", "xlsx"]
         return ""
     else
