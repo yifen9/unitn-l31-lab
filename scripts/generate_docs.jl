@@ -117,8 +117,8 @@ function course_index_generate(path_src::Vector{String})
     path_docs = joinpath(DIR_DOCS_COURSES, "index.md")
     
     open(path_docs, "w") do f
-        println(f, "# Courses Index")
-        println(f, "\n")
+        println(f, "# Courses", "\n")
+        println(f, "## Index", "\n")
         println(f, "| Course | ID | Professor | Last Modified |")
         println(f, "|--------|----|-----------|---------------|")
         for course in path_src
@@ -131,6 +131,9 @@ function course_index_generate(path_src::Vector{String})
                 println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_m |")
             end
         end
+        println(f, "\n---\n")
+        println(f, "## Study Plan", "\n")
+        println(f, file_preview_generate(joinpath(path_src, "Manifesto_LT_INFO_EN_24-25.pdf")))
     end
 end
 
@@ -445,35 +448,39 @@ function page_home_generate(path::String)
 hide:
   - navigation
   - toc
+title: ""
 ---
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
   .homepage-container {
     text-align: center;
     margin-top: 6rem;
-    font-family: system-ui, sans-serif;
+    font-family: 'Quicksand', 'Segoe UI', sans-serif;
   }
 
   .homepage-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
+    color: #2e2e2e;
   }
 
   .homepage-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #666;
     margin-bottom: 3rem;
   }
 
   .homepage-searchbox input {
-    width: 60%;
-    max-width: 600px;
-    padding: 0.8em 1em;
+    width: 75%;
+    max-width: 700px;
+    padding: 0.9em 1.2em;
     font-size: 1.1em;
     border: 1px solid #ccc;
     border-radius: 0.4em;
-    box-shadow: 0 0 8px rgba(0,0,0,0.04);
+    box-shadow: 0 0 8px rgba(0,0,0,0.03);
     transition: border 0.2s ease;
   }
 
@@ -496,7 +503,7 @@ hide:
   <div class="homepage-searchbox">
     <input type="text"
            id="custom-search"
-           placeholder="Need to learn but where..."
+           placeholder="Need to study but where..."
     />
   </div>
 
