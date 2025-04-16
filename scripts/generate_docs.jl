@@ -82,8 +82,6 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses Index")
         println(f, "\n")
-        println(f, "### Directory")
-        println(f, "\n")
         println(f, "| Course | ID | Professor | Last Modified |")
         println(f, "|--------|----|-----------|---------------|")
         for course in path_src
@@ -127,7 +125,6 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
-    push!(table, "### Directory Table")
     push!(table, "| Name | Type | Description | Last Modified |")
     push!(table, "|------|------|-------------|---------------|")
     for d in sort(dirs)
@@ -153,13 +150,16 @@ function readme_to_index_copy(dir_src, dir_docs)
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "w") do f
-            println(f, "\n")
             println(f, read(file_src, String))
         end
         println("[INFO] Copied $file_src to $file_docs")
     else
         println("[WARN] $file_src not found")
     end
+end
+
+function file_preview_generate(file_src::String, file_docs::String)
+    
 end
 
 # Generate nested pages
@@ -177,7 +177,9 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     files = filter(name -> isfile(joinpath(dir_src, name)), entries)
 
     dir_course = joinpath(DIR_SRC, course_info_whole(course_info))
+
     is_root_course = dir_src == dir_course
+    is_dir = isdir(dir_src)
 
     course_info_id = course_info.id
     course_info_prof = name_prettify(course_info.prof)
@@ -190,19 +192,22 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         if is_root_course
             println(f, "# ", course_info_name)
             println(f, "\n")
-            println(f, "## BASIC INFO")
-            println(f, "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
+            println(f, directory_table_generate(dir_src))
+        elseif is_dir
+            println(f, "# ", name_clean(basename(dir_src)))
+            println(f, "\n")
+            println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
+            println(f, directory_table_generate(dir_src))
         else
             println(f, "# ", name_clean(basename(dir_src)))
             println(f, "\n")
-            println(f, "## BASIC INFO")
-            println(f, "\n")
-            println("**Course:** ", course_info.name)
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
         end
-        println(f, directory_table_generate(dir_src))
+
+        # Prepare for copying Readme
+        println(f, "\n")
     end
 
     # Copy Readme
@@ -213,6 +218,14 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
         nested_pages_generate(
             joinpath(dir_src, d),
             joinpath(dir_docs, d),
+            course_info
+        )
+    end
+    # I don't know why here I seperate dirs and files, but just in case
+    for f in files
+        nested_pages_generate(
+            joinpath(dir_src, f),
+            joinpath(dir_docs, f),
             course_info
         )
     end
