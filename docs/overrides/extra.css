@@ -78,3 +78,7 @@
 .md-typeset__scrollwrap {
   overflow-x: visible !important;
 }
+
+body[data-md-page="index"] .md-content__inner h1:first-of-type {
+  display: none;
+}
