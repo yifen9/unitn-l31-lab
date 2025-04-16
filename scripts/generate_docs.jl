@@ -5,11 +5,11 @@ Pkg.instantiate()
 Pkg.add("StringEncodings")
 Pkg.add("YAML")
 
-```
+"""
 Pkg.add("CSV")
 Pkg.add("DataFrames")
 Pkg.add("XLSX")
-```
+"""
 
 using Dates
 using Markdown
@@ -17,11 +17,11 @@ using Printf
 using StringEncodings
 using YAML
 
-```
+"""
 using CSV
 using DataFrames
 using XLSX
-```
+"""
 
 const DIR_BASE_REPO = "https://github.com/yifen9/UNITN.BSc/tree/main"
 
@@ -203,7 +203,7 @@ function readme_to_index_copy_and_delete(dir_src, dir_docs; with_divider::Bool=t
 end
 
 # Somehow I fail to implement this, will positively add this feature in near future
-```
+"""
 function table_dataframe_to_markdown(df::DataFrame)::String
     io = IOBuffer()
 
@@ -220,7 +220,7 @@ function table_dataframe_to_markdown(df::DataFrame)::String
 
     return String(take!(io))
 end
-```
+"""
 
 # Generate the preview section for file page
 function file_preview_generate(file_src::String)::String
