@@ -35,7 +35,8 @@ const DIR_DOCS_COURSES = joinpath(DIR_DOCS, "courses")
 # Which will give you a nice String
 # e.g., "146140_MARCHETTO_Computer_Programming_1" -> "146140 MARCHETTO Computer Programming 1"
 function name_clean(text::AbstractString)::String
-    return replace(replace(String(text), "_" => " "), "-" => " ")
+    s = replace(replace(String(text), "_" => " "), "-" => " ")
+    return occursin(r"^\d+$", s) ? @sprintf("%04s", s) : s
 end
 
 # Formatting the name, also do the work of name_clean()
@@ -385,7 +386,7 @@ function nested_nav_build(path::String)
             rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
             children = nested_nav_build(entry)
-            push!(nav, Dict(name => vcat([index_path], children)))
+            push!(nav, Dict("\"$name\"" => vcat([index_path], children)))
         end
     end
 
@@ -456,6 +457,10 @@ hide:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+  .md-content h1{
+    display: none !important;
+  }
+
   .homepage-container {
     max-width: 960px;
     width: 90%;
