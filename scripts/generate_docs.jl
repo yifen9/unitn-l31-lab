@@ -110,7 +110,7 @@ function directory_tree_generate(path_src::String, path_root::String, name_root:
     push!(tree, "\n")
     push!(tree, "```")
     for (i, part) in enumerate(rel_parts)
-        indent = ($repeat("   ", i))
+        indent = repeat("   ", i)
         icon = "└──"
         name_display = name_clean(part)
         push!(tree, "$indent$icon $name_display")
@@ -313,7 +313,7 @@ function main()
     readme_to_index_copy(joinpath(DIR_SRC, "README.md"), joinpath(DIR_DOCS, "index.md"))
 
     update_mkdocs_nav()
-    
+
     println("[DONE] All course pages and navigation structure updated.")
 end
 
