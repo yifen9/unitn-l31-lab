@@ -2,11 +2,13 @@ import Pkg
 
 Pkg.activate(".")
 Pkg.instantiate()
+Pkg.add("StringEncodings")
 Pkg.add("YAML")
 
 using Dates
 using Markdown
 using Printf
+using StringEncodings
 using YAML
 
 const DIR_BASE = "/UNITN.BSc"
