@@ -200,7 +200,7 @@ function file_preview_generate(file_src::String)::String
         return """
             <iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>
         """
-    else if ext in ["csv", "xlsx"]
+    elseif ext in ["csv", "xlsx"]
         return nothing
     else
         try
