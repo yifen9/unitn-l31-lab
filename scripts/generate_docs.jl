@@ -441,6 +441,7 @@ function update_mkdocs_nav()
     end
 end
 
+# Long shit
 function page_home_generate(path::String)
     file = joinpath(path, "index.md")
     open(file, "w") do f
