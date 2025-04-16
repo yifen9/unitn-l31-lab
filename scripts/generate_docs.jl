@@ -207,7 +207,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     end
 
     # Copy Readme
-    readme_to_index_copy(joinpath(dir_src, "README.md"), file_docs)
+    readme_to_index_copy(dir_src, dir_docs)
 
     # Recursive
     for d in dirs
@@ -236,10 +236,10 @@ function nested_nav_build(path::String)
 
     for entry in entries
         if isdir(entry)
-            name = prettify_name(basename(entry))
+            name = name_clean(basename(entry))
             rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
-            children = build_nested_nav(entry)
+            children = nested_nav_build(entry)
             push!(nav, Dict(name => vcat([index_path], children)))
         end
     end
@@ -310,7 +310,7 @@ function main()
         course_page_generate(course_dir)
     end
 
-    readme_to_index_copy(joinpath(DIR_SRC, "README.md"), joinpath(DIR_DOCS, "index.md"))
+    readme_to_index_copy(DIR_SRC, DIR_DOCS)
 
     update_mkdocs_nav()
 
