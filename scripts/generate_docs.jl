@@ -381,7 +381,7 @@ function nested_nav_build(path::String)
 
     for entry in entries
         if isdir(entry)
-            name = name_clean(basename(entry))
+            name = name_clean(basename(String(entry)))
             rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
             children = nested_nav_build(entry)
@@ -514,7 +514,7 @@ hide:
 
   <div class="homepage-footer">
     <p style="margin-top: 2.5rem;">
-      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count" loading="eager"/>
+      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count"/>
     </p>
   </div>
 </div>
