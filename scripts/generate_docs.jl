@@ -241,17 +241,16 @@ function file_preview_generate(file_src::String)::String
             end
     
             if any(c -> c < ' ' && c != '\n' && c != '\t', content)
-                return "_Preview unavailable: file may contain binary or non-text content._"
+                return ""
             end
     
-            escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
+            lang = ext
             return """
-            <pre style="width: 100%; overflow-x: auto;"><code class="language-plaintext">
-            $escaped
-            </code></pre>
+                ```$lang
+                $content
             """
         catch
-            return "_Preview unavailable for this file type._"
+            return ""
         end
     end
 end
@@ -285,23 +284,22 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
     # Generate basic info about the page
     open(file_docs, "w") do f
-        println(f, "[← Back](../index.md)", "\n")
         if is_root_course
-            println(f, "# ", course_info_name)
-            println(f, "\n")
+            println(f, "# ", course_info_name, "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "\n")
+            println(f, "[← Back](../index.md)", "\n")
             println(f, directory_table_generate(dir_src))
 
             # Prepare for copying Readme
             println(f, "\n")
         elseif is_dir
-            println(f, "# ", name_clean(basename(dir_src)))
-            println(f, "\n")
+            println(f, "# ", name_clean(basename(dir_src)), "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "\n")
+            println(f, "[← Back](../index.md)", "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
@@ -309,8 +307,8 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             # Prepare for copying Readme
             println(f, "\n")
         else
-            println(f, "# ", name_clean(splitext(basename(dir_src))[1]))
-            println(f, "\n")
+            println(f, "# ", name_clean(splitext(basename(dir_src))[1]), "\n")
+            println(f, "[← Back](../index.md)", "\n")
             println(f, "- **Type:    **", file_extension_get(dir_src))
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
 
