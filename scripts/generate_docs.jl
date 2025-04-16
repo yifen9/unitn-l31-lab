@@ -132,7 +132,7 @@ function course_index_generate(path_src::Vector{String})
                 println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_m |")
             end
         end
-        println(fe, "</div>", "\n")
+        println(f, "</div>", "\n")
         println(f, "\n---\n")
         println(f, "## Study Plan", "\n")
         println(f, file_preview_generate(joinpath(DIR_SRC, "Manifesto_LT_INFO_EN_24-25.pdf")))
