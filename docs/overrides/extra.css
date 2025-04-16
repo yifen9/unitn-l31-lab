@@ -115,8 +115,6 @@
   white-space: pre-wrap;
   word-break: break-word;
   background-color: var(--md-code-bg-color);
-  padding: 1rem;
-  border-radius: 0.3rem;
 }
 
 .md-typeset pre > code {
@@ -124,8 +122,6 @@
   width: 100%;
   box-sizing: border-box;
   overflow-x: auto;
-  font-size: 0.85rem;
-  line-height: 1.5;
   white-space: pre-wrap;
 }
 
