@@ -164,7 +164,6 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String[]
-    push!(table, "<table><colgroup><col style=\"width:25%\"><col style=\"width:25%\"><col style=\"width:25%\"><col style=\"width:25%\"></colgroup>")
     push!(table, "| Name | Type | Size | Last Modified |")
     push!(table, "|------|------|------|---------------|")
     for d in sort(dirs)
@@ -182,7 +181,6 @@ function directory_table_generate(path_src::String)
         time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
         push!(table, "| [$name]($f/) | $ext | $size | $time_m |")
     end
-    push!(table, "</table>")
     return join(table, "\n")
 end
 

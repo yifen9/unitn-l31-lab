@@ -82,14 +82,3 @@
 .md-typeset__scrollwrap {
   overflow-x: visible !important;
 }
-
-.md-typeset table:not([class]) {
-  width: 100% !important;
-  table-layout: fixed !important;
-}
-
-.md-typeset table:not([class]) th,
-.md-typeset table:not([class]) td {
-  width: 25% !important;
-  word-break: break-word !important;
-}
