@@ -281,7 +281,7 @@ function update_mkdocs_nav()
     end
 
     nested_courses = Any["courses/index.md"]
-    append!(nested_courses, build_nested_nav(DIR_DOCS_COURSES))
+    append!(nested_courses, nested_nav_build(DIR_DOCS_COURSES))
     courses_entry = Dict("Courses" => nested_courses)
 
     nav_yaml_lines = split(YAML.write([courses_entry]), "\n")
