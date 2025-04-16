@@ -116,8 +116,8 @@
 @media (max-width: 1024px) {
   .md-typeset th,
   .md-typeset td {
-    padding: 0em 0em;
-    font-size: 0.67rem;
+    padding: 0em;
+    font-size: 0.5rem;
   }
 }
 
