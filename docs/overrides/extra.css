@@ -1,6 +1,6 @@
 :root {
     --md-primary-fg-color: #cc0033;
-    --md-accent-fg-color: #cc0033;
+    --md-accent-fg-color: #aa002b;
     --md-primary-fg-color--light: #cc0033;
     --md-primary-fg-color--dark: #aa002b;
 }
@@ -101,12 +101,24 @@
 
 .md-typeset table {
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
+  word-wrap: break-word;
+  border-collapse: collapse;
 }
 
 .md-typeset th, .md-typeset td {
   word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
   width: 25%;
+}
+
+@media (max-width: 768px) {
+  .md-typeset th,
+  .md-typeset td {
+    padding: 0.4em 0.5em;
+    font-size: 0.85rem;
+  }
 }
 
 .md-typeset pre {
@@ -123,6 +135,21 @@
   box-sizing: border-box;
   overflow-x: auto;
   white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .md-typeset pre > code {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-typeset pre > code {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.7rem;
+  }
 }
 
 .md-header__source {

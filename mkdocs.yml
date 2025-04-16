@@ -46,7 +46,8 @@ extra:
       link: https://github.com/yifen9
     - icon: fontawesome/brands/telegram
       link: https://t.me/yifen9
-  footer: Made with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material) & [UniTrento BSc](https://github.com/yifen9/UNITN.BSc)
+  footer: |
+    Made with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material) & [UniTrento BSc](https://github.com/yifen9/UNITN.BSc)
 
 # Custom CSS and JS for layout + logo effects
 extra_css:
