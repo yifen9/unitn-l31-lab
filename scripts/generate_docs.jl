@@ -133,7 +133,7 @@ function course_index_generate(path_src::Vector{String})
         end
         println(f, "\n---\n")
         println(f, "## Study Plan", "\n")
-        println(f, file_preview_generate(joinpath(path_src, "Manifesto_LT_INFO_EN_24-25.pdf")))
+        println(f, file_preview_generate(joinpath(DIR_SRC_COURSES, "Manifesto_LT_INFO_EN_24-25.pdf")))
     end
 end
 
