@@ -23,11 +23,14 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  logo: assets/logo.jpg       # Your UniTrento logo image (recommend PNG with transparency)
+  logo: assets/logo.jpg       # UniTrento logo image (recommend PNG with transparency)
   favicon: assets/favicon.png
   features:
-    - navigation.tabs
     - content.code.copy
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tracking
 
 # Custom CSS and JS for layout + logo effects
 extra_css:
