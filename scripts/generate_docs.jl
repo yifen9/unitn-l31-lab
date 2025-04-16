@@ -5,11 +5,19 @@ Pkg.instantiate()
 Pkg.add("StringEncodings")
 Pkg.add("YAML")
 
+Pkg.add("CSV")
+Pkg.add("DataFrames")
+Pkg.add("XLSX")
+
 using Dates
 using Markdown
 using Printf
 using StringEncodings
 using YAML
+
+using CSV
+using DataFrames
+using XLSX
 
 const DIR_BASE = "/UNITN.BSc"
 const DIR_SRC = "src"
@@ -90,11 +98,11 @@ function size_human_readable(size::Integer)::String
     if size < 1024
         return "$size B"
     elseif size < 1024^2
-        return @sprintf("%.1f KB", size / 1024)
+        return @sprintf("%.1f KiB", size / 1024)
     elseif size < 1024^3
-        return @sprintf("%.1f MB", size / 1024^2)
+        return @sprintf("%.1f MiB", size / 1024^2)
     else
-        return @sprintf("%.1f GB", size / 1024^3)
+        return @sprintf("%.1f GiB", size / 1024^3)
     end
 end
 
@@ -188,6 +196,21 @@ function readme_to_index_copy_and_delete(dir_src, dir_docs; with_divider::Bool=t
     end
 end
 
+function table_dataframe_to_markdown(df::DataFrame)::String
+    io = IOBuffer()
+
+    header = string.(names(df))
+    println(io, "| ", join(header, " | "), " |")
+    println(io, "|", join(["---" for _ in header], "|"), "|")
+
+    for row in eachrow(df)
+        values = string.(row)
+        println(io, "| ", join(values, " | "), " |")
+    end
+
+    return String(take!(io))
+end
+
 # Generate the preview section for file page
 function file_preview_generate(file_src::String)::String
     ext = lowercase(file_extension_get(file_src))
@@ -201,7 +224,15 @@ function file_preview_generate(file_src::String)::String
         </video>"
     elseif ext == "pdf"
         return "<iframe src=\"$file_src_full\" style=\"width:100%; height:100vh; border:none;\"></iframe>"
-    elseif ext in ["csv", "xlsx"]
+    elseif ext == "csv"
+        try
+            df = CSV.read(file_src, DataFrame; limit=64)
+            return table_dataframe_to_markdown(df)
+        catch e
+            println("[WARN] CSV table $file_src failed to generate preview")
+            return ""
+        end
+    elseif ext == "xlsx"
         return ""
     else
         try
