@@ -88,30 +88,33 @@
 }
 
 .md-typeset__scrollwrap {
-  overflow-x: visible !important;
+  overflow-x: visible
 }
 
 .md-typeset__table {
-  overflow-x: auto !important;
+  overflow-x: auto
 }
 
 .md-typeset table {
   width: 100% !important;
   table-layout: fixed !important;
-  border-collapse: collapse !important;
-  word-wrap: break-word !important;
   word-break: break-word !important;
+  border-collapse: collapse !important;
 }
 
 .md-typeset table th,
 .md-typeset table td {
-  word-wrap: break-word !important;
+  width: 25% !important;
+  table-layout: fixed !important;
   word-break: break-word !important;
   white-space: normal !important;
-  width: 25% !important;
 }
 
 @media (max-width: 1024px) {
+  .md-typeset__scrollwrap,
+  .md-typeset__table {
+    overflow-x: scroll !important;
+  }
   .md-typeset th,
   .md-typeset td {
     padding: 2em;
