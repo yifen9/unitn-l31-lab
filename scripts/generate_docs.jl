@@ -551,7 +551,7 @@ hide:
 
   <div class="homepage-footer">
     <p>
-      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count" />
+      <img src="https://count.himiku.com/get/@your-username?theme=rule34" alt="visitor count" />
     </p>
   </div>
 </div>

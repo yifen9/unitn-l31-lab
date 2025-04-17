@@ -1,8 +1,8 @@
 site_name: Bachelor of Computer Science
-site_url: https://yifen9.github.io/UNITN.BSc
+site_url: https://your-username.github.io/UNITN.BSc # Replace it by your own site
 
 repo_name: UNITN BSc
-repo_url: https://github.com/yifen9/UNITN.BSc
+repo_url: https://github.com/your-username/UNITN.BSc # Replace it by your own repo site
 
 theme:
   name: material
@@ -35,17 +35,6 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-
-extra:
-  social:
-    - icon: fontawesome/solid/graduation-cap
-      link: mailto:<yifeng.li@studenti.unitn.it>
-    - icon: fontawesome/brands/yandex
-      link: mailto:<yifen9@yandex.com>
-    - icon: fontawesome/brands/github
-      link: https://github.com/yifen9
-    - icon: fontawesome/brands/telegram
-      link: https://t.me/yifen9
 
 # Custom CSS and JS for layout + logo effects
 extra_css:
