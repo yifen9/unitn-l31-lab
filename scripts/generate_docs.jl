@@ -342,6 +342,8 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
             if lowercase(file_extension_get(dir_src)) == "md"
+                @show dir_src
+                @show file_docs
                 readme_to_index_copy(dir_src, file_docs; join_path=false)
             else
                 println(f, "## Preview", "\n")
