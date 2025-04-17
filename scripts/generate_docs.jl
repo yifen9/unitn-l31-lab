@@ -296,9 +296,9 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
 
     # Generate basic info about the page
     open(file_docs, "w") do f
+        println(f, "<font size=\"1\">[← Back](../index.md)</font>", "\n")
         if is_root_course
             println(f, "# ", course_info_name, "\n")
-            println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
@@ -310,7 +310,6 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
         elseif is_dir
             println(f, "# ", name_clean(basename(dir_src)), "\n")
-            println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
@@ -324,7 +323,6 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
         else
             println(f, "# ", name_clean(splitext(basename(dir_src))[1]), "\n")
-            println(f, "[← Back](../index.md)", "\n")
             println(f, "## Basic Info", "\n")
             println(f, "- **Type:    **", file_extension_get(dir_src))
             println(f, "- **Size:    **", size_human_readable(stat(dir_src).size))
