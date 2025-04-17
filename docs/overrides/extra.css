@@ -92,23 +92,23 @@
 }
 
 .md-typeset__table {
-  overflow-x: auto;
+  overflow-x: auto !important;
 }
 
 .md-typeset table:not([class]) {
-  width: 100%;
-  table-layout: auto;
-  border-collapse: collapse;
-  word-wrap: break-word;
-  word-break: break-word;
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {
-  word-wrap: break-word;
-  word-break: break-word;
-  white-space: normal;
-  width: 25%;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  width: 25% !important;
 }
 
 @media (max-width: 1024px) {
