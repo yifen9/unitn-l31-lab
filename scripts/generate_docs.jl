@@ -498,7 +498,7 @@ hide:
   }
 
   .homepage-searchbox input:focus {
-    border-color: #3f51b5;
+    border-color: #cc0033;
     outline: none;
   }
 
