@@ -194,6 +194,8 @@ function readme_to_index_copy(dir_src, dir_docs; with_divider::Bool=true, join_p
         file_src = dir_src
         file_docs = dir_docs
     end
+    @show file_src
+    @show file_docs
     if isfile(file_src)
         open(file_docs, "a") do f
             if with_divider
