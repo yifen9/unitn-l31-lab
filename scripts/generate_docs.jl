@@ -462,11 +462,13 @@ hide:
   }
 
   .homepage-container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
     font-family: 'Quicksand', 'Segoe UI', sans-serif;
     text-align: center;
+    position: absolute;
+    top: 50%;
   }
 
   .homepage-title {
