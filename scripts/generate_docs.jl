@@ -463,7 +463,7 @@ hide:
 
   .homepage-container {
     width: 90%;
-    margin: 6rem auto 0 auto;
+    margin: 0 auto;
     padding: 1rem;
     font-family: 'Quicksand', 'Segoe UI', sans-serif;
     text-align: center;
