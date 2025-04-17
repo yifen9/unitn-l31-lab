@@ -95,15 +95,16 @@
   overflow-x: auto;
 }
 
-.md-typeset table {
+.md-typeset table:not([class]) {
   width: 100%;
   table-layout: auto;
+  border-collapse: collapse;
   word-wrap: break-word;
   word-break: break-word;
-  border-collapse: collapse;
 }
 
-.md-typeset th, .md-typeset td {
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
   word-wrap: break-word;
   word-break: break-word;
   white-space: normal;
@@ -113,8 +114,8 @@
 @media (max-width: 1024px) {
   .md-typeset th,
   .md-typeset td {
-    padding: 0em;
-    font-size: 0.3rem;
+    padding: 2em;
+    font-size: 0.75rem;
   }
 }
 
@@ -146,22 +147,6 @@
   .md-typeset pre > code {
     padding: 0.4rem 0.5rem;
     font-size: 0.7rem;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .md-header__source,
-  .md-source {
-    background-color: var(--md-primary-fg-color--light) !important;
-    color: white !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .md-header__source,
-  .md-source {
-    background-color: var(--md-primary-fg-color--dark) !important;
-    color: white !important;
   }
 }
 
