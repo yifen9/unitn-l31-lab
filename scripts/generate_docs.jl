@@ -164,7 +164,7 @@ function directory_table_generate(path_src::String)
     dirs = filter(name -> isdir(joinpath(path_src, name)), entries)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
-    table = String[]
+    table = String["\n"]
     push!(table, "| Name | Type | Size | Last Modified |")
     push!(table, "|------|------|------|---------------|")
     for d in sort(dirs)
