@@ -335,6 +335,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
             if lowercase(file_extension_get(dir_src)) == "md"
+                println(f, "## More Info", "\n")
                 println(f, read(dir_src, String))
             else
                 println(f, "## Preview", "\n")
@@ -553,7 +554,7 @@ hide:
 
   <div class="homepage-footer">
     <p>
-      <img src="https://count.himiku.com/get/@your-username?theme=rule34" alt="visitor count" />
+      <img src="https://count.himiku.com/get/@anto?theme=rule34" alt="visitor count" />
     </p>
   </div>
 </div>
