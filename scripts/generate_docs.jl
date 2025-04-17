@@ -585,6 +585,7 @@ function main()
     update_mkdocs_nav()
 
     page_home_generate(DIR_DOCS)
+    page_home_generate(joinpath(DIR_DOCS, "search"))
 
     println("[DONE] All course pages and navigation structure updated.")
 end
