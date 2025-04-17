@@ -186,22 +186,13 @@ function directory_table_generate(path_src::String)
 end
 
 # As the name says
-function readme_to_index_copy(dir_src, dir_docs; with_divider::Bool=true, join_path::Bool=true)
-    if join_path
-        file_src = joinpath(dir_src, "README.md")
-        file_docs = joinpath(dir_docs, "index.md")
-    else
-        file_src = dir_src
-        file_docs = dir_docs
-    end
-    @show file_src
-    @show file_docs
+function readme_to_index_copy(dir_src, dir_docs)
+    file_src = joinpath(dir_src, "README.md")
+    file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "a") do f
-            if with_divider
-                println(f, "\n---\n")
-                println(f, "## More Info", "\n")
-            end
+            println(f, "\n---\n")
+            println(f, "## More Info", "\n")
             println(f, read(file_src, String))
         end
     end
@@ -344,9 +335,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
             if lowercase(file_extension_get(dir_src)) == "md"
-                @show dir_src
-                @show file_docs
-                readme_to_index_copy(dir_src, file_docs; join_path=false)
+                println(f, read(dir_src, String))
             else
                 println(f, "## Preview", "\n")
                 println(f, file_preview_generate(dir_src))
