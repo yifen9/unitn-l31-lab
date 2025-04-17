@@ -23,7 +23,7 @@ using DataFrames
 using XLSX
 """
 
-const DIR_BASE_REPO = "https://github.com/yifen9/UNITN.BSc/tree/main"
+const DIR_BASE_REPO = "https://github.com/your-github-username/UNITN.BSc/tree/main"
 
 const DIR_BASE = "/UNITN.BSc"
 const DIR_SRC = "src"
@@ -186,15 +186,13 @@ function directory_table_generate(path_src::String)
 end
 
 # As the name says
-function readme_to_index_copy(dir_src, dir_docs; with_divider::Bool=true)
+function readme_to_index_copy(dir_src, dir_docs)
     file_src = joinpath(dir_src, "README.md")
     file_docs = joinpath(dir_docs, "index.md")
     if isfile(file_src)
         open(file_docs, "a") do f
-            if with_divider
-                println(f, "\n---\n")
-                println(f, "## More Info", "\n")
-            end
+            println(f, "\n---\n")
+            println(f, "## More Info", "\n")
             println(f, read(file_src, String))
         end
     end
@@ -336,8 +334,13 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n---\n")
-            println(f, "## Preview", "\n")
-            println(f, file_preview_generate(dir_src))
+            if lowercase(file_extension_get(dir_src)) == "md"
+                println(f, "## More Info", "\n")
+                println(f, read(dir_src, String))
+            else
+                println(f, "## Preview", "\n")
+                println(f, file_preview_generate(dir_src))
+            end
         end
     end
 

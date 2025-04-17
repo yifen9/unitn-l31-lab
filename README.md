@@ -15,6 +15,19 @@ More details will be updated frequently on [my blog](https://yifen9.github.io/20
 
 Here I will only provide the minimum setup, feel free to modify more if you know what you are doing.
 
+### Upload your repository
+
+1. Firstly you need to have your own repository, create one.
+2. Maybe you are already familiar with `Git`, but if not, I recommend you to use `GitHub Desktop`, which I have introduced once on [my blog](https://yifen9.github.io/2025/04/07/Get-a-Personal-Website/#get-github-desktop), but anyway, you need to manage to upload the whole file (files included in `UNITN.BSc.zip`) to your repository.
+
+### GitHub Pages
+
+1. Go to your repository.
+2. Go to `Settings` -> `Code and automation` -> `Pages` -> `GitHub Pages` -> `Build and deployment`.
+3. Set `Source` to `Deploy from a branch`.
+4. Set `Branch` to `gh-pages/(root)`.
+5. Click `Save`.
+
 ### `/scripts/generate_docs.jl`
 
 ```
@@ -24,7 +37,12 @@ function page_home_generate(path::String)
     ...
 end
 ```
-Where you need to replace `your-prefered-randomname` by any name you like.
+
+```
+const DIR_BASE_REPO = "https://github.com/your-github-username/UNITN.BSc/tree/main"
+```
+
+Where you need to replace `your-prefered-randomname` by any name you like and replace `your-github-username`.
 
 > How do you know I use Julia?
 
@@ -43,19 +61,6 @@ What's more, if you choose a different name for your repository, then you need t
 repo_url: https://github.com/your-github-username/UNITN.BSc
 ```
 Same as above, replace `your-github-username` by your username, and possibly change `UNITN.BSc`
-
-### Upload your repository
-
-1. Firstly you need to have your own repository, create one.
-2. Maybe you are already familiar with `Git`, but if not, I recommend you to use `GitHub Desktop`, which I have introduced once on [my blog](https://yifen9.github.io/2025/04/07/Get-a-Personal-Website/#get-github-desktop), but anyway, you need to manage to upload the whole file (files included in `UNITN.BSc.zip`) to your repository.
-
-### GitHub Pages
-
-1. Go to your repository.
-2. Go to `Settings` -> `Code and automation` -> `Pages` -> `GitHub Pages` -> `Build and deployment`.
-3. Set `Source` to `Deploy from a branch`.
-4. Set `Branch` to `gh-pages/(root)`.
-5. Click `Save`.
 
 ### Result
 
