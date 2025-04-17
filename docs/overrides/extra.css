@@ -95,7 +95,7 @@
   overflow-x: auto !important;
 }
 
-.md-typeset table:not([class]) {
+.md-typeset table {
   width: 100% !important;
   table-layout: fixed !important;
   border-collapse: collapse !important;
@@ -103,8 +103,8 @@
   word-break: break-word !important;
 }
 
-.md-typeset table:not([class]) th,
-.md-typeset table:not([class]) td {
+.md-typeset table th,
+.md-typeset table td {
   word-wrap: break-word !important;
   word-break: break-word !important;
   white-space: normal !important;
