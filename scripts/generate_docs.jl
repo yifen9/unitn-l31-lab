@@ -25,6 +25,9 @@ using XLSX
 
 const DIR_BASE_REPO = "https://github.com/yifen9/UNITN.BSc/tree/main"
 
+const DIR_BASE_MOODLE = "https://didatticaonline.unitn.it/dol/course/view.php?id="
+const DIR_BASE_DOWNLOAD = "https://download-directory.github.io/?url="
+
 const DIR_BASE = "/UNITN.BSc"
 const DIR_SRC = "src"
 const DIR_DOCS = "docs"
@@ -106,11 +109,11 @@ function size_human_readable(size::Integer)::String
     if size < 1024
         return "$size B"
     elseif size < 1024^2
-        return @sprintf("%.3f KiB", size / 1024)
+        return @sprintf("%d KiB", size / 1024)
     elseif size < 1024^3
-        return @sprintf("%.3f MiB", size / 1024^2)
+        return @sprintf("%d MiB", size / 1024^2)
     else
-        return @sprintf("%.3f GiB", size / 1024^3)
+        return @sprintf("%d GiB", size / 1024^3)
     end
 end
 
@@ -121,16 +124,16 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses", "\n")
         println(f, "## Index", "\n")
-        println(f, "| Course | ID | Professor | Moodle |")
-        println(f, "|--------|----|-----------|--------|")
+        println(f, "| Course | Professor | ID | Moodle |")
+        println(f, "|--------|-----------|----|--------|")
         for course in path_src
             info = course_info_extract(basename(course))
             if info !== nothing
                 name = name_clean(info.name)
-                id = info.id
                 prof = name_prettify(info.prof)
+                id = info.id
                 moodle = info.moodle
-                println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | [🡥](https://didatticaonline.unitn.it/dol/course/view.php?id=$moodle) |")
+                println(f, "| [$name](./$(basename(course))/index.md) | $prof | $id | [$moodle]($DIR_BASE_MOODLE$moodle) |")
             end
         end
         println(f, "\n---\n")
@@ -286,6 +289,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
     is_root_course = dir_src == dir_course
 
     course_info_id = course_info.id
+    course_info_moodle = course_info.moodle
     course_info_prof = name_prettify(course_info.prof)
     course_info_name = name_clean(course_info.name)
 
@@ -300,7 +304,11 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "## Basic Info", "\n")
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
-            println(f, "- **[Origin]($file_origin)**", "\n")
+            println(f, "- **[Moodle]($DIR_BASE_MOODLE$course_info_moodle)**", "\n")
+
+            link_download = joinpath(DIR_BASE_DOWNLOAD, file_origin)
+            println(f, "- **<a href=\"$link_download\" download>Download</a>**")
+
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
 
@@ -313,6 +321,10 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "- **[Origin]($file_origin)**", "\n")
+
+            link_download = joinpath(DIR_BASE_DOWNLOAD, file_origin)
+            println(f, "- **<a href=\"$link_download\" download>Download</a>**")
+
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
             println(f, "\n")
