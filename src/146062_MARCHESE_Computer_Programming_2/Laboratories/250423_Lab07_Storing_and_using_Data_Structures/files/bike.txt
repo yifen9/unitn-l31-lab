@@ -1,0 +1,17 @@
+101,giant,  talon 29, mtb,29, 849
+102,giant, talon, mtb,26,749
+103,giant, fathom 29,mtb, 29,1499
+104,giant,xtc slr 29, mtb,29, 1699
+105,giant, xtc advanced 29, mtb,29,3599
+106,giant, stance 29,mtb,29,2579
+107,giant, pro 29,mtb,29,7999
+108,giant,propel sl disc ltd,road,26,7775
+109,giant,tcr advanced sl disc,road,26,11849
+110,giant, defy advanced pro,road,26,8299
+111,giant,contend sl,road,26,999
+112giant,fastroad advanced,city,26,2159
+113,giant,expressway,city,24,499
+201,giant,explore e+ pro, ebike,26,4199,625
+202,giant,explore e+,ebike,26,3099,500
+203,giant, explore e+,ebike,26,2549,400
+204,giant,reign e+ ,ebike,26,7599,750
