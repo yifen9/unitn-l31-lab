@@ -51,7 +51,7 @@ end
 #   name = Computer_Programming_1
 #   )
 function course_info_extract(course::String)
-    parts = split(course, "_", limit=3)
+    parts = split(course, "_", limit=4)
     if length(parts) < 4
         return nothing
     end
