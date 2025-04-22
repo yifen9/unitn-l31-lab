@@ -14,13 +14,13 @@ Which of the following are true?
 *)
 
 L = M::[N];
-(*val it = true: bool*)
+(* val it = true: bool *)
 
 M::L = L@[N];
-(*val it = false: bool*)
+(* val it = false: bool *)
 
 [(1,2)]@[N] = L@nil;
-(*val it = true: bool*)
+(* val it = true: bool *)
 
 N::L = (3,4)::M::N::nil;
-(*val it = true: bool*)
+(* val it = true: bool *)

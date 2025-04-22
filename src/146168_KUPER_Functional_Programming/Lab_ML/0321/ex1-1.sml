@@ -1,4 +1,4 @@
-(*Write a short program to compute x^1000*)
+(* Write a short program to compute x^1000 *)
 
 fun thousandthPower(x:real) =
     let

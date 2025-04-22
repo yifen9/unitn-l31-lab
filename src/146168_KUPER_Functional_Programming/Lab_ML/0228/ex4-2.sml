@@ -1,4 +1,4 @@
-(*What is wrong with the following expressions? When possible, correct them*)
+(* What is wrong with the following expressions? When possible, correct them *)
 
 #4 (3,4,5);
 (*

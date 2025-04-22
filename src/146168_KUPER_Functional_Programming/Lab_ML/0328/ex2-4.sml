@@ -1,4 +1,4 @@
-(*Read a file of characters, treating it as a sequence of words (consecutive, non-white space characters). Return a list of the words in the file*)
+(* Read a file of characters, treating it as a sequence of words (consecutive, non-white space characters). Return a list of the words in the file *)
 
 (* test if a character is white space *)
 fun white(" ") = true

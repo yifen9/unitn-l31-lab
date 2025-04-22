@@ -21,4 +21,4 @@ fun foo (a,b,c,d) =
         then c
         else b+d
 ;
-(*val foo = fn: int * int * int * int -> int*)
+(* val foo = fn: int * int * int * int -> int *)

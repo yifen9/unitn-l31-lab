@@ -1,4 +1,4 @@
-(*Write a function sumPairs that takes a list of pairs of integers, and returns a pair of the sum of each component*)
+(* Write a function sumPairs that takes a list of pairs of integers, and returns a pair of the sum of each component *)
 
 fun sumPairs(nil) = (0,0)
 | sumPairs((x,y)::zs) =

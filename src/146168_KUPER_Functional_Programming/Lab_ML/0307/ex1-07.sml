@@ -1,4 +1,4 @@
-(*Given 3 integers, produce a pair consisting of the smallest and the largest*)
+(* Given 3 integers, produce a pair consisting of the smallest and the largest *)
 
 fun min3 (a,b,c) =
     if a<b 

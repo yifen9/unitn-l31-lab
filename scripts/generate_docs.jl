@@ -120,16 +120,16 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses", "\n")
         println(f, "## Index", "\n")
-        println(f, "| Course | ID | Professor | Last Modified |")
-        println(f, "|--------|----|-----------|---------------|")
+        println(f, "| Course | ID | Professor | Time Created |")
+        println(f, "|--------|----|-----------|--------------|")
         for course in path_src
             info = course_info_extract(basename(course))
             if info !== nothing
                 name = name_clean(info.name)
                 id = info.id
                 prof = name_prettify(info.prof)
-                time_m = Dates.format(Dates.unix2datetime(stat(course).mtime), "yyyy-mm-dd")
-                println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_m |")
+                time_c = Dates.format(Dates.unix2datetime(stat(course).ctime), "yyyy-mm-dd")
+                println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | $time_c |")
             end
         end
         println(f, "\n---\n")
@@ -165,22 +165,22 @@ function directory_table_generate(path_src::String)
     files = filter(name -> isfile(joinpath(path_src, name)), entries)
 
     table = String["\n"]
-    push!(table, "| Name | Type | Size | Last Modified |")
-    push!(table, "|------|------|------|---------------|")
+    push!(table, "| Name | Type | Size | Time Created |")
+    push!(table, "|------|------|------|--------------|")
     for d in sort(dirs)
         path_src_full = joinpath(path_src, d)
         name = name_clean(d)
         size = size_human_readable(size_directory_get(path_src_full))
-        time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($d/) | / | $size | $time_m |")
+        time_c = Dates.format(Dates.unix2datetime(stat(path_src_full).ctime), "yyyy-mm-dd")
+        push!(table, "| [$name]($d/) | / | $size | $time_c |")
     end
     for f in sort(files)
         path_src_full = joinpath(path_src, f)
         name = name_clean(splitext(f)[1])
         ext = file_extension_get(f)
         size = size_human_readable(stat(path_src_full).size)
-        time_m = Dates.format(Dates.unix2datetime(stat(path_src_full).mtime), "yyyy-mm-dd")
-        push!(table, "| [$name]($f/) | $ext | $size | $time_m |")
+        time_c = Dates.format(Dates.unix2datetime(stat(path_src_full).ctime), "yyyy-mm-dd")
+        push!(table, "| [$name]($f/) | $ext | $size | $time_c |")
     end
     return join(table, "\n")
 end

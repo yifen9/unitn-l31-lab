@@ -11,18 +11,18 @@ What are the types of the following expressions
 *)
 
 SOME();
-(*unit option*)
+(* unit option *)
 
 SOME 123;
-(*int option*)
+(* int option *)
 
 SOME NONE;
-(*'a option option*)
+(* 'a option option *)
 
 fun f() = SOME true;
-(*fn:unit -> bool option*)
+(* fn:unit -> bool option *)
 
 fun f(NONE) = 0
 | f(SOME i) = 1
 ;
-(*fn : 'a option -> int*)
+(* fn : 'a option -> int *)

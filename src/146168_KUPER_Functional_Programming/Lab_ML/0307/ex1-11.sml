@@ -19,19 +19,19 @@ val b=3;
 fun g(a) = a+b;
 
 f(4);
-(*val it = 8: int*)
+(* val it = 8: int *)
 
 f(4)+b;
-(*val it = 11: int*)
+(* val it = 11: int *)
 
 g(5);
-(*val it = 8: int*)
+(* val it = 8: int *)
 
 g(5)+a;
-(*val it = 10: int*)
+(* val it = 10: int *)
 
 f(g(6));
-(*val it = 18: int*)
+(* val it = 18: int *)
 
 g(f(7));
-(*val it = 17: int*)
+(* val it = 17: int *)

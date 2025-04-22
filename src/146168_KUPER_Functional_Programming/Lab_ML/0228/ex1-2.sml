@@ -1,4 +1,4 @@
-(*What are the errors in the following expressions?*)
+(* What are the errors in the following expressions? *)
 
 8/4;
 (*

@@ -1,4 +1,4 @@
-(*Write a function to test if a list is empty*)
+(* Write a function to test if a list is empty *)
 
 fun emptyList(nil) =
     true

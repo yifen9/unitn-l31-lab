@@ -22,7 +22,7 @@ error: Type error in function application.
 *)
 
 rev2([(rev1:int list -> int list),rev1]);
-(*val it = [fn, fn]: (int list -> int list) list*)
+(* val it = [fn, fn]: (int list -> int list) list *)
 
 rev1([rev1,rev1]);
 (*
@@ -33,7 +33,7 @@ error: Type error in function application.
 *)
 
 rev2([rev2,rev2]);
-(*val it = [fn, fn]: (_a list -> _a list) list*)
+(* val it = [fn, fn]: (_a list -> _a list) list *)
 
 rev1([chr,chr]);
 (*
@@ -44,7 +44,7 @@ error: Type error in function application.
 *)
 
 rev2([chr,chr]);
-(*val it = [fn, fn]: (int -> char) list*)
+(* val it = [fn, fn]: (int -> char) list *)
 
 rev1([chr,ord]);
 (*

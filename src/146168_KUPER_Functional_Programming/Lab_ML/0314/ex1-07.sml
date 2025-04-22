@@ -1,4 +1,4 @@
-(*Delete an element from a set delete(x,S)*)
+(* Delete an element from a set delete(x,S) *)
 
 fun delete(a,[]) = []
 | delete(b,c::ys) =

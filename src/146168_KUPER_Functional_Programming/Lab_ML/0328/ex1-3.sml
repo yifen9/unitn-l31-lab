@@ -1,4 +1,4 @@
-(*Given n, print 2^n X’s*)
+(* Given n, print 2^n X’s *)
 
 fun makelist(1) =
     "X"

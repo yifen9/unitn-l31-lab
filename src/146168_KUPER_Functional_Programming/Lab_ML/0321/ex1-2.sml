@@ -1,4 +1,4 @@
-(*Write the split program without using a pattern in the val declaration*)
+(* Write the split program without using a pattern in the val declaration *)
 
 fun split(nil) = (nil,nil)
 | split([a]) = ([a],nil)

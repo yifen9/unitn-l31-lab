@@ -1,4 +1,4 @@
-(*Improve the previous exercise by printing an error message and raising an exception when the input is bad*)
+(* Improve the previous exercise by printing an error message and raising an exception when the input is bad *)
 
 exception badInput;
 

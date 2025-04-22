@@ -1,4 +1,4 @@
-(*Write a function that prints a list of integers*)
+(* Write a function that prints a list of integers *)
 
 fun printList(nil) = ()
 | printList(x::xs) = (

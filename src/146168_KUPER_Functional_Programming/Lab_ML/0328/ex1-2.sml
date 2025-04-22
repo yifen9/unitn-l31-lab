@@ -1,4 +1,4 @@
-(*Write a function to compute \dbinom{n}{m}, while printing n, m and the result*)
+(* Write a function to compute \dbinom{n}{m}, while printing n, m and the result *)
 
 fun factorial(0) =
     1

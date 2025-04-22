@@ -1,4 +1,4 @@
-(*Write a factorial function that produces 1 when its argument is 0, 0 for a negative argument, with an error message*)
+(* Write a factorial function that produces 1 when its argument is 0, 0 for a negative argument, with an error message *)
 
 exception Negative of int;
 

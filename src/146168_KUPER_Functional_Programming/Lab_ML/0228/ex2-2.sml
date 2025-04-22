@@ -1,4 +1,4 @@
-(*What are the type errors in the following expressions, and how can we fix them?*)
+(* What are the type errors in the following expressions, and how can we fix them? *)
 
 ceil 4;
 (*
@@ -23,4 +23,4 @@ Static Errors
 *)
 
 chr 256;
-(*Exception- Chr raised*)
+(* Exception- Chr raised *)

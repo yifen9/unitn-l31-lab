@@ -1,4 +1,4 @@
-(*Given three integers, produce a list of them in sorted order*)
+(* Given three integers, produce a list of them in sorted order *)
 
 fun min3 (a,b,c) =
     if a<b 

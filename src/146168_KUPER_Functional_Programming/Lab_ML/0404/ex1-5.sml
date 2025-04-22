@@ -29,19 +29,19 @@ Are the following expressions legal?
 *)
 
 g([1,2,3],["a"]);
-(*val it = ([1,2],["a"]): int list * string list*)
+(* val it = ([1,2],["a"]): int list * string list *)
 
 g([1,2,3],nil);
-(*warning: The type of (it) contains a free type variable.*)
+(* warning: The type of (it) contains a free type variable *)
 
 g([f,f],[1]);
-(*warning: The type of (it) contains a free type variable*)
+(* warning: The type of (it) contains a free type variable *)
 
 g([1],[1.0]);
-(*val it = ([1],[1.0]): int list * real list*)
+(* val it = ([1],[1.0]): int list * real list *)
 
 h(1,2);
-(*val it = ([1],[2]): int list * int list*)
+(* val it = ([1],[2]): int list * int list *)
 
 h(1,"a");
 (*
@@ -51,7 +51,7 @@ error: Type error in function application.
 *)
 
 h(nil,nil);
-(*warning: The type of (it) contains a free type variable*)
+(* warning: The type of (it) contains a free type variable *)
 
 h([1],nil);
-(*val it = ([[1]], [[]]): int list list * int list list*)
+(* val it = ([[1]], [[]]): int list list * int list list *)

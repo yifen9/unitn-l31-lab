@@ -1,4 +1,4 @@
-(*Given an integer i and a list L = [a_1, . . . , a_n], cycle L i times, i.e., produce [a_{i+1}, a_{i+1}, . . . , a_n, a_1, . . . , a_i]*)
+(* Given an integer i and a list L = [a_1, . . . , a_n], cycle L i times, i.e., produce [a_{i+1}, a_{i+1}, . . . , a_n, a_1, . . . , a_i] *)
 
 fun cycle (l) = tl(l) @ [hd(l)];
 

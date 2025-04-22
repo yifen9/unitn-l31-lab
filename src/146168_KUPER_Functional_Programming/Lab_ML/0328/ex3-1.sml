@@ -1,4 +1,4 @@
-(*Write a program to return the third element of a list of integers*)
+(* Write a program to return the third element of a list of integers *)
 
 exception shortList of int list;
 

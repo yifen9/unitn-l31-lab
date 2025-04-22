@@ -1,4 +1,4 @@
-(*Compute the length of a list*)
+(* Compute the length of a list *)
 
 fun length L =
     if L = nil

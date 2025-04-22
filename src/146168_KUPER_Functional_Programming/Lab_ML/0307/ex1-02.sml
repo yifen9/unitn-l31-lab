@@ -1,7 +1,4 @@
-(*
-Write a function to compute the smallest component of a tuple of type
-    int*int*int
-*)
+(* Write a function to compute the smallest component of a tuple of type int*int*int *)
 
 fun min3 (a,b,c) =
     if a<b 

@@ -1,4 +1,4 @@
-(*At the cost of some roundoff errors, it is possible to compute δ in the trapezoidal function once at the begining. Reimplement trap in this way*)
+(* At the cost of some roundoff errors, it is possible to compute δ in the trapezoidal function once at the begining. Reimplement trap in this way *)
 
 fun trap(a,b,n,F) =
     if
