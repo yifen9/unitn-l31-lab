@@ -124,16 +124,16 @@ function course_index_generate(path_src::Vector{String})
     open(path_docs, "w") do f
         println(f, "# Courses", "\n")
         println(f, "## Index", "\n")
-        println(f, "| Course | Professor | ID | Moodle |")
-        println(f, "|--------|-----------|----|--------|")
+        println(f, "| Course | ID | Professor | Moodle |")
+        println(f, "|--------|----|-----------|--------|")
         for course in path_src
             info = course_info_extract(basename(course))
             if info !== nothing
                 name = name_clean(info.name)
-                prof = name_prettify(info.prof)
                 id = info.id
+                prof = name_prettify(info.prof)
                 moodle = info.moodle
-                println(f, "| [$name](./$(basename(course))/index.md) | $prof | $id | [$moodle]($DIR_BASE_MOODLE$moodle) |")
+                println(f, "| [$name](./$(basename(course))/index.md) | $id | $prof | [$moodle]($DIR_BASE_MOODLE$moodle) |")
             end
         end
         println(f, "\n---\n")
@@ -305,9 +305,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Course ID:** ", course_info_id)
             println(f, "- **Professor:** ", course_info_prof)
             println(f, "- **[Moodle]($DIR_BASE_MOODLE$course_info_moodle)**", "\n")
-
-            link_download = joinpath(DIR_BASE_DOWNLOAD, file_origin)
-            println(f, "- **<a href=\"$link_download\" download>Download</a>**")
+            println(f, "- **<a href=\"$DIR_BASE_DOWNLOAD$file_origin\" download>Download</a>**")
 
             println(f, "\n")
             println(f, directory_table_generate(dir_src))
@@ -321,9 +319,7 @@ function nested_pages_generate(dir_src::String, dir_docs::String, course_info)
             println(f, "- **Item:** ", dir_item_count(dir_src))
             println(f, "- **Size:**  ", size_human_readable(size_directory_get(dir_src)))
             println(f, "- **[Origin]($file_origin)**", "\n")
-
-            link_download = joinpath(DIR_BASE_DOWNLOAD, file_origin)
-            println(f, "- **<a href=\"$link_download\" download>Download</a>**")
+            println(f, "- **<a href=\"$DIR_BASE_DOWNLOAD$file_origin\" download>Download</a>**")
 
             println(f, "\n")
             println(f, directory_tree_generate(dir_src, dir_course, name_clean(course_info.name)))
