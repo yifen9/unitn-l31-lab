@@ -438,7 +438,21 @@ function update_mkdocs_nav()
     end
 
     nested_courses = Any["courses/index.md"]
-    append!(nested_courses, nested_nav_build(DIR_DOCS_COURSES))
+
+    entries = readdir(DIR_DOCS_COURSES; join=true, sort=true)
+    nav = Vector{Any}()
+    for entry in entries
+        if isdir(entry)
+            course_base = basename(String(entry))
+            course_name = course_info_extract(course_base).name
+            rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
+            index_path = joinpath(rel, "index.md")
+            children = nested_nav_build(entry)
+            push!(nav, Dict("$course_name" => vcat([index_path], children)))
+        end
+    end
+
+    append!(nested_courses, nav)
     courses_entry = Dict("Courses" => nested_courses)
 
     nav_yaml_lines = split(YAML.write([courses_entry]), "\n")
