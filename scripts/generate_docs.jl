@@ -444,7 +444,7 @@ function update_mkdocs_nav()
     for entry in entries
         if isdir(entry)
             course_base = basename(String(entry))
-            course_name = course_info_extract(course_base).name
+            course_name = name_clean(course_info_extract(course_base).name)
             rel = joinpath("courses", relpath(entry, DIR_DOCS_COURSES))
             index_path = joinpath(rel, "index.md")
             children = nested_nav_build(entry)
