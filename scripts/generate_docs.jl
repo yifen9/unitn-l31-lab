@@ -259,8 +259,8 @@ function file_preview_generate(file_src::String)::String
                 return "_Please imagine there is a $ext file_"
             end
     
-            escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
-            return "```plaintext\n" * escaped * "\n```"
+            # escaped = replace(content, r"&" => "&amp;", r"<" => "&lt;", r">" => "&gt;")
+            return "```plaintext\n" * content * "\n```"
         catch
             return "_Please imagine there is a $ext file_"
         end
