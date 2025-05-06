@@ -9,4 +9,4 @@
 ### About
 
 - taking notes
-  - [Goodnotes](https://www.goodnotes.com)
+    - [Goodnotes](https://www.goodnotes.com)
