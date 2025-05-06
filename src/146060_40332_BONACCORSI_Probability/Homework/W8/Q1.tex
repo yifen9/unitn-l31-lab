@@ -36,17 +36,39 @@
 		
 		\subsection*{Solution}
 		
+			Since the CDO fails only if \emph{all} loans default and failures are independent,
+			
+			\[
+				\bP(\text{CDO fails}) = (0.1)^{10} = 10^{-10}
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bP(\text{CDO fails}) = 10^{-10}}\]
 		
 		\bigskip\item How many independent subprime loans, each with failure probability $0.5$, are needed to create a triple-A CDO (failure risk $< 0.0012$)?
 		
 		\subsection*{Solution}
 		
+			We require
+			
+			\[
+				(0.5)^n < 0.0012
+			\]
+			
+			Taking natural logarithms,
+			
+			\[
+				n\ln(0.5) < \ln(0.0012)
+				\quad\Longrightarrow\quad
+				n > \frac{\ln(0.0012)}{\ln(0.5)} \approx 9.71
+			\]
+			
+			Thus the smallest integer $n$ is $10$.
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{10}\]
 	\end{enumerate}
 	
 \end{document}

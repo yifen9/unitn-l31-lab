@@ -32,17 +32,50 @@
 		
 		\subsection*{Solution}
 		
+			Let $X_1\sim\mathrm{Binomial}(16,0.43)$ be hits on normal balls and $X_2\sim\mathrm{Binomial}(4,0.43)$ hits on money balls. Total points $T = X_1 + 2X_2$, so
+			
+			\[
+				\bE[T] = 16(0.43) + 2\cdot4(0.43) = 6.88 + 3.44 = 10.32
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\bE[T] = 10.32}\]
 		
 		\bigskip\item What is the standard deviation of the total points scored?
 		
 		\subsection*{Solution}
 		
+			We have
+			
+			\[
+				\begin{aligned}
+					\mathrm{Var}(X_1)&=16\cdot0.43\cdot0.57\\
+					\mathrm{Var}(X_2)&=4\cdot0.43\cdot0.57
+				\end{aligned}
+			\]
+			
+			and since $\mathrm{Var}(2X_2)=4\,\mathrm{Var}(X_2)$ and $X_1, X_2$ independent,
+			
+			\[
+				\begin{aligned}
+					\mathrm{Var}(T)
+						&= 16\cdot0.43\cdot0.57 + 4\times(4\cdot0.43\cdot0.57)\\
+						&= 2\times16\cdot0.43\cdot0.57\\
+						&= 32\cdot0.43\cdot0.57\\
+						&\approx7.843
+				\end{aligned}
+			\]
+			
+			so
+			
+			\[
+				\sigma_T = \sqrt{32\cdot0.43\cdot0.57} \approx 2.80
+			\]
+		
 		\subsection*{Answer}
 		
-			\[\boxed{}\]
+			\[\boxed{\sigma_T = \sqrt{32\cdot0.43\cdot0.57}\approx2.80}\]
 	\end{enumerate}
 	
 \end{document}
