@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250311_Lab01_IntelliJ_and_First_Java_App" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250314_Lab02_2D_Circles_in_OOP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250325_Lab03_Nested_Classes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250328_Lab04_Class_Inheritance_and_Polimorphysm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250408_Lab05_Reading_Files_and_Storing_into_objects" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250411_Lab06_Collections_in_Action" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/146062_41190_MARCHESE_Computer_Programming_2/Laboratories/250423_Lab07_Storing_and_using_Data_Structures" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
