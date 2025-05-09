@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#8}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 4}
+	
+	\noindent Given the joint PMF:
+	
+	\bigskip
+	
+	\[
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$     $ & $X = -2$ & $X = 0$ & $X = 2$ \\ \hline
+		$Y = 1$ & $0$      & $2a   $ & $a    $ \\ \hline
+		$Y = 2$ & $2a$     & $0    $ & $2a   $ \\ \hline
+		$Y = 4$ & $a$      & $2a   $ & $0    $ \\ \hline
+	\end{tabular}
+	\]
+	
+	\bigskip
+	
+	\noindent Let $S = X + Y$, $Z = X - Y$.
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item Find the value of $a$ and the marginal probability density function of $X$.
+		
+		\subsection*{Solution}
+		
+			Summing all entries: $(3a)+(4a)+(3a)=10a=1$, so $a=\tfrac{1}{10}$. Marginally,
+			
+			\[
+				\begin{aligned}
+					P(X=-2)&=3a&=0.3\\
+					P(X=0)&=4a&=0.4\\
+					P(X=2)&=3a&=0.3
+				\end{aligned}
+			\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{a=0.1,\quad P_X(-2)=0.3,\;P_X(0)=0.4,\;P_X(2)=0.3}\]
+		
+		\bigskip\item Are $X$ and $Y$ independent?
+		
+		\subsection*{Solution}
+		
+			For example, $P(X=-2,Y=1)=0\ne P(X=-2)P(Y=1)=0.3\cdot0.3=0.09$, so not independent.
+		
+		\subsection*{Answer}
+		
+			\[\boxed{No.}\]
+			
+		\bigskip\item Compute the covariance of $S$ and $Z$.
+		
+		\subsection*{Solution}
+		
+			Note $S=X+Y$, $Z=X-Y$, so
+			
+			\[
+				\begin{aligned}
+					\mathrm{Cov}(S,Z)&=\mathrm{Cov}(X+Y,X-Y)\\
+					&=\mathrm{Var}(X)-\mathrm{Var}(Y)
+				\end{aligned}
+			\]
+			
+			We have
+			
+			\[
+				\begin{aligned}
+					E[X]&=0\\
+					\mathrm{Var}(X)&=4(0.3+0.3)=2.4\\
+					E[Y]&=2.3\\
+					\mathrm{Var}(Y)&=6.7-(2.3)^2=1.41
+				\end{aligned}
+			\]
+			
+			Thus
+			
+			\[
+				\mathrm{Cov}(S,Z)=2.4-1.41=0.99
+			\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\mathrm{Cov}(S,Z)=0.99}\]
+		
+		\bigskip\item Are $S$ and $Z$ independent?
+		
+		\subsection*{Solution}
+		
+			Since $\mathrm{Cov}(S,Z)=0.99\ne0$, they cannot be independent.
+		
+		\subsection*{Answer}
+		
+		\[\boxed{No.}\]
+	\end{enumerate}
+	
+\end{document}
