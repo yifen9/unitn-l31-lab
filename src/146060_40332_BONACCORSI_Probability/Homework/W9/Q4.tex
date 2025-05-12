@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#9}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 4}
+	
+	\noindent An urn contains four balls numbered from $1$ to $4$. If we add a new ball with the number $4$, does the entropy associated with the extraction of a ball from the urn increase or decrease? And would it have happened if the added ball had the number $5$?
+	
+	\bigskip
+	
+	\begin{enumerate}[label={},leftmargin=0in]\item
+		\subsection*{Solution}
+		
+			Easy to know the initial situation is that
+			
+			\[
+				H_1(I_1(X_1)) = -4 \cdot \frac{1}{4} \left(log_2\left(\frac{1}{4}\right)\right) = 2 \text{bits}
+			\]
+			
+			By adding a ball with the number $4$, we then have
+			
+			\[
+				H_2(I_2(X_2)) = - \left(
+					3 \cdot \frac{1}{5} \left(log_2\left(\frac{1}{5}\right)\right) + 2 \cdot \frac{1}{5}\left(log_2\left(\frac{2}{5}\right)\right)
+				\right) \approx 1.92 \text{bits}
+			\]
+			
+			And we have the situation when we add a ball with number $5$
+			
+			\[
+				H_3(I_3(X_3)) = - 5 \cdot \frac{1}{5} \left(log_2\left(\frac{1}{5}\right)\right) \approx 2.32 \text{bits}
+			\]
+			
+			Finally we have the conclusion
+			
+			\[
+				H_2 < H_1 < H_3
+			\]
+		
+		\subsection*{Answer}
+		
+		\[\boxed{H_2 < H_1 < H_3}\]
+	\end{enumerate}
+	
+\end{document}
