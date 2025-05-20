@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#10}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 2}
+	
+	\noindent 
+	
+	\bigskip
+	
+	Consider a ternary source on $\{R,G,B\}$ with two distributions:
+	\[
+	\begin{array}{c|ccc}
+		\text{Source} & R & G & B\\\hline
+		Q_1 & \tfrac16 & \tfrac12 & \tfrac13\\
+		Q_2 & \tfrac{1-p}2 & p & \tfrac{1-p}2
+	\end{array}
+	\]
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item 
+		
+		\subsection*{Solution}
+		We compute
+		\[
+		H(Q_1)
+		=-\sum_{x\in\{R,G,B\}}Q_1(x)\log_2Q_1(x)
+		=-\Bigl(\tfrac16\log_2\tfrac16+\tfrac12\log_2\tfrac12+\tfrac13\log_2\tfrac13\Bigr).
+		\]
+		Numerically,
+		\[
+		-\tfrac16(-\log_2 6)-\tfrac12(-1)-\tfrac13(-\log_2 3)
+		\approx0.4308+0.5+0.5283
+		\approx1.459\text{ bits}.
+		\]
+		
+		\subsection*{Answer}
+		\[
+		\boxed{H(Q_1)\approx1.459\text{ bits}.}
+		\]
+		
+		\bigskip\item 
+		
+		\subsection*{Solution}
+		For $Q_2=(\tfrac{1-p}2,p,\tfrac{1-p}2)$,
+		\[
+		H(Q_2)
+		=-p\log_2 p-2\cdot\tfrac{1-p}2\log_2\!\Bigl(\tfrac{1-p}2\Bigr)
+		=-p\log_2 p-(1-p)\log_2(1-p)+(1-p).
+		\]
+		Differentiate w.r.t.\ $p$:
+		\[
+		\frac{dH}{dp}
+		=-\log_2 p+\log_2(1-p)-1
+		\stackrel{!}{=}0
+		\;\Longrightarrow\;
+		\frac{1-p}{p}=2
+		\;\Longrightarrow\;p=\tfrac13.
+		\]
+		
+		\subsection*{Answer}
+		\[
+		\boxed{p=\frac13.}
+		\]
+	\end{enumerate}
+	
+\end{document}

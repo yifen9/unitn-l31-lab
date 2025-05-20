@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#10}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 3}
+	
+	\noindent 
+	Suppose that $X$ and $Y$ are independent and uniformly distributed on $\{0,1,2\}$.  Let
+	\[
+	S \;=\; X + Y,\quad
+	W \;=\; X\cdot Y.
+	\]
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item 
+		
+		\subsection*{Solution}
+		First list the probability mass function of $S$:
+		\[
+		\begin{array}{c|ccccc}
+			s & 0 & 1 & 2 & 3 & 4\\\hline
+			P(S=s) & \tfrac{1}{9} & \tfrac{2}{9} & \tfrac{3}{9} & \tfrac{2}{9} & \tfrac{1}{9}
+		\end{array}
+		\]
+		and of $W$:
+		\[
+		\begin{array}{c|cccc}
+			w & 0 & 1 & 2 & 4\\\hline
+			P(W=w) & \tfrac{5}{9} & \tfrac{1}{9} & \tfrac{2}{9} & \tfrac{1}{9}
+		\end{array}
+		\]
+		Therefore
+		\[
+		H(S)
+		=-\sum_{s=0}^4 P(S=s)\,\log_2P(S=s)
+		\approx2.1972\text{ bits},
+		\]
+		\[
+		H(W)
+		=-\sum_{w\in\{0,1,2,4\}}P(W=w)\,\log_2P(W=w)
+		\approx1.6577\text{ bits}.
+		\]
+		
+		\subsection*{Answer}
+		\[
+		\boxed{
+			H(S)\approx2.1972\text{ bits},\quad
+			H(W)\approx1.6577\text{ bits}.
+		}
+		\]
+		
+		\bigskip\item 
+		
+		\subsection*{Solution}
+		The mutual information is
+		\[
+		I(S;W)
+		=H(S)+H(W)-H(S,W),
+		\]
+		where the joint entropy
+		\[
+		H(S,W)
+		=-\sum_{s,w}P(S=s,W=w)\,\log_2P(S=s,W=w)
+		\approx2.5033\text{ bits}.
+		\]
+		Hence
+		\[
+		I(S;W)
+		\approx2.1972+1.6577-2.5033
+		\approx1.3516\text{ bits}.
+		\]
+		
+		\subsection*{Answer}
+		\[
+		\boxed{I(S;W)\approx1.3516\text{ bits}.}
+		\]
+	\end{enumerate}
+	
+\end{document}
