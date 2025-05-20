@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#7}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 4}
+	
+	\noindent An insurance company will sell a $\$90,000$ one-year term life insurance policy to an individual in a particular risk group for a premium of $\$478$.
+	
+	\bigskip
+	
+	\noindent Find the expected value to the company of a single policy if a person in this risk group has a $99.62\%$ chance of surviving one year.
+	
+	\bigskip
+	
+	\begin{enumerate}[label={},leftmargin=0in]\item
+		\subsection*{Solution}
+		
+			Let $X$ be the random variable of the net gain of the company from a policy, then easy to get the $pdf$ of $X$
+			
+			\[
+				p(x) =
+				\begin{cases}
+					\begin{aligned}
+						1 - 99.62\% = 0.38\%,&\quad x = 478 - 90\,000 = -89\,522\\
+						99.62\%,&\quad x = 478
+					\end{aligned}
+				\end{cases}
+			\]
+			
+			Then we have the expectation of $X$
+			
+			\[
+				\begin{aligned}
+					\bE[X] &= -89\,552p(-89\,552) + 478p(478)\\
+					&= -89\,522(0.38\%) + 478(99.62\%)\\
+					&= 136
+				\end{aligned}
+			\]
+					
+		\subsection*{Answer}
+		
+			\[\boxed{\bE[X] = 136}\]
+	\end{enumerate}
+	
+\end{document}

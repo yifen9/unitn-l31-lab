@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#5}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 3}
+	
+	\noindent Three fair dice are thrown. Let $X$ denote the number of dice that land with the same number of dots. Describe the probability distribution function of $X$.
+	
+	\bigskip
+	
+	\begin{enumerate}[label={},leftmargin=0in]\item
+		\subsection*{Solution}
+		
+			By applying the principle of symmetry, easy to define the probability space as
+			
+			\[
+			\begin{aligned}
+				\Omega &= \{1,2,\dots,6\}\\
+				\mathcal{F} &= \mathcal{P}(\Omega)\\
+				\bP &:\enspace \bP(\{1\}) = \bP(\{2\}) = \dots = \bP(\{6\}) = \frac{1}{6}
+			\end{aligned}
+			\]
+			
+			Then as given, we have
+			
+			\[X:\enspace \Omega \rightarrow R,\quad R = \{1,2,3\}\]
+			
+			Then we have the $pdf$ of $X$
+			
+			\[
+			p(x) =
+			\begin{cases}
+				\begin{aligned}
+					\frac{6\times 5\times 4}{6^3} &= \frac{5}{9},&\quad x = 1\\
+					\frac{6\times 3\times 5}{6^3} &= \frac{5}{12},&\quad x = 2\\
+					\frac{6}{6^3} &= \frac{1}{36},&\quad x = 3
+				\end{aligned}
+			\end{cases}
+			\]
+			
+			Or a general formula, with $N_i \in \{1,2,3\},\, i\in \{1,2,\dots,6\}$ denotes the absolute frequency of every face ($i.e.$ $N_1 = 2$ means that face $1$ shows $2$ times)
+			
+			\[
+				p(x) = \frac{1}{6^3}\sum_{\sum_{i=1}^6N_i=3}\frac{3!}{N_1!N_2!\dots N_6!},\quad \max(\{N_1,N_2,\dots,N_6\}) = x,\quad x\in R
+			\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{p(x) =
+				\begin{cases}
+					\begin{aligned}
+						\frac{5}{9},&\quad x = 1\\
+						\frac{5}{12},&\quad x = 2\\
+						\frac{1}{36},&\quad x = 3
+					\end{aligned}
+			\end{cases}}\]
+	\end{enumerate}
+	
+\end{document}

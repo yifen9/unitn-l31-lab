@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#5}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\bP}{\mathbb{P}}
+
+\begin{document}
+	
+	\section*{Question 1}
+	
+	\noindent Consider a binary communication channel, with input $X$ having a Bernoulli distribution with parameter $p = 0.9$. The common error probability is $\epsilon = 0.05$ (i.e., the probability that the received character differs from the input character is $\epsilon$). Let $Y$ denote the output character.
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item Show that $Y$ is a Bernoulli distribution with parameter $q$.
+		
+		\subsection*{Solution}
+		
+			We know that $X$ has a Bernoulli distribution in sample space $\Omega = \{0,1\}$ (let 0 denotes $not\enspace received$ and 1 denotes $received$) with parameter $p = 0.9$, then easy to see that
+			
+			\[
+			\begin{aligned}
+				\bP(Y=0) &= \bP(X=0)\bP_{X=0}(Y=0) + \bP(X=1)\bP_{X=1}(Y=0)\\
+				&= (1-p)(1-\epsilon) + p\epsilon\\
+				&= 2p\epsilon - p - \epsilon + 1
+			\end{aligned}
+			\]
+			
+			Similiarly, we have
+			
+			\[
+			\begin{aligned}
+				\bP(Y=1) &= \bP(X=0)\bP_{X=0}(Y=1) + \bP(X=1)\bP_{X=1}(Y=1)\\
+				&= (1-p)\epsilon + p(1-\epsilon)\\
+				&= -2p\epsilon + p + \epsilon
+			\end{aligned}
+			\]
+			
+			Then we have
+			
+			\[
+				0 < \bP(Y=0), \bP(Y=1) < 1,\quad\text{and}\quad \bP(Y=0) + \bP(Y=1) = 1
+			\]
+			
+			Then we can say that $Y$ is a Bernouli distribution in sample space $\Omega = \{0,1\}$ with parameter
+			
+			\[
+			\begin{aligned}
+				q &= \bP(Y = 1)\\
+				&= -2p\epsilon + p + \epsilon
+			\end{aligned}
+			\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\text{See above.}}\]
+		
+		\bigskip\item Determine $q$.
+		
+		\subsection*{Solution}
+		
+			With the explanation and formula above, easy to see that
+		
+			\[q = -2p\epsilon + p + \epsilon = 0.86\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{q = 0.86}\]
+			
+		\bigskip\item Compute the joint probability distribution function of $(X,Y)$.
+		
+		\subsection*{Solution}
+		
+			Easy to compute the joint distribution function of $(X,Y)$ as
+			
+			\[
+				f(x,y) =
+					\begin{cases}
+						\begin{aligned}
+							\bP(X=0,Y=0) &= \bP(X=0)\bP_{X = 0}(Y = 0) = &(1-p)1 - \epsilon &= 0.095,&\quad x = 0,\quad y = 0\\
+							\bP(X=0,Y=1) &= \bP(X=0)\bP_{X = 0}(Y = 1) = &(1-p)\epsilon &= 0.005,&\quad x = 0,\quad y = 1\\
+							\bP(X=1,Y=0) &= \bP(X=1)\bP_{X = 1}(Y = 0) = &p\epsilon &= 0.045,&\quad x = 1,\quad y = 0\\
+							\bP(X=1,Y=1) &= \bP(X=1)\bP_{X = 1}(Y = 1) = &p(1 - \epsilon) &= 0.855,&\quad x = 1,\quad y = 1
+						\end{aligned}
+					\end{cases}
+			\]
+		
+		\subsection*{Answer}
+		
+			\[\boxed{f(x,y) =
+				\begin{cases}
+					\begin{aligned}
+						0.095,&\quad x = 0,\quad y = 0\\
+						0.005,&\quad x = 0,\quad y = 1\\
+						0.045,&\quad x = 1,\quad y = 0\\
+						0.855,&\quad x = 1,\quad y = 1
+					\end{aligned}
+			\end{cases}}\]
+	\end{enumerate}
+	
+\end{document}

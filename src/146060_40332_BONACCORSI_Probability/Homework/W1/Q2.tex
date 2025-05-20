@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\begin{document}
+
+\title{Statistical Analysis of Fraser River Flow Data (1912-1999)}
+\author{}
+\date{}
+\maketitle
+
+\section{Analysis of Mean and Median Flow}
+
+\subsection{Sample Size}
+Let the number of samples be:
+\begin{equation}
+    n=88
+\end{equation}
+
+Let the data in time order be:
+\begin{equation}
+    x_1 = 3,360,\quad x_2 = 2,884,\,...,\,x_i,\,...,\,x_n = 3,465,\quad i \in \{1,2,...,n\}
+\end{equation}
+
+\subsection{Mean Calculation}
+The mean flow is given by:
+\begin{equation}
+    \bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i = \frac{238,719}{88} \approx 2,712.716
+\end{equation}
+
+\subsection{Median Calculation}
+Ordering the data in ascending order:
+\begin{equation}
+    x_{a_1} = 2,012,\quad x_{a_2} = 2,027,\,...,\,x_{a_{i_a}},\,...,\,x_{a_n} = 3,715,\quad i_a \in \{1,2,...,n\}
+\end{equation}
+
+The index of the median is computed as:
+\begin{equation}
+    i_{a_m} = \frac{n+1}{2} = 44.5 = \frac{44+45}{2}
+\end{equation}
+
+Thus, the median flow is:
+\begin{equation}
+    m = x_{a_{i_{a_m}}} = \frac{x_{a_{44}}+x_{a_{45}}}{2} = 2,664.5
+\end{equation}
+
+\noindent \textbf{Summary of Results:}
+\begin{itemize}
+    \item Mean Flow: $\bar{x} = 2,712.716$
+    \item Median Flow: $m = 2,664.5$
+\end{itemize}
+
+\section{Trend Analysis over Time}
+
+\subsection{Mean Year Calculation}
+Let the time sequence be:
+\begin{equation}
+    t_1=1912,\, t_2=1913,\,...,t_i,\,t_n=1999,\quad i \in \{1,2,...,n\}
+\end{equation}
+
+The mean year is computed as:
+\begin{equation}
+    \bar{t} = \frac{1}{n}\sum_{i=1}^{n}t_i = \frac{172,084}{88} \approx 1955.5
+\end{equation}
+
+\subsection{Covariance Calculation}
+The covariance between time and flow is given by:
+\begin{equation}
+    \sigma_{tx} = \frac{1}{n}\sum_{i=1}^{n}t_i x_i - \bar{t} \bar{x} = \frac{1,103,545}{880} \approx 1,254.028 > 0
+\end{equation}
+
+Since $\sigma_{tx} > 0$, we conclude that the mean flow has been increasing over time.
+
+\noindent \textbf{Conclusion:} The mean flow of the Fraser River shows an increasing trend over the period from 1912 to 1999.
+
+\end{document}

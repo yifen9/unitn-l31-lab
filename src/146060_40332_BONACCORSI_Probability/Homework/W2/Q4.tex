@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{titlesec}
+
+% Formatting section headings
+\titleformat{\section}[block]{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesubsection.}{1em}{}
+
+\title{Question 4: Counting Five-Digit Numbers}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\onehalfspacing
+
+\section*{1. How many five-digit numbers can be written?}
+
+Let the number of digits be:
+\[
+K = 5.
+\]
+
+The set of all possible numbers in one digit is:
+\[
+D = \{0,1,\dots,9\}.
+\]
+
+The number of elements in \( D \) is:
+\[
+d = \#D = 10.
+\]
+
+Thus, the total number of five-digit numbers is:
+\[
+n = d^K = 100\,000.
+\]
+
+\subsection*{Other cases:}
+
+\begin{itemize}
+    \item Excluding numbers with the most significant digit 0:
+    \[
+    n_{\,\backslash\,\{0\}} = (d-1)d^{K-1} = 90\,000.
+    \]
+    
+    \item Including negative numbers:
+    \[
+    n_{\mathbb{Z}} = 2d^K - 1 = 199\,999.
+    \]
+    
+    \item Including negative numbers but excluding numbers with the most significant digit 0:
+    \[
+    n_{\mathbb{Z}\,\backslash\,\{0\}} = 2(d-1)d^{K-1} = 180\,000.
+    \]
+\end{itemize}
+
+\textbf{Answer:}
+\[
+\begin{aligned}
+n &= 100\,000, \\
+n_{\,\backslash\,\{0\}} &= 90\,000, \\
+n_{\mathbb{Z}} &= 199\,999, \\
+n_{\mathbb{Z}\,\backslash\,\{0\}} &= 180\,000.
+\end{aligned}
+\]
+
+\bigskip
+
+\section*{2. How many five-digit numbers contain at least one even digit?}
+
+Define the set of odd digits:
+\[
+D_{\text{odd}} = \{1,3,5,7,9\}.
+\]
+
+The number of elements in \( D_{\text{odd}} \) is:
+\[
+d_{\text{odd}} = 5.
+\]
+
+The number of five-digit numbers with only odd digits:
+\[
+n_{\text{odd}} = d_{\text{odd}}^K = 3\,125.
+\]
+
+Thus, the number of five-digit numbers containing at least one even digit:
+\[
+n_{\#\{\text{even} \geq 1\}} = n - n_{\text{odd}} = 96\,875.
+\]
+
+\subsection*{Other cases:}
+
+\begin{itemize}
+    \item Excluding numbers with the most significant digit 0:
+    \[
+    n_{\,\backslash\,\{0\}_{\#\{\text{even} \geq 1\}}} = n_{\,\backslash\,\{0\}} - n_{\text{odd}} = 86\,875.
+    \]
+    
+    \item Including negative numbers:
+    \[
+    n_{\mathbb{Z}_{\#\{\text{even} \geq 1\}}} = n_{\mathbb{Z}} - n_{\text{odd}} = 196\,874.
+    \]
+    
+    \item Including negative numbers but excluding numbers with the most significant digit 0:
+    \[
+    n_{\mathbb{Z}\,\backslash\,\{0\}_{\#\{\text{even} \geq 1\}}} = n_{\mathbb{Z}\,\backslash\,\{0\}} - n_{\text{odd}} = 176\,875.
+    \]
+\end{itemize}
+
+\textbf{Answer:}
+\[
+\begin{aligned}
+n_{\#\{\text{even} \geq 1\}} &= 96\,875, \\
+n_{\,\backslash\,\{0\}_{\#\{\text{even} \geq 1\}}} &= 86\,875, \\
+n_{\mathbb{Z}_{\#\{\text{even} \geq 1\}}} &= 196\,874, \\
+n_{\mathbb{Z}\,\backslash\,\{0\}_{\#\{\text{even} \geq 1\}}} &= 176\,875.
+\end{aligned}
+\]
+
+\end{document}

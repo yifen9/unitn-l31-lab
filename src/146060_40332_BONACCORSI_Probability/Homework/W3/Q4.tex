@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{titlesec}
+
+% Formatting section headings
+\titleformat{\section}[block]{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesubsection.}{1em}{}
+
+\title{Question 4: Analysis of an Alternating Coin Toss Game}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\onehalfspacing
+
+\section*{Problem Statement}
+Two players flip a fair coin alternately. The game ends when one of them gets heads.
+
+\bigskip
+
+\section*{Part 1: Probability of a Specific Sequence of Outcomes}
+Let $\mathrm{head}$ and $\mathrm{tail}$ denote the outcomes \emph{head} and \emph{tail} respectively. We define the probability space by
+\[
+\begin{aligned}
+\Omega &= \{\mathrm{head},\,\mathrm{tail}\},\\[1mm]
+\mathcal{F} &= \mathcal{P}(\Omega),\\[1mm]
+\mathbb{P} &:\quad \mathbb{P}(\{\mathrm{head}\}) = \mathbb{P}(\{\mathrm{tail}\}) = \frac{1}{2}.
+\end{aligned}
+\]
+Let $T_i \subset \mathcal{F}$ be the event that the $i$-th flip yields a tail:
+\[
+T_i = \{\mathrm{tail}\}, \quad i=1,2,\dots,n-1,
+\]
+and let $H_n \subset \mathcal{F}$ be the event that the $n$-th flip yields a head:
+\[
+H_n = \{\mathrm{head}\}.
+\]
+Since the coin tosses are independent, the probability that the first $n-1$ flips are tails and the $n$-th flip is heads is
+\[
+\begin{aligned}
+\mathbb{P}\Bigl(T_1\cap T_2\cap \cdots \cap T_{n-1}\cap H_n\Bigr)
+&= \mathbb{P}(T_1)\,\mathbb{P}(T_2)\cdots\mathbb{P}(T_{n-1})\,\mathbb{P}(H_n)\\[1mm]
+&= \left(\frac{1}{2}\right)^{n-1}\cdot\frac{1}{2}\\[1mm]
+&= \frac{1}{2^n}.
+\end{aligned}
+\]
+\textbf{Answer for Part 1:} 
+\[
+\boxed{\mathbb{P}(T_1\cap T_2\cap \cdots \cap T_{n-1}\cap H_n) = \frac{1}{2^n}}.
+\]
+
+\bigskip
+
+\section*{Part 2: Probability that the First Player Wins}
+Assume that the players alternate flips, with the first player flipping on the odd-numbered turns and the second player on the even-numbered turns. Let us denote:
+\begin{itemize}
+    \item ${T'}_{i'} = \{\mathrm{tail}\}$ for the $i'$-th flip,
+    \item ${H'}_{2k+1} = \{\mathrm{head}\}$ corresponding to the first player's flip on turn $2k+1$ (with $k\ge0$, $k\in\mathbb{N}$).
+\end{itemize}
+
+Let $F$ be the event that the first player wins. This happens if the first flip is a head, or if the first head appears on any odd-numbered flip (after an even number of tails), i.e.,
+\[
+\begin{aligned}
+\mathbb{P}(F) &= \mathbb{P}({H'}_1) + \sum_{k=1}^{\infty} \mathbb{P}\Bigl({T'}_1\cap {T'}_2\cap \cdots \cap {T'}_{2k}\cap {H'}_{2k+1}\Bigr)\\[1mm]
+&= \mathbb{P}({H'}_1) + \sum_{k=1}^{\infty} \left(\frac{1}{2}\right)^{2k+1}.
+\end{aligned}
+\]
+Noting that $\mathbb{P}({H'}_1)=\frac{1}{2}$, we can rewrite the sum as:
+\[
+\mathbb{P}(F) = \frac{1}{2} + \sum_{k=1}^{\infty}\left(\frac{1}{2}\right)^{2k+1}
+= \sum_{k=0}^{\infty}\left(\frac{1}{2}\right)^{2k+1}.
+\]
+Factor out $\frac{1}{2}$:
+\[
+\mathbb{P}(F) = \frac{1}{2}\sum_{k=0}^{\infty}\left(\frac{1}{4}\right)^k.
+\]
+Recognizing the sum as a geometric series with common ratio $r=\frac{1}{4}$, where
+\[
+\sum_{k=0}^{\infty} r^k = \frac{1}{1-r},
+\]
+we obtain:
+\[
+\mathbb{P}(F) = \frac{1}{2} \cdot \frac{1}{1-\frac{1}{4}} = \frac{1}{2} \cdot \frac{1}{\frac{3}{4}} = \frac{1}{2}\cdot \frac{4}{3} = \frac{2}{3}.
+\]
+\textbf{Answer for Part 2:}
+\[
+\boxed{\mathbb{P}(F) = \frac{2}{3}}.
+\]
+
+\end{document}
