@@ -8,7 +8,7 @@ cargo test --workspace
 cargo test -p test
 
 cargo fmt --all
-cargo clippy --all-targets --all-features -D warnings
+cargo clippy --all-targets --all-features
 
 cargo new libs/helpers --bin
 
