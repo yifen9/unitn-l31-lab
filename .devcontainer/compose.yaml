@@ -12,3 +12,24 @@ services:
       bash -c "
         exec sleep infinity
       "
+  unitn-l31-lab-db:
+    image: postgres
+    container_name: unitn-l31-lab-db
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    ports:
+      - 5432:5432
+    volumes:
+      - "../src/145993_db/db_data:/var/lib/postgresql/data"
+  unitn-l31-lab-db-pgadmin4:
+    image: dpage/pgadmin4
+    container_name: unitn-l31-lab-db-pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=mail@yifen9.li
+      - PGADMIN_DEFAULT_PASSWORD=password
+    ports:
+      - 5050:80
