@@ -1,0 +1,14 @@
+{
+  "dockerComposeFile": "compose.yaml",
+  "service": "unitn-l31-lab",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jeff-hykin.better-dockerfile-syntax",
+        "yzhang.markdown-all-in-one",
+        "ms-vscode.makefile-tools"
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "unitn-l31-lab",
+  "private": true,
+  "workspaces": ["src/*"]
+}

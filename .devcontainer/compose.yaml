@@ -1,0 +1,14 @@
+services:
+  unitn-l31-lab:
+    image: ghcr.io/yifen9/unitn-l31-lab
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: unitn-l31-lab
+    working_dir: /workspace
+    volumes:
+      - "..:/workspace"
+    command: >
+      bash -c "
+        exec sleep infinity
+      "
