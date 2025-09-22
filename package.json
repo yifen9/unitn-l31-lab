@@ -1,5 +1,13 @@
 {
   "name": "unitn-l31-lab",
   "private": true,
-  "workspaces": ["src/*"]
+  "workspaces": ["src/*"],
+  "scripts": {
+    "lint": "biome check",
+    "fix": "biome check --write",
+		"update": "bun update --latest"
+  },
+  "devDependencies": {
+		"@biomejs/biome": "^2.2.4"
+  }
 }

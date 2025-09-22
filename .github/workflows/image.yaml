@@ -6,7 +6,7 @@ on:
       - "main"
     paths:
       - "Dockerfile"
-      - "/ops/apt.txt"
+      - "ops/**"
       - ".github/workflows/image.yaml"
   workflow_dispatch:
 
