@@ -15,21 +15,27 @@ services:
   unitn-l31-lab-db:
     image: postgres
     container_name: unitn-l31-lab-db
-    restart: always
+    restart: unless-stopped
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=db
+      - POSTGRES_DB=postgres
     ports:
       - 5432:5432
     volumes:
-      - "../src/145993_db/db_data:/var/lib/postgresql/data"
-  unitn-l31-lab-db-pgadmin4:
+      - "postgresql:/var/lib/postgresql"
+  unitn-l31-lab-db-pgadmin:
     image: dpage/pgadmin4
-    container_name: unitn-l31-lab-db-pgadmin4
-    restart: always
+    container_name: unitn-l31-lab-db-pgadmin
+    restart: unless-stopped
     environment:
       - PGADMIN_DEFAULT_EMAIL=mail@yifen9.li
       - PGADMIN_DEFAULT_PASSWORD=password
     ports:
       - 5050:80
+    volumes:
+      - "pgadmin:/var/lib/pgadmin"
+
+volumes:
+  postgresql:
+  pgadmin:
