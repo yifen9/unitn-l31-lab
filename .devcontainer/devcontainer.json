@@ -7,8 +7,6 @@
       "extensions": [
         "jeff-hykin.better-dockerfile-syntax",
         "yzhang.markdown-all-in-one",
-        "oven.bun-vscode",
-        "pandy.bun",
         "ms-vscode.makefile-tools",
         "rust-lang.rust-analyzer",
         "swellaby.rust-pack"

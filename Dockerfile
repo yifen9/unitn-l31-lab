@@ -13,8 +13,6 @@ RUN find /ops/apt -type f -name '*.txt' -exec sed -i 's/\r$//' {} + && \
 
 RUN apt-get update && xargs -r -a /ops/all.txt apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://bun.com/install | bash
-
 ENV RUSTUP_HOME=/opt/rustup CARGO_HOME=/opt/cargo PATH=/opt/cargo/bin:$PATH
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal && rustup default stable
