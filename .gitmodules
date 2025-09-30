@@ -1,0 +1,3 @@
+[submodule "src/146145_net/kathara-lab"]
+	path = src/146145_net/kathara-lab
+	url = https://git.manta.disi.unitn.it/manta/networking-kathara-labs.git
