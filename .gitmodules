@@ -1,3 +1,6 @@
 [submodule "src/146145_net/kathara-lab"]
 	path = src/146145_net/kathara-lab
 	url = https://git.manta.disi.unitn.it/manta/networking-kathara-labs.git
+[submodule "src/146125_ap/class"]
+	path = src/146125_ap/class
+	url = https://github.com/yifen9/unitn-ap-class.git
