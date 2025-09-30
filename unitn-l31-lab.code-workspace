@@ -3,6 +3,8 @@
     { "path": "." },
     { "path": "src/145993_db" },
     { "path": "src/146119_cl" },
-    { "path": "src/146125_ap" }
+    { "path": "src/146125_ap" },
+    { "path": "src/146145_net" },
+    { "path": "src/146290_ads1" }
   ]
 }
