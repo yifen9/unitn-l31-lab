@@ -7,6 +7,7 @@ services:
     container_name: unitn-l31-lab
     working_dir: /workspace
     volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
       - "..:/workspace"
     command: >
       bash -c "
@@ -23,7 +24,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "postgresql:/var/lib/postgresql"
+      - "postgresql:/var/lib/postgresql/data"
   unitn-l31-lab-db-pgadmin:
     image: dpage/pgadmin4
     container_name: unitn-l31-lab-db-pgadmin
