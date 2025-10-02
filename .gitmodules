@@ -4,3 +4,6 @@
 [submodule "src/146125_ap/class"]
 	path = src/146125_ap/class
 	url = https://github.com/yifen9/unitn-ap-class.git
+[submodule "src/146168_fp/pater999-gym"]
+	path = src/146168_fp/pater999-gym
+	url = https://github.com/Pater999/UNITN-linguaggi-programmazione-SML.git
