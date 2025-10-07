@@ -1,0 +1,3 @@
+-- Expand the previous query and investigate what are the most offending shipment companies:
+-- list the CompanyName and the number of orders they have shipped late, plus the average delay in days.
+-- Sort the results by the number of late orders in descending order
