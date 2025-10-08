@@ -1,0 +1,56 @@
+-- Assume the following relations:
+--   ▶ Player(playerID, Name, Surname, Age, TeamID)
+--   ▶ Team(teamID, Name, City )
+--   ▶ Match(matchID, Date, Team1ID, Team2ID, Score1, Score2)
+--   ▶ Goal(goalID, MatchID, PlayerID, Time)
+--
+-- The foreign keys are as follows:
+--   ▶ Player.TeamID → Team.TeamID
+--   ▶ Match.Team1ID → Team.TeamID
+--   ▶ Match.Team2ID → Team.TeamID
+--   ▶ Goal.MatchID  → Match.MatchID
+--   ▶ Goal.PlayerID → Player.PlayerID
+
+-- For the sake of simplicity, assume that all attributes are not nullable, and own goals are not considered
+--   ▶ Additionally, we may refer to relations using their first letter (P for Player, etc. . . )
+--
+-- Additionally, assume Team1 is the home team in all matches
+
+-- Exercise 2.1
+--
+-- 1 Find the ID, Name, and Surname of each player who scored a goal in a match played in "Madrid"
+--   ▶ First, how do we find the matches played in Madrid?
+--     ⋆ A match is played in a city X if Team1 is from X and is the home team.
+--       π_{MatchID} (σ_{City ="Madrid"}(Team ▷◁ T.TeamID = M.Team1ID Match))
+--     ⋆ Let us assign the result to MatchesInMadrid: MatchesInMadrid ← . . .
+--   ▶ Once this is done, we can find the goals scored in these matches.
+--     ⋆ π_{PlayerID,···}(Player ▷◁ _{P.PlayerID = G.PlayerID} Goal ▷◁ G.MatchID = MiM.MatchID MatchesInMadrid) Again,
+--       the joins are performed on the appropriate foreign keys
+-- 2 Find the ID of each player who scored at least one goal (in any match)
+--   ▶ π_{PlayerID} (Goal)
+
+-- Exercise 2.2
+--
+-- 1 Find the Name and Surname who scored late game goals (after the 85th minute) in a match played in "Barcelona"
+--   ▶ We can recycle the approach used in 2.1.1 to find the matches played in Barcelona.
+--     ⋆ MatchesInBarcelona ← π_{MatchID} (σ_{City ="Barcelona"}(Team ▷◁ T.TeamID = M.Team1ID Match))
+--   ▶ Once this is done, we can find the goals scored in these matches.
+--     ⋆ π_{Name, Surname} (σ_{Time>=85}(Player ▷◁ Goal ▷◁ MatchesInBarcelona))
+-- 2 List players that scored early game goals (before the 15th minute) in matches either played at home or in "Madrid"
+--   ▶ To approach this exercise we need to use the union operator.
+--     ⋆ Let’s find the goals scored in Madrid first: GoalsInMadrid ←
+--       ← π_{G.PlayerID, G.Time} (σ_{City = "Madrid"}(G ▷◁ G.MatchID = M.MatchID M ▷◁ M.Team1ID = T.TeamID T ))
+--     ⋆ Let’s find the goals scored at home: GoalsAtHome ←
+--       ← π_{G.PlayerID, G.Time} (σ_{P.TeamID = M.Team1ID} (G ▷◁ G.PlayerID = P.PlayerID P ▷◁ G.MatchID = M.MatchID M))
+--     ⋆ Merge the two relations using the union operator:
+--       GoalsInMadridOrHome ← GoalsInMadrid ∪ GoalsAtHome
+--     ⋆ Finally, we can return the Name and Surname of the players:
+--       π_{Name,Surname} (σ_{Time < 15}(Player ▷◁ P.PlayerID = GG.PlayerID GoalsInMadridOrHome))
+-- 3 Find the Name and Surname of players that scored exactly four goals ("poker") in a single match
+--   ▶ Plot twist: in RA, aggregation is (at least in the basic version) best case,
+--     convoluted to express, worse case, impossible
+--     ⋆ Method 1: use extended relational algebra (not covered in this course)
+--     ⋆ Method 2: use a combination of relational algebra and SQL
+--     ⋆ Method 3: SQL only!
+--   ▶ Feel free to experiment with Methods 1 or 2
+--     ⋆ We will see the SQL solution next lecture

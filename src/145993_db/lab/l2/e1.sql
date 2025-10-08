@@ -1,0 +1,40 @@
+-- Assume the following relations:
+--   ▶ Spy (ID, Name, Age, Country )
+--   ▶ Mission(ID, MissionName, CountryName, Target)
+--   ▶ Assignment(SpyID, MissionID, Status)
+--   ▶ Country (Name, Continent)
+--
+-- The underlined attributes are primary keys; foreign keys include:
+--   ▶ Mission.CountryName → Country .Name
+--   ▶ Assignment.SpyID → Spy .ID
+--   ▶ Assignment.MissionID → Mission.ID
+--
+-- Assume that the relations are populated with data and that the attributes have the expected types and constraints
+
+-- Exercise 1.1
+-- 
+-- 1 List all the mission names whose target is "nuclear weapons"
+--   ▶ π_{MissionName} (σ_{Target="nuclear weapons"}(Mission))
+-- 2 List all the country names in the database along with their continents
+--   ▶ π_{Name, Continent} (Country ) — or simply Country
+-- 3 List the names of all spies that have been assigned to a mission
+--   ▶ π_{Name} (σ_{S.SpyID = A.SpyID} (Spy × Assignment))
+--     ⋆ Using the join could be more efficient, both are correct
+
+-- Exercise 1.2
+--
+-- 1 List the names of the spies that are the oldest. Return both the name and the age.
+--   ▶ First, we need to find all the spies that are not the oldest:
+--     π_{S1.name,S1.age} (ρ_{S1}(Spy) ▷◁ S1.age < S2.age ρ_{S2}(Spy))
+--   ▶ Then, we subtract the spies that are not the oldest from the original set:
+--     π_{name,age} (Spy) − (π_{S1.name, S1.age} (ρ_{S1}(Spy) ▷◁ S1.age < S2.age ρ_{S2}(Spy)))
+-- 2 Find the names of all spies that have been assigned only in missions in Russia
+--   ▶ For brevity, we will use S for the Spy relation,
+--     A for the Assignment relation, and M for the Mission relation
+--   ▶ π_{name} (π_{ID, Name} (S) − π_{S.ID,S.Name} (σ_{CountryName̸  = Russia}(S ▷◁ A ▷◁ M)))
+--     ⋆ The Joins are performed on the appropriate foreign keys
+--     ⋆ The two projections on ID, Name “prepare” the two relations making them compatible for the set difference operator.
+--     ⋆ Followup question 1: Why do we project on ID, Name, and not just Name?
+--       Consider the case of two spies with the same name.
+--     ⋆ Followup question 2: This expression also returns any Spy who was never assigned any mission.
+--       Why? How would you change it to remove those spurious cases?

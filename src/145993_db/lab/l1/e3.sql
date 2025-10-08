@@ -1,0 +1,59 @@
+-- Consider the following relational tables:
+--
+--   User (UserID, Name, Surname, Email)
+--   Video(VideoID, Title, Description∗, Duration, Category )
+--   Rating (VideoID, UserID, Rating )
+--
+-- where underlined attributes are primary keys, and optional attributes are indicated with "*".
+--
+-- The following constraints hold:
+--
+--   The UserID attribute in the Rating table refers to the UserID attribute in the User table
+--   The VideoID attribute in the Rating table refers to the VideoID attribute in the Video table
+--   The Rating attribute in the Rating table assumes integer values between 0 and 5
+--   The Duration attribute of the Video table takes only positive integer values
+--
+-- Given the following tables (see later slides), list all the tuples that are violating the constraints above and say why.
+--
+-- User table
+--
+--   UserID  Name  Surname Email
+--   -------------------------------------------
+--   1       Maria Verdi   maria.verdi@gmail.com
+--   2       Piero Neri    p.neri@gmail.com
+--   3       Alice Wonder  wonderworld@gmail.com
+--   5       Luke  NULL    l.cielo@gmail.com
+--
+-- Video table
+--
+--   VideoID Title  Description            Duration Category
+--   -------------------------------------------------------
+--   1       Foo    Goofy on vacation      50       Fantasy
+--   3       NULL   NULL                   100      Yellow
+--   5       Donald Duck Donald Duck & Co. 238      Comic
+--   9       Memory NULL                   -10      Romantic
+--
+-- Rating table
+--
+--   VideoID UserID Rating
+--   ---------------------
+--   1       1      4
+--   1       2      8
+--   5       1      3
+--   7       1      5
+--   5       3      2
+--   1       1      3
+
+-- In the User table:
+--   ▶ The tuple with userID = 5 has a NULL value for the Surname attribute,
+--     which is not allowed as it is not marked as optional
+
+-- In the Video table:
+--   ▶ The tuple with videoID = 3 has NULL values for both the Title and Description attributes,
+--     but only Description is marked as optional
+--   ▶ The tuple with videoID = 9 has a negative value for the Duration attribute,
+--     which is not allowed as it must be a positive integer
+
+-- In the Rating table:
+--   ▶ All tuples with rating > 0 are invalid, as the Rating attribute must be between 0 and 5
+--   ▶ The tuple with videoID = 7 is invalid, as there is no video with videoID = 7 in the Video table

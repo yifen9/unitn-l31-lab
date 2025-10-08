@@ -1,0 +1,27 @@
+-- Assume a generic database has the two following relations:
+--
+-- Relation 1:
+--   A B C
+--   -----
+--   N b 1
+--   b a 2
+--   a a 7
+--   N b 4
+--
+-- Relation 2:
+--   B C D
+--   -----
+--   b 1 2
+--   a 2 N
+--   a 3 4
+--   b 2 N
+
+-- 1 Define a possible superkey for each relation. Is it minimal?
+--   ▶ Relation 1: (B, C ) is a superkey, but not minimal. C is a minimal superkey
+--   ▶ Relation 2: (B, C ) is a superkey an is minimal.
+--     None of the three columns could act as a minimal superkey alone
+
+-- 2 Can (B, C ) in relation 1 be a foreign key with reference to relation 2?
+--   ▶ With the values in the relations, no, as for example, (a, 7) in relation 1 does not appear in relation 2
+--   ▶ If the values were adjusted, (B, C ) could be a foreign key with reference to relation 2.
+--     The tuples (a, 7), (b, 4) would either need to be removed from relation 1 or added to relation 2

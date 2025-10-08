@@ -3,6 +3,6 @@
 -- and list the Customer_ID, Order_ID,
 -- and by how many days the order was late
 
-SELECT customer_id, order_id, (shipped_date - required_date) as overshot_days
+SELECT customer_id, order_id, (shipped_date - required_date) as overshot
 FROM orders
 WHERE shipped_date > required_date

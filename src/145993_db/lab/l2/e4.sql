@@ -1,0 +1,7 @@
+-- Schema
+--   Player(playerID, Name, Surname, Age, TeamID)
+--   Team(teamID, Name, City )
+--   Match(matchID, Date, Team1ID, Team2ID, Score1, Score2)
+--   Goal(goalID, MatchID, PlayerID, Time)
+--
+-- Find the Name and Surname of players that scored exactly four goals ("poker") in a single match
