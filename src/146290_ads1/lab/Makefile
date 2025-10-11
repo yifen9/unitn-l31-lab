@@ -1,86 +1,63 @@
-# ====== User knobs ======
-LAB ?= l1                  # current lab, e.g. l1, l2, ...
-LAB_DIR := $(LAB)
-APP := $(LAB)              # exe name defaults to lab name
+.DEFAULT_GOAL := help
+LAB := $(word 2,$(MAKECMDGOALS))
+EX  := $(word 3,$(MAKECMDGOALS))
+ARG := $(word 4,$(MAKECMDGOALS))
+$(LAB): ; @:
+$(EX):  ; @:
+$(ARG): ; @:
 
-# ====== Phony help ======
-.PHONY: help
+.PHONY: help cmake new run test fmt rm
 help:
-	@echo "make new LAB=l3     # scaffold labs/l3"
-	@echo "make format         # clang-format all C/C headers"
-	@echo "make build          # build current LAB=$(LAB)"
-	@echo "make run            # run labs/$(LAB)/$(APP)"
-	@echo "make test           # run unit tests for LAB=$(LAB)"
-	@echo "make clean          # clean current lab"
-	@echo "make clean-all      # clean all labs"
+	@echo "make new l1 [e1]"
+	@echo "make run l1 [e1]"
+	@echo "make test l1 [e1 [case|new|re|rm]]"
+	@echo "make rm l1 [e1]"
+	@echo "make fmt"
 
-# ====== Scaffold a new lab ======
-.PHONY: new
+cmake:
+	@mkdir -p build && cd build && cmake ..
+
 new:
-	@test -n "$(LAB)" || (echo "LAB is empty"; exit 1)
-	mkdir -p $(LAB_DIR)/src $(LAB_DIR)/include $(LAB_DIR)/tests
-	printf "#include <stdio.h>\nint main(void){puts(\"$(LAB) ok\");return 0;}\n" > $(LAB_DIR)/src/main.c
-	printf "# Lab $(LAB)\n\nBuild: \`make\`\nRun: \`./$(APP)\`\n" > $(LAB_DIR)/README.md
-	# write a template Makefile into the lab directory
-	printf "%s\n" "\
-CC?=gcc\n\
-CFLAGS?=-O2 -g -Wall -Wextra\n\
-CPPFLAGS?=-Iinclude -I../common/include\n\
-LDFLAGS?=\n\
-SRCS:=\$(wildcard src/*.c) \$(wildcard ../common/src/*.c)\n\
-OBJS:=\$(SRCS:.c=.o)\n\
-DEPS:=\$(OBJS:.o=.d)\n\
-APP?=$(APP)\n\
-\n\
-.PHONY: all\n\
-all: \$(APP)\n\
-\n\
-\$(APP): \$(OBJS)\n\
-\t\$(CC) \$(CFLAGS) \$(LDFLAGS) \$$^ -o \$$@\n\
-\n\
-%.o: %.c\n\
-\t\$(CC) -c \$(CPPFLAGS) \$(CFLAGS) -MMD -MP -MF \$$(@:.o=.d) \$$< -o \$$@\n\
-\n\
-# simple test runner placeholder\n\
-.PHONY: check test\n\
-check test:\n\
-\t@[ -x tests/test_runner ] && ./tests/test_runner || echo \"(no tests yet)\"\n\
-\n\
-.PHONY: clean\n\
-clean:\n\
-\t\$(RM) -r \$(OBJS) \$(DEPS) \$(APP) tests/test_runner\n\
-\n\
--include \$(DEPS)\n" > $(LAB_DIR)/Makefile
+	@test -n "$(LAB)" || { echo "usage: make new <lab> [ex]"; exit 1; }
+	@mkdir -p src/$(LAB)/include src/$(LAB)/src src/$(LAB)/tests
+	@if [ -n "$(EX)" ]; then \
+	  test ! -e src/$(LAB)/src/$(EX) || { echo "exists: src/$(LAB)/src/$(EX)"; exit 1; } ; \
+	  mkdir -p src/$(LAB)/src/$(EX) src/$(LAB)/tests/$(EX)/0 ; \
+	  cp template/exercise/src/main.c src/$(LAB)/src/$(EX)/main.c ; \
+	  cp template/exercise/tests/0/i.txt src/$(LAB)/tests/$(EX)/0/i.txt ; \
+	  cp template/exercise/tests/0/o.txt src/$(LAB)/tests/$(EX)/0/o.txt ; \
+	else \
+	  cp -R template/lab/. src/$(LAB)/ ; \
+	fi
 
-# ====== Format entire repo ======
-.PHONY: format
-format:
+run: cmake
+	@test -n "$(LAB)" || { echo "usage: make run <lab> [ex]"; exit 1; }
+	@if [ -n "$(EX)" ]; then cd build && cmake --build . --target run_$(LAB)_$(EX) ; \
+	else cd build && cmake --build . --target run_$(LAB)_all ; fi
+
+test: cmake
+	@test -n "$(LAB)" || { echo "usage: make test <lab> [ex [case|new|re|rm]]"; exit 1; }
+	@if [ -z "$(EX)" ]; then \
+	  cd build && cmake --build . --target build_$(LAB)_all && ctest -R "^$(LAB)_" --output-on-failure ; \
+	else \
+	  if [ -z "$(ARG)" ]; then \
+	    cd build && cmake --build . --target $(LAB)_$(EX) && ctest -R "^$(LAB)_$(EX)_" --output-on-failure ; \
+	  elif [ "$(ARG)" = "new" ] || [ "$(ARG)" = "re" ] || [ "$(ARG)" = "rm" ]; then \
+	    scripts/io_case.sh $(LAB) $(EX) $(ARG) ; \
+	  else \
+	    cd build && cmake --build . --target $(LAB)_$(EX) && ctest -R "^$(LAB)_$(EX)_$(ARG)$$" --output-on-failure ; \
+	  fi ; \
+	fi
+
+
+fmt:
 	@command -v clang-format >/dev/null || { echo "clang-format not found"; exit 1; }
-	find ./ -type f \( -name "*.c" -o -name "*.h" \) -print0 | xargs -0 clang-format -i
+	@find src include template -type f \( -name "*.c" -o -name "*.h" \) -print0 | xargs -0 clang-format -i
 
-# ====== Build current lab ======
-.PHONY: build
-build:
-	$(MAKE) -C $(LAB_DIR)
-
-# ====== Run current lab ======
-.PHONY: run
-run: build
-	@$(LAB_DIR)/$(APP)
-
-# ====== Test current lab ======
-.PHONY: test
-test:
-	$(MAKE) -C $(LAB_DIR) check
-
-# ====== Clean ======
-.PHONY: clean
-clean:
-	$(MAKE) -C $(LAB_DIR) clean
-
-.PHONY: clean-all
-clean-all:
-	@for d in labs/*; do \
-	  [ -d "$$d" ] || continue; \
-	  $(MAKE) -C "$$d" clean || true; \
-	done
+rm:
+	@test -n "$(LAB)" || { echo "usage: make rm <lab> [ex]"; exit 1; }
+	@if [ -n "$(EX)" ]; then \
+	  read -p "remove src/$(LAB)/src/$(EX) and tests? [y/N] " a && [ "$$a" = "y" ] && rm -rf src/$(LAB)/src/$(EX) src/$(LAB)/tests/$(EX) || true ; \
+	else \
+	  read -p "remove src/$(LAB)? [y/N] " a && [ "$$a" = "y" ] && rm -rf src/$(LAB) || true ; \
+	fi

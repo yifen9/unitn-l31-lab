@@ -9,7 +9,10 @@
         "yzhang.markdown-all-in-one",
         "ms-vscode.makefile-tools",
         "rust-lang.rust-analyzer",
-        "swellaby.rust-pack"
+        "swellaby.rust-pack",
+        "tamasfe.even-better-toml",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
       ]
     }
   }
