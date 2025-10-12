@@ -42,9 +42,8 @@ float playerScore(struct player P) {
 
 int main() {
   struct player P;
-  P.wins = 2;
-  P.matches = 5;
-  printf("%f\n", playerScore(P));
-
+  scanf("%d", &(P.wins));
+  scanf("%d", &(P.matches));
+  printf("%.2f\n", playerScore(P));
   return 0;
 }
