@@ -25,14 +25,14 @@ fn main() {
 
     let a = [3; 5];
 
-    //Accessing Array Elements
+    // Accessing Array Elements
 
     let a = [1, 2, 3, 4, 5];
 
     let first = a[0];
     let second = a[1];
 
-    //Invalid Array Element Access
+    // Invalid Array Element Access
 
     let a = [1, 2, 3, 4, 5];
 
