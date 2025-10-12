@@ -1,16 +1,18 @@
 ```
-cargo check --workspace
+cargo check
 
-cargo new apps/test --bin
+cargo new apps/test
 cargo run -p test
 
-cargo test --workspace
+cargo test
 cargo test -p test
 
-cargo fmt --all
-cargo clippy --all-targets --all-features
+cargo fmt
+cargo clippy
 
-cargo new libs/helpers --bin
+cargo doc --open
+
+cargo new libs/helpers
 
 apps/test/Cargo.toml
 
