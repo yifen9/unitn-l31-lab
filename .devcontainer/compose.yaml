@@ -6,7 +6,6 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "..:/workspace"
-      - ${HOME}/.ssh:/root/.ssh:ro
     command: >
       bash -c "
         exec sleep infinity
