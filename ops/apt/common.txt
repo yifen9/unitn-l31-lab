@@ -2,3 +2,5 @@ build-essential
 cmake
 gdb
 clang-format
+nnn
+openssh-client
