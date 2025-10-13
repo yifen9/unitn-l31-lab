@@ -282,11 +282,109 @@ name = "c7-3c"
 version = "0.1.0"
 
 [[package]]
+name = "c7-4a"
+version = "0.1.0"
+
+[[package]]
+name = "c7-4b"
+version = "0.1.0"
+
+[[package]]
+name = "c7-4c"
+version = "0.1.0"
+
+[[package]]
+name = "c7-4d"
+version = "0.1.0"
+
+[[package]]
+name = "c7-4e"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
+name = "c7-4f"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
+name = "c7-4g"
+version = "0.1.0"
+
+[[package]]
+name = "c7-5"
+version = "0.1.0"
+
+[[package]]
 name = "c8-1"
 version = "0.1.0"
 
 [[package]]
 name = "c8-1a"
+version = "0.1.0"
+
+[[package]]
+name = "c8-1b"
+version = "0.1.0"
+
+[[package]]
+name = "c8-1c"
+version = "0.1.0"
+
+[[package]]
+name = "c8-1d"
+version = "0.1.0"
+
+[[package]]
+name = "c8-1e"
+version = "0.1.0"
+
+[[package]]
+name = "c8-1f"
+version = "0.1.0"
+
+[[package]]
+name = "c8-2"
+version = "0.1.0"
+
+[[package]]
+name = "c8-2a"
+version = "0.1.0"
+
+[[package]]
+name = "c8-2b"
+version = "0.1.0"
+
+[[package]]
+name = "c8-2c"
+version = "0.1.0"
+
+[[package]]
+name = "c8-2d"
+version = "0.1.0"
+
+[[package]]
+name = "c8-3"
+version = "0.1.0"
+
+[[package]]
+name = "c8-3a"
+version = "0.1.0"
+
+[[package]]
+name = "c8-3b"
+version = "0.1.0"
+
+[[package]]
+name = "c8-3c"
+version = "0.1.0"
+
+[[package]]
+name = "c8-3d"
 version = "0.1.0"
 
 [[package]]
