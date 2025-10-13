@@ -1,0 +1,5 @@
+/*
+Method Syntax
+*/
+
+fn main() {}

@@ -150,6 +150,66 @@ name = "c4-3b"
 version = "0.1.0"
 
 [[package]]
+name = "c4-3c"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1a"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1b"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1c"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1d"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1e"
+version = "0.1.0"
+
+[[package]]
+name = "c5-1f"
+version = "0.1.0"
+
+[[package]]
+name = "c5-2a"
+version = "0.1.0"
+
+[[package]]
+name = "c5-2b"
+version = "0.1.0"
+
+[[package]]
+name = "c5-2c"
+version = "0.1.0"
+
+[[package]]
+name = "c5-2d"
+version = "0.1.0"
+
+[[package]]
+name = "c5-3"
+version = "0.1.0"
+
+[[package]]
+name = "c5-3a"
+version = "0.1.0"
+
+[[package]]
+name = "c5-3b"
+version = "0.1.0"
+
+[[package]]
+name = "c5-3c"
+version = "0.1.0"
+
+[[package]]
 name = "cfg-if"
 version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
