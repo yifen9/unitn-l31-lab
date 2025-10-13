@@ -1,0 +1,2 @@
+-- Are you able to list all the companies located in developing countries
+-- that spend less than the average in their respective countries?

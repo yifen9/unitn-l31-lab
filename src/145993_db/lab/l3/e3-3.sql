@@ -1,0 +1,3 @@
+-- To make a more informed decision,
+-- change the previous query
+-- to show both the country and the company’s name.

@@ -1,0 +1,3 @@
+-- List all the customers of Northwind,
+-- along with any order that may have done by them.
+-- Return the customer ID and company name

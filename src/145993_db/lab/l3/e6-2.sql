@@ -1,0 +1,7 @@
+-- Northwind Traders’ Megadirector is considering for promotion one or more employees
+-- that have shown exceptional performance and are not managers yet.
+-- Find each employee that
+--   1 has shipped the most profitable order ever
+--   2 has the highest average profit per order
+-- and list their Name, Surname, and what they have achieved.
+-- The query must work even if there are ties

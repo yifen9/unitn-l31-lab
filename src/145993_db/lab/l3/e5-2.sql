@@ -1,0 +1,3 @@
+-- Now list any customer that has not placed an order yet,
+-- without using subqueries, aggregation, or null checks.
+-- Return both the customer ID and the company name

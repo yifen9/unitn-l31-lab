@@ -1,0 +1,4 @@
+-- List all the employees (Name, Surname, count of orders shipped) that
+--   ▶ were hired when they were younger than 35 years old
+--   ▶ are located in the UK
+--   ▶ have shipped at least 45 orders

@@ -1,0 +1,5 @@
+-- List all the employees that
+--   ▶ are not managers,^1
+--   ▶ show their Name, Surname, and Name and Surname of their manager (if they have one),
+--   ▶ and sort them by their manager’s surname
+-- ^1 Do not make any assumption on the title column
