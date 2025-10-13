@@ -1,0 +1,6 @@
+[package]
+name = "c6-1b"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
