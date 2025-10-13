@@ -3,25 +3,36 @@
 */
 
 fn main() {
-    let number = 3;
+    {
+        let number = 3;
 
-    if number < 5 {
-        println!("condition was true");
-    } else {
-        println!("condition was false");
+        if number < 5 {
+            println!("condition was true");
+        } else {
+            println!("condition was false");
+        }
     }
+    {
+        let number = 7;
 
-    let number = 7;
-
-    if number < 5 {
-        println!("condition was true");
-    } else {
-        println!("condition was false");
+        if number < 5 {
+            println!("condition was true");
+        } else {
+            println!("condition was false");
+        }
     }
+    {
+        // let number = 3;
 
-    // let number = 3;
+        // if number {
+        //     println!("number was three");
+        // }
+    }
+    {
+        let number = 3;
 
-    // if number {
-    //     println!("number was three");
-    // }
+        if number != 0 {
+            println!("number was something other than zero");
+        }
+    }
 }
