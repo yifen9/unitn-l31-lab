@@ -3,3 +3,4 @@ cmake
 gdb
 clang-format
 nnn
+docker-compose

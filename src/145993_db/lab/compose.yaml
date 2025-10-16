@@ -1,0 +1,23 @@
+services:
+  unitn-l31-lab-db:
+    image: postgres
+    container_name: unitn-l31-lab-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - "postgresql:/var/lib/postgresql/data"
+    networks:
+      - lab
+
+volumes:
+  postgresql:
+
+networks:
+  lab:
+    name: unitn-l31-lab
+    external: true

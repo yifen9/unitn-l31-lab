@@ -1,27 +1,21 @@
 services:
   unitn-l31-lab:
     image: ghcr.io/yifen9/unitn-l31-lab
+    build:
+      context: ..
+      dockerfile: Dockerfile
     container_name: unitn-l31-lab
     working_dir: /workspace
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "..:/workspace"
+    networks:
+      - lab
     command: >
       bash -c "
         exec sleep infinity
       "
-  unitn-l31-lab-db:
-    image: postgres
-    container_name: unitn-l31-lab-db
-    restart: unless-stopped
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=postgres
-    ports:
-      - 5432:5432
-    volumes:
-      - "postgresql:/var/lib/postgresql/data"
 
-volumes:
-  postgresql:
+networks:
+  lab:
+    name: unitn-l31-lab
