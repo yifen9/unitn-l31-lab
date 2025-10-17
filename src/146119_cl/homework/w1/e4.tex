@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\ti}{\text{IPL}}
+
+\begin{document}
+	
+	\section*{Exercise 4}
+	
+	\noindent What is intuitionistic propositional logic? How does the natural deduction for it differ from the system studied in the class? What are the applications of intuitionistic logic in computer science? Share your answer with your peers on the Moodle discussion forum.
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item What is intuitionistic propositional logic?
+		
+		\subsection*{Answer}
+		
+			Intuitionistic propositional logic ($\ti$) means: a formula is true only when we can build a proof of it.
+		
+		\bigskip\item How does the natural deduction for it differ from the system studied in the class?
+		
+		\subsection*{Answer}
+		
+			In classical logic, a proposition is either true or false, while is considered true only if there is a constructive proof of it.
+		
+		\bigskip\item What are the applications of intuitionistic logic in computer science?
+		
+		\subsection*{Answer}
+		
+			Applications include the Curry--Howard correspondence (proofs as programs), typed $\lambda$-calculus, proof assistants (e.g., Coq, Agda), program extraction, and verified software and protocols.
+		
+	\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\begin{document}
+	
+	\section*{Exercise 2}
+	
+	\noindent Every two-element set of connectives containing $\lnot$ and one of $\{\land, \lor, \to\}$ is a functionally complete subset of (or in other words can be used to define) $\{\lnot, \land, \lor, \to, \leftrightarrow\}$.
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item Define $\land$, $\to$, and $\leftrightarrow$ using only $\lor$ and $\lnot$.
+		
+		\subsection*{Answer}
+		
+			\[\boxed{
+				\begin{aligned}
+					p \land	q			& := \lnot ( \lnot p \lor \lnot q), \\
+					p \to q				& := \lnot p \lor q, \\
+					p \leftrightarrow q	& := \lnot ( \lnot p \lor \lnot q) \lor\lnot (p \lor q)
+				\end{aligned}
+			}\]
+			
+		\bigskip\item Define exclusive disjunction ($\text{XOR}$, $\veebar$) using only $\land$ and $\lnot$.
+		
+		\subsection*{Answer}
+		
+			\[\boxed{
+				p \veebar q := \lnot ( \lnot p \land \lnot q) \land \lnot (p \land q)
+			}\]
+			
+		\bigskip\item Actually, there exists two binary operators (dual to each other), $\text{NAND}$ and $\text{NOR}$, that are complete by itself. The $\text{NAND}$ operators means ”not both” and can be defined as follows: $p \uparrow q \leftrightarrow \lnot(p \land q)$. The $\text{NOR}$ operators means ”neither nor” and can be defined as follows: $p \downarrow q \leftrightarrow \lnot(p \lor q)$. Pick one of the operators and show that it is enough to define all the usual operators $\{\lnot, \land, \lor, \to, \leftrightarrow\}$.
+		
+		\subsection*{Answer}
+		
+			\[\boxed{
+				\begin{aligned}
+					\lnot p				& := p \uparrow p, \\
+					p \land q			& := (p \uparrow q) \uparrow (p \uparrow q), \\
+					p \lor q			& := (p \uparrow p) \uparrow (q \uparrow q), \\
+					p \to q				& := p \uparrow (q \uparrow q), \\
+					p \leftrightarrow q	& := \Big( p \uparrow (q \uparrow q) \Big) \uparrow \Big( p \uparrow (q \uparrow q) \Big) \uparrow \Big( q \uparrow (p \uparrow p) \Big) \uparrow \Big( q \uparrow (p \uparrow p) \Big)
+				\end{aligned}
+			}\]
+			
+	\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{logicproof}
+
+\pagestyle{fancy}
+\fancyhead[l]{Li Yifeng}
+\fancyhead[c]{Homework \#1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\newcommand{\te}{\text{e}}
+\newcommand{\ti}{\text{i}}
+
+\begin{document}
+	
+	\section*{Exercise 3}
+	
+	\noindent Prove or disprove the validity of the following sequents:
+	
+	\bigskip
+	
+	\begin{enumerate}[start=1,label={\bfseries Part \arabic*:},leftmargin=0in]
+		\bigskip\item $p \land (q \land r) \vdash (p \land q) \land r$
+		
+		\subsection*{Solution}
+			
+			\begin{logicproof}{2}
+
+				p \land (q \land r)	& premise				\\
+				p					& $\land \te_1$	1 		\\
+				q \land r			& $\land \te_2$	1		\\
+				q					& $\land \te_1$	3		\\
+				r					& $\land \te_2$	3		\\
+				p \land q			& $\land \ti$	2, 4	\\
+				(p \land q) \land r	& $\land \ti$	5, 6
+
+			\end{logicproof}
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\text{Valid}}\]
+		
+		\bigskip\item $\lnot p \land \lnot q \vdash \lnot (p \lor q)$
+		
+		\subsection*{Solution}
+			
+			\begin{logicproof}{2}
+				
+				\lnot p \land \lnot q	& premise						\\
+				\lnot p					& $\land \te_1$	1 				\\
+				\lnot q					& $\land \te_2$	1				\\
+				
+				\begin{subproof}
+					
+					p \lor q			& assumption					\\
+					
+					\begin{subproof}
+						
+						p				& assumption					\\
+						\perp			& $\lnot \te$	2, 5
+						
+					\end{subproof}
+					
+					\begin{subproof}
+						
+						q				& assumption					\\
+						\perp			& $\lnot \te$	3, 7
+						
+					\end{subproof}
+					
+					\perp				& $\lor \te$	4, 5--6, 7--8
+					
+				\end{subproof}
+				
+				\lnot (p \lor q)		& $\lnot \ti$	4--9
+				
+			\end{logicproof}
+		
+		\subsection*{Answer}
+		
+			\[\boxed{\text{Valid}}\]
+
+	\end{enumerate}
+	
+\end{document}
