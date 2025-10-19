@@ -42,7 +42,7 @@ enum Expression {
 }
 
 impl Display for Operation {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Operation::Add => write!(f, "+"),
             Operation::Sub => write!(f, "-"),
@@ -54,7 +54,7 @@ impl Display for Operation {
 
 // just to have a nice output, not required for the exercise
 impl Display for Expression {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Expression::Operation { left, op, right } => {
                 write!(f, "({} {} {})", left, op, right)
