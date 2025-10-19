@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use self::sentence::Sentence;
 use std::collections::HashMap;
 
