@@ -1,3 +1,7 @@
+/*
+Write a function `string_reverse` that takes a `&str` as input and returns it, reversed as a `String`;
+*/
+
 fn string_reverse_with_rev(s: &str) -> String {
     let mut out = String::new();
     for c in s.chars().rev() {
