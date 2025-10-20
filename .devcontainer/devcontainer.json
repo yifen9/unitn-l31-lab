@@ -13,7 +13,7 @@
         "tamasfe.even-better-toml",
         "ms-vscode.cpptools",
         "ms-vscode.cmake-tools",
-        "cweijan.vscode-postgresql-client2",
+        "ms-ossdata.vscode-pgsql",
         "mbehr1.vsc-webshark"
       ]
     }

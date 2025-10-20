@@ -7,20 +7,5 @@
     { "path": "src/146145_net" },
     { "path": "src/146168_fp" },
     { "path": "src/146290_ads1" }
-  ],
-  "settings": {
-    "sqltools.connections": [
-      {
-        "ssh": "Disabled",
-        "previewLimit": 50,
-        "server": "localhost",
-        "port": 5432,
-        "driver": "PostgreSQL",
-        "name": "unitn-l31-lab-db",
-        "database": "postgresql",
-        "username": "admin",
-        "password": "password"
-      }
-    ]
-  }
+  ]
 }
