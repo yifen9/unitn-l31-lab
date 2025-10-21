@@ -3,11 +3,11 @@
 -- the number of orders in each country,
 -- and the total amount of money spent in each one
 
-SELECT country,
-       sum(quantity) AS tot_orders,
-       sum(quantity * unit_price * (1 - discount)) AS tot_money_spent
-FROM (customers
-      JOIN orders ON customers.customer_id = orders.customer_id)
-JOIN order_details ON orders.order_id = order_details.order_id
-GROUP BY country
-ORDER BY tot_money_spent DESC
+SELECT C.country,
+       SUM(OD.quantity * OD.unit_price * (1 - OD.discount)) as Total,
+       COUNT(DISTINCT O.order_id) as Count
+FROM Orders O
+JOIN Order_Details OD ON OD.order_id = O.order_id
+JOIN Customers C ON O.Customer_ID = C.Customer_ID
+GROUP BY C.country
+ORDER BY Total DESC

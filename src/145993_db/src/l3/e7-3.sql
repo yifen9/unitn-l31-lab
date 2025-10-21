@@ -1,0 +1,6 @@
+-- Use the view again, but instead, for each country, return
+-- ▶ the name of the most profitable company
+-- ▶ how much it has spent
+-- ▶ the average amount of money spent in that country
+-- ▶ and how many companies are located in that country
+-- Order the results by country name.
