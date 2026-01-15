@@ -27,4 +27,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
  && CLI_FLAVOR=musl curl -fsSL https://raw.githubusercontent.com/yifen9/c-labkit/main/packaging/cli/linux/install.sh | bash \
  && c-labkit-cli --version
 
+ RUN apt-get update && apt-get install -y --no-install-recommends build-essential autoconf automake libtool pkg-config git tar gzip libgmp-dev libffi-dev \
+ && POLYML_TAG=$(git ls-remote --tags --refs https://github.com/polyml/polyml.git 'v*' | awk -F/ '{print $3}' | sort -V | tail -n1) \
+ && curl -fsSL "https://github.com/polyml/polyml/archive/refs/tags/${POLYML_TAG}.tar.gz" -o /tmp/polyml.tar.gz \
+ && tar -xzf /tmp/polyml.tar.gz -C /tmp \
+ && cd "/tmp/polyml-${POLYML_TAG#v}" \
+ && test -f configure || autoreconf -fi \
+ && ./configure --prefix=/usr \
+ && make -j"$(nproc)" \
+ && make install \
+ && ldconfig \
+ && cd / \
+ && rm -rf /tmp/polyml* \
+ && apt-get purge -y --auto-remove build-essential autoconf automake libtool pkg-config git \
+ && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /workspace

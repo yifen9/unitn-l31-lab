@@ -14,7 +14,8 @@
         "ms-vscode.cpptools",
         "ms-vscode.cmake-tools",
         "ms-ossdata.vscode-pgsql",
-        "mbehr1.vsc-webshark"
+        "mbehr1.vsc-webshark",
+        "valcioffi.ml-language-support"
       ]
     }
   }
